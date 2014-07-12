@@ -1,0 +1,96 @@
+$(document).ready(function() {
+
+	$('[rel=popover]').popover();
+	
+	//Date Variables
+	// 60000 = 1 minute
+	//After 5 minutesin 5 minute incrementsevery 5 minutes,
+	var bet_start_stamp = Math.ceil(($.now() + (60000 * 5))/1000/60/5)*1000*60*5;
+	var bet_start_date = stmapToJpDate(bet_start_stamp);
+	var bet_start_time = stampToTime(bet_start_stamp);
+	$("#betStartDate").val(bet_start_date);
+	$("#betStartTime").val(bet_start_time);
+
+	//After 70 minutesin 5 minute incrementsevery 5 minutes,
+	var bet_finish_stamp = Math.ceil(($.now() + (60000 * 70))/1000/60/5)*1000*60*5;
+	var bet_finish_date = stmapToJpDate(bet_finish_stamp);
+	var bet_finish_time = stampToTime(bet_finish_stamp);
+	$("#betFinishDate").val(bet_finish_date);
+	$("#betFinishTime").val(bet_finish_time);
+
+	//After 200 minutesin 5 minute incrementsevery 5 minutes,
+	var bet_result_stamp = Math.ceil(($.now() + (60000 * 200))/1000/60/5)*1000*60*5;
+	var bet_result_date = stmapToJpDate(bet_result_stamp);
+	var bet_result_time = stampToTime(bet_result_stamp);
+	$("#betResultDate").val(bet_result_date);
+	$("#betResultTime").val(bet_result_time);
+
+
+	//from don.
+	$("#add").click(function() {
+		$("div#book-content").append('<label for="bookConten6" class="col-sm-1">6,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent6"><br></div><label for="bookConten7" class="col-sm-1">7,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent7"><br></div><label for="bookConten8" class="col-sm-1">8,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent8"><br></div><label for="bookConten9" class="col-sm-1">9,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent9"><br></div><label for="bookConten10" class="col-sm-1">10,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent10"><br></div>');
+		$("div#book-content-add").remove();
+	});
+
+	
+	$("#make-book").click(function() {
+
+		$(".required").each(function() {
+		  if (($(this).val() === '') || ($(".required").val() === ''))
+		  {
+		    $("#make-book").attr("data-target","#Omissions");
+		  }
+		  else if ($(this).val() != '')
+		  {
+		  	$("#make-book").attr("data-target","#makeBook");
+		  }
+		});
+
+	});
+
+
+	$( "#result-select" )
+	  .change(function() {
+	    var str = "";
+	    $( "#result-select option:selected" ).each(function() {
+	      str += $( this ).val() + " ";
+	    });
+	    $('#change').text(str);
+	  })
+	  .trigger( "change" );
+
+
+
+  //Read More
+  $('.article').readmore({
+	  maxHeight: 140
+	});
+
+});// Jquery end.
+
+
+//oroginal functions.
+var toDoubleDigits = function(num) {
+	num += "";
+	if (num.length === 1) {
+	num = "0" + num;
+	}
+	return num;     
+};
+
+var stmapToJpDate = function(stamp){
+	var date = new Date(stamp);
+	var yyyy = date.getFullYear();
+	var mm = toDoubleDigits(date.getMonth() + 1);
+	var dd = toDoubleDigits(date.getDate());
+	return yyyy+"-"+mm+"-"+dd;
+};
+
+var stampToTime = function(stamp){
+	var date = new Date(stamp);
+	var hh = toDoubleDigits(date.getHours());
+	var mi = toDoubleDigits(date.getMinutes());
+	
+	return hh+":"+mi;
+};
+
