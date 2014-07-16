@@ -28,7 +28,7 @@ header {
 header .logo {
   width: 178px;
   height: 59px;
-  background: url('../images/bbm.png') no-repeat;
+  background: url('../img/bbm.png') no-repeat;
   text-indent: -9999px;
   margin-top: 12px;
   padding: 0px;
