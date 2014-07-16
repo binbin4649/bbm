@@ -144,6 +144,9 @@
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('respond.min'); 
     ?>
+    <script>
+      $('#morePointModal').modal({show: true});
+    </script>
   </body>
 
 <?php echo $this->element('sql_dump'); ?>
