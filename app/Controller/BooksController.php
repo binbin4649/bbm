@@ -27,4 +27,17 @@ class BooksController extends AppController {
             throw new NotFoundException();
         }
     }
+
+    public function add()
+    {
+
+        try {
+            $this->render(implode('/', ['book-make']));
+        } catch (MissingViewException $e) {
+            if (Configure::read('debug')) {
+                throw $e;
+            }
+            throw new NotFoundException();
+        }
+    }
 }

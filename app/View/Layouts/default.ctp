@@ -24,7 +24,11 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-
+    <?php
+    echo $this->Html->script('jquery');
+    echo $this->Html->script('bootstrap.min');
+    echo $this->Html->script('respond.min'); 
+    ?>
 </head>
 <body>
 
@@ -46,7 +50,7 @@
           <ul>
             <li><a href="index">Book Search</a></li>
             <li><a href="user-rankings">User Ranking</a></li>
-            <li><a href="book-make">Make Book</a></li>
+            <li><a href="/books/add">Make Book</a></li>
             <li><a href="updates">Updates</a></li>
             <li><a href="about-us">About Us</a></li>
             <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
@@ -139,11 +143,7 @@
 </div><!-- /.modal -->
     
     <!-- The Scripts -->
-    <?php
-    echo $this->Html->script('jquery');
-    echo $this->Html->script('bootstrap.min');
-    echo $this->Html->script('respond.min'); 
-    ?>
+
     <script>
       // $('#morePointModal').modal({show: true});
     </script>
