@@ -264,6 +264,28 @@ footer ul li a {
 .pagination-wrap .pagination a {
   color: #7f7f7f;
 }
+.pagination>span>a,.pagination>li.current, .pagination>li.disabled {
+position: relative;
+float: left;
+padding: 6px 12px;
+margin-left: -1px;
+line-height: 1.428571429;
+text-decoration: none;
+background-color: #fff;
+border: 1px solid #ddd;
+}
+.pagination-lg>span>a, .pagination-lg>li.current, .pagination>li.disabled {
+padding: 10px 16px;
+font-size: 18px;
+}
+
+/*.pagination>li.prev>a, .pagination>li.next>a {
+  padding:0;
+  margin:0;
+  border:none;
+}*/
+
+
 .modal-dialog {
   margin-top: 100px;
 }
@@ -636,3 +658,15 @@ span.modal-red2 {
   margin-left: 20px;
 }
 */
+
+.inline {
+  display: inline-block;
+}
+
+.home-search .help-block {
+  position: absolute;
+}
+
+.home-search-form {
+  padding-bottom: 20px;
+}
