@@ -24,7 +24,8 @@
     },
     "require": {
         "php": ">=5.3.0",
-        "composer/installers": "*"
+        "composer/installers": "*",
+        "cakedc/search": "dev-develop"
     },
     "extra": {
         "branch-alias": {

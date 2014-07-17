@@ -43,8 +43,8 @@ App::uses('Debugger', 'Utility');
           
           <div class="home-entry col-xs-12">
             <h2><a href="book-upcoming.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Up coming</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -52,8 +52,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-betnow.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Bet Now</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -61,8 +61,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-betfinish.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Bet Finish</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -70,8 +70,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-result.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Result</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -79,8 +79,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-delete.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Book Delete</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -88,8 +88,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-timeover.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Result Timeover</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -97,8 +97,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-betnow.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Bet Now</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -106,8 +106,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-betnow.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Bet Now</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -115,8 +115,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-betnow.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Bet Now</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
@@ -124,8 +124,8 @@ App::uses('Debugger', 'Utility');
           </div>
           <div class="home-entry col-xs-12">
             <h2><a href="book-betnow.html">EXSAMPLE Title EXSAMPLE Title SAMPLE TITLE</a></h2>
-            <span class="entry-icons"><img src="images/icon2.png">:012345</span>
-            <span class="entry-icons"><img src="images/icon1.png">:0123456789</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:012345</span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:0123456789</span>
             <span class="badge-state">Bet Now</span>
             <span class="badge-category">Sports</span>
             <p><a href="profile-home.html">Created:2013/08/07 17:57 hideichi_saito</a></p>
