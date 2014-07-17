@@ -49,6 +49,11 @@
             <li><a href="book-make.html">Make Book</a></li>
             <li><a href="updates.html">Updates</a></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
+            <li><a href="index">Book Search</a></li>
+            <li><a href="user-rankings">User Ranking</a></li>
+            <li><a href="book-make">Make Book</a></li>
+            <li><a href="updates">Updates</a></li>
+            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
             <li><a href="#"><?php echo $this->Html->image('fb-like.png'); ?></a></a></li>
           </ul>
@@ -144,6 +149,9 @@
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('respond.min'); 
     ?>
+    <script>
+      // $('#morePointModal').modal({show: true});
+    </script>
   </body>
 
 <?php echo $this->element('sql_dump'); ?>
