@@ -44,15 +44,10 @@
       <nav class="row">
         <div class="col-xs-12">
           <ul>
-            <li><a href="index.html">Book Search</a></li>
-            <li><a href="user-rankings.html">User Ranking</a></li>
-            <li><a href="book-make.html">Make Book</a></li>
-            <li><a href="updates.html">Updates</a></li>
-            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="index">Book Search</a></li>
             <li><a href="user-rankings">User Ranking</a></li>
             <li><a href="book-make">Make Book</a></li>
-            <li><a href="updates">Updates</a></li>
+            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
             <li><a href="#"><?php echo $this->Html->image('fb-like.png'); ?></a></a></li>
