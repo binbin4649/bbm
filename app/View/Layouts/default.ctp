@@ -33,7 +33,7 @@
       <header class="row">
         <div class="col-xs-12">
           <div class="col-xs-6">
-            <a href="index.html"><h1 class="logo">BBM</h1></a>
+            <a href="/"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
             <a href="#" class="fb-button pull-right"><?php echo $this->Html->image('fb-button.png'); ?></a>
@@ -48,7 +48,7 @@
             <li><a href="user-rankings.html">User Ranking</a></li>
             <li><a href="book-make.html">Make Book</a></li>
             <li><a href="updates.html">Updates</a></li>
-            <li><a href="about-us.html">About Us</a></li>
+            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
             <li><a href="#"><?php echo $this->Html->image('fb-like.png'); ?></a></a></li>
           </ul>
