@@ -670,3 +670,13 @@ span.modal-red2 {
 .home-search-form {
   padding-bottom: 20px;
 }
+.header-user-info {
+  margin: 15px 0 20px;
+  font-size: 15px;
+}
+
+.header-user-info>[class^=col-] {
+  padding-left:0;
+  padding-right:0;
+
+}

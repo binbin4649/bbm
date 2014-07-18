@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html>
+<!-- <html> -->
+<?php echo $this->Facebook->html(); ?>
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php //echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
-	</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<?php
-		echo $this->Html->meta('icon');
+  <?php echo $this->Html->charset(); ?>
+  <title>
+    <?php //echo $cakeDescription ?>:
+    <?php echo $title_for_layout; ?>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php
+    echo $this->Html->meta('icon');
 
-		//echo $this->Html->css('cake.generic');
-		//<!-- Bootstrap -->
-		echo $this->Html->css('bootstrap.min');
-		//<!-- Main Styles -->
-		echo $this->Html->css('main');
-		//<!-- Responsive Styles -->
-		echo $this->Html->css('non-responsive');
-		//<!-- Icon Styles -->
-		echo $this->Html->css('font-awesome.min');
+    //echo $this->Html->css('cake.generic');
+    //<!-- Bootstrap -->
+    echo $this->Html->css('bootstrap.min');
+    //<!-- Main Styles -->
+    echo $this->Html->css('main');
+    //<!-- Responsive Styles -->
+    echo $this->Html->css('non-responsive');
+    //<!-- Icon Styles -->
+    echo $this->Html->css('font-awesome.min');
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+    echo $this->fetch('meta');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
+  ?>
 
 </head>
 <body>
-
     <div class="container">
       
       <header class="row">
@@ -36,7 +36,43 @@
             <a href="/"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
-            <a href="#" class="fb-button pull-right"><?php echo $this->Html->image('fb-button.png'); ?></a>
+            <?php //var_dump($_SESSION);?>
+                <?php if($fbuser): ?>
+                  <div class="row header-user-info">
+                    <div class="col-xs-4">
+                      <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB')['Me']['id']."/picture?type=square"?>">
+                      <a href="/profile/home"><?php echo $this->Session->read('User')['name'];; ?></a>
+                    </div>
+                    <div class="col-xs-4">
+                      <i class="glyphicon glyphicon-edit"></i><a href="/profile/edit">Edit</a>
+                    </div>
+                    <div class="col-xs-4">
+                      <i class="glyphicon glyphicon-log-out"></i><?php echo $this->Facebook->logout(array('label' => 'Log out', 'redirect' => '/users/logout')); ?>
+                    </div>
+                  </div>
+                  <div class="row header-user-info">
+                    <div class="col-xs-4">
+                      <a href="/profile/passbook"><?php echo $this->Html->image('/img/icon1.png').$this->Session->read('User')['point']; ?></a>
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="/profile/betlist"><span>Bet Now:</span><?php echo $this->Session->read('User')['betlist'];?></a>
+
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="/profile/makedbook"><span>Maked Book:</span><?php echo $this->Session->read('User')['makedbook'];?></a>
+                    </div>
+                  </div>
+                <?php else:?>
+              <div class="row">
+                <div class="pull-right">
+                      <div class = "fb-button">
+                            <?php echo $this->Facebook->login(array( 'perms' => 'public_profile,email','img'=>'/fb-button.png','redirect' => '/users/facebook_login')); ?>
+                      </div>
+                </div>
+              </div>
+                <?php endif;?>
+
+            <!-- <a href="#" class="fb-button pull-right"><?php echo $this->Html->image('fb-button.png'); ?></a> -->
           </div>
         </div>
       </header><!--END of header -->
@@ -49,8 +85,8 @@
             <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
-            <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
-            <li><a href="#"><?php echo $this->Html->image('fb-like.png'); ?></a></a></li>
+            <li><a href="//facebook.com"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
+            <li><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
           </ul>
         </div>
       </nav><!--END of nav -->
@@ -61,7 +97,7 @@
           
           <?php echo $this->Session->flash(); ?>
 
-	      <?php echo $this->fetch('content'); ?>
+        <?php echo $this->fetch('content'); ?>
 
         </div> <!--End of content -->
 
@@ -150,4 +186,6 @@
   </body>
 
 <?php echo $this->element('sql_dump'); ?>
+<?php echo $this->Facebook->init(); ?>
+
 </html>
