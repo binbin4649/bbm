@@ -33,7 +33,7 @@
       <header class="row">
         <div class="col-xs-12">
           <div class="col-xs-6">
-            <a href="index.html"><h1 class="logo">BBM</h1></a>
+            <a href="/"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
             <div class="pull-right">
@@ -58,11 +58,11 @@
       <nav class="row">
         <div class="col-xs-12">
           <ul>
-            <li><a href="/index">Book Search</a></li>
-            <li><a href="user-rankings.html">User Ranking</a></li>
-            <li><a href="book-make.html">Make Book</a></li>
-            <li><a href="updates.html">Updates</a></li>
-            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="/">Book Search</a></li>
+            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
+            <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
+            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
+            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
             <li><a href="#"><?php echo $this->Html->image('fb-like.png'); ?></a></a></li>
           </ul>
@@ -118,13 +118,13 @@
           <div class="col-xs-12">
             <div class="footer-links">
               <ul>
-                <li><a href="index.html">Book Search</a></li>
-                <li><a href="user-ranking.html">User Ranking</a></li>
-                <li><a href="book-make.html">Make Book</a></li>
-                <li><a href="updates.html">Updates</a></li>
-                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="/">Book Search</a></li>
+	            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
+	            <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
+	            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
+	            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
               </ul>
-              <p class="copyright"><a href="index.html">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
+              <p class="copyright"><a href="http://bookbookmaker.com">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
             </div>
           </div>
         </footer>
@@ -158,6 +158,9 @@
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('respond.min'); 
     ?>
+    <script>
+      // $('#morePointModal').modal({show: true});
+    </script>
   </body>
 
 <?php echo $this->element('sql_dump'); ?>
