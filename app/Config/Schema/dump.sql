@@ -76,7 +76,7 @@ CREATE TABLE `books` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,1,'samplesamplesamplesample',0,0,'upcoming','other','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03');
+INSERT INTO `books` VALUES (1,1,'samplesamplesamplesample',0,0,'upcoming','other','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03'),(2,2,'samplesamplesamplesample',10,10,'betnow','other','2014-07-21 12:34:38','2014-07-30 12:34:41','2014-07-31 12:34:44',1,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-11 12:36:19','2014-07-18 12:36:22'),(3,3,'samplesamplesamplesample',5,5,'betfinish','other','2014-07-20 12:40:03','2014-07-29 12:40:06','2014-07-30 12:40:09',5,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 12:40:42','2014-07-18 12:40:46'),(4,1,'samplesamplesamplesample',1,1,'result','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(5,2,'samplesamplesamplesample',1,1,'delete','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(6,2,'samplesamplesamplesample',1,1,',timeover','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(7,2,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(8,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(9,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(10,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(11,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,4 +232,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-14  9:00:39
+-- Dump completed on 2014-07-18  5:29:53
