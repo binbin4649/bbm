@@ -28,11 +28,11 @@ CREATE TABLE `bets` (
   `content_id` int(20) NOT NULL,
   `user_id` int(20) NOT NULL,
   `betpoint` int(10) NOT NULL,
-  `result_point` int(10) NOT NULL,
+  `result_point` int(10) DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `bets` (
 
 LOCK TABLES `bets` WRITE;
 /*!40000 ALTER TABLE `bets` DISABLE KEYS */;
+INSERT INTO `bets` VALUES (1,1,1,1,10,NULL,'2014-07-18 15:38:31','2014-07-18 15:38:33'),(2,1,2,1,5,NULL,'2014-07-18 15:39:08','2014-07-18 15:39:11');
 /*!40000 ALTER TABLE `bets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +86,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,1,'samplesamplesamplesample',0,0,'upcoming','other','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03'),(2,2,'samplesamplesamplesample',10,10,'betnow','other','2014-07-21 12:34:38','2014-07-30 12:34:41','2014-07-31 12:34:44',1,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-11 12:36:19','2014-07-18 12:36:22'),(3,3,'samplesamplesamplesample',5,5,'betfinish','other','2014-07-20 12:40:03','2014-07-29 12:40:06','2014-07-30 12:40:09',5,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 12:40:42','2014-07-18 12:40:46'),(4,1,'samplesamplesamplesample',1,1,'result','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(5,2,'samplesamplesamplesample',1,1,'delete','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(6,2,'samplesamplesamplesample',1,1,',timeover','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(7,2,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(8,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(9,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(10,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(11,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50');
+INSERT INTO `books` VALUES (1,1,'samplesamplesamplesample',0,0,'upcoming','other','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03'),(2,2,'samplesamplesamplesample',10,10,'betnow','other','2014-07-21 12:34:38','2014-07-30 12:34:41','2014-07-31 12:34:44',1,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-11 12:36:19','2014-07-18 12:36:22'),(3,1,'samplesamplesamplesample',5,5,'betfinish','other','2014-07-20 12:40:03','2014-07-29 12:40:06','2014-07-30 12:40:09',5,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 12:40:42','2014-07-18 12:40:46'),(4,1,'samplesamplesamplesample',1,1,'result','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(5,2,'samplesamplesamplesample',1,1,'delete','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(6,2,'samplesamplesamplesample',1,1,',timeover','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(7,2,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(8,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(9,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(10,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50'),(11,1,'samplesamplesamplesample',1,1,',betnow','other','2014-07-20 14:33:10','2014-07-30 14:33:14','2014-07-30 14:33:17',9,0,0,'samplesamplesamplesample','web','','sample',NULL,NULL,NULL,0,'2014-07-18 14:33:47','2014-07-18 14:33:50');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +139,7 @@ CREATE TABLE `passbooks` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,6 +148,7 @@ CREATE TABLE `passbooks` (
 
 LOCK TABLES `passbooks` WRITE;
 /*!40000 ALTER TABLE `passbooks` DISABLE KEYS */;
+INSERT INTO `passbooks` VALUES (1,1,NULL,NULL,NULL,1000,1000,'welcom','2014-07-18 15:03:02','2014-07-18 15:03:04'),(2,1,NULL,NULL,NULL,1000,2000,'like','2014-07-18 15:03:51','2014-07-18 15:03:54'),(3,1,1,1,1,-10,1990,'bet','2014-07-18 15:04:40','2014-07-18 15:04:43'),(4,1,1,1,1,50,2100,'win','2014-07-18 15:33:29','2014-07-18 15:33:31'),(5,1,1,NULL,NULL,5,2155,'reward','2014-07-18 15:34:27','2014-07-18 15:34:30'),(6,1,2,2,2,10,2100,'return','2014-07-18 15:35:40','2014-07-18 15:35:43'),(7,1,NULL,NULL,NULL,50,2200,'other','2014-07-18 15:36:19','2014-07-18 15:36:22');
 /*!40000 ALTER TABLE `passbooks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +213,7 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,6 +222,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'sample1','1111111111','sample1',1,'sample1','male','sample@sample.com','sample@sample.com',1000,10,10,0,0,'samplesample',10,1,1,'9','english',0,1,'2014-07-18 14:55:24','2014-07-18 14:55:27');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -232,4 +235,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-18  5:29:53
+-- Dump completed on 2014-07-18  6:28:02
