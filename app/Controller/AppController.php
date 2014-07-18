@@ -31,43 +31,4 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $helpers = array('Facebook.Facebook');
-    var $components = array('Session', 'Facebook.Connect');
-
-    function beforeFilter() {
-        // $this->Auth->allow('*');
-// var_dump($this->Connect->user());
-        $this->set('fbuser',$this->Connect->user());
-
-
-    }
-
-    function beforeFacebookSave() {
-    }
-
-    function beforeFacebookLogin($user) {
-        //Logic to happen before a facebook login
-    }
-
-    function afterFacebookLogin() {
-        $this->redirect(array('controller' => 'pages', 'action' => 'home'));
-        //Logic to happen after successful facebook login.
-    }
-
-
-
-    // //Add an email field to be saved along with creation.
-    // function beforeFacebookSave(){
-    //     $this->Connect->authUser['User']['email'] = $this->Connect->user('email');
-    //     return true; //Must return true or will not save.
-    // }
-
-    // function beforeFacebookLogin($user){
-    // //Logic to happen before a facebook login
-    // }
-
-    // function afterFacebookLogin(){
-    //     //Logic to happen after successful facebook login.
-    //     $this->redirect('/custom_facebook_redirect');
-    // }
 }

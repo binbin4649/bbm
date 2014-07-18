@@ -32,12 +32,6 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-
-    Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
-    Router::connect('/users/facebook_login', array('controller' => 'users', 'action' => 'facebook_login'));
-    
-
-
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
