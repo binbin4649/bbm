@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<!-- <html> -->
+<?php echo $this->Facebook->html(); ?>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -29,18 +30,54 @@
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('respond.min'); 
     ?>
+
 </head>
 <body>
-
     <div class="container">
       
       <header class="row">
         <div class="col-xs-12">
           <div class="col-xs-6">
-            <a href="index"><h1 class="logo">BBM</h1></a>
+            <a href="/"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
-            <a href="#" class="fb-button pull-right"><?php echo $this->Html->image('fb-button.png'); ?></a>
+            <?php //var_dump($_SESSION);?>
+                <?php if($fbuser): ?>
+                  <div class="row header-user-info">
+                    <div class="col-xs-4">
+                      <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB')['Me']['id']."/picture?type=square"?>">
+                      <a href="/profile/home"><?php echo $this->Session->read('User')['name'];; ?></a>
+                    </div>
+                    <div class="col-xs-4">
+                      <i class="glyphicon glyphicon-edit"></i><a href="/profile/edit">Edit</a>
+                    </div>
+                    <div class="col-xs-4">
+                      <i class="glyphicon glyphicon-log-out"></i><?php echo $this->Facebook->logout(array('label' => 'Log out', 'redirect' => '/users/logout')); ?>
+                    </div>
+                  </div>
+                  <div class="row header-user-info">
+                    <div class="col-xs-4">
+                      <a href="/profile/passbook"><?php echo $this->Html->image('/img/icon1.png').$this->Session->read('User')['point']; ?></a>
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="/profile/betlist"><span>Bet Now:</span><?php echo $this->Session->read('User')['betlist'];?></a>
+
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="/profile/makedbook"><span>Maked Book:</span><?php echo $this->Session->read('User')['makedbook'];?></a>
+                    </div>
+                  </div>
+                <?php else:?>
+              <div class="row">
+                <div class="pull-right">
+                      <div class = "fb-button">
+                            <?php echo $this->Facebook->login(array( 'perms' => 'public_profile,email','img'=>'/fb-button.png','redirect' => '/users/facebook_login')); ?>
+                      </div>
+                </div>
+              </div>
+                <?php endif;?>
+
+            <!-- <a href="#" class="fb-button pull-right"><?php echo $this->Html->image('fb-button.png'); ?></a> -->
           </div>
         </div>
       </header><!--END of header -->
@@ -48,13 +85,13 @@
       <nav class="row">
         <div class="col-xs-12">
           <ul>
-            <li><a href="index">Book Search</a></li>
-            <li><a href="user-rankings">User Ranking</a></li>
-            <li><a href="/books/add">Make Book</a></li>
-            <li><a href="updates">Updates</a></li>
-            <li><a href="about-us">About Us</a></li>
-            <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
-            <li><a href="#"><?php echo $this->Html->image('fb-like.png'); ?></a></a></li>
+            <li><a href="/">Book Search</a></li>
+            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
+            <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
+            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
+            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
+            <li><a href="//facebook.com"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
+            <li><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
           </ul>
         </div>
       </nav><!--END of nav -->
@@ -65,7 +102,7 @@
           
           <?php echo $this->Session->flash(); ?>
 
-	      <?php echo $this->fetch('content'); ?>
+        <?php echo $this->fetch('content'); ?>
 
         </div> <!--End of content -->
 
@@ -108,13 +145,13 @@
           <div class="col-xs-12">
             <div class="footer-links">
               <ul>
-                <li><a href="index.html">Book Search</a></li>
-                <li><a href="user-ranking.html">User Ranking</a></li>
-                <li><a href="book-make.html">Make Book</a></li>
-                <li><a href="updates.html">Updates</a></li>
-                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="/">Book Search</a></li>
+	            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
+	            <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
+	            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
+	            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
               </ul>
-              <p class="copyright"><a href="index.html">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
+              <p class="copyright"><a href="http://bookbookmaker.com">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
             </div>
           </div>
         </footer>
@@ -150,4 +187,6 @@
   </body>
 
 <?php echo $this->element('sql_dump'); ?>
+<?php echo $this->Facebook->init(); ?>
+
 </html>

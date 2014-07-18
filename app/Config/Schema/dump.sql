@@ -76,7 +76,7 @@ CREATE TABLE `books` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,1,'samplesamplesamplesample',0,0,'upcoming','other','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03');
+INSERT INTO `books` VALUES (1,1,'book1',0,0,'Up Coming','Others','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03'),(3,1,'book2',0,0,'Book Delete','Sports','2014-07-16 16:41:20','2014-07-17 16:41:23','2014-07-25 16:41:30',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:42:43','2014-07-16 16:42:46'),(4,2,'book3',0,0,'Bet Now','Sports','2014-07-17 16:41:36','2014-07-25 16:41:39','2014-07-30 16:41:42',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:42:36','2014-07-16 16:42:39'),(5,2,'book4',0,0,'Up Coming','Others','2014-07-16 16:44:21','2014-07-17 16:44:24','2014-07-22 16:44:27',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:44:50','2014-07-16 16:44:48'),(6,2,'book5',0,0,'Result Timeover','Sports','2014-07-17 16:44:34','2014-07-18 16:44:37','2014-07-22 16:44:40',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:44:43','2014-07-16 16:44:45');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +211,7 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,6 +220,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'ivan','facebook_id','facebook_link',1,'Ivan','male','ivan@intspirit.com','ivan@intspirit.com',0,0,0,0,0,'',10,1,1,'1','ru',0,1,'2014-07-17 10:41:15','2014-07-17 10:41:18'),(2,'James','james_id','james_link',1,'james','male','james@example.com','james@example.com',0,0,0,0,0,'',10,1,1,'1','ru',0,1,'2014-07-17 10:42:15','2014-07-17 10:42:18'),(8,'Iv Sk','1439948026269431','https://www.facebook.com/app_scoped_user_id/1439948026269431/',1,'Iv Sk','male','','',10,40,100,0,0,'',10,1,1,'4','en_US',0,1,'2014-07-18 17:53:14','2014-07-18 17:53:14');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -232,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-14  9:00:39
+-- Dump completed on 2014-07-18 10:06:11
