@@ -6,6 +6,8 @@ class UsersController extends AppController {
     public function logout()
     {
         $this->Session->delete('FB');
+        $this->Session->delete('User');
+
         $this->Session->destroy();
         $this->redirect('/');
     }
@@ -14,7 +16,10 @@ class UsersController extends AppController {
     {
         $user = $this->Connect->user();
         if ($user) {
-            $this->User->saveFBUser($user);
+            $userResponse = $this->User->saveFBUser($user);
+            $this->Session->write('User',$userResponse['User']);
+
+
         }
         $this->redirect('/');
 

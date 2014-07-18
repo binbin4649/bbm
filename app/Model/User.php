@@ -7,12 +7,12 @@ class User extends AppModel {
     public $hasMany = array(
         'Books' => array(
             'className' => 'Book',
-            'order' => 'Book.created DESC'
+            'order' => 'Books.created DESC'
         )
     );
     public function saveFBUser($user)
     {
-        $record = $this->find('all',array('conditions'=>array('User.facebook_id'=>$user['id'])));
+        $record = $this->find('first',array('conditions'=>array('User.facebook_id'=>$user['id'])));
         // var_dump($record);
         if (empty($record)) {
             $this->create();
@@ -29,8 +29,9 @@ class User extends AppModel {
             $this->set('mail',(isset($user['email'])) ? $user['email'] : '');
 
             $this->save();
-
-
+            return $this->saveFBUser($user);
+        } else {
+            return $record;
         }
 
     }

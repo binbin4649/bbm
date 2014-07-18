@@ -36,19 +36,41 @@
             <a href="/"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
-            <div class="pull-right">
-              <div class="row">
+            <?php //var_dump($_SESSION);?>
                 <?php if($fbuser): ?>
-                     <?php echo $this->Facebook->picture($this->Session->read('FB')['Me']['id']); ?>
-                     <a>Edit</a>
-                      <?php echo $this->Facebook->logout(array('label' => 'Log out', 'redirect' => '/users/logout')); ?>
+                  <div class="row header-user-info">
+                    <div class="col-xs-4">
+                      <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB')['Me']['id']."/picture?type=square"?>">
+                      <a href="/profile/home"><?php echo $this->Session->read('User')['name'];; ?></a>
+                    </div>
+                    <div class="col-xs-4">
+                      <i class="glyphicon glyphicon-edit"></i><a href="/profile/edit">Edit</a>
+                    </div>
+                    <div class="col-xs-4">
+                      <i class="glyphicon glyphicon-log-out"></i><?php echo $this->Facebook->logout(array('label' => 'Log out', 'redirect' => '/users/logout')); ?>
+                    </div>
+                  </div>
+                  <div class="row header-user-info">
+                    <div class="col-xs-4">
+                      <a href="/profile/passbook"><?php echo $this->Html->image('/img/icon1.png').$this->Session->read('User')['point']; ?></a>
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="/profile/betlist"><span>Bet Now:</span><?php echo $this->Session->read('User')['betlist'];?></a>
+
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="/profile/makedbook"><span>Maked Book:</span><?php echo $this->Session->read('User')['makedbook'];?></a>
+                    </div>
+                  </div>
                 <?php else:?>
-                      <?php echo $this->Facebook->login(array( 'perms' => 'public_profile,email','label'=>'CONNECT WITH FACEBOOK','redirect' => '/users/facebook_login')); ?>
-                <?php endif;?>
-              </div>
               <div class="row">
+                <div class="pull-right">
+                      <div class = "fb-button">
+                            <?php echo $this->Facebook->login(array( 'perms' => 'public_profile,email','img'=>'/fb-button.png','redirect' => '/users/facebook_login')); ?>
+                      </div>
+                </div>
               </div>
-            </div>
+                <?php endif;?>
 
             <!-- <a href="#" class="fb-button pull-right"><?php echo $this->Html->image('fb-button.png'); ?></a> -->
           </div>
@@ -63,8 +85,8 @@
             <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
-            <li><a href="#"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
-            <li><a href="#"><?php echo $this->Html->image('fb-like.png'); ?></a></a></li>
+            <li><a href="//facebook.com"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
+            <li><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
           </ul>
         </div>
       </nav><!--END of nav -->
@@ -165,4 +187,5 @@
 
 <?php echo $this->element('sql_dump'); ?>
 <?php echo $this->Facebook->init(); ?>
+
 </html>
