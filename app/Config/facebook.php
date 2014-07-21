@@ -3,7 +3,7 @@
 $config = array(
     'Facebook' => array(
         'appId'  => '531731780286282',
-        'apiKey' => 'YOUR_API_KEY',
+        //'apiKey' => 'YOUR_API_KEY',
         'secret' => '7d31152c7dc56ef9d5b52d5d54822f16',
         'cookie' => true,
         'locale' => 'en_US',
