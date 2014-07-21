@@ -23,7 +23,7 @@ h6 {
 }
 header {
   border: 1px solid #cccccc;
-  height: 92px;
+  height: 110px;
 }
 header .logo {
   width: 178px;
@@ -679,4 +679,12 @@ span.modal-red2 {
   padding-left:0;
   padding-right:0;
 
+}
+
+.content-input-field {
+  margin-bottom: 22px;
+}
+
+.error-message {
+  color: red;
 }

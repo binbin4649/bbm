@@ -13,7 +13,6 @@ class User extends AppModel {
     public function saveFBUser($user)
     {
         $record = $this->find('first',array('conditions'=>array('User.facebook_id'=>$user['id'])));
-        // var_dump($record);
         if (empty($record)) {
             $this->create();
             $this->set('facebook_id',$user['id']);

@@ -1,6 +1,8 @@
           <div class="thebook">
             <h2>Make Book</h2>
-            <form class="well">
+            <!-- <form class="well" method="POST"> -->
+            <?php echo $this->Form->create(array('class'=>'well')); ?>
+
               <div class="row">
                 <div class="form-group col-xs-10">
                   <p class="help-block">Book Title <span>*</span>
@@ -8,28 +10,52 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <input id="book-title" type="text" class="form-control required" maxlength="84">
+                  <!-- <input name="title" id="book-title" type="text" class="form-control required" maxlength="84"> -->
+                    <?php echo $this->Form->input('title',array('id'=>'book-title','label' => false,'class'=>'form-control required','maxlength'=>"84")); ?>
+
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-xs-8">
+                <div class="form-group col-xs-8" id="book-content-list">
                   <p class="help-block">Book Content <span>*</span>
                     <a rel="popover" data-content="Please enter the contents of the book. At least two are required.To 45 characters.This increases the five pressing the add content. 10 is the maximum.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                    <label for="bookContent1" class="col-sm-1">1,</label>
-                    <div class="col-sm-11"><input type="text" class="form-control required" id="bookContent1"><br></div>
+                  <?php if(isset($errors) && isset($errors['content'])):?>
+                    <div class="error-message"><?php echo $errors['content'][0]?></div>
+                  <?php endif;?>
+
+                  <?php for($i=1;$i<=10;$i++):?>
+
+                    <!-- <input name="content[]" type="text" class="form-control required" id="bookContent<?php echo $i?>"> -->
+                      
+                    <?php if ($i<=5):?>
+                    <div>
+                    <?php else:?>
+                    <div class="hidden">
+                    <?php endif;?>
+                      <label for="bookContent1" class="col-sm-1"><?php echo $i?>,</label>
+                      <div class="col-sm-11 content-input-field">
+                      <?php echo $this->Form->input("Book.content.{$i}",array('id'=>'bookContent'.$i,'label' => false,'class'=>'form-control required')); ?>
+                      </div>
+                    </div>
+
+                    <!-- <br/> -->
+
+                  <?php endfor;?>
+                   <!--  <label for="bookContent1" class="col-sm-1">1,</label>
+                    <div class="col-sm-11"><input name="content[]" type="text" class="form-control required" id="bookContent1"><br></div>
                     <label for="bookContent2" class="col-sm-1">2,</label>
-                    <div class="col-sm-11"><input type="text" class="form-control required" id="bookContent2"><br></div>
+                    <div class="col-sm-11"><input name="content[]" type="text" class="form-control required" id="bookContent2"><br></div>
                     <label for="bookConten3" class="col-sm-1">3,</label>
-                    <div class="col-sm-11"><input type="text" class="form-control required" id="bookContent3"><br></div>
+                    <div class="col-sm-11"><input name="content[]" type="text" class="form-control required" id="bookContent3"><br></div>
                     <label for="bookConten4" class="col-sm-1">4,</label>
-                    <div class="col-sm-11"><input type="text" class="form-control required" id="bookContent4"><br></div>
-                  
-                  <div id="book-content">
-                    <label for="bookConten5" class="col-sm-1">5,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent5"><br></div>
-                  </div>
+                    <div class="col-sm-11"><input name="content[]" type="text" class="form-control required" id="bookContent4"><br></div>
+                    <div id="book-content">
+                      <label for="bookConten5" class="col-sm-1">5,</label>
+                      <div class="col-sm-11"><input name="content[]" type="text" class="form-control required" id="bookContent5"><br></div>
+                    </div> -->
                   <div id="book-content-add">
                   <input type="button" id="add" class="btn btn-default" value="Add Content"><br>
                   </div>
@@ -40,15 +66,25 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <select id="result-select" class="form-control">
+<?php
+  $announcement = array(
+                'URL'=>'Look at the Website',
+                'TV Program Name'=>'Look at the TV',
+                'Radio Program Name'=>'Radio',
+                'Annoucement name'=>'Other'
+                );
+?>
+                  <?php echo $this->Form->select('announcement',$announcement,array('class'=>'form-control','id'=>'result-select','empty'=>false)); ?>
+                  <!-- <select name="announcement" id="result-select" class="form-control">
                     <option value="URL">Look at the Website</option>
                     <option value="TV Program Name">Look at the TV</option>
                     <option value="Radio Program Name">Radio</option>
                     <option value="Annoucement name">Other</option>
-                  </select>
+                  </select> -->
                   <br>
                   <p id="change" class="help-block"></p>
-                  <input type="text" class="form-control">
+                  <!-- <input name="announcementName" type="text" class="form-control"> -->
+                  <?php echo $this->Form->input('announcementName',array('label' => false,'class'=>'form-control')); ?>
 
                 </div>
                 <div class="form-group col-xs-10">
@@ -58,7 +94,8 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <textarea class="form-control" rows="4"></textarea>
+                  <?php echo $this->Form->input('announcementDetail',array('label' => false,'class'=>'form-control','rows'=>'4','type'=>'textarea')); ?>
+                  <!-- <textarea  name="announcementDetail" class="form-control" rows="4"></textarea> -->
                   
                 </div>
                 <div class="form-group col-xs-10">
@@ -68,18 +105,23 @@
                   </a>
                   </p>
                   <div class="input-group date form_date col-xs-7" data-date="" data-date-format="yyyy-mm-dd" data-link-field="betStartDate" data-link-format="yyyy-mm-dd">
-                      <input class="form-control" id="betStartDate" size="16" type="text" value="" readonly>
+                      <!-- <input class="form-control" name="betStartDate" id="betStartDate" size="16" type="text" value="" readonly> -->
+                      <?php echo $this->Form->input('betStartDate',array('label' => false,'class'=>'form-control','id'=>'betStartDate','size'=>'16','readonly')); ?>
                       <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
                   <input type="hidden" id="betStartDate" value="" />
+
                   <div class="input-group date form_time col-xs-5" data-date="" data-date-format="hh:ii" data-link-field="betStartTime" data-link-format="hh:ii">
-                    <input class="form-control" id="betStartTime" size="16" type="text" value="" readonly>
+                    <!-- <input class="form-control" name="betStartTime" id="betStartTime" size="16" type="text" value="" readonly> -->
+                    <?php echo $this->Form->input('betStartTime',array('label' => false,'class'=>'form-control','id'=>'betStartTime','size'=>'16','readonly')); ?>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                   </div>
                   <input type="hidden" id="betStartTime" value="" />
-
+                  <?php if(isset($errors) && isset($errors['bet_start'])):?>
+                    <div class="error-message"><?php echo $errors['bet_start'][0]?></div>
+                  <?php endif;?>
               </div>
               <div class="form-group col-xs-10">
                   
@@ -89,18 +131,24 @@
                   </a>
                   </p>
                   <div class="input-group date form_date col-xs-7" data-date="" data-date-format="yyyy-mm-dd" data-link-field="betFinishDate" data-link-format="yyyy-mm-dd">
-                      <input class="form-control" id="betFinishDate" size="16" type="text" value="" readonly>
+                      <!-- <input class="form-control" name="betFinishDate" id="betFinishDate" size="16" type="text" value="" readonly> -->
+                    <?php echo $this->Form->input('betFinishDate',array('label' => false,'class'=>'form-control','id'=>'betFinishDate','size'=>'16','readonly')); ?>
+
                       <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
                   <input type="hidden" id="betFinishDate" value="" />
                   <div class="input-group date form_time col-xs-5" data-date="" data-date-format="hh:ii" data-link-field="betFinishTime" data-link-format="hh:ii">
-                    <input class="form-control" id="betFinishTime" size="16" type="text" value="" readonly>
+                    <!-- <input class="form-control" name="betFinishTime" id="betFinishTime" size="16" type="text" value="" readonly> -->
+                    <?php echo $this->Form->input('betFinishTime',array('label' => false,'class'=>'form-control','id'=>'betFinishTime','size'=>'16','readonly')); ?>
+
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                   </div>
                   <input type="hidden" id="betFinishTime" value="" />
-
+                  <?php if(isset($errors) && isset($errors['bet_finish'])):?>
+                    <div class="error-message"><?php echo $errors['bet_finish'][0]?></div>
+                  <?php endif;?>
               </div>
               <div class="form-group col-xs-10">
 
@@ -110,13 +158,17 @@
                   </a>
                   </p>
                   <div class="input-group date form_date col-xs-7" data-date="" data-date-format="yyyy-mm-dd" data-link-field="betResultDate" data-link-format="yyyy-mm-dd">
-                      <input class="form-control" id="betResultDate" size="16" type="text" value="" readonly>
+                      <!-- <input class="form-control" name="betResultDate" id="betResultDate" size="16" type="text" value="" readonly> -->
+                    <?php echo $this->Form->input('betResultDate',array('label' => false,'class'=>'form-control','id'=>'betResultDate','size'=>'16','readonly')); ?>
+
                       <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
                   <input type="hidden" id="betResultDate" value="" />
                   <div class="input-group date form_time col-xs-5" data-date="" data-date-format="hh:ii" data-link-field="betResultTime" data-link-format="hh:ii">
-                    <input class="form-control" id="betResultTime" size="16" type="text" value="" readonly>
+                    <!-- <input class="form-control" name="betResultTime" id="betResultTime" size="16" type="text" value="" readonly> -->
+                    <?php echo $this->Form->input('betResultTime',array('label' => false,'class'=>'form-control','id'=>'betResultTime','size'=>'16','readonly')); ?>
+
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                   </div>
@@ -129,7 +181,8 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-<select class="form-control">
+
+<select name="timeZone" class="form-control">
   <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
   <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
   <option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
@@ -221,7 +274,9 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <textarea class="form-control" rows="4"></textarea>
+                  <!-- <textarea name="bookDetail" class="form-control" rows="4"></textarea> -->
+                  <?php echo $this->Form->input('bookDetail',array('label' => false,'class'=>'form-control','rows'=>'4','type'=>'textarea')); ?>
+
               </div>
               <div class="form-group col-xs-6">
                   <p class="help-block">Category
@@ -229,15 +284,22 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <select class="form-control">
+                  <?php
+                    $category = array('Sports'=>'Sports','Other'=>'Other');
+                  ?>
+                  <?php echo $this->Form->select('category',$category,array('class'=>'form-control','id'=>'result-select','empty'=>false)); ?>
+<!-- 
+                  <select name="category" class="form-control">
                     <option value="sports">Sports</option>
                     <option value="other">Other</option>
-                  </select>
+                  </select> -->
               </div>
               
               </div>
-              <button id="make-book" class="btn btn-primary" data-toggle="modal">Make Book</button>
-            </form>
+              <!-- <button id="make-book" class="btn btn-primary" data-toggle="modal">Make Book</button> -->
+              <button tylpe="submit" id="make-book" class="btn btn-primary" >Make Book</button>
+
+            <?php echo $this->Form->end();?>
           </div>
 
 

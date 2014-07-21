@@ -36,7 +36,6 @@ class AppController extends Controller {
 
     function beforeFilter() {
         // $this->Auth->allow('*');
-// var_dump($this->Connect->user());
         $this->set('fbuser',$this->Connect->user());
 
 

@@ -30,14 +30,17 @@ class BooksController extends AppController {
 
     public function add()
     {
+        if (empty($_POST)) {
+                $this->render(implode('/', ['book-make']));
+        } else {
+            $book = $this->Book->createNewBook($_POST,$this->Session->read('User'));
+            if (!is_array($book)){
+                $this->redirect('/book'.'/'.$book);
+            } else {
+                $this->set('errors',$book);
+                $this->render(implode('/', ['book-make']));
 
-        try {
-            $this->render(implode('/', ['book-make']));
-        } catch (MissingViewException $e) {
-            if (Configure::read('debug')) {
-                throw $e;
             }
-            throw new NotFoundException();
         }
     }
 }
