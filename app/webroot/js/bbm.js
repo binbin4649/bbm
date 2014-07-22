@@ -28,7 +28,10 @@ $(document).ready(function() {
 
 	//from don.
 	$("#add").click(function() {
-		$("div#book-content").append('<label for="bookConten6" class="col-sm-1">6,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent6"><br></div><label for="bookConten7" class="col-sm-1">7,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent7"><br></div><label for="bookConten8" class="col-sm-1">8,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent8"><br></div><label for="bookConten9" class="col-sm-1">9,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent9"><br></div><label for="bookConten10" class="col-sm-1">10,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent10"><br></div>');
+		$('#book-content-list').find('.hidden').each(function(n,i){
+			$(i).removeClass('hidden');
+		});
+		// $("div#book-content").append('<label for="bookConten6" class="col-sm-1">6,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent6"><br></div><label for="bookConten7" class="col-sm-1">7,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent7"><br></div><label for="bookConten8" class="col-sm-1">8,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent8"><br></div><label for="bookConten9" class="col-sm-1">9,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent9"><br></div><label for="bookConten10" class="col-sm-1">10,</label><div class="col-sm-11"><input type="text" class="form-control required" id="bookContent10"><br></div>');
 		$("div#book-content-add").remove();
 	});
 

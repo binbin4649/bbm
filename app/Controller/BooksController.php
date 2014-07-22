@@ -27,4 +27,20 @@ class BooksController extends AppController {
             throw new NotFoundException();
         }
     }
+
+    public function add()
+    {
+        if (empty($_POST)) {
+                $this->render(implode('/', ['book-make']));
+        } else {
+            $book = $this->Book->createNewBook($_POST,$this->Session->read('User'));
+            if (!is_array($book)){
+                $this->redirect('/book'.'/'.$book);
+            } else {
+                $this->set('errors',$book);
+                $this->render(implode('/', ['book-make']));
+
+            }
+        }
+    }
 }

@@ -2,29 +2,45 @@
 <!-- <html> -->
 <?php echo $this->Facebook->html(); ?>
 <head>
-  <?php echo $this->Html->charset(); ?>
-  <title>
-    <?php //echo $cakeDescription ?>:
-    <?php echo $title_for_layout; ?>
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <?php
-    echo $this->Html->meta('icon');
+	<?php echo $this->Html->charset(); ?>
+	<title>
+		<?php //echo $cakeDescription ?>:
+		<?php echo $title_for_layout; ?>
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<?php
+		echo $this->Html->meta('icon');
 
-    //echo $this->Html->css('cake.generic');
-    //<!-- Bootstrap -->
-    echo $this->Html->css('bootstrap.min');
-    //<!-- Main Styles -->
-    echo $this->Html->css('main');
-    //<!-- Responsive Styles -->
-    echo $this->Html->css('non-responsive');
-    //<!-- Icon Styles -->
+		//echo $this->Html->css('cake.generic');
+		//<!-- Bootstrap -->
+		echo $this->Html->css('bootstrap.min');
+		//<!-- Main Styles -->
+		echo $this->Html->css('main');
+		//<!-- Responsive Styles -->
+		echo $this->Html->css('non-responsive');
+		//<!-- Icon Styles -->
     echo $this->Html->css('font-awesome.min');
+		echo $this->Html->css('bootstrap-datetimepicker.min');
 
-    echo $this->fetch('meta');
-    echo $this->fetch('css');
-    echo $this->fetch('script');
-  ?>
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->fetch('script');
+
+
+
+
+	?>
+    <?php
+    echo $this->Html->script('jquery');
+    echo $this->Html->script('bootstrap.min');
+    echo $this->Html->script('bootstrap-datetimepicker.min');
+    echo $this->Html->script('respond.min');
+    echo $this->Html->script('readmore'); 
+
+    echo $this->Html->script('bbm'); 
+
+
+    ?>
 
 </head>
 <body>
@@ -36,7 +52,6 @@
             <a href="/"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
-            <?php //var_dump($_SESSION);?>
                 <?php if($fbuser): ?>
                   <div class="row header-user-info">
                     <div class="col-xs-4">
@@ -175,11 +190,7 @@
 </div><!-- /.modal -->
     
     <!-- The Scripts -->
-    <?php
-    echo $this->Html->script('jquery');
-    echo $this->Html->script('bootstrap.min');
-    echo $this->Html->script('respond.min'); 
-    ?>
+
     <script>
       // $('#morePointModal').modal({show: true});
     </script>
