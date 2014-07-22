@@ -2,9 +2,9 @@
 //app/Config/facebook.php
 $config = array(
     'Facebook' => array(
-        'appId'  => '531731780286282',
+        'appId'  => '912897075390827',
         //'apiKey' => 'YOUR_API_KEY',
-        'secret' => '7d31152c7dc56ef9d5b52d5d54822f16',
+        'secret' => 'e986e6e8ca62d7450ca3ed8339a51b01',
         'cookie' => true,
         'locale' => 'en_US',
     )
