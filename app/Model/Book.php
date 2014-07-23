@@ -10,6 +10,14 @@ class Book extends AppModel {
         'Content' => array(
             'className' => 'Content',
             'order' => 'Content.created DESC'
+        ),
+        'Bet' => array(
+            'className' => 'Bet',
+            'order' => 'Bet.created DESC'
+        ),
+        'Passbook' => array(
+            'className' => 'Passbook',
+            'order' => 'Passbook.created DESC'
         )
     );
     public $filterArgs = array(
@@ -29,9 +37,9 @@ class Book extends AppModel {
     public $validate = array(
         'title' => array(
             'alphaNumeric'=>array(
-                'rule'     => 'alphaNumeric',
+                'rule'     => array('custom', '~^[a-zA-Z0-9\s-]+$~'),
                 'required' => true,
-                'message'  => 'Letters and numbers only'
+                'message'  => 'Letters, numbers, spaces and dashes only'
                 )
             ),
         'bet_start'  => array(

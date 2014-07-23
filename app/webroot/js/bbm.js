@@ -35,39 +35,135 @@ $(document).ready(function() {
 		$("div#book-content-add").remove();
 	});
 
-	
-	$("#make-book").click(function() {
+    $("#make-book").click(function() {
 
-		$(".required").each(function() {
-		  if (($(this).val() === '') || ($(".required").val() === ''))
-		  {
-		    $("#make-book").attr("data-target","#Omissions");
-		  }
-		  else if ($(this).val() != '')
-		  {
-		  	$("#make-book").attr("data-target","#makeBook");
-		  }
-		});
-
-	});
+        $(".required").each(function() {
+          if (($(this).val() === '') || ($(".required").val() === ''))
+          {
+            $("#make-book").attr("data-target","#Omissions");
+          }
+          else if ($(this).val() !== '')
+          {
+            $("#make-book").attr("data-target","#makeBook");
+          }
+        });
+    });
 
 
-	$( "#result-select" )
-	  .change(function() {
-	    var str = "";
-	    $( "#result-select option:selected" ).each(function() {
-	      str += $( this ).val() + " ";
-	    });
-	    $('#change').text(str);
-	  })
-	  .trigger( "change" );
+    $( "#result-select" )
+      .change(function() {
+        var str = "";
+        $( "#result-select option:selected" ).each(function() {
+          str += $( this ).val() + " ";
+        });
+        $('#change').text(str);
+      })
+      .trigger( "change" );
 
 
 
   //Read More
   $('.article').readmore({
-	  maxHeight: 140
-	});
+    maxHeight: 140
+  });
+
+
+
+if (/books\/\d/.test(document.location.href)) {
+    var currentContent, currentContentId;
+    var bookInfo;
+    $('.loadAllBets').on('click',function(){
+        var self = this;
+        currentContent = $(this).attr('data-content');
+        currentContentId = $(this).attr('data-contentid');
+        updateBetsOnModal(currentContent);
+    });
+
+    function updateBetsOnModal(currentContent) {
+        var bets = JSON.parse(currentContent);
+        var betsHTML = '';
+        for (bet in bets) {
+            betsHTML += '<div class="modal-single-entry">'
+            +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="profile-home.html" class="username">'+bets[bet].User.name+'</a>'
+            +'<p>Bet: <span>'+bets[bet].Bet.betpoint+'</span></p>'
+            +'<p>'+Date.parse(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</p>'
+            +'</div>';
+        }
+        $('#modal2').find('.modal-entry').html(betsHTML);
+        $('#modal2').find('.content-bets-title').html($(this).parents('tr').find('.thetitle').html());
+    }
+
+    setInterval(function(){
+        $.ajax({
+          data: {
+            book: {
+              id: $('#bookid').val()
+            }
+          },
+          url: '/books/'+$('#bookid').val()+'?format=json',
+          dataType:'json',
+          success: function(response){
+            bookInfo =response ;
+            if (response.Book) {
+                $('#book_user_all_count').html(response.Book.user_all_count);
+                $('#book_bet_all_total').html(response.Book.bet_all_total);
+            }
+            var content;
+            if (response.Content) {
+                $.each(response.Content, function(n,i){
+                    content = $('input[name=contentid][value='+i.id+']');
+                    content.parents('tr').find('.content_user_count').html(i.user_count);
+                    content.parents('tr').find('.content_bet_total').html(i.bet_total);
+                    content.parents('tr').find('.content_odds').html(i.odds);
+                    $('a[data-contentid='+i.id+']').attr({'data-content':JSON.stringify(i.bets)});
+                });
+            }
+            if (currentContentId) {
+                updateBetsOnModal($('a[data-contentid='+currentContentId+']').attr('data-content'));
+            }
+
+          },
+          errors: function(a,b,c){
+            if (console) console.log(a+' | '+b+' | '+c);
+          }
+        });
+      },10000);
+
+    $('.make-bet').on('click',function(){
+        $('#Bet').find('.content-bets-title').html($(this).parents('tr').find('.thetitle').html());
+        $('#Bet').find('.content-odd-value').html($(this).parents('tr').find('.content_odds').html());
+        $('#Bet').find('.currentContentIdOnModal').val($(this).parents('tr').find('a.loadAllBets').attr('data-contentid'));
+
+    });
+
+    $('#Bet button[type=submit]').on('click',function(event){
+        event.preventDefault();
+        $(event.target).addClass('disabled');
+        $.ajax({
+          data: {
+            book_id: $('#bookid').val(),
+            content_id: $(event.target).parents('.modal-content').find('.currentContentIdOnModal').val(),
+            oddFactor: $(event.target).parents('.modal-content').find('input').val()
+          },
+          type: 'POST',
+          url: '/bets',
+          dataType:'json',
+          success: function(response){
+            console.log(response);
+            $('#Bet').modal('hide');
+            $('button[type=submit]').removeClass('disabled');
+          },
+          errors: function(a,b,c){
+            if (console) console.log(a+' | '+b+' | '+c);
+          }
+        });
+    });
+
+
+}
+
+
+
 
 });// Jquery end.
 
@@ -78,7 +174,7 @@ var toDoubleDigits = function(num) {
 	if (num.length === 1) {
 	num = "0" + num;
 	}
-	return num;     
+	return num;
 };
 
 var stmapToJpDate = function(stamp){

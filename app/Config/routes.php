@@ -25,8 +25,11 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'Books', 'action' => 'index', 'home'));
-    Router::connect('/index', array('controller' => 'Books', 'action' => 'index', 'home'));
-    Router::connect('/books/add', array('controller' => 'Books', 'action' => 'add'));
+    // Router::connect('/index', array('controller' => 'Books', 'action' => 'index', 'home'));
+    // Router::connect('/books/add', array('controller' => 'Books', 'action' => 'add'));
+    Router::mapResources('books');
+    Router::mapResources('bets');
+
 
 
 /**

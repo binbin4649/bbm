@@ -8,6 +8,14 @@ class User extends AppModel {
         'Books' => array(
             'className' => 'Book',
             'order' => 'Books.created DESC'
+        ),
+        'Bet' => array(
+            'className' => 'Bet',
+            'order' => 'Bet.created DESC'
+        ),
+        'Passbook' => array(
+            'className' => 'Passbook',
+            'order' => 'Passbook.created DESC'
         )
     );
     public function saveFBUser($user)
@@ -32,6 +40,12 @@ class User extends AppModel {
         } else {
             return $record;
         }
+    }
 
+    public function updateSession()
+    {
+        $user_id = CakeSession::read('User.id');
+        $user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
+        CakeSession::write('User',$user['User']);
     }
 }
