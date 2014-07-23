@@ -1,16 +1,93 @@
 <?php
-App::uses('AppModel','Model');
-
+App::uses('AppModel', 'Model');
+/**
+ * User Model
+ *
+ * @property Facebook $Facebook
+ * @property Bet $Bet
+ * @property Book $Book
+ * @property Passbook $Passbook
+ * @property Update $Update
+ */
 class User extends AppModel {
-    public $name = 'User';
-    public $useTable = 'users';
-    public $hasMany = array(
-        'Books' => array(
-            'className' => 'Book',
-            'order' => 'Books.created DESC'
-        )
-    );
-    public function saveFBUser($user)
+
+/**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'name';
+
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * belongsTo associations
+ *
+ * @var array
+ */
+	
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Bet' => array(
+			'className' => 'Bet',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Book' => array(
+			'className' => 'Book',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Passbook' => array(
+			'className' => 'Passbook',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Update' => array(
+			'className' => 'Update',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+	public function saveFBUser($user)
     {
         $record = $this->find('first',array('conditions'=>array('User.facebook_id'=>$user['id'])));
         if (empty($record)) {
