@@ -19,7 +19,7 @@
        <div class="ranking-item">
         <span class="ranking-icon"><?php if ($key <= 10) : echo "<img src='" . $this->webroot . $icon_arr[$key] . "' />"; else : echo $key + 1; endif;?> </span>
         <p class="points"><?= $user['User']['point']?> pt</p>
-        <a href="/user/profile"><img src="images/profile-photo.jpg"><?= $user['User']['name']?></a>
+        <a href="/user/profile"><img src="http://graph.facebook.com/<?= $user['User']['facebook_id'] ?>/picture" /><?= $user['User']['name']?></a>
       </div>
 
     <?php      
