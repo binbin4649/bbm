@@ -688,3 +688,8 @@ span.modal-red2 {
 .error-message {
   color: red;
 }
+
+.theprofile .profile-picture {
+  width: 100px;
+}
+

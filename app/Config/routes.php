@@ -29,7 +29,10 @@
     // Router::connect('/books/add', array('controller' => 'Books', 'action' => 'add'));
     Router::mapResources('books');
     Router::mapResources('bets');
+    Router::mapResources('users');
+
     // Router::connect('/test', array('controller' => 'Books', 'action' => 'test', 'home'));
+    // Router::connect('/user-rankings', array('controller' => 'Users', 'action' => 'userRankings', 'home'));
 
 
 
