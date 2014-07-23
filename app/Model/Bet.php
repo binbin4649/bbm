@@ -55,7 +55,6 @@ class Bet extends AppModel {
             $this->Passbook->set('point',$betpoint);
             $this->Passbook->set('balance',0);
             $this->Passbook->set('event','bet');
-
             $this->Passbook->save();
 
 

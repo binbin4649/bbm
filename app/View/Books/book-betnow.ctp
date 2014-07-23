@@ -25,7 +25,7 @@
               </div>
               <div class="col-xs-3">
                 <?php if ($book['User']['id'] == $this->Session->read('User')['id']):?>
-                  <button class="btn btn-default btn-block btn-delete" data-toggle="modal" data-target="#Delete">Delete & Copy</button>
+                  <button class="btn btn-default btn-block btn-delete make-delete" data-toggle="modal" data-target="#Delete">Delete & Copy</button>
                 <?php endif;?>
               </div>
             </div>
@@ -161,13 +161,14 @@
           <div class="form-group">
             <label>Delete Detail</label>
             <textarea class="form-control" rows="7"></textarea>
+            <input type="hidden" class="currentContentIdOnModal">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-warning">Delete & Copy</button>
+        <button type="button" class="btn btn-danger delete-book">Delete</button>
+        <button type="button" class="btn btn-warning delete-copy-book">Delete & Copy</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

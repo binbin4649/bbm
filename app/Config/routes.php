@@ -29,6 +29,9 @@
     // Router::connect('/books/add', array('controller' => 'Books', 'action' => 'add'));
     Router::mapResources('books');
     Router::mapResources('bets');
+    // Router::connect('/test', array('controller' => 'Books', 'action' => 'test', 'home'));
+
+
 
 
 

@@ -136,6 +136,12 @@ if (/books\/\d/.test(document.location.href)) {
 
     });
 
+    $('.make-win').on('click',function(){
+        $('#Win').find('.content-bets-title').html($(this).parents('tr').find('.thetitle').html());
+        $('#Win').find('.currentContentIdOnModal').val($(this).parents('tr').find('a.loadAllBets').attr('data-contentid'));
+    });
+
+
     $('#Bet button[type=submit]').on('click',function(event){
         event.preventDefault();
         $(event.target).addClass('disabled');
@@ -159,6 +165,96 @@ if (/books\/\d/.test(document.location.href)) {
         });
     });
 
+    $('#Win button[type=submit]').on('click',function(event){
+        event.preventDefault();
+        $(event.target).addClass('disabled');
+        $.ajax({
+          data: {
+            book_id: $('#bookid').val(),
+            content_id: $(event.target).parents('.modal-content').find('.currentContentIdOnModal').val(),
+            result_detail: $(event.target).parents('.modal-content').find('textarea').val()
+          },
+          type: 'POST',
+          url: '/books/win',
+          dataType:'json',
+          success: function(response){
+            $('#Win').modal('hide');
+            $('button[type=submit]').removeClass('disabled');
+          },
+          errors: function(a,b,c){
+            if (console) console.log(a+' | '+b+' | '+c);
+          }
+        });
+    });
+
+
+    $('#Delete .delete-book').on('click',function(event){
+        event.preventDefault();
+        $(event.target).addClass('disabled');
+        $.ajax({
+          data: {
+            book_id: $('#bookid').val(),
+            delete_detail:$('#Delete textarea').val()
+          },
+          type: 'POST',
+          url: '/books/deleteBook',
+          dataType:'json',
+          success: function(response){
+            console.log(response);
+            $('#Delete').modal('hide');
+            $('.delete-book').removeClass('disabled');
+          },
+          errors: function(a,b,c){
+            if (console) console.log(a+' | '+b+' | '+c);
+          }
+        });
+    });
+
+      $('#Delete .delete-copy-book').on('click',function(event){
+        event.preventDefault();
+        $(event.target).addClass('disabled');
+        $.ajax({
+          data: {
+            book_id: $('#bookid').val(),
+            delete_detail:$('#Delete textarea').val()
+          },
+          type: 'POST',
+          url: '/books/deleteCopyBook',
+          dataType:'json',
+          success: function(response){
+            console.log(response);
+            $('#Delete').modal('hide');
+            $('.delete-copy-book').removeClass('disabled');
+          },
+          errors: function(a,b,c){
+            if (console) console.log(a+' | '+b+' | '+c);
+          }
+        });
+    });
+
+    $('#Delete .copy-book').on('click',function(event){
+        event.preventDefault();
+        $(event.target).addClass('disabled');
+        $.ajax({
+          data: {
+            book_id: $('#bookid').val(),
+          },
+          type: 'POST',
+          url: '/books/copyBook',
+          dataType:'json',
+          success: function(response){
+            console.log(response);
+            if (response.book_id){
+              window.location.href="/books/"+response.book_id;
+            }
+            $('#Delete').modal('hide');
+            $('.copy-book').removeClass('disabled');
+          },
+          errors: function(a,b,c){
+            if (console) console.log(a+' | '+b+' | '+c);
+          }
+        });
+    });
 
 }
 
