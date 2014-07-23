@@ -156,7 +156,7 @@
             <div class="footer-links">
               <ul>
                 <li><a href="/">Book Search</a></li>
-	            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
+	            <li><?php echo $this->Html->link('User Ranking', '/users-ranking') ?></li>
 	            <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
 	            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
 	            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
