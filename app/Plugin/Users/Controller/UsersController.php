@@ -206,7 +206,7 @@ class UsersController extends UsersAppController {
 			return;
 		}
 
-		$this->Auth->allow('add', 'reset', 'verify', 'logout', 'view', 'reset_password', 'login', 'resend_verification');
+		$this->Auth->allow('add', 'reset', 'verify', 'logout', 'view', 'reset_password', 'login', 'resend_verification', 'ranking');
 
 		if (!is_null(Configure::read('Users.allowRegistration')) && !Configure::read('Users.allowRegistration')) {
 			$this->Auth->deny('add');
@@ -855,4 +855,12 @@ class UsersController extends UsersAppController {
 		return parent::isAuthorized($user);
 	}
 
+	public function ranking()
+	{
+		$users = $this->{$this->modelClass}->find('all', array(
+				'order' => array("{$this->modelClass}.point DESC"),
+				'limit' => 20
+			));
+		$this->set('users', $users);		
+	}
 }

@@ -115,3 +115,4 @@ spl_autoload_unregister(array('App', 'load'));
 spl_autoload_register(array('App', 'load'), true, true);
 CakePlugin::loadAll();
 CakePlugin::load('Facebook');
+CakePlugin::load('Users', array('bootstrap' => false, 'routes' => true));
