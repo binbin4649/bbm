@@ -19,7 +19,7 @@ class BooksController extends AppController {
         $this->Paginator->settings['conditions'] = $conditions;
         $this->set('books', $this->Paginator->paginate());
         try {
-            $this->render(implode('/', ['home']));
+            $this->render('home');
         } catch (MissingViewException $e) {
             if (Configure::read('debug')) {
                 throw $e;
@@ -31,14 +31,14 @@ class BooksController extends AppController {
     public function add()
     {
         if (empty($_POST)) {
-                $this->render(implode('/', ['book-make']));
+                $this->render(implode('/', 'book-make'));
         } else {
             $book = $this->Book->createNewBook($_POST,$this->Session->read('User'));
             if (!is_array($book)){
                 $this->redirect('/book'.'/'.$book);
             } else {
                 $this->set('errors',$book);
-                $this->render(implode('/', ['book-make']));
+                $this->render(implode('/', 'book-make'));
 
             }
         }
