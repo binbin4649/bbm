@@ -13,11 +13,15 @@
   <div class="pagination-wrap">
     <ul class="pagination pagination-lg">
       <?php
-        echo $this->Paginator->prev(
-          ' << ',
-          array('tag' => 'li')
-          
-        );
+      
+        if (!empty($updates)) :
+          echo $this->Paginator->prev(
+            ' << ',
+            array('tag' => 'li')
+            
+          );
+        endif;
+
         echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li'));
       ?>
     </ul>
