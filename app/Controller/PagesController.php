@@ -35,8 +35,13 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Update');
 
+/**
+ * using paginator component
+ * @var array
+ */
+	public $components = array('Paginator');
 /**
  * Displays a view
  *
@@ -72,6 +77,24 @@ class PagesController extends AppController {
 				throw $e;
 			}
 			throw new NotFoundException();
-		}
+		}	
+	}
+/**
+ * list all updates table
+ * @return void
+ */
+	public function update()
+	{
+	 	$paginate = array(
+		        'limit' => 5,
+		        'order' => array(
+		            'Update.created' => 'desc'
+		        )
+		    );
+	 	 $this->Paginator->settings = $paginate;
+
+	    // similar to findAll(), but fetches paged results
+	    $data = $this->Paginator->paginate('Update');
+    	$this->set('updates', $data);
 	}
 }
