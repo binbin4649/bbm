@@ -854,7 +854,10 @@ class UsersController extends UsersAppController {
 	public function isAuthorized($user = null) {
 		return parent::isAuthorized($user);
 	}
-
+/**
+ * method ranking.. list 20 users were arraged by point
+ * @return void
+ */
 	public function ranking()
 	{
 		$users = $this->{$this->modelClass}->find('all', array(

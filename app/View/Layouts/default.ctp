@@ -16,6 +16,8 @@
 		echo $this->Html->css('bootstrap.min');
 		//<!-- Main Styles -->
 		echo $this->Html->css('main');
+    //<!-- Custom Styles -->
+    echo $this->Html->css('custom');
 		//<!-- Responsive Styles -->
 		echo $this->Html->css('non-responsive');
 		//<!-- Icon Styles -->

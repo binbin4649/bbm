@@ -32,9 +32,9 @@
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-
+	Router::connect('/update/*', array('controller' => 'pages', 'action' => 'update'));
     Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
     Router::connect('/users/facebook_login', array('controller' => 'users', 'action' => 'facebook_login'));
     
