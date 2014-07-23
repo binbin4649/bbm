@@ -23,6 +23,15 @@
         endif;
 
         echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li'));
+
+        if (!empty($updates)) :
+          echo $this->Paginator->next(
+            ' >> ',
+            array('tag' => 'li')
+            
+          );
+        endif;
+
       ?>
     </ul>
   </div>
