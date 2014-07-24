@@ -1,5 +1,6 @@
 <?php
 Router::connect('/users', array('plugin' => 'users', 'controller' => 'users'));
+Router::connect('/users-ranking', array('plugin' => 'users', 'controller' => 'users', 'action' => 'ranking'));
 Router::connect('/users/index/*', array('plugin' => 'users', 'controller' => 'users'));
 Router::connect('/users/:action/*', array('plugin' => 'users', 'controller' => 'users'));
 Router::connect('/users/users/:action/*', array('plugin' => 'users', 'controller' => 'users'));

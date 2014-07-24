@@ -16,6 +16,8 @@
 		echo $this->Html->css('bootstrap.min');
 		//<!-- Main Styles -->
 		echo $this->Html->css('main');
+    //<!-- Custom Styles -->
+    echo $this->Html->css('custom');
 		//<!-- Responsive Styles -->
 		echo $this->Html->css('non-responsive');
 		//<!-- Icon Styles -->
@@ -32,6 +34,8 @@
 	?>
     <?php
     echo $this->Html->script('jquery');
+    echo $this->Html->script('http://www.datejs.com/build/date.js"');
+    
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('bootstrap-datetimepicker.min');
     echo $this->Html->script('respond.min');
@@ -55,8 +59,12 @@
                 <?php if($fbuser): $fb = $this->Session->read('FB'); $user_s = $this->Session->read('User'); ?>
                   <div class="row header-user-info">
                     <div class="col-xs-4">
+                      <!-- shiv wrote. Can not be determined.
                       <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$fb['Me']['id']."/picture?type=square"?>">
-                      <a href="/profile/home"><?php echo $user_s['name'];; ?></a>
+                      <a href="/profile/home"><?php echo $user_s['name'];; ?></a> 
+                      -->
+                      <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB')['Me']['id']."/picture?type=square"?>">
+                      <a href="/profile/home"><?php echo $this->Session->read('User')['name']; ?></a>
                     </div>
                     <div class="col-xs-4">
                       <i class="glyphicon glyphicon-edit"></i><a href="/profile/edit">Edit</a>
@@ -96,7 +104,7 @@
         <div class="col-xs-12">
           <ul>
             <li><a href="/">Book Search</a></li>
-            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
+            <li><?php echo $this->Html->link('User Ranking', '/users-ranking') ?></li>
             <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
@@ -156,7 +164,7 @@
             <div class="footer-links">
               <ul>
                 <li><a href="/">Book Search</a></li>
-	            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
+	            <li><?php echo $this->Html->link('User Ranking', '/users-ranking') ?></li>
 	            <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
 	            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
 	            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>

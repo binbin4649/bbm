@@ -25,8 +25,17 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'Books', 'action' => 'index', 'home'));
-    Router::connect('/index', array('controller' => 'Books', 'action' => 'index', 'home'));
-    Router::connect('/books/add', array('controller' => 'Books', 'action' => 'add'));
+    // Router::connect('/index', array('controller' => 'Books', 'action' => 'index', 'home'));
+    // Router::connect('/books/add', array('controller' => 'Books', 'action' => 'add'));
+    Router::mapResources('books');
+    Router::mapResources('bets');
+    Router::mapResources('users');
+
+    // Router::connect('/test', array('controller' => 'Books', 'action' => 'test', 'home'));
+    // Router::connect('/user-rankings', array('controller' => 'Users', 'action' => 'userRankings', 'home'));
+
+
+
 
 
 /**
@@ -34,7 +43,7 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-
+	Router::connect('/update/*', array('controller' => 'updates'));
     Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
     Router::connect('/users/facebook_login', array('controller' => 'users', 'action' => 'facebook_login'));
     Router::connect('/profile/*', array('controller' => 'users', 'action' => 'profile','profile'));

@@ -206,7 +206,7 @@ class UsersController extends UsersAppController {
 			return;
 		}
 
-		$this->Auth->allow('add', 'reset', 'verify', 'logout', 'view', 'reset_password', 'login', 'resend_verification');
+		$this->Auth->allow('add', 'reset', 'verify', 'logout', 'view', 'reset_password', 'login', 'resend_verification', 'ranking', 'edit');
 
 		if (!is_null(Configure::read('Users.allowRegistration')) && !Configure::read('Users.allowRegistration')) {
 			$this->Auth->deny('add');
@@ -265,15 +265,6 @@ class UsersController extends UsersAppController {
 		}
 	}
 
-/**
- * Edit
- *
- * @param string $id User ID
- * @return void
- */
-	public function edit() {
-		// @todo replace this with something better than the user details that were removed
-	}
 
 /**
  * Admin Index
@@ -854,5 +845,36 @@ class UsersController extends UsersAppController {
 	public function isAuthorized($user = null) {
 		return parent::isAuthorized($user);
 	}
+/**
+ * method ranking.. list 20 users were arraged by point
+ * @return void
+ */
+	public function ranking()
+	{
+		$users = $this->{$this->modelClass}->find('all', array(
+				'order' => array("{$this->modelClass}.point DESC"),
+				'limit' => 20
+			));
+		$this->set('users', $users);		
+	}
 
+/**
+ * edit information of current user
+ * @return void
+ */
+
+	public function edit()
+	{
+		//$this->User->id = $this->Auth->user('id');
+		$this->User->id = 1;
+		if ($this->request->is('post'))
+		{
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('The user has been saved.', 'default', array('class' =>'alert alert-success'), 'success');
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('The user could not be saved. Please, try again.', 'default', array('class' =>'alert alert-danger'), 'error');
+			}
+		}
+	}
 }

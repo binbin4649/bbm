@@ -1,0 +1,27 @@
+.pagination-lg a {
+	margin-top : 0;
+}
+.pagination-lg .prev {
+	float: left;
+	border-bottom-left-radius: 6px;
+	border-top-left-radius: 6px;
+	padding: 10px 16px;
+	font-size: 18px;
+	border: 1px solid #ddd;
+}
+.pagination-lg .prev a {
+	border: none;
+	padding: 0;
+}
+.pagination-lg .next {
+	float: left;
+	border-bottom-right-radius: 6px;
+	border-top-right-radius: 6px;
+	padding: 10px 16px;
+	font-size: 18px;
+	border: 1px solid #ddd;
+}
+.pagination-lg .next a {
+	border: none;
+	padding: 0;
+}

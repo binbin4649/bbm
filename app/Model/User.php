@@ -11,13 +11,15 @@ App::uses('AppModel', 'Model');
  */
 class User extends AppModel {
 
+	public $name = 'User';
+    public $useTable = 'users';
+
 /**
  * Display field
  *
  * @var string
  */
 	public $displayField = 'name';
-
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -40,7 +42,7 @@ class User extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Bet.created DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -53,7 +55,7 @@ class User extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Book.created DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -66,7 +68,7 @@ class User extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Passbook.created DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -87,7 +89,9 @@ class User extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-	public function saveFBUser($user)
+    
+    
+    public function saveFBUser($user)
     {
         $record = $this->find('first',array('conditions'=>array('User.facebook_id'=>$user['id'])));
         if (empty($record)) {
@@ -109,6 +113,12 @@ class User extends AppModel {
         } else {
             return $record;
         }
+    }
 
+    public function updateSession()
+    {
+        $user_id = CakeSession::read('User.id');
+        $user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
+        CakeSession::write('User',$user['User']);
     }
 }
