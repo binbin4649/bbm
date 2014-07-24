@@ -55,18 +55,11 @@ class AppController extends Controller {
 
 
 
-    // //Add an email field to be saved along with creation.
-    // function beforeFacebookSave(){
-    //     $this->Connect->authUser['User']['email'] = $this->Connect->user('email');
-    //     return true; //Must return true or will not save.
-    // }
-
-    // function beforeFacebookLogin($user){
-    // //Logic to happen before a facebook login
-    // }
-
-    // function afterFacebookLogin(){
-    //     //Logic to happen after successful facebook login.
-    //     $this->redirect('/custom_facebook_redirect');
-    // }
+    public function sendJson($response)
+    {
+        $this->autoRender = false;
+        $this->response->type('json');
+        $json = json_encode($response);
+        $this->response->body($json);
+    }
 }
