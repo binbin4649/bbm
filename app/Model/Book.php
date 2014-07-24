@@ -223,7 +223,7 @@ class Book extends AppModel {
         if (!empty($currentBook)){
             $this->id = $currentBook['Book']['id'];
             $this->set('title',$currentBook['Book']['title']);
-            $this->set('status','Time over');
+            $this->set('state','Time over');
             $this->save();
             return true;
         } else {

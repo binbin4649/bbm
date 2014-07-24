@@ -5,9 +5,9 @@ class User extends AppModel {
     public $name = 'User';
     public $useTable = 'users';
     public $hasMany = array(
-        'Books' => array(
+        'Book' => array(
             'className' => 'Book',
-            'order' => 'Books.created DESC'
+            'order' => 'Book.created DESC'
         ),
         'Bet' => array(
             'className' => 'Bet',
