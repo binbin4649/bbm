@@ -46,7 +46,10 @@
 	Router::connect('/update/*', array('controller' => 'updates'));
     Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
     Router::connect('/users/facebook_login', array('controller' => 'users', 'action' => 'facebook_login'));
-    
+    Router::connect('/profile/*', array('controller' => 'users', 'action' => 'profile','profile'));
+    Router::connect('/passbooks/*', array('controller' => 'users', 'action' => 'profile','passbooks'));
+    Router::connect('/betlists/*', array('controller' => 'users', 'action' => 'profile','betlists'));
+    Router::connect('/makedbooks/*', array('controller' => 'users', 'action' => 'profile','makedbooks'));
 
 
 /**

@@ -56,9 +56,13 @@
             <a href="/"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
-                <?php if($fbuser): ?>
+                <?php if($fbuser): $fb = $this->Session->read('FB'); $user_s = $this->Session->read('User'); ?>
                   <div class="row header-user-info">
                     <div class="col-xs-4">
+                      <!-- shiv wrote. Can not be determined.
+                      <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$fb['Me']['id']."/picture?type=square"?>">
+                      <a href="/profile/home"><?php echo $user_s['name'];; ?></a> 
+                      -->
                       <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB')['Me']['id']."/picture?type=square"?>">
                       <a href="/profile/home"><?php echo $this->Session->read('User')['name']; ?></a>
                     </div>
@@ -71,14 +75,14 @@
                   </div>
                   <div class="row header-user-info">
                     <div class="col-xs-4">
-                      <a href="/profile/passbook"><?php echo $this->Html->image('/img/icon1.png').$this->Session->read('User')['point']; ?></a>
+                      <a href="/profile/passbook"><?php echo $this->Html->image('/img/icon1.png').$user_s['point']; ?></a>
                     </div>
                     <div class="col-xs-4">
-                      <a href="/profile/betlist"><span>Bet Now:</span><?php echo $this->Session->read('User')['betlist'];?></a>
+                      <a href="/profile/betlist"><span>Bet Now:</span><?php echo $user_s['betlist'];?></a>
 
                     </div>
                     <div class="col-xs-4">
-                      <a href="/profile/makedbook"><span>Maked Book:</span><?php echo $this->Session->read('User')['makedbook'];?></a>
+                      <a href="/profile/makedbook"><span>Maked Book:</span><?php echo $user_s['makedbook'];?></a>
                     </div>
                   </div>
                 <?php else:?>

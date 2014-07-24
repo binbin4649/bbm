@@ -32,12 +32,15 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     public $helpers = array('Facebook.Facebook');
-    var $components = array('Session', 'Facebook.Connect');
+    var $components = array('Session', 'Facebook.Connect','Paginator');
 
     function beforeFilter() {
         // $this->Auth->allow('*');
         $this->set('fbuser',$this->Connect->user());
-
+		if(!defined('SITE_LINK')) {
+			define("SITE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
+			define("FILE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
+		}
 
     }
 
