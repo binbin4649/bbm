@@ -111,6 +111,9 @@ class User extends AppModel {
             $this->save();
             return $this->saveFBUser($user);
         } else {
+            $this->id =  $record['User']['id'];
+            $this->set('login_count',++$record['User']['login_count']);
+            $this->save();
             return $record;
         }
     }
