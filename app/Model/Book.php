@@ -10,6 +10,14 @@ class Book extends AppModel {
         'Content' => array(
             'className' => 'Content',
             'order' => 'Content.created DESC'
+        ),
+        'Bet' => array(
+            'className' => 'Bet',
+            'order' => 'Bet.created DESC'
+        ),
+        'Passbook' => array(
+            'className' => 'Passbook',
+            'order' => 'Passbook.created DESC'
         )
     );
     public $filterArgs = array(
@@ -29,9 +37,9 @@ class Book extends AppModel {
     public $validate = array(
         'title' => array(
             'alphaNumeric'=>array(
-                'rule'     => 'alphaNumeric',
+                'rule'     => array('custom', '~^[a-zA-Z0-9\s-]+$~'),
                 'required' => true,
-                'message'  => 'Letters and numbers only'
+                'message'  => 'Letters, numbers, spaces and dashes only'
                 )
             ),
         'bet_start'  => array(
@@ -102,6 +110,124 @@ class Book extends AppModel {
             $errors = $this->validationErrors;
             $errors['content'][] = 'Required 2 book content';
             return $errors;
+        }
+    }
+
+    public function setWinner($attrs)
+    {
+        $currentUser = CakeSession::read('User');
+        // $currentBook = $this->find('first',array('condition'=>array('Book.id'=>$attrs['book_id'])));
+        $currentContent = $this->Content->find('first',array('conditions'=>array('Content.id'=>$attrs['content_id'])));
+
+        if (!empty($currentContent)) {
+            $reward_point = floor($currentContent['Book']['bet_all_total'] * 0.01);
+            if ($reward_point <= 0) $reward_point = 0;
+
+
+            $this->id = $attrs['book_id'];
+            $this->set('state','result');
+            $this->set('result_detail',$attrs['result_detail']);
+            $this->set('win_contents_id',$attrs['content_id']);
+            $this->set('reward_point',$reward_point);
+            $this->set('title',$currentContent['Book']['title']);
+
+            $this->save();
+
+
+            if (!empty($currentContent['Bet'])){
+                $maxBetValue = 0;
+                $maxBetKey = 0;
+                foreach($currentContent['Bet'] as $betSetsKey=>$bet) {
+                    if ($maxBetValue < $bet['betpoint']) {
+                        $maxBetValue = $bet['betpoint'];
+                        $maxBetKey = $betSetsKey;
+                    }
+                }
+                $betWin = $currentContent['Bet'][$maxBetKey];
+
+                $this->Passbook->create();
+                $this->Passbook->set('book_id',$attrs['book_id']);
+                $this->Passbook->set('content_id',$attrs['content_id']);
+                $this->Passbook->set('user_id',$betWin['user_id']);
+                $this->Passbook->set('bet_id',$betWin['id']);
+                $this->Passbook->set('point',$betWin['betpoint']);
+                $this->Passbook->set('balance',0);
+                $this->Passbook->set('event','win');
+                $this->Passbook->save();
+            }
+
+            $this->Passbook->create();
+            $this->Passbook->set('book_id',$attrs['book_id']);
+            $this->Passbook->set('content_id',$attrs['content_id']);
+            $this->Passbook->set('user_id',$currentUser['id']);
+            $this->Passbook->set('point',$reward_point);
+            $this->Passbook->set('balance',0);
+            $this->Passbook->set('event','reward');
+            $this->Passbook->save();
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setDelete($attrs)
+    {
+        $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));
+        $currentUser = CakeSession::read('User');
+        if (!empty($currentBook) && $currentUser['id'] == $currentBook['User']['id']){
+            // var_dump($currentBook);
+            $this->id = $currentBook['Book']['id'];
+            $this->set('state','delete');
+            if (isset($attrs['delete_detail'])){
+                $this->set('result_detail',$attrs['delete_detail']);
+            }
+            $this->set('title',$currentBook['Book']['title']);
+            $this->save();
+
+            if (!empty($currentBook['Bet'])) {
+                $this->User->id = $currentBook['User']['id'];
+                $this->User->set('book_delete',++$currentBook['User']['book_delete']);
+                $this->User->save();
+
+                // $this->Passbook->create();
+                // $this->Passbook->set('book_id',$attrs['book_id']);
+                // $this->Passbook->set('content_id',$attrs['content_id']);
+                // $this->Passbook->set('user_id',$currentUser['id']);
+                // $this->Passbook->set('point',$reward_point);
+                // $this->Passbook->set('balance',0);
+                // $this->Passbook->set('event','reward');
+                // $this->Passbook->save();
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function copyBook($attrs)
+    {
+        $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));
+        $currentUser = CakeSession::read('User');
+        if (!empty($currentBook) && $currentUser['id'] == $currentBook['User']['id']){
+            unset($currentBook['Model']['id'] /* further ids */);
+            $this->create();
+            $this->saveAll($currentBook);
+            return $this->getLastInsertId();
+        }
+    }
+
+    public function setTimeOver($attrs)
+    {
+        $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));
+        if (!empty($currentBook)){
+            $this->id = $currentBook['Book']['id'];
+            $this->set('title',$currentBook['Book']['title']);
+            $this->set('status','Time over');
+            $this->save();
+            return true;
+        } else {
+            return false;
         }
     }
 }
