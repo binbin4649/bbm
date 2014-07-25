@@ -48,6 +48,16 @@
 
 </head>
 <body>
+  <!-- <div id="fb-root"></div> -->
+<script>
+// (function(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) return;
+//   js = d.createElement(s); js.id = id;
+//   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo FacebookInfo::getConfig('appId')?>&version=v2.0";
+//   fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
+</script>
     <div class="container">
       
       <header class="row">
@@ -109,7 +119,8 @@
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="https://www.facebook.com/bookbookmaker" target="_blank"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
-            <li><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
+            <li><div class="fb-like" data-href="https://www.facebook.com/bookbookmaker" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
+            <!-- <li><?php $this->Facebook->like(); ?></li> -->
           </ul>
         </div>
       </nav><!--END of nav -->
@@ -199,12 +210,9 @@
     
     <!-- The Scripts -->
 
-    <script>
-      // $('#morePointModal').modal({show: true});
-    </script>
+
   </body>
 
 <?php echo $this->element('sql_dump'); ?>
 <?php echo $this->Facebook->init(); ?>
-
 </html>
