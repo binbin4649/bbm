@@ -24,7 +24,7 @@ $state = array(''=>'Category','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet
           <?php echo $this->Form->create(array('class'=>'home-search form-inline home-search-form')); ?>
             <div class="form-group">
              <!--  <input type="text" name="title" class="form-control" placeholder="Search" value="<?php echo (isset($_GET['title']))?$_GET['title']:''?>"> -->
-          <?php echo $this->Form->input('title',array('label' => false,'class'=>'form-control','placeholder'=>"Search")); ?>
+          <?php echo $this->Form->input('title',array('label' => false,'class'=>'form-control','placeholder'=>"Search",'required'=>false)); ?>
             <span class="help-block">Search Condition: xxx xxx xxx</span>
             </div>
             <div class="form-group">
