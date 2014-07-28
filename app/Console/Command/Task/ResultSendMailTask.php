@@ -16,6 +16,11 @@ class ResultSendMailTask extends Shell {
                 $Email->emailFormat('html');
                 $Email->send('It is now time to announce the results.<br/>
                                 Please select a win. <br/>'.$url);
+
+                $this->Book->id = $book['Book']['id'];
+                $this->Book->set('result_time_info',1);
+                $this->Book->save();
+
             } else {
             }
         }
