@@ -44,4 +44,15 @@ class BookDayState {
             return false;
         }
     }
+
+    public function isTimeOut()
+    {
+        if ($this->currentTime - $this->resultTime > 60*60*24 &&
+            strtolower($this->book['state']) != 'result'
+            ) {
+           return true;
+        } else {
+            return false;
+        }
+    }
 }
