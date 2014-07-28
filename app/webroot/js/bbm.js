@@ -258,6 +258,26 @@ if (/books\/\d/.test(document.location.href)) {
 
 }
 
+    if (document.location.hash == '#more_point'){
+      $('#morePointModal').modal({show: true});
+    }
+
+    var page_like_or_unlike_callback = function(url, html_element) {
+      console.log("page_like_or_unlike_callback");
+      console.log(url);
+      console.log(html_element);
+    };
+
+    // In your onload handler
+    var checkFB = false;
+    setInterval(function(){
+      if(typeof FB != 'undefined' && !checkFB) {
+        checkFB = true;
+        console.log(FB);
+        FB.Event.subscribe('edge.create', page_like_or_unlike_callback);
+        FB.Event.subscribe('edge.remove', page_like_or_unlike_callback);
+      }
+    },100);
 
 
 

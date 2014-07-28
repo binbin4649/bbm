@@ -21,6 +21,9 @@ class UsersController extends AppController {
         if ($user) {
             $userResponse = $this->User->saveFBUser($user);
             $this->Session->write('User',$userResponse['User']);
+            if ($userResponse['User']['login_count'] == 2){
+                $this->redirect('/#more_point');
+            }
         }
         $this->redirect('/');
     }

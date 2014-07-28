@@ -82,7 +82,7 @@ class Book extends AppModel {
         $this->set('details',$formData['Book']['bookDetail']);
         $this->set('category',$formData['Book']['category']);
         $this->set('title',$formData['Book']['title']);
-        $this->set('state','');
+        $this->set('state','Up Coming');
         $this->set('announcement_type',$formData['Book']['announcement']);
         $this->set('announcement',$formData['Book']['announcementDetail']);
         $this->set('announcement_name',$formData['Book']['announcementName']);
