@@ -32,4 +32,16 @@ class BookDayState {
             return false;
         }
     }
+
+    public function isNotSetResult()
+    {
+
+        if ($this->finishTime < $this->currentTime &&
+            $this->resultTime > $this->currentTime
+            ) {
+           return true;
+        } else {
+            return false;
+        }
+    }
 }
