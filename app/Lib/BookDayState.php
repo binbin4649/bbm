@@ -21,4 +21,15 @@ class BookDayState {
             return false;
         }
     }
+
+    public function isBetFinish()
+    {
+        if ($this->finishTime < $this->currentTime &&
+            $this->resultTime > $this->currentTime
+            ) {
+           return true;
+        } else {
+            return false;
+        }
+    }
 }
