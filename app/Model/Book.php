@@ -37,6 +37,7 @@ class Book extends AppModel {
     public $validate = array(
         'title' => array(
             'alphaNumeric'=>array(
+                'on'         => 'create',
                 'rule'     => array('custom', '~^[a-zA-Z0-9\s-]+$~'),
                 'required' => true,
                 'message'  => 'Letters, numbers, spaces and dashes only'
