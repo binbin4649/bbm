@@ -297,7 +297,7 @@
               
               </div>
               <!-- <button id="make-book" class="btn btn-primary" data-toggle="modal">Make Book</button> -->
-              <button tylpe="submit" id="make-book" class="btn btn-primary" >Make Book</button>
+              <button  onclick="$('#Omissions').modal('show')"  id="make-book" class="btn btn-primary" >Make Book</button>
 
             <?php echo $this->Form->end();?>
           </div>
@@ -327,22 +327,19 @@
 <div class="modal fade" id="Omissions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title text-center" id="myModalLabel">Make Book</h4>
-      </div>
-      <div class="modal-body">
-        <p>There are omissions in the required fields</p>
-        <p>Please Check</p>
+       <div class="modal-body">
+        <p>If you want to re-create a book you must delete the old one first.
+        If nobody has bet there is no penalty.</p>
+        <p>You can re-create a book as many times as you like.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  onclick="$('form').trigger('submit')">Make</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-    
     <!-- The Scripts -->
 
     <script>
