@@ -55,4 +55,37 @@ class BookDayState {
             return false;
         }
     }
+
+    public function isBookUpcoming()
+    {
+        if ($this->startTime > $this->currentTime) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isWinResult()
+    {
+        if ($this->resultTime < $this->currentTime) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getStartTime()
+    {
+        return $this->startTime;
+    }
+
+    public function getFinishTime()
+    {
+        return $this->finishTime;
+    }
+
+    public function getResultTime()
+    {
+        return $this->resultTime;
+    }
 }
