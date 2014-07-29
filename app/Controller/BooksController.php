@@ -85,7 +85,7 @@ class BooksController extends AppController {
         if (empty($_POST)) {
                 $this->render(implode('/', ['book-make']));
         } else {
-            $book = $this->Book->createNewBook($_POST,$this->Session->read('User'));
+            $book = $this->Book->createNewBook($_POST);
             if (!is_array($book)){
                 $this->redirect('/books'.'/'.$book);
             } else {
