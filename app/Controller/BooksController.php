@@ -36,34 +36,37 @@ class BooksController extends AppController {
             $currentBook = $this->bookExtension($currentBook);
             if (!isset($_GET['format'])){
                 $this->set('book',$currentBook);
-                $bookdaystate = new BookDayState($currentBook);
-                $this->set('startTime',$bookdaystate->getStartTime());
-                if ($currentBook['Book']['state'] == 'Timeover'){
+                $time_zone = $this->Book->TimeZone->find('first',array('conditions'=>array('TimeZone.id'=>$currentBook['Book']['time_zone'])));
+                if (isset($time_zone['TimeZone']) && isset($time_zone['TimeZone']['value'])) {
+                    $bookdaystate = new BookDayState($currentBook,$time_zone['TimeZone']['value']);
+                    $this->set('startTime',$bookdaystate->getStartTime());
+                    if ($currentBook['Book']['state'] == 'Timeover'){
 
-                    $this->render(implode('/', ['book-timeover']));
+                        $this->render(implode('/', ['book-timeover']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
 
-                    $this->render(implode('/', ['book-upcoming']));
+                        $this->render(implode('/', ['book-upcoming']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
 
-                    $this->render(implode('/', ['book-betnow']));
+                        $this->render(implode('/', ['book-betnow']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {
 
-                    $this->render(implode('/', ['book-betfinish']));
+                        $this->render(implode('/', ['book-betfinish']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && $this->Book->User->isOwner($currentBook['Book']['user_id'])) {
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && $this->Book->User->isOwner($currentBook['Book']['user_id'])) {
 
-                    $this->render(implode('/', ['book-select-result']));
+                        $this->render(implode('/', ['book-select-result']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Result') {
-                    $winner = array_filter($currentBook['Content'],function($item) use($currentBook){
-                      return $item['id'] == $currentBook['Book']['win_contents_id'];
-                    });
-                    $this->set('winner',$winner);
-                    $this->render(implode('/', ['book-result']));
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Result') {
+                        $winner = array_filter($currentBook['Content'],function($item) use($currentBook){
+                          return $item['id'] == $currentBook['Book']['win_contents_id'];
+                        });
+                        $this->set('winner',$winner);
+                        $this->render(implode('/', ['book-result']));
+                    }
                 }
             } else if ($_GET['format'] == 'json') {
                 foreach($currentBook['Bet'] as $betKey=>$bet) {
@@ -91,6 +94,7 @@ class BooksController extends AppController {
     public function add()
     {
         if (empty($_POST)) {
+                $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
                 $this->render(implode('/', ['book-make']));
         } else {
             $book = $this->Book->createNewBook($_POST);
