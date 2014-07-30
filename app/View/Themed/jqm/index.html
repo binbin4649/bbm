@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BBM - Home</title>
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+<link rel="stylesheet" href="themes/default.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+</script>
+<!-- <script> $(function() { $('[data-role="panel"]').panel({ theme: 'default' }); }); </script> -->
+<script src="themes/default.js"></script>
+</head>
+<body>
+
+<!--page area-->
+<div data-role="page" data-title="BBM - Home">
+  
+  <!--header-->
+  <div data-id="common_header" data-role="header" data-position="fixed">
+    <a href="#panel" class="ui-btn ui-btn-icon-notext ui-icon-home ui-corner-all ui-btn-left">Home</a>
+    <h1>BBM - Home</h1>
+    <a href="#panel-right" class="ui-btn ui-btn-icon-notext ui-icon-user ui-corner-all ui-btn-right">User</a>
+  </div><!--header end-->
+
+  <!--main content-->
+  <div role="main" class="ui-content">
+  
+  <div data-role="collapsible">
+  	<h3>Book Search</h3>
+  	<form method="GET" action="">
+        <input id="search_text" name="search_text" type="search" data-clear-btn="true" />
+  		<select id="search_category" name="search_category" data-native-menu="false">
+        	<option>Category</option>
+            <option>Sports</option>
+            <option>Others</option>
+        </select>
+        <select id="search_state" name="search_state" data-native-menu="false">
+            <option>State</option>
+            <option>Up Coming</option>
+            <option>Bet Now</option>
+            <option>Bet Finish</option>
+            <option>Result</option>
+            <option>Book Delete</option>
+            <option>Result Timeover</option>
+          </select>
+        <input type="submit" value="Submit" />
+  	</form>
+  </div>
+
+  <div data-role="content">
+  <ul data-role="listview">
+  	<li>
+  		<a href="book-upcoming.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Up coming</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-betnow.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Bet Now</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-betfinish.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Bet Finish</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-result.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Result</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-delete.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Book Delete</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-timeover.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Result Timeover</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-upcoming.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Up coming</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-upcoming.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Up coming</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  	<li>
+  		<a href="book-upcoming.html">
+  		<h2>TITLE.TITLE.TITLE.TITLE.TITLE.TITLE.</h2>
+  		<p>
+  			<span><img src="img/icon1.png">9999</span>
+  			<span><img src="img/icon2.png">9999</span>
+  			<span class="badge-state">Up coming</span>
+  			<span class="badge-category">Sports</span>
+  		</p>
+  		</a>
+  	</li>
+  </ul>
+  </div>
+
+  <div style="text-align:center">
+  	<a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-state-disabled">Prev</a>
+  	<a href="#" class="ui-btn ui-btn-inline ui-corner-all">Next</a>
+  </div>
+
+  </div><!--main content end-->
+
+  <!--footer-->
+  <div data-role="footer">
+  	<h3>bookbookmaker.com</h3>
+    <a href="http://bookbookmaker.com">bookbookmaker.com</a>
+    <a href="http://hideichi.com">hideichi.com</a>
+  </div><!--footer end-->
+
+
+
+<!--panel-left-->
+  <div id="panel" data-role="panel" data-position="left" data-position-fixed="true">
+  <h3>Contents</h3>
+    <ul data-role="listview" data-inset="true">
+    	<li><a href="index.html">Home</a></li>
+    	<li><a href="user-rankings.html">User Ranking</a></li>
+    	<li><a href="updates.html">Updates</a></li>
+    	<li><a herf="about-us.html">About BBM</a></li>
+    	<li data-icon="action"><a href="https://www.facebook.com/bookbookmaker">Facebook Page</a></li>
+    	<li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+    </ul>
+  </div><!--panel-left end-->
+
+  <!--panel-right-->
+  <div id="panel-right" data-role="panel" data-position="right" data-position-fixed="true">
+    <h3>User infomation</h3>
+    <ul data-role="listview" data-inset="true">
+    	<li>
+    		<a href="profile-home.html"><img src="img/167313_108568132552016_5047279_n.jpg" />Hideichi saito</a>
+    	</li>
+    	<li><a href="profile-passbook.html"><img src="img/icon1.png" class="ui-li-icon ui-corner-none" />Pass Book<span class="ui-li-count">999999</span></a></li>
+    	<li><a href="profile-betlist.html">Bet List<span class="ui-li-count">999999</span></a></li>
+    	<li><a herf="profile-makedbook.html">Maked Book<span class="ui-li-count">999999</span></a></li>
+    	<li><a herf="book-make.html">Make Book</a></li>
+    	<li><a herf="profile-edit.html">User Edit</a></li>
+    	<li><a herf="#">Log out</a></li>
+    	<li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+    </ul>
+  </div><!--panel-right end-->
+
+</div><!--page area end-->
+
+</body>
+</html>
