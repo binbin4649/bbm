@@ -89,6 +89,12 @@ class User extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+    public $belongsTo = array(
+        'TimeZone' => array(
+                'foreignKey'    => 'time_zone'
+            )
+        );
     
     
     public function saveFBUser($user)
@@ -128,5 +134,16 @@ class User extends AppModel {
     public function isOwner($book_user_id)
     {
         return CakeSession::read('User.id') == $book_user_id;
+    }
+    public function updateProfile($data)
+    {
+        $this->id = CakeSession::read('User.id');
+        $this->set('mail',$data['User']['mail']);
+        $this->set('profile',$data['User']['profile']);
+        $this->set('name',$data['User']['name']);
+        $this->set('default_rate',$data['User']['default_rate']);
+        $this->set('language',$data['User']['language']);
+        $this->set('time_zone',$data['User']['time_zone']);
+        $this->save();
     }
 }

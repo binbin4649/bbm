@@ -117,20 +117,12 @@ class UsersController extends AppController {
     public function edit($id=null)
     {
         if($this->request->is('put')) {
-        var_dump('here1');
-        var_dump($this->request->data['User']);
-        $this->User->id = $this->Session->read('User.id');
-        $this->User->set('mail',$this->request->data['User']['mail']);
-        $this->User->set('profile',$this->request->data['User']['profile']);
-        $this->User->set('name',$this->request->data['User']['name']);
-        $this->User->set('default_rate',$this->request->data['User']['default_rate']);
-        $this->User->set('language',$this->request->data['User']['language']);
-        $this->User->save();
-        $this->User->updateSession();
-        $this->redirect('/');
-
+            $this->User->updateProfile($this->request->data);
+            $this->User->updateSession();
+            $this->redirect('/');
         } else {
             $data = array('User'=> $this->Session->read('User'));
+            $this->set('timezone',$this->User->TimeZone->getArrayForSelectForm());
             $this->set(compact("data"));
             $this->render('profile-edit');
         }
