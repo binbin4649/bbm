@@ -44,10 +44,13 @@ class UsersController extends AppController {
 
             $result_timeover_count = $this->User->Book->find('count',array('conditions'=>array('LOWER(Book.state)'=>'time over')));
             $makebook_count = $this->User->Book->find('count',array('conditions'=>array('Book.user_id'=>$id)));
+            $data = $currentUser;
+            $this->set(compact("data"));
             $this->set('user',$currentUser);
             $this->set('result_timeover_count',$result_timeover_count);
             $this->set('makebook_count',$makebook_count);
             $this->render('profile-home');
+            //$this->render(implode('/', ['profile']));
         }
 
     }
@@ -71,7 +74,6 @@ class UsersController extends AppController {
 				$this->redirect(SITE_LINK."profile/".$user_id);
 			}
 		}
-		
 		if ( $type == 'profile' || $type == 'betlists' ) {
 			$this->loadModel("Bet");
 			$this->paginate = array(
@@ -107,4 +109,30 @@ class UsersController extends AppController {
 		$this->set(compact("data"));
 		$this->render($type);
 	}
+
+    public function home()
+    {
+        return $this->profile('profile',$this->Session->read('User.id'));
+    }
+    public function edit($id=null)
+    {
+        if($this->request->is('put')) {
+        var_dump('here1');
+        var_dump($this->request->data['User']);
+        $this->User->id = $this->Session->read('User.id');
+        $this->User->set('mail',$this->request->data['User']['mail']);
+        $this->User->set('profile',$this->request->data['User']['profile']);
+        $this->User->set('name',$this->request->data['User']['name']);
+        $this->User->set('default_rate',$this->request->data['User']['default_rate']);
+        $this->User->set('language',$this->request->data['User']['language']);
+        $this->User->save();
+        $this->User->updateSession();
+        $this->redirect('/');
+
+        } else {
+            $data = array('User'=> $this->Session->read('User'));
+            $this->set(compact("data"));
+            $this->render('profile-edit');
+        }
+    }
 }

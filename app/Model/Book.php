@@ -71,9 +71,11 @@ class Book extends AppModel {
         }
     }
 
-    public function createNewBook($data,$user)
+    public function createNewBook($data)
     {
+        $user = CakeSession::read('User');
         $formData = $data['data'];
+        $this->create();
         $this->set('user_id',$user['id']);
         $this->set('bet_start',$formData['Book']['betStartDate'].' '.$formData['Book']['betStartTime'].':00');
         $this->set('bet_finish',$formData['Book']['betFinishDate'].' '.$formData['Book']['betFinishTime'].':00');
@@ -108,6 +110,7 @@ class Book extends AppModel {
             }
             return $this->getLastInsertId();
         } else {
+            $this->validates();
             $errors = $this->validationErrors;
             $errors['content'][] = 'Required 2 book content';
             return $errors;

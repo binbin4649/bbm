@@ -124,4 +124,9 @@ class User extends AppModel {
         $user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
         CakeSession::write('User',$user['User']);
     }
+
+    public function isOwner($book_user_id)
+    {
+        return CakeSession::read('User.id') == $book_user_id;
+    }
 }
