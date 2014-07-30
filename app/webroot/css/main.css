@@ -692,4 +692,10 @@ span.modal-red2 {
 .theprofile .profile-picture {
   width: 100px;
 }
-
+div#flashMessage {border: 1px solid;
+    border-radius: 5px;
+    color: red;
+    float: left;
+    padding: 5px;
+    text-align: center;
+    width: 100%;}

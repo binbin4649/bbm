@@ -47,14 +47,14 @@ class UsersController extends AppController {
             $this->set('user',$currentUser);
             $this->set('result_timeover_count',$result_timeover_count);
             $this->set('makebook_count',$makebook_count);
-            $this->render(implode('/', ['profile-home']));
+            $this->render('profile-home');
         }
 
     }
 
     public function userRankings()
     {
-        $this->render(implode('/', ['user-rankings']));
+        $this->render('user-rankings');
 
     }
 	
@@ -62,7 +62,16 @@ class UsersController extends AppController {
 		$title_arr = array("profile"=>"Profile","passbooks"=>"Passbooks","makedbooks"=>"Makedbooks","betlists"=>"Betlists");
 		$this->set("title_for_layout",$title_arr[$type]);
 		$this->User->recursive = -1;
-		$data = $this->User->find("all",array("conditions"=>array("User.id"=>1)));
+		$data = $this->User->find("all",array("conditions"=>array("User.id"=>$user_id)));
+		//$this->Session->write("User",$data[0]['User']);
+		if ( $type != 'profile' ) { 
+			$flag = $this->authenticateuser($user_id);
+			if( !$flag ) {
+				$this->Session->setFlash("You are not authorize to see the page.");
+				$this->redirect(SITE_LINK."profile/".$user_id);
+			}
+		}
+		
 		if ( $type == 'profile' || $type == 'betlists' ) {
 			$this->loadModel("Bet");
 			$this->paginate = array(
