@@ -1,4 +1,5 @@
 <?php /*pr($betlists); /*pr($passbooks);*/ //pr($books); ?>
+<?php echo $this->Session->flash(); ?>
           <div class="theprofile">
             <h2>Profile - Home</h2>
             <?php echo $this->element("user_profile_bar"); ?>

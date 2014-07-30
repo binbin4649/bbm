@@ -16,8 +16,6 @@
 		echo $this->Html->css('bootstrap.min');
 		//<!-- Main Styles -->
 		echo $this->Html->css('main');
-    //<!-- Custom Styles -->
-    echo $this->Html->css('custom');
 		//<!-- Responsive Styles -->
 		echo $this->Html->css('non-responsive');
 		//<!-- Icon Styles -->
@@ -34,8 +32,6 @@
 	?>
     <?php
     echo $this->Html->script('jquery');
-    echo $this->Html->script('http://www.datejs.com/build/date.js"');
-    
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('bootstrap-datetimepicker.min');
     echo $this->Html->script('respond.min');
@@ -48,51 +44,37 @@
 
 </head>
 <body>
-  <!-- <div id="fb-root"></div> -->
-<script>
-// (function(d, s, id) {
-//   var js, fjs = d.getElementsByTagName(s)[0];
-//   if (d.getElementById(id)) return;
-//   js = d.createElement(s); js.id = id;
-//   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo FacebookInfo::getConfig('appId')?>&version=v2.0";
-//   fjs.parentNode.insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));
-</script>
     <div class="container">
       
       <header class="row">
         <div class="col-xs-12">
           <div class="col-xs-6">
-            <a href="/"><h1 class="logo">BBM</h1></a>
+            <a href="<?php echo SITE_LINK; ?>"><h1 class="logo">BBM</h1></a>
           </div>
           <div class="col-xs-6">
                 <?php if($fbuser): $fb = $this->Session->read('FB'); $user_s = $this->Session->read('User'); ?>
                   <div class="row header-user-info">
                     <div class="col-xs-4">
-                      <!-- shiv wrote. Can not be determined.
                       <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$fb['Me']['id']."/picture?type=square"?>">
-                      <a href="/profile/home"><?php echo $user_s['name'];; ?></a> 
-                      -->
-                      <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB')['Me']['id']."/picture?type=square"?>">
-                      <a href="/profile/home"><?php echo $this->Session->read('User')['name']; ?></a>
+                      <a href="<?php echo SITE_LINK; ?>profile/<?php echo $user_s['id']; ?>"><?php echo $user_s['name'];; ?></a>
                     </div>
                     <div class="col-xs-4">
-                      <i class="glyphicon glyphicon-edit"></i><a href="/profile/edit">Edit</a>
+                      <i class="glyphicon glyphicon-edit"></i><a href="<?php echo SITE_LINK; ?>profile/edit/<?php echo $user_s['id']; ?>">Edit</a>
                     </div>
                     <div class="col-xs-4">
-                      <i class="glyphicon glyphicon-log-out"></i><?php echo $this->Facebook->logout(array('label' => 'Log out', 'redirect' => '/users/logout')); ?>
+                      <i class="glyphicon glyphicon-log-out"></i><?php echo $this->Facebook->logout(array('label' => 'Logout', 'redirect' => array("controller"=>"users","action"=>'logout'))); ?>
                     </div>
                   </div>
                   <div class="row header-user-info">
                     <div class="col-xs-4">
-                      <a href="/profile/passbook"><?php echo $this->Html->image('/img/icon1.png').$user_s['point']; ?></a>
+                      <a href="<?php echo SITE_LINK; ?>passbooks/<?php echo $user_s['id']; ?>"><?php echo $this->Html->image('/img/icon1.png').$user_s['point']; ?></a>
                     </div>
                     <div class="col-xs-4">
-                      <a href="/profile/betlist"><span>Bet Now:</span><?php echo $user_s['betlist'];?></a>
+                      <a href="<?php echo SITE_LINK; ?>betlists/<?php echo $user_s['id']; ?>"><span>Bet Now:</span><?php echo $user_s['betlist'];?></a>
 
                     </div>
                     <div class="col-xs-4">
-                      <a href="/profile/makedbook"><span>Maked Book:</span><?php echo $user_s['makedbook'];?></a>
+                      <a href="<?php echo SITE_LINK; ?>makedbooks/<?php echo $user_s['id']; ?>"><span>Maked Book:</span><?php echo $user_s['makedbook'];?></a>
                     </div>
                   </div>
                 <?php else:?>
@@ -114,13 +96,12 @@
         <div class="col-xs-12">
           <ul>
             <li><a href="/">Book Search</a></li>
-            <li><?php echo $this->Html->link('User Ranking', '/users-ranking') ?></li>
+            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
             <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="https://www.facebook.com/bookbookmaker" target="_blank"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
-            <li><div class="fb-like" data-href="https://www.facebook.com/bookbookmaker" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
-            <!-- <li><?php $this->Facebook->like(); ?></li> -->
+            <li><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
           </ul>
         </div>
       </nav><!--END of nav -->
@@ -175,7 +156,7 @@
             <div class="footer-links">
               <ul>
                 <li><a href="/">Book Search</a></li>
-	            <li><?php echo $this->Html->link('User Ranking', '/users-ranking') ?></li>
+	            <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
 	            <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
 	            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
 	            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
@@ -210,9 +191,12 @@
     
     <!-- The Scripts -->
 
-
+    <script>
+      // $('#morePointModal').modal({show: true});
+    </script>
   </body>
 
 <?php echo $this->element('sql_dump'); ?>
 <?php echo $this->Facebook->init(); ?>
+
 </html>
