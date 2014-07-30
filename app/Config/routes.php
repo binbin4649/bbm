@@ -53,7 +53,14 @@
 
     Router::connect('/betlists/*', array('controller' => 'users', 'action' => 'profile','betlists'));
     Router::connect('/makedbooks/*', array('controller' => 'users', 'action' => 'profile','makedbooks'));
-
+Router::connect('/admin', array('controller' => 'admins', 'action' => 'login'));
+	Router::connect('/admin/dashboard', array('controller' => 'admins', 'action' => 'dashboard'));
+	Router::connect('/admin/forgotpassword', array('controller' => 'admins', 'action' => 'forgotpassword'));
+	Router::connect('/admin/changepassword', array('controller' => 'admins', 'action' => 'changepassword'));
+	Router::connect('/admin/confirmation/*', array('controller' => 'admins', 'action' => 'confirmation'));
+	Router::connect('/admin/configurations/*', array('controller' => 'admins', 'action' => 'configurations'));
+	Router::connect('/admin/editprofile', array('controller' => 'admins', 'action' => 'editprofile'));
+	Router::connect('/admin/logout', array('controller' => 'admins', 'action' => 'logout'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
