@@ -62,7 +62,7 @@ CREATE TABLE `books` (
   `bet_start` datetime NOT NULL,
   `bet_finish` datetime NOT NULL,
   `result_time` datetime NOT NULL,
-  `time_zone` int(3) NOT NULL COMMENT 'ex)1 it mean  UTC+1',
+  `time_zone` int(3) NOT NULL COMMENT 'id for table time_zones',
   `result_time_info` int(1) NOT NULL DEFAULT '0' COMMENT '0=false,1=true',
   `timeover_info` int(1) NOT NULL DEFAULT '0' COMMENT '0=false,1=true',
   `details` text COLLATE utf8_unicode_ci NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE `contents` (
   `book_id` int(20) NOT NULL,
   `title` varchar(320) COLLATE utf8_unicode_ci NOT NULL,
   `no` int(2) NOT NULL COMMENT 'Alignment sequence',
-  `odds` float NOT NULL DEFAULT '1',
+  `odds` float(10,2) NOT NULL DEFAULT '1.00',
   `bet_total` int(10) NOT NULL DEFAULT '0',
   `user_count` int(10) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
@@ -148,6 +148,33 @@ CREATE TABLE `passbooks` (
 LOCK TABLES `passbooks` WRITE;
 /*!40000 ALTER TABLE `passbooks` DISABLE KEYS */;
 /*!40000 ALTER TABLE `passbooks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `time_zones`
+--
+
+DROP TABLE IF EXISTS `time_zones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `time_zones` (
+  `id` int(11) NOT NULL,
+  `gmtAdjustment` varchar(20) NOT NULL,
+  `useDaylightTime` tinyint(4) NOT NULL,
+  `value` float(5,2) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `time_zones`
+--
+
+LOCK TABLES `time_zones` WRITE;
+/*!40000 ALTER TABLE `time_zones` DISABLE KEYS */;
+INSERT INTO `time_zones` VALUES (1,'GMT-12:00',0,-12.00,'(GMT-12:00) International Date Line West'),(2,'GMT-11:00',0,-11.00,'(GMT-11:00) Midway Island, Samoa'),(3,'GMT-10:00',0,-10.00,'(GMT-10:00) Hawaii'),(4,'GMT-09:00',1,-9.00,'(GMT-09:00) Alaska'),(5,'GMT-08:00',1,-8.00,'(GMT-08:00) Pacific Time (US & Canada)'),(6,'GMT-08:00',1,-8.00,'(GMT-08:00) Tijuana, Baja California'),(7,'GMT-07:00',0,-7.00,'(GMT-07:00) Arizona'),(8,'GMT-07:00',1,-7.00,'(GMT-07:00) Chihuahua, La Paz, Mazatlan'),(9,'GMT-07:00',1,-7.00,'(GMT-07:00) Mountain Time (US & Canada)'),(10,'GMT-06:00',0,-6.00,'(GMT-06:00) Central America'),(11,'GMT-06:00',1,-6.00,'(GMT-06:00) Central Time (US & Canada)'),(12,'GMT-06:00',1,-6.00,'(GMT-06:00) Guadalajara, Mexico City, Monterrey'),(13,'GMT-06:00',0,-6.00,'(GMT-06:00) Saskatchewan'),(14,'GMT-05:00',0,-5.00,'(GMT-05:00) Bogota, Lima, Quito, Rio Branco'),(15,'GMT-05:00',1,-5.00,'(GMT-05:00) Eastern Time (US & Canada)'),(16,'GMT-05:00',1,-5.00,'(GMT-05:00) Indiana (East)'),(17,'GMT-04:00',1,-4.00,'(GMT-04:00) Atlantic Time (Canada)'),(18,'GMT-04:00',0,-4.00,'(GMT-04:00) Caracas, La Paz'),(19,'GMT-04:00',0,-4.00,'(GMT-04:00) Manaus'),(20,'GMT-04:00',1,-4.00,'(GMT-04:00) Santiago'),(21,'GMT-03:30',1,-3.50,'(GMT-03:30) Newfoundland'),(22,'GMT-03:00',1,-3.00,'(GMT-03:00) Brasilia'),(23,'GMT-03:00',0,-3.00,'(GMT-03:00) Buenos Aires, Georgetown'),(24,'GMT-03:00',1,-3.00,'(GMT-03:00) Greenland'),(25,'GMT-03:00',1,-3.00,'(GMT-03:00) Montevideo'),(26,'GMT-02:00',1,-2.00,'(GMT-02:00) Mid-Atlantic'),(27,'GMT-01:00',0,-1.00,'(GMT-01:00) Cape Verde Is.'),(28,'GMT-01:00',1,-1.00,'(GMT-01:00) Azores'),(29,'GMT+00:00',0,0.00,'(GMT+00:00) Casablanca, Monrovia, Reykjavik'),(30,'GMT+00:00',1,0.00,'(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London'),(31,'GMT+01:00',1,1.00,'(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna'),(32,'GMT+01:00',1,1.00,'(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague'),(33,'GMT+01:00',1,1.00,'(GMT+01:00) Brussels, Copenhagen, Madrid, Paris'),(34,'GMT+01:00',1,1.00,'(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb'),(35,'GMT+01:00',1,1.00,'(GMT+01:00) West Central Africa'),(36,'GMT+02:00',1,2.00,'(GMT+02:00) Amman'),(37,'GMT+02:00',1,2.00,'(GMT+02:00) Athens, Bucharest, Istanbul'),(38,'GMT+02:00',1,2.00,'(GMT+02:00) Beirut'),(39,'GMT+02:00',1,2.00,'(GMT+02:00) Cairo'),(40,'GMT+02:00',0,2.00,'(GMT+02:00) Harare, Pretoria'),(41,'GMT+02:00',1,2.00,'(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius'),(42,'GMT+02:00',1,2.00,'(GMT+02:00) Jerusalem'),(43,'GMT+02:00',1,2.00,'(GMT+02:00) Minsk'),(44,'GMT+02:00',1,2.00,'(GMT+02:00) Windhoek'),(45,'GMT+03:00',0,3.00,'(GMT+03:00) Kuwait, Riyadh, Baghdad'),(46,'GMT+03:00',1,3.00,'(GMT+03:00) Moscow, St. Petersburg, Volgograd'),(47,'GMT+03:00',0,3.00,'(GMT+03:00) Nairobi'),(48,'GMT+03:00',0,3.00,'(GMT+03:00) Tbilisi'),(49,'GMT+03:30',1,3.50,'(GMT+03:30) Tehran'),(50,'GMT+04:00',0,4.00,'(GMT+04:00) Abu Dhabi, Muscat'),(51,'GMT+04:00',1,4.00,'(GMT+04:00) Baku'),(52,'GMT+04:00',1,4.00,'(GMT+04:00) Yerevan'),(53,'GMT+04:30',0,4.50,'(GMT+04:30) Kabul'),(54,'GMT+05:00',1,5.00,'(GMT+05:00) Yekaterinburg'),(55,'GMT+05:00',0,5.00,'(GMT+05:00) Islamabad, Karachi, Tashkent'),(56,'GMT+05:30',0,5.50,'(GMT+05:30) Sri Jayawardenapura'),(57,'GMT+05:30',0,5.50,'(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi'),(58,'GMT+05:45',0,5.75,'(GMT+05:45) Kathmandu'),(59,'GMT+06:00',1,6.00,'(GMT+06:00) Almaty, Novosibirsk'),(60,'GMT+06:00',0,6.00,'(GMT+06:00) Astana, Dhaka'),(61,'GMT+06:30',0,6.50,'(GMT+06:30) Yangon (Rangoon)'),(62,'GMT+07:00',0,7.00,'(GMT+07:00) Bangkok, Hanoi, Jakarta'),(63,'GMT+07:00',1,7.00,'(GMT+07:00) Krasnoyarsk'),(64,'GMT+08:00',0,8.00,'(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi'),(65,'GMT+08:00',0,8.00,'(GMT+08:00) Kuala Lumpur, Singapore'),(66,'GMT+08:00',0,8.00,'(GMT+08:00) Irkutsk, Ulaan Bataar'),(67,'GMT+08:00',0,8.00,'(GMT+08:00) Perth'),(68,'GMT+08:00',0,8.00,'(GMT+08:00) Taipei'),(69,'GMT+09:00',0,9.00,'(GMT+09:00) Osaka, Sapporo, Tokyo'),(70,'GMT+09:00',0,9.00,'(GMT+09:00) Seoul'),(71,'GMT+09:00',1,9.00,'(GMT+09:00) Yakutsk'),(72,'GMT+09:30',0,9.50,'(GMT+09:30) Adelaide'),(73,'GMT+09:30',0,9.50,'(GMT+09:30) Darwin'),(74,'GMT+10:00',0,10.00,'(GMT+10:00) Brisbane'),(75,'GMT+10:00',1,10.00,'(GMT+10:00) Canberra, Melbourne, Sydney'),(76,'GMT+10:00',1,10.00,'(GMT+10:00) Hobart'),(77,'GMT+10:00',0,10.00,'(GMT+10:00) Guam, Port Moresby'),(78,'GMT+10:00',1,10.00,'(GMT+10:00) Vladivostok'),(79,'GMT+11:00',1,11.00,'(GMT+11:00) Magadan, Solomon Is., New Caledonia'),(80,'GMT+12:00',1,12.00,'(GMT+12:00) Auckland, Wellington'),(81,'GMT+12:00',0,12.00,'(GMT+12:00) Fiji, Kamchatka, Marshall Is.'),(82,'GMT+13:00',0,13.00,'(GMT+13:00) Nuku\'alofa');
+/*!40000 ALTER TABLE `time_zones` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -204,7 +231,7 @@ CREATE TABLE `users` (
   `default_rate` int(4) NOT NULL DEFAULT '10',
   `facebook_auto_post` int(1) NOT NULL DEFAULT '1' COMMENT '0=false, 1=true',
   `mail_submit` int(1) NOT NULL DEFAULT '1' COMMENT '0=false, 1=true',
-  `time_zone` varchar(40) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ex)1 it mean  UTC+1',
+  `time_zone` varchar(40) COLLATE utf8_unicode_ci NOT NULL COMMENT 'id for table time_zones',
   `language` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ex) english',
   `facebook_like_point` int(1) NOT NULL DEFAULT '0' COMMENT '0=false, 1=true',
   `login_count` int(10) NOT NULL DEFAULT '1',
@@ -233,4 +260,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-18 10:06:11
+-- Dump completed on 2014-07-30  8:33:48
