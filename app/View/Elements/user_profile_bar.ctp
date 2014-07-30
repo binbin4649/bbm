@@ -1,13 +1,13 @@
 <div class="profile-picture">
 <?php if($this->Session->read('FB.Me.id')) { ?>
-	<img style="width:20%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB.Me.id')."/picture?type=square"?>" />
+	<img style="width:100%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB.Me.id')."/picture?type=square"?>" />
 <?php } else { ?>
 <?php echo $this->Html->image("profile.png"); } ?>
   
 </div>
 <div class="profile-info-left">
-  <a href="<?php echo SITE_LINK."profile/".$data['User']['id']; ?>"><?php echo $data['User']['name']; ?></a>
-  <a href="<?php echo SITE_LINK."betlists/".$data['User']['id']; ?>">Bet List:<?php echo $data['User']['betlist']; ?></a>
+  <div><a href="<?php echo SITE_LINK."profile/".$data['User']['id']; ?>"><?php echo $data['User']['name']; ?></a></div>
+  <div><a href="<?php echo SITE_LINK."betlists/".$data['User']['id']; ?>">Bet List:<?php echo $data['User']['betlist']; ?></a></div>
   <p>Book Delete:<?php echo $data['User']['book_delete']; ?></p>
 </div>
 <div class="profile-info-right">
