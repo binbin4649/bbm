@@ -78,8 +78,8 @@ var booksPageFunctionality = function(){
     });
 
     $('.make-win').on('click',function(){
-        $('#Win').find('.content-bets-title').html($(this).parents('tr').find('.thetitle').html());
-        $('#Win').find('.currentContentIdOnModal').val($(this).parents('tr').find('a.loadAllBets').attr('data-contentid'));
+        $('#Win').find('.content-bets-title').html($(this).attr('data-title'));
+        $('#Win').find('.currentContentIdOnModal').val($(this).attr('data-contentid'));
     });
 
 
@@ -91,13 +91,6 @@ var booksPageFunctionality = function(){
             book_id: $('#bookid').val(),
             content_id: $(event.target).parents('.modal-content').find('.currentContentIdOnModal').val(),
             oddFactor: $(event.target).parents('.modal-content').find('input').val()
-          },
-          beforeSend: function(){
-            console.log({data: {
-            book_id: $('#bookid').val(),
-            content_id: $(event.target).parents('.modal-content').find('.currentContentIdOnModal').val(),
-            oddFactor: $(event.target).parents('.modal-content').find('input').val()
-          }});
           },
           type: 'POST',
           url: '/bets',
@@ -131,8 +124,9 @@ var booksPageFunctionality = function(){
           url: '/books/win',
           dataType:'json',
           success: function(response){
-            $('#Win').modal('hide');
+            // $('#Win').modal('hide');
             $('button[type=submit]').removeClass('disabled');
+            location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);

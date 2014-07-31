@@ -26,7 +26,7 @@
                         <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2"><span class="content_user_count"><?php echo $content['user_count']?></span></a></span>
                       </div>
                       <div class="right">
-                        <button class="btn btn-success btn-block make-win" data-toggle="modal" data-target="#Win">Win</button>
+                        <button class="btn btn-success btn-block make-win" data-contentid="<?php echo $content['id']?>" data-title="<?php echo $content['title']?>" data-toggle="modal" data-target="#Win">Win</button>
                         <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span class="content_bet_total"><?php echo $content['bet_total']?></span></span>
                       </div>
                     </td>
