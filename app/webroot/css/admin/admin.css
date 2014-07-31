@@ -97,7 +97,7 @@ ul, li {
     margin-left: 25px;
     padding: 0 30px;
     text-indent: -999px;
-    width: 508px;
+    width: 130px;
 }
 #header h1 a {
 	color: #fff;
@@ -1084,3 +1084,4 @@ div#userslist ul li {border-bottom: 1px dotted;
 div#userslist ul li img {float:left;}
 div#userslist ul li p{float:left;margin-left:10px;}
 p#selectall{cursor: pointer;font-weight:bold;}
+select#PassbookUserId{width:101.6% !important;}
