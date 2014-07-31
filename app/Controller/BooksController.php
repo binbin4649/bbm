@@ -52,11 +52,11 @@ class BooksController extends AppController {
                     $this->render(implode('/', ['book-betnow']));
 
                 } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {
-
+                    $this->set('pagetitle','Book - Bet Finish');
                     $this->render(implode('/', ['book-betfinish']));
 
                 } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && $this->Book->User->isOwner($currentBook['Book']['user_id'])) {
-
+                    $this->set('pagetitle','Book - Bet Finish');
                     $this->render(implode('/', ['book-select-result']));
 
                 } else if (ucfirst($currentBook['Book']['state']) == 'Result') {
