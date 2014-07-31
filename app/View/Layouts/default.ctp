@@ -61,7 +61,7 @@
                       <a href="<?php echo SITE_LINK; ?>profile/<?php echo $user_s['id']; ?>"><?php echo $user_s['name'];; ?></a>
                     </div>
                     <div class="col-xs-4">
-                      <i class="glyphicon glyphicon-edit"></i><a href="<?php echo SITE_LINK; ?>profile/edit/<?php echo $user_s['id']; ?>">Edit</a>
+                      <i class="glyphicon glyphicon-edit"></i><a href="<?php echo SITE_LINK; ?>profile/edit">Edit</a>
                     </div>
                     <div class="col-xs-4">
                       <i class="glyphicon glyphicon-log-out"></i><?php echo $this->Facebook->logout(array('label' => 'Logout', 'redirect' => array("controller"=>"users","action"=>'logout'))); ?>

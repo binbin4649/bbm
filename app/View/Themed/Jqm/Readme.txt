@@ -24,3 +24,10 @@ function beforeFilter() {
 	}
 }
 
+
+
+2014/07/30 add
+not created ​​to make book page.
+
+2014/07/31 add
+not created ​​to make Control(admin) page.

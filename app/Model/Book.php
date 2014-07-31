@@ -4,7 +4,12 @@ App::uses('AppModel','Model');
 class Book extends AppModel {
     public $name = 'Book';
     public $useTable = 'books';
-    public $belongsTo = 'User';
+    public $belongsTo = array(
+    'User',
+    'TimeZone' => array(
+            'foreignKey'    => 'time_zone'
+        )
+    );
     public $actsAs = array('Search.Searchable');
     public $hasMany = array(
         'Content' => array(
@@ -80,7 +85,7 @@ class Book extends AppModel {
         $this->set('bet_start',$formData['Book']['betStartDate'].' '.$formData['Book']['betStartTime'].':00');
         $this->set('bet_finish',$formData['Book']['betFinishDate'].' '.$formData['Book']['betFinishTime'].':00');
         $this->set('result_time',$formData['Book']['betResultDate'].' '.$formData['Book']['betResultTime'].':00');
-        $this->set('time_zone',$data['timeZone']);
+        $this->set('time_zone',$formData['Book']['time_zone']);
         $this->set('details',$formData['Book']['bookDetail']);
         $this->set('category',$formData['Book']['category']);
         $this->set('title',$formData['Book']['title']);
