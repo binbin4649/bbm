@@ -1,5 +1,5 @@
- <div class="book">
-            <div class="book-head">
+<div class="book">
+<div class="book-head">
               <h2><?php echo $book['Book']['title']?></h2>
               <div class="col-xs-8">
                 <span class="book-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<span id="book_user_all_count"><?php echo $book['Book']['user_all_count']?></span></span>
@@ -17,19 +17,20 @@
                 </div>
               </div>
             </div>
-            
-            <p class="help-block">Bet now.</p>
+
+            <p class="help-block">Result were presented.</p>
             <div class="sub-head">
               <div class="message col-xs-9">
-                <p>Bet now!</p>
+                <p>WIN : <?php echo $winner[0]['title'];?><br>
+                  Final odds : <?php echo $winner[0]['odds'];?></p>
               </div>
               <div class="col-xs-3">
-                <?php if ($book['User']['id'] == $this->Session->read('User')['id']):?>
-                  <button class="btn btn-default btn-block btn-delete make-delete" data-toggle="modal" data-target="#Delete">Delete & Copy</button>
-                <?php endif;?>
+                <button class="btn btn-default btn-block btn-delete" data-toggle="modal" data-target="#Delete">Copy</button>
               </div>
             </div>
-            
+
+
+
             <table class="book-table table table-bordered">
               <tbody>
                 <?php foreach ($book['Content'] as $content):?>
@@ -45,7 +46,11 @@
                         <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2"><span class="content_user_count"><?php echo $content['user_count']?></span></a></span>
                       </div>
                       <div class="right">
-                        <button class="btn btn-danger btn-block make-bet" data-toggle="modal" data-odds="<?php echo $content['odds']?>" data-title="<?php echo $content['title']?>" data-contentid="<?php echo $content['id']?>" data-target="#Bet">Bet</button>
+                        <?php if ($content['id'] == $book['Book']['win_contents_id']):?>
+                          <button class="btn btn-success btn-block">Win</button>
+                        <?php else:?>
+                          <button class="btn btn-block">-</button>
+                        <?php endif;?>
                         <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span class="content_bet_total"><?php echo $content['bet_total']?></span></span>
                       </div>
                     </td>
@@ -53,6 +58,9 @@
                 <?php endforeach;?>
               </tbody>
             </table>
+
+
+
             
             <div class="article">
               <div class="article-headers">
@@ -77,9 +85,9 @@
               <div class="article-headers">
                 <h3>Result</h3>
               </div>
-              
+              <p><?php echo $book['Book']['result_detail'];?></p>
             </div>
-
+            
             <div class="sns-buttons">
               
             </div><!--End of SNS Buttons -->
@@ -91,39 +99,11 @@
             <div class="twitter">
               
             </div><!--End of twitter-->
-      
+
           </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="Bet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Bet</h4>
-      </div>
-      <div class="modal-body">
-        <p class="content-bets-title">Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Length84</p>
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-sm-5 control-label">Odds <span class="modal-red2 content-odd-value">999.999</span> ×</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" value="<?php echo CakeSession::read('User.default_rate');?>">
-              <input type="hidden" class="currentContentIdOnModal">
-            </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-danger btn-lg bet-btn">Bet</button>
-        </form>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<!-- Modal -->
+          
+<!-- Modal bet list -->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -147,30 +127,21 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- Modal Delete Button -->
+<!-- Modal Copy Button -->
 <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header text-center">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Book Delete</h4>
+        <h4 class="modal-title">Book Copy</h4>
       </div>
       <div class="modal-body">
-        <p>You can delete a book. However, if you have deleted a book that has bets already placed on it the bookmaker receives a penalty. If nobody has bet yet there is no penalty.</p>
-        <form>
-          <div class="form-group">
-            <label>Delete Detail</label>
-            <textarea class="form-control" rows="7"></textarea>
-            <input type="hidden" class="currentContentIdOnModal">
-          </div>
-        </form>
+        <p>In replicating this book, you can create a new book.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger delete-book">Delete</button>
-        <button type="button" class="btn btn-warning delete-copy-book">Delete & Copy</button>
+        <button type="button" class="btn btn-warning copy-book">Copy</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    

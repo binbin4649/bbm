@@ -7,7 +7,7 @@ class BetsController extends AppController {
 
     public function add()
     {
-        $this->Bet->saveNewBet($_POST,$this->Session->read('User'));
+        $this->Bet->saveNewBet($_POST);
         $this->sendJSON($_POST);
     }
 
