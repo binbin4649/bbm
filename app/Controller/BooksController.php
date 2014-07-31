@@ -41,30 +41,31 @@ class BooksController extends AppController {
                 if (isset($time_zone['TimeZone']) && isset($time_zone['TimeZone']['value'])) {
                     $bookdaystate = new BookDayState($currentBook,$time_zone['TimeZone']['value']);
                     $this->set('startTime',$bookdaystate->getStartTime());
-                    if ($currentBook['Book']['state'] == 'Timeover'){
-
+                    if (ucfirst($currentBook['Book']['state']) == 'Timeover'){
+                        $this->set('pagetitle','Book - Timeover');
                         $this->render(implode('/', ['book-timeover']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
-                    $this->set('pagetitle','Book - Upcoming');
-                    $this->render(implode('/', ['book-upcoming']));
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
+                        $this->set('pagetitle','Book - Upcoming');
+                        $this->render(implode('/', ['book-upcoming']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
-                    $this->set('pagetitle','Book - Bet Now');
-                    $this->render(implode('/', ['book-betnow']));
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
+                        $this->set('pagetitle','Book - Bet Now');
+                        $this->render(implode('/', ['book-betnow']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {
-                    $this->set('pagetitle','Book - Bet Finish');
-                    $this->render(implode('/', ['book-betfinish']));
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {
+                        $this->set('pagetitle','Book - Bet Finish');
+                        $this->render(implode('/', ['book-betfinish']));
 
-                } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && $this->Book->User->isOwner($currentBook['Book']['user_id'])) {
-                    $this->set('pagetitle','Book - Bet Finish');
-                    $this->render(implode('/', ['book-select-result']));
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && $this->Book->User->isOwner($currentBook['Book']['user_id'])) {
+                        $this->set('pagetitle','Book - Bet Finish');
+                        $this->render(implode('/', ['book-select-result']));
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Result') {
                         $winner = array_filter($currentBook['Content'],function($item) use($currentBook){
                           return $item['id'] == $currentBook['Book']['win_contents_id'];
                         });
+                        $this->set('pagetitle','Book - Result');
                         $this->set('winner',$winner);
                         $this->render(implode('/', ['book-result']));
                     }

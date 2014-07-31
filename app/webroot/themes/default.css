@@ -474,3 +474,17 @@ button[disabled],
     color: blue !important;
     cursor: pointer;
 }
+
+.ui-btn.btn-success {
+color: #fff;
+background-color: #5cb85c;
+border-color: #4cae4c;
+text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #f3f3f3 /*{a-bup-shadow-color}*/;
+}
+
+.ui-btn.btn-success:hover, .ui-btn.btn-success:focus, .ui-btn.btn-success:active, .ui-btn.btn-success.active{
+color: #fff;
+background-color: #47a447;
+border-color: #398439;
+text-shadow: 0 /*{a-bhover-shadow-x}*/ 1px /*{a-bhover-shadow-y}*/ 0 /*{a-bhover-shadow-radius}*/ #f3f3f3 /*{a-bhover-shadow-color}*/;
+}
