@@ -64,8 +64,9 @@ class Bet extends AppModel {
     );
 
 
-    public function saveNewBet($attrs,$currentUser)
+    public function saveNewBet($attrs)
     {
+        $currentUser = CakeSession::read('User');
         $content = $this->Content->find('first',array('conditions'=>array('Content.id'=>$attrs['content_id'])));
         // var_dump($content);
         if (!empty($content)) {
@@ -74,7 +75,6 @@ class Bet extends AppModel {
                 $attrs['oddFactor'] = 1;
             }
             $betpoint = $content['Content']['odds'] * $attrs['oddFactor'];
-
             $book_bet_all_total = $content['Book']['bet_all_total'] + $betpoint;
             $result_point = $content['Content']['bet_total']+$betpoint;
 
@@ -87,7 +87,7 @@ class Bet extends AppModel {
             $this->Content->id = $content['Content']['id'];
             $this->Content->set('bet_total',$result_point);
             $this->Content->set('user_count',++$content['Content']['user_count']);
-            $this->Content->set('odds',1/($content['Content']['bet_total']/($book_bet_all_total*0.99)));
+            $this->Content->set('odds',1/($result_point/($book_bet_all_total*0.99)));
             $this->Content->save();
 
             $this->create();

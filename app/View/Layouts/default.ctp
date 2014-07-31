@@ -38,6 +38,8 @@
     echo $this->Html->script('readmore'); 
 
     echo $this->Html->script('bbm'); 
+    echo $this->Html->script('route'); 
+
 
 
     ?>

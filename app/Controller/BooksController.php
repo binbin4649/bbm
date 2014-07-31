@@ -20,6 +20,7 @@ class BooksController extends AppController {
         $this->Paginator->settings['conditions'] = $conditions;
         $this->set('books', $this->Paginator->paginate());
         try {
+            $this->set('pagetitle','Book - Home');
             $this->render('home');
         } catch (MissingViewException $e) {
             if (Configure::read('debug')) {
@@ -43,11 +44,11 @@ class BooksController extends AppController {
                     $this->render(implode('/', ['book-timeover']));
 
                 } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
-
+                    $this->set('pagetitle','Book - Upcoming');
                     $this->render(implode('/', ['book-upcoming']));
 
                 } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
-
+                    $this->set('pagetitle','Book - Bet Now');
                     $this->render(implode('/', ['book-betnow']));
 
                 } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {

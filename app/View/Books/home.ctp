@@ -61,18 +61,5 @@ $state = array(''=>'Category','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet
               <?php echo $this->Paginator->prev(__('<<'), array('tag' => 'li'), null,  array('class' => 'disabled','tag' => 'li'));?>
               <?php echo $this->Paginator->numbers(array('tag' => 'li','separator'=>''));?>
               <?php echo $this->Paginator->next(__('>>'), array('tag' => 'li'), null,  array('class' => 'disabled','tag' => 'li'));?>
-
-              <!-- <li><a href="#">&laquo;</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">6</a></li>
-              <li><a href="#">7</a></li>
-              <li><a href="#">8</a></li>
-              <li><a href="#">9</a></li>
-              <li><a href="#">&raquo;</a></li> -->
             </ul>
           </div>
-          

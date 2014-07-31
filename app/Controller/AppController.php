@@ -41,7 +41,10 @@ class AppController extends Controller {
 			define("SITE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
 			define("FILE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
 		}
-		
+        if($this->request->is('mobile')){
+            $this->theme = 'Jqm';
+            $this->layout = 'jqm';
+        }
 		if ($this->params['controller'] == 'admins' || $this->params['prefix'] == 'admin') {
 			//$this->Auth->allow();			
 			$this->userInfo = $this->Session->read('admin.Admin') ;
