@@ -6,7 +6,7 @@
   
 </div>
 <div class="profile-info-left">
-  <div><a href="<?php echo SITE_LINK."profile/".$data['User']['id']; ?>"><?php echo $data['User']['name']; ?></a></div>
+  <div><a href="<?php echo SITE_LINK."users/".$data['User']['id']; ?>"><?php echo $data['User']['name']; ?></a></div>
   <div><a href="<?php echo SITE_LINK."betlists/".$data['User']['id']; ?>">Bet List:<?php echo $data['User']['betlist']; ?></a></div>
   <p>Book Delete:<?php echo $data['User']['book_delete']; ?></p>
 </div>

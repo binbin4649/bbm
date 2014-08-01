@@ -58,7 +58,7 @@
                   <div class="row header-user-info">
                     <div class="col-xs-4">
                       <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$fb['Me']['id']."/picture?type=square"?>">
-                      <a href="<?php echo SITE_LINK; ?>profile/<?php echo $user_s['id']; ?>"><?php echo $user_s['name'];; ?></a>
+                      <a href="<?php echo SITE_LINK; ?>users/<?php echo $user_s['id']; ?>"><?php echo $user_s['name'];; ?></a>
                     </div>
                     <div class="col-xs-4">
                       <i class="glyphicon glyphicon-edit"></i><a href="<?php echo SITE_LINK; ?>profile/edit">Edit</a>
