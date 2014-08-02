@@ -16,6 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL,
+  `passwordstatus` tinyint(1) NOT NULL,
+  `remembertoken` varchar(255) NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admins`
+--
+
+LOCK TABLES `admins` WRITE;
+/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+INSERT INTO `admins` VALUES (1,'admin@admin.com','9a2ce73bde64af02061df81ec8b6c0cb',1,0,'db6269382b517db72e72bc0e16f1aba4','2013-04-26 00:00:00','2013-09-13 10:49:08');
+/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `bets`
 --
 
@@ -76,7 +106,7 @@ CREATE TABLE `books` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,8 +115,40 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,1,'book1',0,0,'Up Coming','Others','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03'),(3,1,'book2',0,0,'Book Delete','Sports','2014-07-16 16:41:20','2014-07-17 16:41:23','2014-07-25 16:41:30',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:42:43','2014-07-16 16:42:46'),(4,2,'book3',0,0,'Bet Now','Sports','2014-07-17 16:41:36','2014-07-25 16:41:39','2014-07-30 16:41:42',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:42:36','2014-07-16 16:42:39'),(5,2,'book4',0,0,'Up Coming','Others','2014-07-16 16:44:21','2014-07-17 16:44:24','2014-07-22 16:44:27',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:44:50','2014-07-16 16:44:48'),(6,2,'book5',0,0,'Result Timeover','Sports','2014-07-17 16:44:34','2014-07-18 16:44:37','2014-07-22 16:44:40',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:44:43','2014-07-16 16:44:45');
+INSERT INTO `books` VALUES (1,1,'book1',0,0,'Up Coming','Others','2014-07-29 17:34:20','2014-07-30 17:34:24','2014-07-31 17:34:27',6,0,0,'samplesamplesamplesample','web','samplesamplesamplesample','sample',NULL,NULL,NULL,0,'2014-07-14 17:34:59','2014-07-14 17:35:03'),(3,1,'book2',0,0,'Book Delete','Sports','2014-07-16 16:41:20','2014-07-17 16:41:23','2014-07-25 16:41:30',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:42:43','2014-07-16 16:42:46'),(4,2,'book3',0,0,'Bet Now','Sports','2014-07-17 16:41:36','2014-07-25 16:41:39','2014-07-30 16:41:42',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:42:36','2014-07-16 16:42:39'),(5,2,'book4',0,0,'Up Coming','Others','2014-07-16 16:44:21','2014-07-17 16:44:24','2014-07-22 16:44:27',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:44:50','2014-07-16 16:44:48'),(6,2,'book5',0,0,'Result Timeover','Sports','2014-07-17 16:44:34','2014-07-18 16:44:37','2014-07-22 16:44:40',1,0,0,'','','','',NULL,NULL,NULL,0,'2014-07-16 16:44:43','2014-07-16 16:44:45'),(7,9,'sample book 1',0,0,'Up Coming','Sports','2014-08-02 20:20:00','2014-08-02 21:25:00','2014-08-02 23:35:00',69,0,0,'','URL','','sample.com',NULL,NULL,NULL,0,'2014-08-02 20:15:55','2014-08-02 20:15:55'),(8,9,'sample book 2',0,0,'Bet Now','Sports','2014-08-02 20:25:00','2014-08-02 21:30:00','2014-08-02 23:40:00',69,0,0,'','URL','','http://hideichi.com',NULL,NULL,NULL,0,'2014-08-02 20:17:46','2014-08-02 20:17:46'),(9,9,'sample book 3',0,0,'result','Sports','2014-08-02 20:25:00','2014-08-02 21:30:00','2014-08-02 23:40:00',69,0,0,'','URL','','','',9,0,0,'2014-08-02 20:19:08','2014-08-02 20:27:29'),(10,9,'sample book 4',0,0,'Bet Finish','Sports','2014-08-02 20:25:00','2014-08-02 21:30:00','2014-08-02 23:40:00',69,0,0,'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ab, dignissimos provident mollitia tenetur quas porro iusto inventore excepturi minus voluptatum id alias omnis rerum natus cupiditate quasi illo accusamus.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ab, dignissimos provident mollitia tenetur quas porro iusto inventore excepturi minus voluptatum id alias omnis rerum natus cupiditate quasi illo accusamus.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ab, dignissimos provident mollitia tenetur quas porro iusto inventore excepturi minus voluptatum id alias omnis rerum natus cupiditate quasi illo accusamus.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa odio odit laudantium! Enim, quisquam, cupiditate? Nulla, enim, rerum odit cum atque error qui libero iste minus ratione sint quaerat assumenda.','URL','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ab, dignissimos provident mollitia tenetur quas porro iusto inventore excepturi minus voluptatum id alias omnis rerum natus cupiditate quasi illo accusamus.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ab, dignissimos provident mollitia tenetur quas porro iusto inventore excepturi minus voluptatum id alias omnis rerum natus cupiditate quasi illo accusamus.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ab, dignissimos provident mollitia tenetur quas porro iusto inventore excepturi minus voluptatum id alias omnis rerum natus cupiditate quasi illo accusamus.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa odio odit laudantium! Enim, quisquam, cupiditate? Nulla, enim, rerum odit cum atque error qui libero iste minus ratione sint quaerat assumenda.','',NULL,NULL,NULL,0,'2014-08-02 20:21:17','2014-08-02 20:21:17');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `breadcrumbs`
+--
+
+DROP TABLE IF EXISTS `breadcrumbs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `breadcrumbs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `controller` varchar(255) DEFAULT NULL,
+  `action` varchar(255) DEFAULT NULL,
+  `keyval` varchar(255) DEFAULT NULL,
+  `keycontroller` varchar(255) DEFAULT NULL,
+  `keyaction` varchar(255) DEFAULT NULL,
+  `keylink` tinyint(1) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `breadcrumbs`
+--
+
+LOCK TABLES `breadcrumbs` WRITE;
+/*!40000 ALTER TABLE `breadcrumbs` DISABLE KEYS */;
+INSERT INTO `breadcrumbs` VALUES (1,'admins','dashboard','Home','admins','dashboard',0,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(2,'admins','changepassword','Home','admins','dashboard',1,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(3,'admins','changepassword','Change Password','admins','changepassword',0,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(4,'admins','index','Home','admins','dashboard',1,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(5,'admins','index','Admins','admins','index',0,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(6,'admins','add','Home','admins','dashboard',1,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(7,'admins','add','Admins','admins','index',1,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(8,'admins','add','Add Admin','admins','index',0,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(9,'admins','edit','Home','admins','dashboard',1,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(10,'admins','edit','Admins','admins','index',1,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(11,'admins','edit','Edit Admin','admins','index',0,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(12,'admins','editprofile','Home','admins','dashboard',1,1,'2013-04-29 12:26:17','2013-04-29 12:26:17'),(13,'admins','editprofile','Edit Profile','admins','index',0,1,'2013-04-29 12:26:17','2013-04-29 12:26:17');
+/*!40000 ALTER TABLE `breadcrumbs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -107,7 +169,7 @@ CREATE TABLE `contents` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +178,7 @@ CREATE TABLE `contents` (
 
 LOCK TABLES `contents` WRITE;
 /*!40000 ALTER TABLE `contents` DISABLE KEYS */;
+INSERT INTO `contents` VALUES (1,7,'sample content 1',1,1.00,0,0,'2014-08-02 20:15:55','2014-08-02 20:15:55'),(2,7,'sample content 2',2,1.00,0,0,'2014-08-02 20:15:55','2014-08-02 20:15:55'),(3,7,'sample content 3',3,1.00,0,0,'2014-08-02 20:15:55','2014-08-02 20:15:55'),(4,8,'sample content 1',1,1.00,0,0,'2014-08-02 20:17:46','2014-08-02 20:17:46'),(5,8,'sample content 2',2,1.00,0,0,'2014-08-02 20:17:46','2014-08-02 20:17:46'),(6,8,'sample content 3',3,1.00,0,0,'2014-08-02 20:17:46','2014-08-02 20:17:46'),(7,8,'sample content 4',4,1.00,0,0,'2014-08-02 20:17:46','2014-08-02 20:17:46'),(8,9,'sample content 1',1,1.00,0,0,'2014-08-02 20:19:08','2014-08-02 20:19:08'),(9,9,'sample content 2',2,1.00,0,0,'2014-08-02 20:19:08','2014-08-02 20:19:08'),(10,9,'sample content 3',3,1.00,0,0,'2014-08-02 20:19:08','2014-08-02 20:19:08'),(11,9,'sample content 4',4,1.00,0,0,'2014-08-02 20:19:08','2014-08-02 20:19:08'),(12,10,'sample content 1',1,1.00,0,0,'2014-08-02 20:21:17','2014-08-02 20:21:17'),(13,10,'sample content 2',2,1.00,0,0,'2014-08-02 20:21:17','2014-08-02 20:21:17'),(14,10,'sample content 3',3,1.00,0,0,'2014-08-02 20:21:17','2014-08-02 20:21:17'),(15,10,'sample content 4',4,1.00,0,0,'2014-08-02 20:21:17','2014-08-02 20:21:17');
 /*!40000 ALTER TABLE `contents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +201,7 @@ CREATE TABLE `passbooks` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,6 +210,7 @@ CREATE TABLE `passbooks` (
 
 LOCK TABLES `passbooks` WRITE;
 /*!40000 ALTER TABLE `passbooks` DISABLE KEYS */;
+INSERT INTO `passbooks` VALUES (1,9,9,9,NULL,0,0,'reward','2014-08-02 20:27:29','2014-08-02 20:27:29');
 /*!40000 ALTER TABLE `passbooks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,7 +302,7 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +311,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'ivan','facebook_id','facebook_link',1,'Ivan','male','ivan@intspirit.com','ivan@intspirit.com',0,0,0,0,0,'',10,1,1,'1','ru',0,1,'2014-07-17 10:41:15','2014-07-17 10:41:18'),(2,'James','james_id','james_link',1,'james','male','james@example.com','james@example.com',0,0,0,0,0,'',10,1,1,'1','ru',0,1,'2014-07-17 10:42:15','2014-07-17 10:42:18'),(8,'Iv Sk','1439948026269431','https://www.facebook.com/app_scoped_user_id/1439948026269431/',1,'Iv Sk','male','','',10,40,100,0,0,'',10,1,1,'4','en_US',0,1,'2014-07-18 17:53:14','2014-07-18 17:53:14');
+INSERT INTO `users` VALUES (1,'ivan','facebook_id','facebook_link',1,'Ivan','male','ivan@intspirit.com','ivan@intspirit.com',0,0,0,0,0,'',10,1,1,'1','ru',0,1,'2014-07-17 10:41:15','2014-07-17 10:41:18'),(2,'James','james_id','james_link',1,'james','male','james@example.com','james@example.com',0,0,0,0,0,'',10,1,1,'1','ru',0,1,'2014-07-17 10:42:15','2014-07-17 10:42:18'),(8,'Iv Sk','1439948026269431','https://www.facebook.com/app_scoped_user_id/1439948026269431/',1,'Iv Sk','male','','',10,40,100,0,0,'',10,1,1,'4','en_US',0,1,'2014-07-18 17:53:14','2014-07-18 17:53:14'),(9,'Harry Amgjfehbiahc Ricesen','1483753945203452','https://www.facebook.com/app_scoped_user_id/1483753945203452/',1,'Harry Amgjfehbiahc Ricesen','male','evqkmbi_ricesen_1406612954@tfbnw.net','evqkmbi_ricesen_1406612954@tfbnw.net',0,0,0,0,0,'',10,1,1,'9','ja_JP',0,2,'2014-08-02 20:12:51','2014-08-02 20:12:51');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -260,4 +324,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-30  8:33:48
+-- Dump completed on 2014-08-02 11:28:29

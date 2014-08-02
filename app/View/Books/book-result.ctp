@@ -4,8 +4,8 @@
             <p class="help-block">Result were presented.</p>
             <div class="sub-head">
               <div class="message col-xs-9">
-                <p>WIN : <?php echo $winner[0]['title'];?><br>
-                  Final odds : <?php echo $winner[0]['odds'];?></p>
+                <p>WIN : <?php echo $winner[1]['title'];?><br>
+                  Final odds : <?php echo $winner[1]['odds'];?></p>
               </div>
               <div class="col-xs-3">
                 <button class="btn btn-default btn-block btn-delete" data-toggle="modal" data-target="#Delete">Copy</button>
