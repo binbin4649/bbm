@@ -131,7 +131,7 @@ class Book extends AppModel {
         if (!empty($currentContent)) {
             $reward_point = floor($currentContent['Book']['bet_all_total'] * 0.01);
             if ($reward_point <= 0) $reward_point = 0;
-
+            $final_odds = $currentContent['Content']['odds'];
 
             $this->id = $attrs['book_id'];
             $this->set('state','result');
@@ -139,11 +139,11 @@ class Book extends AppModel {
             $this->set('win_contents_id',$attrs['content_id']);
             $this->set('reward_point',$reward_point);
             $this->set('title',$currentContent['Book']['title']);
-
             $this->save();
 
 
             if (!empty($currentContent['Bet'])){
+                /*
                 $maxBetValue = 0;
                 $maxBetKey = 0;
                 foreach($currentContent['Bet'] as $betSetsKey=>$bet) {
@@ -153,16 +153,27 @@ class Book extends AppModel {
                     }
                 }
                 $betWin = $currentContent['Bet'][$maxBetKey];
+                */
 
-                $this->Passbook->create();
-                $this->Passbook->set('book_id',$attrs['book_id']);
-                $this->Passbook->set('content_id',$attrs['content_id']);
-                $this->Passbook->set('user_id',$betWin['user_id']);
-                $this->Passbook->set('bet_id',$betWin['id']);
-                $this->Passbook->set('point',$betWin['betpoint']);
-                $this->Passbook->set('balance',0);
-                $this->Passbook->set('event','win');
-                $this->Passbook->save();
+                foreach($currentContent['Bet'] as $bet){
+                    $result_point = floor($final_odds * $bet['betpoint']);
+                    $this->Passbook->create();
+                    $this->Passbook->set('book_id',$bet['book_id']);
+                    $this->Passbook->set('content_id',$bet['content_id']);
+                    $this->Passbook->set('user_id',$bet['user_id']);
+                    $this->Passbook->set('bet_id',$bet['id']);
+                    $this->Passbook->set('point',$result_point);
+                    $this->Passbook->set('balance',0);
+                    $this->Passbook->set('event','win');
+                    $this->Passbook->save();
+
+                    $this->create();
+                    $this->set('id', $bet['id']);
+                    $this->set('result_point', $result_point);
+                    $this->save();         
+                }
+
+                
             }
 
             $this->Passbook->create();
