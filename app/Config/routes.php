@@ -48,12 +48,10 @@
     Router::connect('/users/facebook_login', array('controller' => 'users', 'action' => 'facebook_login'));
     Router::connect('/profile/edit', array('controller' => 'users', 'action' => 'edit'));
     Router::connect('/profile/home', array('controller' => 'users', 'action' => 'home'));
-
     Router::connect('/passbooks/*', array('controller' => 'users', 'action' => 'profile','passbooks'));
-
     Router::connect('/betlists/*', array('controller' => 'users', 'action' => 'profile','betlists'));
     Router::connect('/makedbooks/*', array('controller' => 'users', 'action' => 'profile','makedbooks'));
-Router::connect('/admin', array('controller' => 'admins', 'action' => 'login'));
+    Router::connect('/admin', array('controller' => 'admins', 'action' => 'login'));
 	Router::connect('/admin/dashboard', array('controller' => 'admins', 'action' => 'dashboard'));
 	Router::connect('/admin/forgotpassword', array('controller' => 'admins', 'action' => 'forgotpassword'));
 	Router::connect('/admin/changepassword', array('controller' => 'admins', 'action' => 'changepassword'));

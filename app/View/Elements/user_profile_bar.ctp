@@ -1,10 +1,10 @@
 <div class="profile-picture">
 <?php if($this->Session->read('FB.Me.id')) { ?>
-	<img style="width:100%" src="<?php echo "http://graph.facebook.com/".$this->Session->read('FB.Me.id')."/picture?type=square"?>" />
+	<img style="width:100%" src="<?php echo "http://graph.facebook.com/".$data['User']['facebook_id']."/picture?type=square"?>" />
 <?php } else { ?>
-<?php echo $this->Html->image("profile.png"); } ?>
-  
+<?php echo $this->Html->image("profile.png"); } ?>  
 </div>
+
 <div class="profile-info-left">
   <div><a href="<?php echo SITE_LINK."users/".$data['User']['id']; ?>"><?php echo $data['User']['name']; ?></a></div>
   <div><a href="<?php echo SITE_LINK."betlists/".$data['User']['id']; ?>">Bet List:<?php echo $data['User']['betlist']; ?></a></div>
