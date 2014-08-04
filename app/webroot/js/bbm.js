@@ -36,17 +36,29 @@ $(document).ready(function() {
 	});
 
     $("#make-book").click(function() {
-
+		var i = 0;
+		var j = 0;
+		alert("hello");
         $(".required").each(function() {
-          if (($(this).val() === '') || ($(".required").val() === ''))
+			i++;
+          if (($(this).val().length == 0))
           {
-            $("#make-book").attr("data-target","#Omissions");
+            
           }
-          else if ($(this).val() !== '')
+          else
           {
-            $("#make-book").attr("data-target","#makeBook");
+			j++;
+            
           }
         });
+		alert(i);
+		alert(j);
+		if(i == j) {
+			$("#make-book").attr("data-target","#makeBook");
+		} else {
+			$("#make-book").attr("data-target","#Omissions");
+			return false;
+		}
     });
 
 
