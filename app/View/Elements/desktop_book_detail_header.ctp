@@ -11,7 +11,7 @@
       <span class="badge-state"><?php echo $book['Book']['state']?></span>
       <span class="badge-category"><?php echo $book['Book']['category']?></span>
       <div class="user">
-        <a href="profile-home.html" class="username"><img style="width:20%" src="<?php echo "http://graph.facebook.com/".$book['User']['facebook_id']."/picture?type=square"?>"><?php echo $book['User']['name']?></a>
+        <a href="/users/<?php echo $book['Book']['user_id']?>" class="username"><img style="width:20%" src="<?php echo "http://graph.facebook.com/".$book['User']['facebook_id']."/picture?type=square"?>"><?php echo $book['User']['name']?></a>
         <p>Created :<?php echo CakeTime::format( $book['Book']['created'],'%Y/%m/%d %H:%M')?></p>
       </div>
     </div>

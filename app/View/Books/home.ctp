@@ -13,8 +13,8 @@ endif;
 
 App::uses('Debugger', 'Utility');
 
-$category = array(''=>'State','Sports'=>'Sports','Others'=>'Others');
-$state = array(''=>'Category','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet Finish'=>'Bet Finish','Result'=>'Result','Book Delete'=>'Book Delete','Result Timeover'=>'Result Timeover');
+$category = array(''=>'category','Sports'=>'Sports','Others'=>'Others');
+$state = array(''=>'state','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet Finish'=>'Bet Finish','Result'=>'Result','Book Delete'=>'Book Delete','Result Timeover'=>'Result Timeover');
 
 
 
