@@ -58,7 +58,7 @@ CREATE TABLE `bets` (
   `content_id` int(20) NOT NULL,
   `user_id` int(20) NOT NULL,
   `betpoint` int(10) NOT NULL,
-  `result_point` int(10) NOT NULL,
+  `result_point` int(10) DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -324,4 +324,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-02 11:28:29
+-- Dump completed on 2014-08-04 10:03:30

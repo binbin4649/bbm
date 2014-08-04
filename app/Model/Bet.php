@@ -76,7 +76,7 @@ class Bet extends AppModel {
             }
             $betpoint = $content['Content']['odds'] * $attrs['oddFactor'];
             $book_bet_all_total = $content['Book']['bet_all_total'] + $betpoint;
-            $result_point = $content['Content']['bet_total']+$betpoint;
+            $content_bet_total = $content['Content']['bet_total']+$betpoint;
             $user = $this->User->find('first',array('conditions'=>array('User.id'=>$currentUser['id'])));
             $currentPoint = $user['User']['point'] - $betpoint;
 
@@ -86,18 +86,20 @@ class Bet extends AppModel {
             $this->Book->set('user_all_count',++$content['Book']['user_all_count']);
             $this->Book->save();
 
+            /* change all content odds
             $this->Content->id = $content['Content']['id'];
-            $this->Content->set('bet_total',$result_point);
+            $this->Content->set('bet_total',$content_bet_total);
             $this->Content->set('user_count',++$content['Content']['user_count']);
-            $this->Content->set('odds',1/($result_point/($book_bet_all_total*0.99)));
+            $this->Content->set('odds',1/($$content_bet_total/($book_bet_all_total*0.99)));
             $this->Content->save();
+            */
 
             $this->create();
             $this->set('book_id',$attrs['book_id']);
             $this->set('content_id',$attrs['content_id']);
             $this->set('user_id',$currentUser['id']);
             $this->set('betpoint',$betpoint);
-            $this->set('result_point',$result_point);
+            //$this->set('result_point',$result_point);
             $this->save();
 
             $betId = $this->getLastInsertId();
@@ -117,6 +119,8 @@ class Bet extends AppModel {
             $this->Passbook->set('balance', $currentPoint);
             $this->Passbook->set('event','bet');
             $this->Passbook->save();
+
+            $this->Book->changeOddsAllContents($attrs['book_id']);
 
             return true;
         } else {

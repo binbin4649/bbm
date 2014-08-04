@@ -250,4 +250,21 @@ class Book extends AppModel {
             return false;
         }
     }
+
+    public function changeOddsAllContents($book_id)
+    {
+        $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$book_id)));
+        if (!empty($currentBook)){
+            $book_bet_all_total = $currentBook['Book']['bet_all_total'];
+            foreach($currentBook['Content'] as $content){
+                $this->Content->create();
+                $this->Content->id = $content['id'];
+                $this->Content->set('odds',1/($content['bet_total']/($book_bet_all_total*0.99)));
+                $this->Content->save();
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
