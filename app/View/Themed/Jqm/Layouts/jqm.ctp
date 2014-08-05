@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/themes/jquery.mobile.icons.min.css" />
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
 <link rel="stylesheet" href="/themes/default.css" />
+<link rel="stylesheet" href="/themes/fix.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
 </script>
@@ -86,7 +87,7 @@
                       <a href="<?php echo SITE_LINK; ?>makedbooks/<?php echo $user_s['id']; ?>"><span>Maked Book:</span><span class="ui-li-count"><?php echo $user_s['makedbook'];?></span></a>
                     </li>
                     <li>
-                      <a href="<?php echo SITE_LINK; ?>profile/edit/<?php echo $user_s['id']; ?>">User Edit</a>
+                      <a href="<?php echo SITE_LINK; ?>profile/edit/">User Edit</a>
                     </li>
                     <li>
                       <?php echo $this->Facebook->logout(array('label' => 'Log out', 'redirect' => array("controller"=>"users","action"=>'logout'))); ?>

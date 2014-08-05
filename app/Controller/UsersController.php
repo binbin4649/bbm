@@ -77,6 +77,7 @@ class UsersController extends AppController {
         */
 		if ( $type == 'profile' || $type == 'betlists' ) {
 			$this->loadModel("Bet");
+			$this->set('pagetitle','Profile - Betlist');
 			$this->paginate = array(
 				"order"=>array("Bet.created"=>"desc"),
 				"limit"=>($type == 'profile')?5:20,
@@ -88,6 +89,7 @@ class UsersController extends AppController {
 		} 
 		if ( $type == 'profile' || $type == 'passbooks' ) {
 			$this->loadModel("Passbook");
+			$this->set('pagetitle','Profile - Passbook');
 			$this->paginate = array(
 				"order"=>array("Passbook.created"=>"desc"),
 				"limit"=>($type == 'profile')?5:20
@@ -97,6 +99,7 @@ class UsersController extends AppController {
 		}
 		if ( $type == 'profile' || $type == 'makedbooks' ) {
 			$this->loadModel("Book");
+			$this->set('pagetitle','Profile - Book');
 			$this->paginate = array(
 				"order"=>array("Book.created"=>"desc"),
 				"recursive"=>($type == 'profile')?"-1":'1',
@@ -117,6 +120,7 @@ class UsersController extends AppController {
     }
     public function edit($id=null)
     {
+        $this->set('pagetitle','Profile - Betlist');
         if($this->request->is('put')) {
             $this->User->updateProfile($this->request->data);
             $this->User->updateSession();
