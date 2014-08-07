@@ -251,17 +251,27 @@ class Book extends AppModel {
         }
     }
 
-    public function changeOddsAllContents($book_id)
+    public function changeOddsAllContents($book_id = NULL)
     {
+		App::import('model','Content');
         $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$book_id)));
-        if (!empty($currentBook)){
+		$data = array();
+		if (!empty($currentBook)){
             $book_bet_all_total = $currentBook['Book']['bet_all_total'];
-            foreach($currentBook['Content'] as $content){
-                $this->Content->create();
-                $this->Content->id = $content['id'];
-                $this->Content->set('odds',1/($content['bet_total']/($book_bet_all_total*0.99)));
-                $this->Content->save();
-            }
+			if(!empty($book_bet_all_total)) { 
+				foreach($currentBook['Content'] as $content){
+					if(!empty($content['bet_total'])) {
+						$cnt = 1/($content['bet_total']/($book_bet_all_total*0.99));
+						$data['Content'][$content['id']] = array("id"=>$content['id'],"odds"=>$cnt);
+					} else {
+						$data['Content'][$content['id']] = array("id"=>$content['id'],"odds"=>0.00);
+					}
+				}
+			}
+			if(!empty($data)) {
+				$this->Content->create();
+				$this->Content->saveAll($data['Content']);
+			}
             return true;
         } else {
             return false;
