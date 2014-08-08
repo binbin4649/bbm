@@ -35,10 +35,6 @@ class UsersController extends AppController {
             foreach($currentUser['Bet'] as $betKey=>$bet) {
                 $currentBet = $this->User->Bet->find('first',array('conditions'=>array('Bet.id'=>$bet['id'])));
                 $currentUser['Bet'][$betKey]['book'] = $currentBet['Book'];
-                // foreach ($currentContent['Bet'] as $betKey => $bet) {
-                //     $currentBet = $this->Book->Bet->find('first',array('conditions'=>array('Bet.id'=>$bet['id'])));
-                //     $currentBook['Content'][$contentKey]['bets'][$betKey] = array('Bet'=>$currentBet['Bet'],'User'=>$currentBet['User']);
-                // }
             }
 
             $result_timeover_count = $this->User->Book->find('count',array('conditions'=>array('LOWER(Book.state)'=>'time over')));
@@ -48,6 +44,7 @@ class UsersController extends AppController {
             $this->set('user',$currentUser);
             $this->set('result_timeover_count',$result_timeover_count);
             $this->set('makebook_count',$makebook_count);
+            $this->User->updateSession();
             $this->render('profile-home');
             //$this->render(implode('/', ['profile']));
         }

@@ -108,13 +108,19 @@ class User extends AppModel {
             $this->set('name',$user['name']);
             $this->set('time_zone',$user['timezone']);
             $this->set('language',$user['locale']);
-
             $this->set('profile','');
             $this->set('facebook_gender',$user['gender']);
             $this->set('facebook_mail',(isset($user['email'])) ? $user['email'] : '');
             $this->set('mail',(isset($user['email'])) ? $user['email'] : '');
-
             $this->save();
+            $userId = $this->getLastInsertId();
+
+            $passbook = array();
+            $passbook['user_id'] = $userId;
+            $passbook['point'] = 1000;
+            $passbook['event'] = 'welcome';
+            $this->Passbook->pointOperation($passbook);
+
             return $this->saveFBUser($user);
         } else {
             $this->id =  $record['User']['id'];
