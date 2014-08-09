@@ -193,6 +193,7 @@ class Book extends AppModel {
             $this->set('title',$currentBook['Book']['title']);
             $this->save();
 
+            $this->log($currentBook);
             if (!empty($currentBook['Bet'])) {
                 $this->User->id = $currentBook['User']['id'];
                 $this->User->set('book_delete',++$currentBook['User']['book_delete']);

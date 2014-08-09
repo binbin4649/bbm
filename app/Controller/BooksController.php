@@ -45,6 +45,10 @@ class BooksController extends AppController {
                         $this->set('pagetitle','Book - Timeover');
                         $this->render(implode('/', ['book-timeover']));
 
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Delete') {
+                        $this->set('pagetitle','Book - Deleted');
+                        $this->render(implode('/', ['book-delete']));
+
                     } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
                         $this->set('pagetitle','Book - Upcoming');
                         $this->render(implode('/', ['book-upcoming']));
