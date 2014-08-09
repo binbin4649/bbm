@@ -193,11 +193,21 @@ class Book extends AppModel {
             $this->set('title',$currentBook['Book']['title']);
             $this->save();
 
-            $this->log($currentBook);
             if (!empty($currentBook['Bet'])) {
                 $this->User->id = $currentBook['User']['id'];
                 $this->User->set('book_delete',++$currentBook['User']['book_delete']);
                 $this->User->save();
+
+                foreach($currentBook['Bet'] as $bet){
+                    $passbook = array();
+                    $passbook['book_id'] = $bet['book_id'];
+                    $passbook['content_id'] = $bet['content_id'];
+                    $passbook['user_id'] = $bet['user_id'];
+                    $passbook['bet_id'] = $bet['id'];
+                    $passbook['point'] = $bet['betpoint'];
+                    $passbook['event'] = 'return';
+                    $this->Passbook->pointOperation($passbook);
+                }
 
                 // $this->Passbook->create();
                 // $this->Passbook->set('book_id',$attrs['book_id']);
