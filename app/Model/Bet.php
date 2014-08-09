@@ -65,11 +65,18 @@ class Bet extends AppModel {
 
 
     public function saveNewBet($attrs)
-    {
+    { 
+		//pr($attrs);
+		//die;
         $currentUser = CakeSession::read('User');
         $content = $this->Content->find('first',array('conditions'=>array('Content.id'=>$attrs['content_id'])));
         // var_dump($content);
         if (!empty($content)) {
+		App::import('model','Book');
+		App::import('model','User');
+		App::import('model','Content');
+		App::import('model','Passbook');
+		
             $attrs['oddFactor'] = (int) $attrs['oddFactor'];
             if ($attrs['oddFactor'] == 0) {
                 $attrs['oddFactor'] = 1;
@@ -86,13 +93,16 @@ class Bet extends AppModel {
             $this->Book->set('user_all_count',++$content['Book']['user_all_count']);
             $this->Book->save();
 
-            /* change all content odds
+            /* change all content odds */
+			$this->Content->create();
             $this->Content->id = $content['Content']['id'];
-            $this->Content->set('bet_total',$content_bet_total);
-            $this->Content->set('user_count',++$content['Content']['user_count']);
-            $this->Content->set('odds',1/($$content_bet_total/($book_bet_all_total*0.99)));
-            $this->Content->save();
-            */
+            $dd['Content']['bet_total'] = $content_bet_total;
+            $dd['Content']['user_count'] = ++$content['Content']['user_count'];
+            $dd['Content']['odds']  = number_format((1/($content_bet_total/($book_bet_all_total*0.99))),2,".",",");
+			//pr($dd);
+			//die;
+			$this->Content->save($dd);
+            
 
             $this->create();
             $this->set('book_id',$attrs['book_id']);
