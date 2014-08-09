@@ -133,8 +133,15 @@ class User extends AppModel {
     public function updateSession()
     {
         $user_id = CakeSession::read('User.id');
-        $user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
-        CakeSession::write('User',$user['User']);
+        if(isset($user_id)){
+        	$user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
+        	if(isset($user)){
+        		CakeSession::write('User',$user['User']);
+        		return true;
+        	}else{
+        		return false;
+        	}
+        }
     }
 
     public function isOwner($book_user_id)

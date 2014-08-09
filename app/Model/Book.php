@@ -5,7 +5,13 @@ class Book extends AppModel {
     public $name = 'Book';
     public $useTable = 'books';
     public $belongsTo = array(
-    'User',
+    'User' => array(
+            'className' => 'User',
+            'foreignKey' => 'user_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+    ),
     'TimeZone' => array(
             'foreignKey'    => 'time_zone'
         )
@@ -259,4 +265,13 @@ class Book extends AppModel {
             return false;
         }
     }
+
+    public function isMakeBook(){
+        if($this->User->updateSession()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

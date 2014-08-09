@@ -96,14 +96,21 @@ class BooksController extends AppController {
     public function add()
     {
         if (empty($_POST)) {
-                $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
-                $this->render(implode('/', ['book-make']));
+            if($this->Book->isMakeBook() == false) $this->Session->setFlash('You need login.');
+            $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
+            $this->render(implode('/', ['book-make']));
         } else {
-            $book = $this->Book->createNewBook($_POST);
-            if (!is_array($book)){
-                $this->redirect('/books'.'/'.$book);
-            } else {
-                $this->set('errors',$book);
+            if($this->Book->isMakeBook()){
+                $book = $this->Book->createNewBook($_POST);
+                if (!is_array($book)){
+                    $this->redirect('/books'.'/'.$book);
+                } else {
+                    $this->set('errors',$book);
+                    $this->render(implode('/', ['book-make']));
+                }    
+            }else{
+                $this->Session->setFlash('Repeat. You need login.');
+                $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
                 $this->render(implode('/', ['book-make']));
             }
         }
