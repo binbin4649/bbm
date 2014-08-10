@@ -17,28 +17,8 @@
               <h3>Bet List</h3>
               <a href="/betlists/<?php echo $user['User']['id']?>">More</a>
             </div>
-            <table class="profile-table table">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Book</th>
-                  <th>Bet</th>
-                  <th>Result</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach($user['Bet'] as $betKey=>$bet):?>
-                  <?php if ($betKey <= 4):?>
-                    <tr>
-                      <td><?php echo CakeTime::format( $bet['created'],'%Y/%m/%d %H:%M')?></td>
-                      <td><a href="/books/<?php echo $bet['book_id']?>"><?php echo $bet['book']['title']?></a></td>
-                      <td><?php echo $bet['betpoint']?></td>
-                      <td><?php echo $bet['result_point']?></td>
-                    </tr>
-                  <?php endif?>
-                <?php endforeach;?>
-              </tbody>
-            </table>
+            <?php echo $this->element("betlist_listing"); ?>
+            
 
             <div class="profile-headers">
               <h3>Maked Book</h3>

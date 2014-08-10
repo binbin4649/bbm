@@ -40,11 +40,22 @@ class UsersController extends AppController {
             $result_timeover_count = $this->User->Book->find('count',array('conditions'=>array('LOWER(Book.state)'=>'time over')));
             $makebook_count = $this->User->Book->find('count',array('conditions'=>array('Book.user_id'=>$id)));
             $data = $currentUser;
+
             $passbooks = array();
             $passbook_count = 5;
             if(count($currentUser['Passbook']) < 5){ $passbook_count = count($currentUser['Passbook']); }
             for ($i = 0; $i < $passbook_count; $i++){ $passbooks[$i]['Passbook'] = $currentUser['Passbook'][$i]; }
             $this->set('passbooks',$passbooks);
+            
+            $betlists = array();
+            $betlist_count = 5;
+            if(count($currentUser['Bet']) < 5){ $betlist_count = count($currentUser['Bet']); }
+            for ($i = 0; $i < $betlist_count; $i++){ 
+                $betlists[$i]['Bet'] = $currentUser['Bet'][$i];
+                $betlists[$i]['Book'] = $currentUser['Bet'][$i]['book'];
+            }
+            $this->set('betlists',$betlists);
+
             $this->set(compact("data"));
             $this->set('user',$currentUser);
             $this->set('result_timeover_count',$result_timeover_count);
