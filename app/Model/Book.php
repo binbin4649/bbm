@@ -198,30 +198,32 @@ class Book extends AppModel {
                 $this->User->set('book_delete',++$currentBook['User']['book_delete']);
                 $this->User->save();
 
-                foreach($currentBook['Bet'] as $bet){
-                    $passbook = array();
-                    $passbook['book_id'] = $bet['book_id'];
-                    $passbook['content_id'] = $bet['content_id'];
-                    $passbook['user_id'] = $bet['user_id'];
-                    $passbook['bet_id'] = $bet['id'];
-                    $passbook['point'] = $bet['betpoint'];
-                    $passbook['event'] = 'return';
-                    $this->Passbook->pointOperation($passbook);
-                }
-
-                // $this->Passbook->create();
-                // $this->Passbook->set('book_id',$attrs['book_id']);
-                // $this->Passbook->set('content_id',$attrs['content_id']);
-                // $this->Passbook->set('user_id',$currentUser['id']);
-                // $this->Passbook->set('point',$reward_point);
-                // $this->Passbook->set('balance',0);
-                // $this->Passbook->set('event','reward');
-                // $this->Passbook->save();
+                $this->returnBets($currentBook['Bet']);
             }
             return true;
         } else {
             return false;
         }
+    }
+
+    public function returnBets($bets)
+    {
+        foreach($bets as $bet){
+            $passbook = array();
+            $passbook['book_id'] = $bet['book_id'];
+            $passbook['content_id'] = $bet['content_id'];
+            $passbook['user_id'] = $bet['user_id'];
+            $passbook['bet_id'] = $bet['id'];
+            $passbook['point'] = $bet['betpoint'];
+            $passbook['event'] = 'return';
+            $this->Passbook->pointOperation($passbook);
+        }
+    }
+
+    public function timeoverCount($user){
+        $this->User->id = $user['id'];
+        $this->User->set('result_timeover',++$user['result_timeover']);
+        $this->User->save();
     }
 
     public function copyBook($attrs)
@@ -236,6 +238,7 @@ class Book extends AppModel {
         }
     }
 
+    // maybe, not work.
     public function setTimeOver($attrs)
     {
         $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));

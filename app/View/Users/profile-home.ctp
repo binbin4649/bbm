@@ -1,23 +1,6 @@
 <div class="theprofile">
             <h2>Profile - Home</h2>
-            <div class="profile-picture">
-              <img style="width:100%" src="http://graph.facebook.com/<?php echo $user['User']['facebook_id']?>/picture?type=square">
-            </div>
-            <div class="profile-info-left">
-              <div><a href="/profile/home"><?php echo $user['User']['name']?></a></div>
-              <div><a href="/betlists/<?php echo $user['User']['id']?>">Bet List:</a></div>
-              <p>Book Delete: <?php echo $user['User']['book_delete']?></p>
-            </div>
-            <div class="profile-info-right">
-              <a href="/passbooks/<?php echo $user['User']['id']?>"><?php echo $this->Html->image('/img/icon1.png'); ?> :<?php echo $user['User']['point']?></a>
-              <a href="/makedbooks/<?php echo $user['User']['id']?>">Maked Book: <?php echo $makebook_count?></a>
-              <p>Result Timeover: <?php echo $result_timeover_count?></p>
-            </div>
-            <?php if (isset($facebook_link_hide) && $facebook_link_hide ===false):?>
-            <?php else:?>
-              <a class="fb-link" href="<?php echo $user['User']['facebook_link']?>"><?php echo $user['User']['facebook_link']?></a>
-            <?php endif;?>
-
+            <?php echo $this->element("user_profile_bar"); ?>
             <span class="clearfix"></span>
 
             <div class="profile-about col-xs-12">

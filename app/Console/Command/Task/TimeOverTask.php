@@ -22,6 +22,12 @@ class TimeOverTask extends Shell {
                     $this->Book->set('timeover_info',1);
                     $this->Book->set('state','Timeover');
                     $this->Book->save();
+
+                    if(!empty($book['Bet'])){
+                        $this->Book->returnBets($book['Bet']);
+                        $this->Book->timeoverCount($book['User']);    
+                    }
+                    
                 } else {
                 }
             }
