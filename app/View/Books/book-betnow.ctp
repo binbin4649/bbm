@@ -7,7 +7,7 @@
                 <p>Bet now!</p>
               </div>
               <div class="col-xs-3">
-                <?php if ($book['User']['id'] == $this->Session->read('User')['id']):?>
+                <?php if ($book['User']['id'] == $this->Session->read('User.id')):?>
                   <button class="btn btn-default btn-block btn-delete make-delete" data-toggle="modal" data-target="#Delete">Delete & Copy</button>
                 <?php endif;?>
               </div>
@@ -20,12 +20,12 @@
                     <td><?php echo $content['no'] ?><input name="contentid" type="hidden" value="<?php echo $content['id']?>"></td>
                     <td>
                       <div class="title">
-                        <p class="thetitle"><?php echo $content['title']?></p>
+                        <p class="thetitle" id="title_<?php echo $content['id']; ?>"><?php echo $content['title']?></p>
                       </div>
                       <div class="left">
                         <span class="odds">Odds</span>
                         <p class="content_odds"><?php echo $content['odds']?></p>
-                        <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2"><span class="content_user_count"><?php echo $content['user_count']?></span></a></span>
+                        <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2" val="<?php echo $content['id']; ?>"><span class="content_user_count"><?php echo $content['user_count']?></span></a></span>
                       </div>
                       <div class="right">
                         <button class="btn btn-danger btn-block make-bet" data-toggle="modal" data-odds="<?php echo $content['odds']?>" data-title="<?php echo $content['title']?>" data-contentid="<?php echo $content['id']?>" data-target="#Bet">Bet</button>

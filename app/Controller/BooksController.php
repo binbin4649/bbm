@@ -11,6 +11,10 @@ class BooksController extends AppController {
             'Book.id' => 'desc'
         )
     );
+	function beforefilter() {
+		parent::beforefilter();
+		//$this->Book->changeOddsAllContents(8);
+	}
     public function index()
     {
         $this->Prg->commonProcess();
@@ -30,9 +34,11 @@ class BooksController extends AppController {
         }
     }
 
-    public function view($id)
+    public function view($id=null)
     {
         $currentBook = $this->Book->find('first',array('conditions'=>array('Book.id'=>$id)));
+		//pr($currentBook);
+		//pr($_GET);
         if (!empty($currentBook)) {
             $currentBook = $this->bookExtension($currentBook);
             if (!isset($_GET['format'])){
@@ -41,9 +47,9 @@ class BooksController extends AppController {
                 if (isset($time_zone['TimeZone']) && isset($time_zone['TimeZone']['value'])) {
                     $bookdaystate = new BookDayState($currentBook,$time_zone['TimeZone']['value']);
                     $this->set('startTime',$bookdaystate->getStartTime());
-                    if (ucfirst($currentBook['Book']['state']) == 'Timeover'){
+                    if (ucfirst($currentBook['Book']['state']) == 'Timeover' || ucfirst($currentBook['Book']['state']) == 'Result Timeover'){
                         $this->set('pagetitle','Book - Timeover');
-                        $this->render(implode('/', ['book-timeover']));
+                        $this->render('book-timeover');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Delete') {
                         $this->set('pagetitle','Book - Deleted');
@@ -51,19 +57,19 @@ class BooksController extends AppController {
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
                         $this->set('pagetitle','Book - Upcoming');
-                        $this->render(implode('/', ['book-upcoming']));
+                        $this->render('book-upcoming');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
                         $this->set('pagetitle','Book - Bet Now');
-                        $this->render(implode('/', ['book-betnow']));
+                        $this->render('book-betnow');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {
                         $this->set('pagetitle','Book - Bet Finish');
-                        $this->render(implode('/', ['book-betfinish']));
+                        $this->render('book-betfinish');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && $this->Book->User->isOwner($currentBook['Book']['user_id'])) {
                         $this->set('pagetitle','Book - Bet Finish');
-                        $this->render(implode('/', ['book-select-result']));
+                        $this->render('book-select-result');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Result') {
                         $winner = array_filter($currentBook['Content'],function($item) use($currentBook){
@@ -71,7 +77,7 @@ class BooksController extends AppController {
                         });
                         $this->set('pagetitle','Book - Result');
                         $this->set('winner',$winner);
-                        $this->render(implode('/', ['book-result']));
+                        $this->render('book-result');
                     }
                 }
             } else if ($_GET['format'] == 'json') {
@@ -100,6 +106,17 @@ class BooksController extends AppController {
     public function add()
     {
         if (empty($_POST)) {
+/*
+                $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
+                $this->render('book-make');
+        } else {
+            $book = $this->Book->createNewBook($_POST);
+            if (!is_array($book)){
+                $this->redirect('/books'.'/'.$book);
+            } else {
+                $this->set('errors',$book);
+                $this->render('book-make');
+*/
             if($this->Book->isMakeBook() == false) $this->Session->setFlash('You need login.');
             $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
             $this->render(implode('/', ['book-make']));

@@ -43,7 +43,9 @@
 
 
     ?>
-
+	<script>
+		var SITE_LINK = "<?php echo SITE_LINK; ?>";
+	</script>
 </head>
 <body>
     <div class="container">
@@ -97,7 +99,7 @@
       <nav class="row">
         <div class="col-xs-12">
           <ul>
-            <li><a href="/">Book Search</a></li>
+            <li><a href="<?php echo SITE_LINK; ?>">Book Search</a></li>
             <li><?php echo $this->Html->link('User Ranking', '/users/ranking') ?></li>
             <li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>

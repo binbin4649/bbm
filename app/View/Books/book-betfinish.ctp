@@ -14,7 +14,7 @@
                 </p>
               </div>
               <div class="col-xs-3">
-                <?php if ($book['User']['id'] == $this->Session->read('User')['id']):?>
+                <?php if ($book['User']['id'] == $this->Session->read('User.id')):?>
                   <button class="btn btn-default btn-block btn-delete" data-toggle="modal" data-target="#Delete">Delete & Copy</button>
                 <?php endif;?>
               </div>

@@ -6,20 +6,24 @@ var booksPageFunctionality = function(){
         currentContent = $(this).attr('data-content');
         currentContentId = $(this).attr('data-contentid');
         updateBetsOnModal(currentContent);
+		var val = $(this).attr("val");
+		$('#modal2').find('.content-bets-title').html($("#title_"+val).html());
     });
 
     function updateBetsOnModal(currentContent) {
+		//alert(currentContent);
         var bets = JSON.parse(currentContent);
         var betsHTML = '';
         for (bet in bets) {
-            betsHTML += '<div class="modal-single-entry">'
-            +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="profile-home.html" class="username">'+bets[bet].User.name+'</a>'
+		    betsHTML += '<div class="modal-single-entry">'
+            +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="'+SITE_LINK+'profile/'+ bets[bet].User.id +'" class="username">'+bets[bet].User.name+'</a>'
             +'<p>Bet: <span>'+bets[bet].Bet.betpoint+'</span></p>'
-            +'<p>'+Date.parse(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</p>'
+            +'<p>'+(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</p>'
             +'</div>';
         }
+		//alert(betsHTML);
         $('#modal2').find('.modal-entry').html(betsHTML);
-        $('#modal2').find('.content-bets-title').html($(this).parents('tr').find('.thetitle').html());
+        
     }
 
     setInterval(function(){
@@ -29,7 +33,7 @@ var booksPageFunctionality = function(){
               id: $('#bookid').val()
             }
           },
-          url: '/books/'+$('#bookid').val()+'?format=json',
+          url: SITE_LINK+'books/'+$('#bookid').val()+'?format=json',
           dataType:'json',
           success: function(response){
             bookInfo =response ;
@@ -84,7 +88,7 @@ var booksPageFunctionality = function(){
 
 
     $('#Bet button[type=submit]').on('click',function(event){
-        event.preventDefault();
+	    event.preventDefault();
         $(event.target).addClass('disabled');
         $.ajax({
           data: {
@@ -93,7 +97,7 @@ var booksPageFunctionality = function(){
             oddFactor: $(event.target).parents('.modal-content').find('input').val()
           },
           type: 'POST',
-          url: '/bets',
+          url: SITE_LINK+'bets',
           dataType:'json',
           success: function(response){
             console.log(response);
@@ -104,6 +108,7 @@ var booksPageFunctionality = function(){
               $('#Bet').popup("close");
             }
             $('button[type=submit]').removeClass('disabled');
+			window.location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
@@ -121,7 +126,7 @@ var booksPageFunctionality = function(){
             result_detail: $(event.target).parents('.modal-content').find('textarea').val()
           },
           type: 'POST',
-          url: '/books/win',
+          url: SITE_LINK+'books/win',
           dataType:'json',
           success: function(response){
             // $('#Win').modal('hide');
@@ -144,7 +149,7 @@ var booksPageFunctionality = function(){
             delete_detail:$('#Delete textarea').val()
           },
           type: 'POST',
-          url: '/books/deleteBook',
+          url: SITE_LINK+'books/deleteBook',
           dataType:'json',
           success: function(response){
             console.log(response);
@@ -166,7 +171,7 @@ var booksPageFunctionality = function(){
             delete_detail:$('#Delete textarea').val()
           },
           type: 'POST',
-          url: '/books/deleteCopyBook',
+          url: SITE_LINK+'books/deleteCopyBook',
           dataType:'json',
           success: function(response){
             console.log(response);
@@ -187,7 +192,7 @@ var booksPageFunctionality = function(){
             book_id: $('#bookid').val(),
           },
           type: 'POST',
-          url: '/books/copyBook',
+          url: SITE_LINK+'books/copyBook',
           dataType:'json',
           success: function(response){
             console.log(response);
