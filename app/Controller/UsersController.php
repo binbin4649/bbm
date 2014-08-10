@@ -41,7 +41,9 @@ class UsersController extends AppController {
             $makebook_count = $this->User->Book->find('count',array('conditions'=>array('Book.user_id'=>$id)));
             $data = $currentUser;
             $passbooks = array();
-            for ($i = 0; $i < 5; $i++){ $passbooks[$i]['Passbook'] = $currentUser['Passbook'][$i]; }
+            $passbook_count = 5;
+            if(count($currentUser['Passbook']) < 5){ $passbook_count = count($currentUser['Passbook']); }
+            for ($i = 0; $i < $passbook_count; $i++){ $passbooks[$i]['Passbook'] = $currentUser['Passbook'][$i]; }
             $this->set('passbooks',$passbooks);
             $this->set(compact("data"));
             $this->set('user',$currentUser);
