@@ -11,34 +11,7 @@
               <h3>Passbook</h3>
               <a href="/passbooks/<?php echo $user['User']['id']?>">More</a>
             </div>
-            <table class="profile-table table">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Point</th>
-                  <th>Balance</th>
-                  <th>Event</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach($user['Passbook'] as $passbookKey=>$passbook):?>
-                  <?php if ($passbookKey <= 4):?>
-                    <tr>
-                      <td><?php echo CakeTime::format( $passbook['created'],'%Y/%m/%d %H:%M')?></td>
-                      <td><?php echo $passbook['point']?></td>
-                      <td><?php echo $passbook['balance']?></td>
-                      <td>
-                        <?php if ($passbook['event'] =='bet' || $passbook['event'] =='win' || $passbook['event'] =='reward' || $passbook['event'] =='return'):?>
-                          <a href="/books/<?php echo $passbook['book_id']?>"><?php echo $passbook['event'];?> - Book Id:<?php echo $passbook['book_id']?></a>
-                        <?php else:?>
-                          Book Id:<?php echo $passbook['book_id']?>
-                        <?php endif;?>
-                      </td>
-                    </tr>
-                  <?php endif?>
-                <?php endforeach;?>
-              </tbody>
-            </table>
+            <?php echo $this->element("passbook_listing"); ?>
 
             <div class="profile-headers">
               <h3>Bet List</h3>
