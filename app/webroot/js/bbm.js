@@ -38,7 +38,7 @@ $(document).ready(function() {
     $("#make-book").click(function() {
 		var i = 0;
 		var j = 0;
-		alert("hello");
+		//alert("hello");
         $(".required").each(function() {
 			i++;
           if (($(this).val().length == 0))
@@ -51,8 +51,8 @@ $(document).ready(function() {
             
           }
         });
-		alert(i);
-		alert(j);
+		//alert(i);
+		//alert(j);
 		if(i == j) {
 			$("#make-book").attr("data-target","#makeBook");
 		} else {

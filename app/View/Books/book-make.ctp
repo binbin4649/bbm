@@ -158,6 +158,7 @@
                   <input type="hidden" id="betResultTime" value="" />
               </div>
 
+              <!--
               <div class="form-group col-xs-6">
                   <p class="help-block">Time Zone
                     <a rel="popover" data-content="Select the time zone to be a reference.">
@@ -167,6 +168,7 @@
 
                     <?php echo $this->Form->select('time_zone',$timezone,array('class'=>'form-control','empty'=>false)); ?>
               </div>
+              -->
 
               <div class="form-group col-xs-10">
                   <p class="help-block">Book Detail

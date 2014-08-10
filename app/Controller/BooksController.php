@@ -51,6 +51,10 @@ class BooksController extends AppController {
                         $this->set('pagetitle','Book - Timeover');
                         $this->render('book-timeover');
 
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Delete') {
+                        $this->set('pagetitle','Book - Deleted');
+                        $this->render(implode('/', ['book-delete']));
+
                     } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
                         $this->set('pagetitle','Book - Upcoming');
                         $this->render('book-upcoming');
@@ -102,6 +106,7 @@ class BooksController extends AppController {
     public function add()
     {
         if (empty($_POST)) {
+/*
                 $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
                 $this->render('book-make');
         } else {
@@ -111,6 +116,23 @@ class BooksController extends AppController {
             } else {
                 $this->set('errors',$book);
                 $this->render('book-make');
+*/
+            if($this->Book->isMakeBook() == false) $this->Session->setFlash('You need login.');
+            $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
+            $this->render(implode('/', ['book-make']));
+        } else {
+            if($this->Book->isMakeBook()){
+                $book = $this->Book->createNewBook($_POST);
+                if (!is_array($book)){
+                    $this->redirect('/books'.'/'.$book);
+                } else {
+                    $this->set('errors',$book);
+                    $this->render(implode('/', ['book-make']));
+                }    
+            }else{
+                $this->Session->setFlash('Repeat. You need login.');
+                $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
+                $this->render(implode('/', ['book-make']));
             }
         }
     }

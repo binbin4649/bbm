@@ -108,13 +108,19 @@ class User extends AppModel {
             $this->set('name',$user['name']);
             $this->set('time_zone',$user['timezone']);
             $this->set('language',$user['locale']);
-
             $this->set('profile','');
             $this->set('facebook_gender',$user['gender']);
             $this->set('facebook_mail',(isset($user['email'])) ? $user['email'] : '');
             $this->set('mail',(isset($user['email'])) ? $user['email'] : '');
-
             $this->save();
+            $userId = $this->getLastInsertId();
+
+            $passbook = array();
+            $passbook['user_id'] = $userId;
+            $passbook['point'] = 1000;
+            $passbook['event'] = 'welcome';
+            $this->Passbook->pointOperation($passbook);
+
             return $this->saveFBUser($user);
         } else {
             $this->id =  $record['User']['id'];
@@ -127,8 +133,15 @@ class User extends AppModel {
     public function updateSession()
     {
         $user_id = CakeSession::read('User.id');
-        $user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
-        CakeSession::write('User',$user['User']);
+        if(isset($user_id)){
+        	$user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
+        	if(isset($user)){
+        		CakeSession::write('User',$user['User']);
+        		return true;
+        	}else{
+        		return false;
+        	}
+        }
     }
 
     public function isOwner($book_user_id)

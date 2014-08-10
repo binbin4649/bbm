@@ -84,8 +84,6 @@ class Bet extends AppModel {
             $betpoint = $content['Content']['odds'] * $attrs['oddFactor'];
             $book_bet_all_total = $content['Book']['bet_all_total'] + $betpoint;
             $content_bet_total = $content['Content']['bet_total']+$betpoint;
-            $user = $this->User->find('first',array('conditions'=>array('User.id'=>$currentUser['id'])));
-            $currentPoint = $user['User']['point'] - $betpoint;
 
             $this->Book->id = $content['Book']['id'];
             $this->Book->set('bet_all_total',$book_bet_all_total);
@@ -102,33 +100,28 @@ class Bet extends AppModel {
 			//pr($dd);
 			//die;
 			$this->Content->save($dd);
-            
-
+/*
+            $this->Content->id = $content['Content']['id'];
+            $this->Content->set('bet_total',$content_bet_total);
+            $this->Content->set('user_count',++$content['Content']['user_count']);
+            $this->Content->save();
+*/
             $this->create();
             $this->set('book_id',$attrs['book_id']);
             $this->set('content_id',$attrs['content_id']);
             $this->set('user_id',$currentUser['id']);
             $this->set('betpoint',$betpoint);
-            //$this->set('result_point',$result_point);
             $this->save();
-
             $betId = $this->getLastInsertId();
 
-            $this->User->id = $currentUser['id'];
-            $this->User->set('betlist',++$user['User']['betlist']);
-            $this->User->set('point', $currentPoint);
-            $this->User->save();
-            $this->User->updateSession();
-
-            $this->Passbook->create();
-            $this->Passbook->set('book_id',$attrs['book_id']);
-            $this->Passbook->set('content_id',$attrs['content_id']);
-            $this->Passbook->set('user_id',$currentUser['id']);
-            $this->Passbook->set('bet_id',$betId);
-            $this->Passbook->set('point',$betpoint);
-            $this->Passbook->set('balance', $currentPoint);
-            $this->Passbook->set('event','bet');
-            $this->Passbook->save();
+            $passbook = array();
+            $passbook['book_id'] = $attrs['book_id'];
+            $passbook['content_id'] = $attrs['content_id'];
+            $passbook['user_id'] = $currentUser['id'];
+            $passbook['bet_id'] = $betId;
+            $passbook['point'] = $betpoint;
+            $passbook['event'] = 'bet';
+            $this->Passbook->pointOperation($passbook);
 
             $this->Book->changeOddsAllContents($attrs['book_id']);
 
