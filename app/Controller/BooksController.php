@@ -60,6 +60,7 @@ class BooksController extends AppController {
                         $this->render('book-upcoming');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
+                    	if($this->Book->isMakeBook() == false) $this->Session->setFlash('To bet, then please login.');
                         $this->set('pagetitle','Book - Bet Now');
                         $this->render('book-betnow');
 

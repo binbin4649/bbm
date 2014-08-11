@@ -64,6 +64,11 @@
         <h4 class="modal-title">Bet</h4>
       </div>
       <div class="modal-body">
+        <?php if(CakeSession::read('User.id')){
+          } else{
+            echo '<div class="alert"><strong>To bet, then please login.</strong></div>';
+          }
+        ?>
         <p class="content-bets-title">Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Length84</p>
         <form class="form-horizontal" role="form">
           <div class="form-group">
@@ -75,7 +80,7 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-danger btn-lg bet-btn">Bet</button>
+        <button <?php if(CakeSession::read('User.id')) echo 'type="submit"'; ?> class="btn btn-danger btn-lg bet-btn">Bet</button>
         </form>
       </div>
     </div><!-- /.modal-content -->
