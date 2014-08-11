@@ -251,8 +251,8 @@ DROP TABLE IF EXISTS `updates`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `updates` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
-  `book_id` int(20) NOT NULL,
-  `user_id` int(20) NOT NULL,
+  `book_id` int(20) DEFAULT NULL,
+  `user_id` int(20) DEFAULT NULL,
   `event` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ex) bet_start',
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
@@ -325,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-08  6:10:31
+-- Dump completed on 2014-08-11 20:02:55
