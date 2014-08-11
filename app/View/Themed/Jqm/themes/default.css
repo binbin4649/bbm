@@ -445,7 +445,18 @@ button[disabled],
 /* bet button */
 .bet-btn {
 	float: right;
-	margin: 0px;
+	margin-top: -27px;
+}
+
+/* odds display */
+.odds {
+	color: #cccccc;
+	font-size: 10px;
+	margin-left: 20px;	
+}
+.content-odds {
+	color:#990000;
+	font-size: 14px;
 }
 
 /* created by user */
