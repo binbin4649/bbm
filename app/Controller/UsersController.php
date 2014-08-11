@@ -78,8 +78,8 @@ class UsersController extends AppController {
 		$this->set("title_for_layout",$title_arr[$type]);
 		$this->User->recursive = -1;
 		$data = $this->User->find("all",array("conditions"=>array("User.id"=>$user_id)));
-		//$this->Session->write("User",$data[0]['User']);
-		/*
+		$this->Session->write("User",$data[0]['User']);
+		
         if ( $type != 'profile' ) { 
 			$flag = $this->authenticateuser($user_id);
 			if( !$flag ) {
@@ -87,14 +87,14 @@ class UsersController extends AppController {
 				$this->redirect(SITE_LINK."profile/".$user_id);
 			}
 		}
-        */
+        
 		if ( $type == 'profile' || $type == 'betlists' ) {
 			$this->loadModel("Bet");
 			$this->set('pagetitle','Profile - Betlist');
 			$this->paginate = array(
 				"order"=>array("Bet.created"=>"desc"),
 				"limit"=>($type == 'profile')?5:20,
-				"fields"=>array("Bet.*","Book.*"),
+				//"fields"=>array("Bet.*","Book.*"),
 				"recursive"=>"0"
 			);
 			$betconditions = array("Bet.user_id"=>$user_id);

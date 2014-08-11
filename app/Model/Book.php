@@ -227,13 +227,44 @@ class Book extends AppModel {
     }
 
     public function copyBook($attrs)
-    {
-        $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));
-        $currentUser = CakeSession::read('User');
-        if (!empty($currentBook) && $currentUser['id'] == $currentBook['User']['id']){
-            unset($currentBook['Model']['id'] /* further ids */);
-            $this->create();
-            $this->saveAll($currentBook);
+    {	
+		$currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));
+        $currentUserid = CakeSession::read('User.id');
+		
+		//pr($currentBook);
+		//pr($currentUser);
+        if (!empty($currentBook) && $currentUserid == $currentBook['Book']['user_id']){
+		
+            
+			unset($currentBook['User']);
+			unset($currentBook['Bet']);
+			unset($currentBook['Passbook']);
+			unset($currentBook['TimeZone']);
+			//pr($currentBook);
+			$content = array();
+			$book = array();
+			$book['Book']['title'] = $currentBook['Book']['title'];
+			$book['Book']['user_id'] = $currentBook['Book']['user_id'];
+			$book['Book']['announcement_type'] = $currentBook['Book']['announcement_type'];
+            $book['Book']['announcement'] = $currentBook['Book']['announcement'];
+            $book['Book']['announcement_name'] = $currentBook['Book']['announcement_name'];
+            $book['Book']['result_detail'] = $currentBook['Book']['result_detail'];
+            $book['Book']['time_zone'] = $currentBook['Book']['time_zone'];
+            $book['Book']['category'] = $currentBook['Book']['category'];
+            $book['Book']['state'] = 'Up Coming';
+			
+			foreach($currentBook['Content'] as $key=>$val) { 
+				unset($val['book_id']);
+				unset($val['bet_total']);
+				unset($val['user_count']);
+				unset($val['id']);
+				unset($val['created']);
+				unset($val['modified']);
+				$content['Content'][] = $val;
+			}
+			$data = array("Book"=>$book["Book"],"Content"=>$content["Content"]);
+			$this->create();
+            $this->saveAll($data);
             return $this->getLastInsertId();
         }
     }

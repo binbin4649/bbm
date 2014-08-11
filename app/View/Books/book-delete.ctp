@@ -9,7 +9,7 @@
                 Point that has been bet is refunded. Please refer to the passbook.</p>
               </div>
               <div class="col-xs-3">
-                <button class="btn btn-default btn-block btn-delete" data-toggle="modal" data-target="#Delete">Copy</button>
+                <button class="btn btn-default btn-block btn-delete copy_book_new" data-toggle="modal" data-target="#Delete">Copy</button>
               </div>
             </div>
 
