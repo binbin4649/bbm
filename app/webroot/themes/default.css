@@ -448,6 +448,17 @@ button[disabled],
 	margin: 0px;
 }
 
+/* odds display */
+.odds {
+	color: #cccccc;
+	font-size: 10px;
+	margin-left: 20px;	
+}
+.content-odds {
+	color:#990000;
+	font-size: 14px;
+}
+
 /* created by user */
 .createdby {
 	float:left; 
