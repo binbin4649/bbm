@@ -4,7 +4,7 @@ App::uses('CakeTime', 'Utility');
 App::uses('AppController', 'Controller');
 App::uses('BookDayState','Lib');
 class BooksController extends AppController {
-    public $components = array('Paginator','Search.Prg');
+    public $components = array('Paginator','Search.Prg',"RequestHandler");
     public $paginate = array(
         'limit' => 10,
         'order' => array(
@@ -51,9 +51,9 @@ class BooksController extends AppController {
                         $this->set('pagetitle','Book - Timeover');
                         $this->render('book-timeover');
 
-                    } else if (ucfirst($currentBook['Book']['state']) == 'Delete') {
+                    } else if (ucfirst($currentBook['Book']['state']) == 'Delete' || ucfirst($currentBook['Book']['state']) == 'Book Delete') {
                         $this->set('pagetitle','Book - Deleted');
-                        $this->render(implode('/', ['book-delete']));
+                        $this->render('book-delete');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
                         $this->set('pagetitle','Book - Upcoming');
@@ -120,7 +120,7 @@ class BooksController extends AppController {
 */
             if($this->Book->isMakeBook() == false) $this->Session->setFlash('You need login.');
             $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
-            $this->render(implode('/', ['book-make']));
+            $this->render('book-make');
         } else {
             if($this->Book->isMakeBook()){
                 $book = $this->Book->createNewBook($_POST);
@@ -128,12 +128,12 @@ class BooksController extends AppController {
                     $this->redirect('/books'.'/'.$book);
                 } else {
                     $this->set('errors',$book);
-                    $this->render(implode('/', ['book-make']));
+                    $this->render('book-make');
                 }    
             }else{
                 $this->Session->setFlash('Repeat. You need login.');
                 $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
-                $this->render(implode('/', ['book-make']));
+                $this->render('book-make');
             }
         }
     }
@@ -150,13 +150,15 @@ class BooksController extends AppController {
         $this->sendJSON($_POST);
     }
 
-    // public function copyBook()
-    // {
-    //     $book = $this->Book->copyBook($_POST);
-    //     if (!is_array($book)){
-    //          $this->sendJSON(array('book_id'=>$book));
-    //     }
-    // }
+    public function copyBook()
+    {
+		if($this->RequestHandler->isAjax()) {
+			$book = $this->Book->copyBook($_POST);
+			if (!is_array($book)){
+				$this->sendJSON(array('book_id'=>$book));
+			}
+		}
+    }
 
     // public function test()
     // {

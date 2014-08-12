@@ -1,4 +1,4 @@
-<table class="profile-table table">
+<?php /* <table class="profile-table table">
   <thead>
 	<tr>
 	  <th>Date</th>
@@ -18,3 +18,17 @@
   <?php } ?>
   </tbody>
 </table>
+*/ ?>
+<span class="clearfix"></span>
+
+<?php $books = $betlists; foreach($books as $book):?>
+          <div class="home-entry col-xs-12">
+            <h2><a href="<?php echo SITE_LINK; ?>books/<?php echo $book['Book']['id'] ?>"><?php echo $book['Book']['title']?></a></h2>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<?php echo $book['Book']['user_all_count']?></span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<?php echo $book['Book']['bet_all_total']?></span>
+            <span class="badge-state"><?php echo $book['Book']['state']?></span>
+            <span class="badge-category"><?php echo $book['Book']['category']?></span>
+            <p><a href="<?php echo SITE_LINK; ?>users/<?php echo $book['Book']['user_id']?>">Created:<?php echo CakeTime::format($book['Book']['created'],'%Y/%m/%d %H:%M')?> <?php echo $book['User']['name']?></a></p>
+            <p>Bet Start:   Bet Finsh:<?php echo CakeTime::format( $book['Book']['bet_finish'],'%Y/%m/%d %H:%M')?>   Result:<?php echo CakeTime::format( $book['Book']['result_time'],'%Y/%m/%d %H:%M')?> </p>
+          </div>
+          <?php endforeach;?>
