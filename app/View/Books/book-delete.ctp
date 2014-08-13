@@ -9,7 +9,7 @@
                 Point that has been bet is refunded. Please refer to the passbook.</p>
               </div>
               <div class="col-xs-3">
-                <button class="btn btn-default btn-block btn-delete copy_book_new" data-toggle="modal" data-target="#Delete">Copy</button>
+                <button class="btn btn-default btn-block btn-delete" data-toggle="modal" data-target="#Delete">Copy</button>
               </div>
             </div>
 
@@ -52,3 +52,22 @@
             </div><!--End of twitter-->
 
           </div>
+		  
+		  <!-- Modal Copy Button -->
+    <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Book Copy</h4>
+          </div>
+          <div class="modal-body">
+            <p>In replicating this book, you can create a new book.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-warning copy_book_new">Copy</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
