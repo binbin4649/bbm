@@ -20,6 +20,7 @@
  */
 
 App::uses('Model', 'Model');
+App::uses('CakeTime', 'Utility');
 
 /**
  * Application model for Cake.
