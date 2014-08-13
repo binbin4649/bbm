@@ -49,7 +49,7 @@ class UpdatesController extends AppController {
 	public function index()
 	{
 	 	$paginate = array(
-		        'limit' => 5,
+		        'limit' => 20,
 		        'order' => array(
 		            'Update.created' => 'desc'
 		        )

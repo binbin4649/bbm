@@ -26,9 +26,6 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 
-
-
-
 	?>
     <?php
     echo $this->Html->script('jquery');
@@ -140,16 +137,14 @@
         </aside><!--END of sidebar-->
 
         <div class="clearfix"></div>
-          
         <div class="updates-wrap col-xs-12">
           <h2>Updates</h2>
           <div class="updates col-xs-12">
-            <p><a href="#">hideichi_saito san, I made a sample page. Voting Begins is 0 minutes 10:07 August.</a></p>
-            <p><a href="#">Vote of the sample page has been started. Deadline is 0 minutes 12:07 August.</a></p>
-            <p><a href="#">Result of sample pages have been announced. Is a sample report.</a></p>
-            <p><a href="#">hideichi_saito san, I made a sample page. Voting Begins is 0 minutes 10:07 August.</a></p>
-            <p><a href="#">Vote of the sample page has been started. Deadline is 0 minutes 12:07 August.</a></p>
-            <p><a href="#">Result of sample pages have been announced. Is a sample report.</a></p>
+            <?php foreach($update_info as $update):?>
+            <p><a href="<?php echo SITE_LINK; ?>books/<?php echo $update['Update']['book_id'] ?>">
+              <?php echo $update['Update']['content'] ?>    
+            </a></p>
+            <?php endforeach;?>
           </div>
         </div>
 
