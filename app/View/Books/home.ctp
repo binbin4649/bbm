@@ -16,9 +16,6 @@ App::uses('Debugger', 'Utility');
 $category = array(''=>'category','Sports'=>'Sports','Others'=>'Others');
 $state = array(''=>'state','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet Finish'=>'Bet Finish','Result'=>'Result','Delete'=>'Delete','Timeover'=>'Timeover');
 
-
-
-
 ?>
           <!-- <form class="home-search form-inline" role="form" action="/" method="GET"> -->
           <?php echo $this->Form->create(array('class'=>'home-search form-inline home-search-form')); ?>

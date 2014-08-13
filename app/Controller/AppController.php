@@ -37,6 +37,7 @@ class AppController extends Controller {
 
     function beforeFilter() {
         // $this->Auth->allow('*');
+
         $this->set('fbuser',$this->Connect->user());
 		if(!defined('SITE_LINK')) {
 			define("SITE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
@@ -56,7 +57,9 @@ class AppController extends Controller {
 		} else {
 			
 		}
-
+		$this->loadModel('Update');
+		$updates = $this->Update->find('all', array('limit' => 5, 'order' => 'Update.created DESC', 'recursive' => -1));
+		$this->set('update_info',$updates);
     }
 
     function beforeFacebookSave() {

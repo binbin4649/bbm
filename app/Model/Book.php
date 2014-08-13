@@ -1,5 +1,6 @@
  <?php
 App::uses('AppModel','Model');
+App::import('Model','Update');
 
 class Book extends AppModel {
     public $name = 'Book';
@@ -172,6 +173,12 @@ class Book extends AppModel {
             $passbook['point'] = $reward_point;
             $passbook['event'] = 'reward';
             $this->Passbook->pointOperation($passbook);
+
+            $UpdateModel = new Update;
+            $update = array();
+            $update['book_id'] = $attrs['book_id'];
+            $update['event'] = 'bet_result';
+            $UpdateModel->updateInfo($update);
 
             return true;
         } else {
