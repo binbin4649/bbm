@@ -6,9 +6,11 @@
       <li>
         <h3><?php echo $content['title']?></h3>
         <p style="margin:0px;">
+        <a href="#betlist" data-rel="popup" data-transition="pop">
         <span><?php echo $this->Html->image('/img/icon2.png'); ?>:
           <span class="content_user_count"><?php echo $content['user_count']?></span>
-        </span>  
+        </span>
+        </a>
         <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:
           <span class="content_bet_total"><?php echo $content['bet_total']?></span>
         </span>
@@ -35,6 +37,27 @@
             </form>
         </div>
     </form>
+</div>
+
+<div data-role="popup" id="betlist" data-theme="a" class="ui-corner-all">
+      <div style="padding:10px 20px;" class="modal-content">
+          <h3 class="content-bets-title">content name</h3>
+          <ul data-role="listview" class="">
+            <li>
+              <a href="#">
+              <?php echo $this->Html->image('/img/profile-photo.jpg'); ?>
+              Hideichi Saito  Bet : 9999  2014/08/14 18:27
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <?php echo $this->Html->image('/img/profile-photo.jpg'); ?>
+              Hideichi Saito  Bet : 9999  2014/08/14 18:27
+              </a>
+            </li>
+          </ul>
+          <a href="#" data-rel="back" class="ui-btn ui-btn-inline ui-corner-all">Close</a>
+      </div>
 </div>
 
 <?php echo $this->element("mobile_book_detail_footer"); ?>
