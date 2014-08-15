@@ -184,9 +184,10 @@ var booksPageFunctionality = function(){
         });
     });
 
+    //Once, leave. not work.
     $('.copy_book_new').on('click',function(event){
         //event.preventDefault();
-		//alert("here");
+		    //alert("here");
         //$(event.target).addClass('disabled');
         $.ajax({
           data: {
@@ -200,8 +201,8 @@ var booksPageFunctionality = function(){
             if (response.book_id){
               window.location.href=SITE_LINK+"books/"+response.book_id;
             } else {
-				alert("You are not authorize to perform this action.");
-			}
+      				alert("You are not authorize to perform this action.");
+      			}
             $('#Delete').modal('hide');
             $('.copy-book').removeClass('disabled');
           },

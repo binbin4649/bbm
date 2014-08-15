@@ -238,19 +238,16 @@ class Book extends AppModel {
 
     public function copyBook($attrs)
     {	
+        return $this->find('first',array('conditions'=>array('Book.id'=>$attrs)));
+        /* Once, leave. not work.
 		$currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));
         $currentUserid = CakeSession::read('User.id');
 		
-		//pr($currentBook);
-		//pr($currentUser);
-        if (!empty($currentBook) && $currentUserid == $currentBook['Book']['user_id']){
-		
-            
+        if (!empty($currentBook) && $currentUserid == $currentBook['Book']['user_id']){    
 			unset($currentBook['User']);
 			unset($currentBook['Bet']);
 			unset($currentBook['Passbook']);
 			unset($currentBook['TimeZone']);
-			//pr($currentBook);
 			$content = array();
 			$book = array();
 			$book['Book']['title'] = $currentBook['Book']['title'];
@@ -262,7 +259,6 @@ class Book extends AppModel {
             $book['Book']['time_zone'] = $currentBook['Book']['time_zone'];
             $book['Book']['category'] = $currentBook['Book']['category'];
             $book['Book']['state'] = 'Up Coming';
-			
 			if(isset($currentBook['Content']) && !empty($currentBook['Content'])) {
 				foreach($currentBook['Content'] as $key=>$val) { 
 					unset($val['book_id']);
@@ -282,6 +278,7 @@ class Book extends AppModel {
             $this->saveAll($data);
             return $this->getLastInsertId();
         }
+        */
     }
 
     // maybe, not work.

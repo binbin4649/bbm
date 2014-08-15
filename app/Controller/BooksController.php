@@ -104,8 +104,14 @@ class BooksController extends AppController {
         return $currentBook;
     }
 
-    public function add()
+    public function add($book_id = null)
     {
+        if(!empty($book_id)){
+            $this->set('new_book',$this->Book->copyBook($book_id));
+        }else{
+            $new_book['Book'] = array('title'=>'','announcement_type'=>'URL','announcement_name'=>'','announcement'=>'','details'=>'','category'=>'Sports');
+            $this->set('new_book',$new_book);
+        }
         if (empty($_POST)) {
 /*
                 $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
@@ -150,13 +156,20 @@ class BooksController extends AppController {
         $this->sendJSON($_POST);
     }
 
+    //Once, leave. not work.
     public function copyBook()
     {
 		if($this->RequestHandler->isAjax()) {
-			$book = $this->Book->copyBook($_POST);
+            //$this->log($_POST);
+            $this->set('new_book',$this->Book->copyBook($_POST));
+            $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());
+            $this->render('book-make');
+            //$this->redirect('book-make');
+            /*
 			if (!is_array($book)){
 				$this->sendJSON(array('book_id'=>$book));
 			}
+            */
 		}
     }
 

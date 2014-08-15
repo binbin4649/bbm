@@ -20,7 +20,9 @@
                   </a>
                   </p>
                   <!-- <input name="title" id="book-title" type="text" class="form-control required" maxlength="84"> -->
-                    <?php echo $this->Form->input('title',array('id'=>'book-title','label' => false,'class'=>'form-control required','maxlength'=>"84")); ?>
+                    <?php echo $this->Form->input('title',
+                      array('id'=>'book-title','label' => false,'class'=>'form-control required','maxlength'=>"84",'value'=>$new_book['Book']['title'])); 
+                    ?>
 
                 </div>
               </div>
@@ -36,7 +38,14 @@
                   <?php endif;?>
 
                   <?php for($i=1;$i<=10;$i++):?>
-
+                    <?php 
+                      $ii = $i-1;
+                      if(!empty($new_book['Content'][$ii])){
+                        $content_value =  $new_book['Content'][$ii]['title'];
+                      }else{
+                        $content_value = '';
+                      }
+                    ?>
                     <!-- <input name="content[]" type="text" class="form-control required" id="bookContent<?php echo $i?>"> -->
                       
                     <?php if ($i<=5):?>
@@ -46,7 +55,9 @@
                     <?php endif;?>
                       <label for="bookContent1" class="col-sm-1"><?php echo $i?>,</label>
                       <div class="col-sm-11 content-input-field">
-                      <?php echo $this->Form->input("Book.content.{$i}",array('id'=>'bookContent'.$i,'label' => false,'class'=>'form-control required')); ?>
+                      <?php echo $this->Form->input("Book.content.{$i}",
+                        array('id'=>'bookContent'.$i,'label' => false,'class'=>'form-control required','value'=>$content_value)); 
+                      ?>
                       </div>
                     </div>
 
@@ -64,11 +75,13 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <?php echo $this->Form->select('announcement',$announcement,array('class'=>'form-control','id'=>'result-select','empty'=>false)); ?>
+                  <?php echo $this->Form->select('announcement',$announcement,
+                    array('class'=>'form-control','id'=>'result-select','empty'=>false,'selected'=>$new_book['Book']['announcement_type'])); 
+                  ?>
 
                   <br>
                   <p id="change" class="help-block"></p>
-                  <?php echo $this->Form->input('announcementName',array('label' => false,'class'=>'form-control')); ?>
+                  <?php echo $this->Form->input('announcementName',array('label' => false,'class'=>'form-control','value'=>$new_book['Book']['announcement_name'])); ?>
 
                 </div>
                 <div class="form-group col-xs-10">
@@ -78,7 +91,9 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <?php echo $this->Form->input('announcementDetail',array('label' => false,'class'=>'form-control','rows'=>'4','type'=>'textarea')); ?>
+                  <?php echo $this->Form->input('announcementDetail',
+                    array('label' => false,'class'=>'form-control','rows'=>'4','type'=>'textarea','value'=>$new_book['Book']['announcement'])); 
+                  ?>
                   
                 </div>
                 <div class="form-group col-xs-10">
@@ -177,7 +192,9 @@
                   </a>
                   </p>
                   <!-- <textarea name="bookDetail" class="form-control" rows="4"></textarea> -->
-                  <?php echo $this->Form->input('bookDetail',array('label' => false,'class'=>'form-control','rows'=>'4','type'=>'textarea')); ?>
+                  <?php echo $this->Form->input('bookDetail',
+                    array('label' => false,'class'=>'form-control','rows'=>'4','type'=>'textarea','value'=>$new_book['Book']['details'])); 
+                  ?>
 
               </div>
               <div class="form-group col-xs-6">
@@ -186,7 +203,9 @@
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
-                  <?php echo $this->Form->select('category',$category,array('class'=>'form-control','id'=>'result-select','empty'=>false)); ?>
+                  <?php echo $this->Form->select('category',$category,
+                    array('class'=>'form-control','id'=>'result-select','empty'=>false,'selected'=>$new_book['Book']['category'])); 
+                  ?>
 
               </div>
               
