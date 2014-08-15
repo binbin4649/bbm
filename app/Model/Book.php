@@ -121,6 +121,9 @@ class Book extends AppModel {
                     $this->Content->save();
                 }
             }
+            $this->User->id = $user['id'];
+            $this->User->set('makedbook',++$user['makedbook']);
+            $this->User->save();
             return $this->getLastInsertId();
         } else {
             $this->validates();

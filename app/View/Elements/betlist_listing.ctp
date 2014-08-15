@@ -1,4 +1,7 @@
-<?php /* <table class="profile-table table">
+
+<span class="clearfix"></span>
+
+<table class="profile-table table">
   <thead>
 	<tr>
 	  <th>Date</th>
@@ -18,9 +21,9 @@
   <?php } ?>
   </tbody>
 </table>
-*/ ?>
-<span class="clearfix"></span>
 
+
+<!--
 <?php $books = $betlists; foreach($books as $book):?>
           <div class="home-entry col-xs-12">
             <h2><a href="<?php echo SITE_LINK; ?>books/<?php echo $book['Book']['id'] ?>"><?php echo $book['Book']['title']?></a></h2>
@@ -32,3 +35,4 @@
             <p>Bet Start:   Bet Finsh:<?php echo CakeTime::format( $book['Book']['bet_finish'],'%Y/%m/%d %H:%M')?>   Result:<?php echo CakeTime::format( $book['Book']['result_time'],'%Y/%m/%d %H:%M')?> </p>
           </div>
           <?php endforeach;?>
+-->
