@@ -1,5 +1,5 @@
 <div class="user-rankings">
-            <h2>ユーザーランキング</h2>
+            <h2>User Ranking</h2>
 
             <div class="ranking-item">
               <span class="ranking-icon"><img src="images/rank1.png"></span>

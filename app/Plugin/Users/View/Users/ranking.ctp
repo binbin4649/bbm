@@ -1,6 +1,6 @@
 
 <div class="user-rankings">
-  <h2><?=  __d('users', 'ユーザーランキング');?></h2>
+  <h2><?=  __d('users', 'User Ranking');?></h2>
   <?php 
     $icon_arr = array(
         '0' => 'img/rank1.png',
@@ -19,7 +19,7 @@
      <div class="ranking-item">
       <span class="ranking-icon"><?php if ($key <= 10) : echo "<img src='" . $this->webroot . $icon_arr[$key] . "' />"; else : echo $key + 1; endif;?> </span>
       <p class="points"><?= $user['User']['point']?> pt</p>
-      <a href="/user/profile"><img src="http://graph.facebook.com/<?= $user['User']['facebook_id'] ?>/picture" /><?= $user['User']['name']?></a>
+      <a href="/users/<?php echo $user['User']['id'] ?>"><img src="http://graph.facebook.com/<?= $user['User']['facebook_id'] ?>/picture" /><?php echo $user['User']['name']?></a>
     </div>
 
   <?php      
