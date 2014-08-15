@@ -78,7 +78,7 @@ class UsersController extends AppController {
 		$this->set("title_for_layout",$title_arr[$type]);
 		$this->User->recursive = -1;
 		$data = $this->User->find("all",array("conditions"=>array("User.id"=>$user_id)));
-		$this->Session->write("User",$data[0]['User']);
+		//$this->Session->write("User",$data[0]['User']);
 		
         if ( $type != 'profile' ) { 
 			$flag = $this->authenticateuser($user_id);

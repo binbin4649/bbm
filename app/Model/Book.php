@@ -260,14 +260,19 @@ class Book extends AppModel {
             $book['Book']['category'] = $currentBook['Book']['category'];
             $book['Book']['state'] = 'Up Coming';
 			
-			foreach($currentBook['Content'] as $key=>$val) { 
-				unset($val['book_id']);
-				unset($val['bet_total']);
-				unset($val['user_count']);
-				unset($val['id']);
-				unset($val['created']);
-				unset($val['modified']);
-				$content['Content'][] = $val;
+			if(isset($currentBook['Content']) && !empty($currentBook['Content'])) {
+				foreach($currentBook['Content'] as $key=>$val) { 
+					unset($val['book_id']);
+					unset($val['bet_total']);
+					unset($val['user_count']);
+					unset($val['id']);
+					unset($val['created']);
+					unset($val['modified']);
+					$content['Content'][] = $val;
+				}
+				$data = array("Book"=>$book["Book"],"Content"=>$content["Content"]);
+			} else {
+				$data = array("Book"=>$book["Book"]);
 			}
 			$data = array("Book"=>$book["Book"],"Content"=>$content["Content"]);
 			$this->create();
