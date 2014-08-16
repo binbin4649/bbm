@@ -6,7 +6,7 @@
             <span class="badge-state"><?php echo $book['Book']['state']?></span>
             <span class="badge-category"><?php echo $book['Book']['category']?></span>
             <p><a href="<?php echo SITE_LINK; ?>users/<?php echo $book['Book']['user_id']?>">Created:<?php echo CakeTime::format($book['Book']['created'],'%Y/%m/%d %H:%M')?> <?php echo $book['User']['name']?></a></p>
-            <p>Bet Start:   Bet Finsh:<?php echo CakeTime::format( $book['Book']['bet_finish'],'%Y/%m/%d %H:%M')?>   Result:<?php echo CakeTime::format( $book['Book']['result_time'],'%Y/%m/%d %H:%M')?> </p>
+            <p>Bet Start:<?php echo CakeTime::format( $book['Book']['bet_start'],'%Y/%m/%d %H:%M')?>   Bet Finsh:<?php echo CakeTime::format( $book['Book']['bet_finish'],'%Y/%m/%d %H:%M')?>   Result:<?php echo CakeTime::format( $book['Book']['result_time'],'%Y/%m/%d %H:%M')?> </p>
           </div>
           <?php endforeach;?>
          
