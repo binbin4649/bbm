@@ -156,6 +156,12 @@ class BooksController extends AppController {
         $this->sendJSON($_POST);
     }
 
+    public function deletecopybook()
+    {
+        $this->Book->setDelete($_POST);
+        $this->sendJSON($_POST);
+    }
+
     //Once, leave. not work.
     public function copyBook()
     {
