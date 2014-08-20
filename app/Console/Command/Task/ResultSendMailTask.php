@@ -10,15 +10,21 @@ class ResultSendMailTask extends Shell {
             if (isset($time_zone['TimeZone']) && isset($time_zone['TimeZone']['value'])) {
                 $bookdaystate = new BookDayState($book,$time_zone['TimeZone']['value']);
                 if ($bookdaystate->isNotSetResult() && $book['Book']['result_time_info'] == false) {
-                    //$url = '<a href="'.$this->args[0].'/books'.'/'.$book['Book']['id'].'">'.$this->args[0].'/books'.'/'.$book['Book']['id'].'</a>';
-                    $url = '<a href="http://192.168.33.10/books'.'/'.$book['Book']['id'].'">http://192.168.33.10/books'.'/'.$book['Book']['id'].'</a>';
-                    $Email = new CakeEmail('gmail');
-                    $Email->from(array('bookbookmaker.com@gmail.com' => 'bbm'));
+
+$content = 'It is now time to announce the results.
+Please select a win.
+
+Book Title : '.$book['Book']['title'].'
+Total Bet : '.$book['Book']['bet_all_total'].'
+Total User : '.$book['Book']['user_all_count'].'
+
+'.'<a href="http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'">http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'</a>';
+
+                    $Email = new CakeEmail('smtp');
                     $Email->to($book['User']['mail']);
                     $Email->subject('Please select. announce the results.');
-                    $Email->emailFormat('html');
-                    $Email->send('It is now time to announce the results.<br/>
-                                    Please select a win. <br/>'.$url);
+                    //$Email->emailFormat('html');
+                    $Email->send($content);
 
                     $this->Book->id = $book['Book']['id'];
                     $this->Book->set('result_time_info',1);

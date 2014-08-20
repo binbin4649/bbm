@@ -23,3 +23,6 @@ foreach ($content as $line):
 	echo '<p> ' . $line . "</p>\n";
 endforeach;
 ?>
+
+<hr>
+<a href="http://bookbookmaker.com">bookbookmaker.com</a>
