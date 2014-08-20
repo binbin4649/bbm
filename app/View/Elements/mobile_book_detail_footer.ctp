@@ -1,7 +1,7 @@
  <p>
   <img class="createdby" src="<?php echo "http://graph.facebook.com/".$book['User']['facebook_id']."/picture?type=square"?>">
    <span class="small-text">Created : <?php echo CakeTime::format( $book['Book']['created'],'%Y/%m/%d %H:%M')?></span><br />
-   <a href="profile/view/<?php echo $book['User']['id']?>"><?php echo $book['User']['name']?></a>
+   <a href="<?php echo SITE_LINK."users/".$book['User']['id']; ?>"><?php echo $book['User']['name']?></a>
  </p>
   
   <div data-role="content">

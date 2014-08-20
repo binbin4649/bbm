@@ -1,7 +1,7 @@
 <div class="theprofile">
             <h2>Profile - Home</h2>
             <div class="profile-picture">
-              <img style="width:100%" src="http://graph.facebook.com/<?php echo $user['User']['facebook_id']?>/picture?type=square">
+              <img style="width:20%" src="http://graph.facebook.com/<?php echo $user['User']['facebook_id']?>/picture?type=square">
             </div>
             <div class="profile-info-left">
               <div><a href="/profile/home"><?php echo $user['User']['name']?></a></div>

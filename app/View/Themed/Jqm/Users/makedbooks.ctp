@@ -2,7 +2,7 @@
 
 <div class="theprofile">
             <h2>Profile - Maked Book</h2>
-<?php echo $this->element("user_profile_bar"); ?>
+<?php echo $this->element("mobile_user_profile_bar"); ?>
 <span class="clearfix"></span>
 <div data-role="content">
 <ul data-role="listview">

@@ -60,19 +60,9 @@
   <div id="panel-right" data-role="panel" data-position="right" data-position-fixed="true">
     <h3>User infomation</h3>
     <ul data-role="listview" data-inset="true">
-<!--         <li>
-            <a href="profile-home.html"><img src="img/167313_108568132552016_5047279_n.jpg" />Hideichi saito</a>
-        </li>
-        <li><a href="profile-passbook.html"><img src="img/icon1.png" class="ui-li-icon ui-corner-none" />Pass Book<span class="ui-li-count">999999</span></a></li>
-        <li><a href="profile-betlist.html">Bet List<span class="ui-li-count">999999</span></a></li>
-        <li><a herf="profile-makedbook.html">Maked Book<span class="ui-li-count">999999</span></a></li>
-        <li><a herf="book-make.html">Make Book</a></li>
-        <li><a herf="profile-edit.html">User Edit</a></li>
-        <li><a herf="#">Log out</a></li>
-        <li data-icon="delete"><a href="#" data-rel="close">Close</a></li> -->
         <?php if($fbuser): $fb = $this->Session->read('FB'); $user_s = $this->Session->read('User'); ?>
                     <li>
-                      <a href="<?php echo SITE_LINK; ?>profile ?>">
+                      <a href="<?php echo SITE_LINK; ?>profile/home">
                         <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$fb['Me']['id']."/picture?type=square"?>">
                         <?php echo $user_s['name']; ?>
                       </a>
