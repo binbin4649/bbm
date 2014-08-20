@@ -11,19 +11,15 @@ class ResultSendMailTask extends Shell {
                 $bookdaystate = new BookDayState($book,$time_zone['TimeZone']['value']);
                 if ($bookdaystate->isNotSetResult() && $book['Book']['result_time_info'] == false) {
 
-$content = 'It is now time to announce the results.
-Please select a win.
+$content = 'It is now time to announce the results.<br>Please select a win.
 
-Book Title : '.$book['Book']['title'].'
-Total Bet : '.$book['Book']['bet_all_total'].'
-Total User : '.$book['Book']['user_all_count'].'
+Book Title : '.$book['Book']['title'].'<br>Total Bet : '.$book['Book']['bet_all_total'].'<br>Total User : '.$book['Book']['user_all_count'].'
 
 '.'<a href="http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'">http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'</a>';
 
                     $Email = new CakeEmail('smtp');
                     $Email->to($book['User']['mail']);
                     $Email->subject('Please select. announce the results.');
-                    //$Email->emailFormat('html');
                     $Email->send($content);
 
                     $this->Book->id = $book['Book']['id'];
