@@ -37,8 +37,13 @@ class AppController extends Controller {
 
     function beforeFilter() {
         // $this->Auth->allow('*');
-
-        $this->set('fbuser',$this->Connect->user());
+    	//var_dump($this->Session->read('User'));
+    	if($this->Session->read('User') == null){
+    		$this->set('fbuser',null);
+    	} else {
+    		$this->set('fbuser',$this->Connect->user());
+    	}
+        
 		if(!defined('SITE_LINK')) {
 			define("SITE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
 			define("FILE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
