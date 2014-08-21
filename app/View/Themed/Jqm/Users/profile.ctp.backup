@@ -73,14 +73,14 @@
                 </tr>
               </thead>
               <tbody>
-        <?php foreach($books as $bookkey=>$bookval) { ?>
-        <tr>
+			  <?php foreach($books as $bookkey=>$bookval) { ?>
+				<tr>
                   <td><?php echo date("Y/m/d h:i",strtotime($bookval['Book']['created'])); ?></td>
                   <td><a href="#"><?php echo $bookval['Book']['title'] ?></a></td>
                   <td><?php echo $bookval['Book']['bet_all_total'] ?></td>
                   <td><?php echo $bookval['Book']['reward_point'] ?></td>
                 </tr>
-        <?php } ?>
+			  <?php } ?>
               </tbody>
             </table>
 

@@ -4,7 +4,7 @@
             <span class="clearfix"></span>
 
             <div class="profile-about col-xs-12">
-              <p>Sample text...</p>
+              <p><?php echo $data['User']['profile']; ?></p>
             </div>
             <?php //var_dump($user);?>
             <div class="profile-headers">

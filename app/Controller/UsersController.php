@@ -56,7 +56,14 @@ class UsersController extends AppController {
             }
             $this->set('betlists',$betlists);
 
+            $books = array();
+            $book_count = 5;
+            if(count($currentUser['Book']) < 5){ $book_count = count($currentUser['Book']); }
+            for ($i = 0; $i < $book_count; $i++){ $books[$i]['Book'] = $currentUser['Book'][$i]; }
+            $this->set('books',$books);
+
             $this->set(compact("data"));
+            $this->set("title_for_layout",'Profile - Home');
             $this->set('user',$currentUser);
             $this->set('result_timeover_count',$result_timeover_count);
             $this->set('makebook_count',$makebook_count);

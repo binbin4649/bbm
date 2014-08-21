@@ -62,7 +62,7 @@
     <ul data-role="listview" data-inset="true">
         <?php if($fbuser): $fb = $this->Session->read('FB'); $user_s = $this->Session->read('User'); ?>
                     <li>
-                      <a href="<?php echo SITE_LINK; ?>profile/home">
+                      <a href="<?php echo SITE_LINK; ?>users/<?php echo $user_s['id']; ?>">
                         <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$fb['Me']['id']."/picture?type=square"?>">
                         <?php echo $user_s['name']; ?>
                       </a>
