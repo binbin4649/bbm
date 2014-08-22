@@ -1,8 +1,14 @@
+<!--
 <div class="profile-picture">
 <?php if($this->Session->read('FB.Me.id')) { ?>
 	<img style="width:100%" src="<?php echo "http://graph.facebook.com/".$data['User']['facebook_id']."/picture?type=square"?>" />
 <?php } else { ?>
 <?php echo $this->Html->image("profile.png"); } ?>  
+</div>
+-->
+
+<div class="profile-picture">
+	<img style="width:100%" src="<?php echo "http://graph.facebook.com/".$data['User']['facebook_id']."/picture?type=square"?>" />
 </div>
 
 <div class="profile-info-left">

@@ -87,6 +87,7 @@ class UsersController extends AppController {
 		$data = $this->User->find("all",array("conditions"=>array("User.id"=>$user_id)));
 		//$this->Session->write("User",$data[0]['User']);
 		
+        /*
         if ( $type != 'profile' ) { 
 			$flag = $this->authenticateuser($user_id);
 			if( !$flag ) {
@@ -94,6 +95,7 @@ class UsersController extends AppController {
 				$this->redirect(SITE_LINK."profile/".$user_id);
 			}
 		}
+        */
         
 		if ( $type == 'profile' || $type == 'betlists' ) {
 			$this->loadModel("Bet");
