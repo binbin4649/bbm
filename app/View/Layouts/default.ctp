@@ -102,7 +102,7 @@
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="https://www.facebook.com/bookbookmaker" target="_blank"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
-            <li><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
+            <li><div class="fb-like" data-href="https://www.facebook.com/bookbookmaker" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
           </ul>
         </div>
       </nav><!--END of nav -->
