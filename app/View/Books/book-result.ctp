@@ -4,13 +4,14 @@
             <p class="help-block">Result were presented.</p>
             <div class="sub-head">
               <div class="message col-xs-9">
-              <?php if(isset($winner[0])): ?>
-                <p>WIN : <?php echo $winner[0]['title'];?><br>
-                  Final odds : <?php echo $winner[0]['odds'];?></p>
-              <?php else: ?>
-              	 <p>WIN : <?php echo $winner[1]['title'];?><br>
-                  Final odds : <?php echo $winner[1]['odds'];?></p>
-              <?php endif; ?>   
+              <?php 
+              	foreach($winner as $win){
+              		$title = $win['title'];
+              		$odds = $win['odds'];
+              	}
+              ?>
+              <p>WIN : <?php echo $title;?><br>
+                 Final odds : <?php echo $odds;?></p>
               </div>
               <div class="col-xs-3">
                 <button class="btn btn-default btn-block btn-delete" data-toggle="modal" data-target="#Delete">Copy</button>
