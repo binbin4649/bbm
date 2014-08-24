@@ -10,23 +10,20 @@ class TimeOverTask extends Shell {
             if (isset($time_zone['TimeZone']) && isset($time_zone['TimeZone']['value'])) {
                 $bookdaystate = new BookDayState($book,$time_zone['TimeZone']['value']);
                 if ($bookdaystate->isTimeOut() && $book['Book']['timeover_info'] == false) {
-                    $url = '<a href="'.$this->args[0].'/books'.'/'.$book['Book']['id'].'">'.$this->args[0].'/books'.'/'.$book['Book']['id'].'</a>';
-                    $Email = new CakeEmail();
-                    $Email->from(array('bbm@example.com' => 'bbm'));
+
+$content = 'The result has not been selected after 24 hours from the announcement date and time the corresponding book is disabled and all points wagered are returned to all punters. 
+The bookmaker will receive a penalty.
+
+Book Title : '.$book['Book']['title'].'<br>Total Bet : '.$book['Book']['bet_all_total'].'<br>Total User : '.$book['Book']['user_all_count'].'
+
+'.'<a href="http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'">http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'</a>';
+
+                    $Email = new CakeEmail('smtp');
                     $Email->to($book['User']['mail']);
                     $Email->subject('The result has not been selected after 24 hours');
-                    $Email->emailFormat('html');
-                    $Email->send(' The result has not been selected after 24 hours from the announcement date and time the corresponding book is disabled and all points wagered are returned to all punters. The bookmaker will receive a penalty.  <br/>'.$url);
+                    $Email->send($content);
 
-                    $this->Book->id = $book['Book']['id'];
-                    $this->Book->set('timeover_info',1);
-                    $this->Book->set('state','Timeover');
-                    $this->Book->save();
-
-                    if(!empty($book['Bet'])){
-                        $this->Book->returnBets($book['Bet']);
-                        $this->Book->timeoverCount($book['User']);    
-                    }
+                    $this->Book->seTimeover($book['Book']['id']);
                     
                 } else {
                 }

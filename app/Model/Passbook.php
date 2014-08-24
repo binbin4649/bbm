@@ -87,10 +87,10 @@ class Passbook extends AppModel {
 			$currentPoint = $user['User']['point'] + $attrs['point'];
 		}
 		
-		if($currentPoint < 1) return false; // no minus
+		//if($currentPoint < 1) return false; // no minus
 
         $this->User->set('point', $currentPoint);
-        if($this->User->save()){
+        if($this->User->save() and $attrs['event'] != 'return'){
         	$this->User->updateSession();
         }else{
         	$this->log('Passbook.php pointOperation : ', $this->User);

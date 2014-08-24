@@ -24,6 +24,7 @@ Book Title : '.$book['Book']['title'].'<br>Total Bet : '.$book['Book']['bet_all_
 
                     $this->Book->id = $book['Book']['id'];
                     $this->Book->set('result_time_info',1);
+                    $this->Book->set('state','Timeover');
                     $this->Book->save();
 
                 } else {

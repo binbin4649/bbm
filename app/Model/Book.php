@@ -216,6 +216,28 @@ class Book extends AppModel {
         }
     }
 
+    public function seTimeover($book_id)
+    {
+        $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$book_id)));
+        if (!empty($currentBook)){
+            $this->id = $currentBook['Book']['id'];
+            $this->set('timeover_info',1);
+            $this->set('state','Timeover');
+            $this->save();
+
+            if (!empty($currentBook['Bet'])) {
+                $this->User->id = $currentBook['User']['id'];
+                $this->User->set('result_timeover',++$currentBook['User']['result_timeover']);
+                $this->User->save();
+
+                $this->returnBets($currentBook['Bet']);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function returnBets($bets)
     {
         foreach($bets as $bet){
@@ -228,12 +250,6 @@ class Book extends AppModel {
             $passbook['event'] = 'return';
             $this->Passbook->pointOperation($passbook);
         }
-    }
-
-    public function timeoverCount($user){
-        $this->User->id = $user['id'];
-        $this->User->set('result_timeover',++$user['result_timeover']);
-        $this->User->save();
     }
 
     public function copyBook($attrs)
@@ -281,20 +297,6 @@ class Book extends AppModel {
         */
     }
 
-    // maybe, not work.
-    public function setTimeOver($attrs)
-    {
-        $currentBook = $this->find('first',array('conditions'=>array('Book.id'=>$attrs['book_id'])));
-        if (!empty($currentBook)){
-            $this->id = $currentBook['Book']['id'];
-            $this->set('title',$currentBook['Book']['title']);
-            $this->set('state','Time over');
-            $this->save();
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     public function changeOddsAllContents($book_id = NULL)
     {
