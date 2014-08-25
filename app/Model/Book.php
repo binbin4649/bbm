@@ -47,6 +47,7 @@ class Book extends AppModel {
         )
     );
     public $validate = array(
+    	/*
         'title' => array(
             'alphaNumeric'=>array(
                 'on'         => 'create',
@@ -55,6 +56,7 @@ class Book extends AppModel {
                 'message'  => 'Letters, numbers, spaces and dashes only'
                 )
             ),
+        */
         'bet_start'  => array(
             'rule'       => 'datetime',
             'message'    => 'Enter a valid date',
