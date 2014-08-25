@@ -6,8 +6,9 @@ var booksPageFunctionality = function(){
         currentContent = $(this).attr('data-content');
         currentContentId = $(this).attr('data-contentid');
         updateBetsOnModal(currentContent);
-		var val = $(this).attr("val");
-		$('#modal2').find('.content-bets-title').html($("#title_"+val).html());
+    		var val = $(this).attr("val");
+        //alert(val);
+		    $('#modal2').find('.content-bets-title').html($("#title_"+val).html());
     });
 
     function updateBetsOnModal(currentContent) {

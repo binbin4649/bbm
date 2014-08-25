@@ -27,12 +27,12 @@
                     <td><?php echo $content['no'] ?><input name="contentid" type="hidden" value="<?php echo $content['id']?>"></td>
                     <td>
                       <div class="title">
-                        <p class="thetitle"><?php echo $content['title']?></p>
+                        <p class="thetitle" id="title_<?php echo $content['id']; ?>"><?php echo $content['title']?></p>
                       </div>
                       <div class="left">
                         <span class="odds">Odds</span>
                         <p class="content_odds"><?php echo $content['odds']?></p>
-                        <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2"><span class="content_user_count"><?php echo $content['user_count']?></span></a></span>
+                        <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2" val="<?php echo $content['id']; ?>"><span class="content_user_count"><?php echo $content['user_count']?></span></a></span>
                       </div>
                       <div class="right">
                         <button class="btn btn-block">-</button>
@@ -69,7 +69,7 @@
         <h4 class="modal-title">Bet list</h4>
       </div>
       <div class="modal-body">
-        <p class="content-bets-title">Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Length84</p>
+        <p class="content-bets-title"></p>
 
         <div class="modal-entry">
           <div class="modal-single-entry">
