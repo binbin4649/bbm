@@ -4,10 +4,11 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php //echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
+		BookBookMaker.com :
+		<?php echo $pagetitle; ?>
 	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="Keywords" content="仮想ブックメーカー,バーチャルブックメーカー,未来予想,スポーツ観戦,勝敗予想,賭けて観ると100倍楽しい" />
 	<?php
 		echo $this->Html->meta('icon');
 

@@ -24,7 +24,7 @@ class BooksController extends AppController {
         $this->Paginator->settings['conditions'] = $conditions;
         $this->set('books', $this->Paginator->paginate());
         try {
-            $this->set('pagetitle','Book - Home');
+            $this->set('pagetitle','Home');
             $this->render('home');
         } catch (MissingViewException $e) {
             if (Configure::read('debug')) {
