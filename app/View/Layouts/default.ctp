@@ -3,16 +3,12 @@
 <?php echo $this->Facebook->html(); ?>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title>
-		BookBookMaker.com :
-		<?php echo $pagetitle; ?>
-	</title>
+	<title><?php echo $pagetitle; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="Keywords" content="仮想ブックメーカー,バーチャルブックメーカー,未来予想,スポーツ観戦,勝敗予想,賭けて観ると100倍楽しい" />
 	<?php
 		echo $this->Html->meta('icon');
-
-		//echo $this->Html->css('cake.generic');
+	
 		//<!-- Bootstrap -->
 		echo $this->Html->css('bootstrap.min');
 		//<!-- Main Styles -->
@@ -27,8 +23,6 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 
-	?>
-    <?php
     echo $this->Html->script('jquery');
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('bootstrap-datetimepicker.min');
@@ -37,9 +31,6 @@
 
     echo $this->Html->script('bbm'); 
     echo $this->Html->script('route'); 
-
-
-
     ?>
 	<script>
 		var SITE_LINK = "<?php echo SITE_LINK; ?>";

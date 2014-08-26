@@ -698,4 +698,9 @@ div#flashMessage {border: 1px solid;
     float: left;
     padding: 5px;
     text-align: center;
-    width: 100%;}
+    width: 100%;
+}
+
+.sns-buttons {
+  margin-top: 35px;
+}

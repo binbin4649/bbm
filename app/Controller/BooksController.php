@@ -24,7 +24,7 @@ class BooksController extends AppController {
         $this->Paginator->settings['conditions'] = $conditions;
         $this->set('books', $this->Paginator->paginate());
         try {
-            $this->set('pagetitle','Home');
+            $this->set('pagetitle','BookBookMaker.com - Home');
             $this->render('home');
         } catch (MissingViewException $e) {
             if (Configure::read('debug')) {
@@ -48,35 +48,35 @@ class BooksController extends AppController {
                     $bookdaystate = new BookDayState($currentBook,$time_zone['TimeZone']['value']);
                     $this->set('startTime',$bookdaystate->getStartTime());
                     if (ucfirst($currentBook['Book']['state']) == 'Timeover' || ucfirst($currentBook['Book']['state']) == 'Result Timeover'){
-                        $this->set('pagetitle','Book - Timeover');
+                        $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->render('book-timeover');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Delete' || ucfirst($currentBook['Book']['state']) == 'Book Delete') {
-                        $this->set('pagetitle','Book - Deleted');
+                        $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->render('book-delete');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Up Coming') {
-                        $this->set('pagetitle','Book - Upcoming');
+                        $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->render('book-upcoming');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
                     	if($this->Book->isMakeBook() == false) $this->Session->setFlash('To bet, then please login.');
-                        $this->set('pagetitle','Book - Bet Now');
+                        $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->render('book-betnow');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && !$this->Book->User->isOwner($currentBook['Book']['user_id'])) {
-                        $this->set('pagetitle','Book - Bet Finish');
+                        $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->render('book-betfinish');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Finish' && $this->Book->User->isOwner($currentBook['Book']['user_id'])) {
-                        $this->set('pagetitle','Book - Bet Finish');
+                        $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->render('book-select-result');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Result') {
                         $winner = array_filter($currentBook['Content'],function($item) use($currentBook){
                           return $item['id'] == $currentBook['Book']['win_contents_id'];
                         });
-                        $this->set('pagetitle','Book - Result');
+                        $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->set('winner',$winner);
                         $this->render('book-result');
                     }

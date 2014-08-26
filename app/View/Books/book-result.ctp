@@ -51,7 +51,7 @@
   <?php echo $this->element("desktop_book_detail_footer"); ?>
             
             <div class="sns-buttons">
-              
+              <?php echo $this->element("zenback"); ?>
             </div><!--End of SNS Buttons -->
 
             <div class="facebook">
