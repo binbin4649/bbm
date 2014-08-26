@@ -2,7 +2,7 @@
   <div class="article-headers">
     <h3>Details</h3>
   </div>
-  <p><?php echo $book['Book']['details']?></p>
+  <p><?php echo nl2br($this->text->autoLinkUrls($book['Book']['details'])); ?></p>
 </div>
 <div class="article">
   <div class="article-headers">
@@ -15,11 +15,11 @@
       <?php echo $book['Book']['announcement_name']?>
     <?php endif;?>
   </p>
-  <p><?php echo $book['Book']['announcement']?></p>
+  <p><?php echo nl2br($this->text->autoLinkUrls($book['Book']['announcement'])); ?></p>
 </div>
 <div class="article">
   <div class="article-headers">
     <h3>Result</h3>
   </div>
-  <p><?php echo $book['Book']['result_detail'];?></p>
+  <p><?php echo nl2br($this->text->autoLinkUrls($book['Book']['result_detail'])); ?></p>
 </div>

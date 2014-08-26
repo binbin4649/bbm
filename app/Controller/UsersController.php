@@ -63,7 +63,9 @@ class UsersController extends AppController {
             $this->set('books',$books);
 
             $this->set(compact("data"));
-            $this->set("title_for_layout",'Profile - Home');
+            //$this->set("title_for_layout",'Profile - Home');
+            $this->set('pagetitle',$currentUser['User']['name'].' : Profile-Home');
+
             $this->set('user',$currentUser);
             $this->set('result_timeover_count',$result_timeover_count);
             $this->set('makebook_count',$makebook_count);
@@ -82,11 +84,11 @@ class UsersController extends AppController {
 	
 	function profile($type = 'profile',$user_id = null) {
 		$title_arr = array("profile"=>"Profile","passbooks"=>"Passbooks","makedbooks"=>"Makedbooks","betlists"=>"Betlists");
-		$this->set("title_for_layout",$title_arr[$type]);
+		//$this->set("title_for_layout",$title_arr[$type]);
 		$this->User->recursive = -1;
 		$data = $this->User->find("all",array("conditions"=>array("User.id"=>$user_id)));
+
 		//$this->Session->write("User",$data[0]['User']);
-		
         /*
         if ( $type != 'profile' ) { 
 			$flag = $this->authenticateuser($user_id);
@@ -99,7 +101,7 @@ class UsersController extends AppController {
         
 		if ( $type == 'profile' || $type == 'betlists' ) {
 			$this->loadModel("Bet");
-			$this->set('pagetitle','Profile - Betlist');
+			//$this->set('pagetitle','Profile - Betlist');
 			$this->paginate = array(
 				"order"=>array("Bet.created"=>"desc"),
 				"limit"=>($type == 'profile')?5:20,
@@ -111,7 +113,7 @@ class UsersController extends AppController {
 		} 
 		if ( $type == 'profile' || $type == 'passbooks' ) {
 			$this->loadModel("Passbook");
-			$this->set('pagetitle','Profile - Passbook');
+			//$this->set('pagetitle','Profile - Passbook');
 			$this->paginate = array(
 				"order"=>array("Passbook.created"=>"desc"),
 				"limit"=>($type == 'profile')?5:20
@@ -121,7 +123,7 @@ class UsersController extends AppController {
 		}
 		if ( $type == 'profile' || $type == 'makedbooks' ) {
 			$this->loadModel("Book");
-			$this->set('pagetitle','Profile - Book');
+			//$this->set('pagetitle','Profile - Book');
 			$this->paginate = array(
 				"order"=>array("Book.created"=>"desc"),
 				"recursive"=>($type == 'profile')?"-1":'1',
@@ -130,8 +132,8 @@ class UsersController extends AppController {
 			$Bookconditions = array("Book.user_id"=>$user_id);
 			$this->set("books",$this->paginate('Book',$Bookconditions));
 		}
+        $this->set('pagetitle',$data[0]['User']['name'].' : '.$type);
 		$data = $data[0];
-		//pr($user);
 		$this->set(compact("data"));
 		$this->render($type);
 	}

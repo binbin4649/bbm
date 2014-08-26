@@ -32,7 +32,7 @@ App::uses('CakeTime', 'Utility');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $helpers = array('Facebook.Facebook');
+    public $helpers = array('Facebook.Facebook','Text');
     var $components = array('Session', 'Facebook.Connect','Paginator');
 
     function beforeFilter() {
