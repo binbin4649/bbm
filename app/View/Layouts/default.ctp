@@ -115,20 +115,36 @@
 
         </div> <!--End of content -->
 
-        <aside class="sidebar col-xs-3">
+        <aside class="sidebar col-xs-3"><!-- Ad area 200 * 200px -->
           <div class="row">
 
             <div class="ads col-xs-12">
-              <?php echo $this->Html->image('ad.png'); ?>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- bbm-02 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:200px;height:200px"
+                     data-ad-client="ca-pub-7437855718572743"
+                     data-ad-slot="3640906326"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             <div class="ads col-xs-12">
-            <?php echo $this->Html->image('ad.png'); ?>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- bbm-04 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:200px;height:200px"
+                     data-ad-client="ca-pub-7437855718572743"
+                     data-ad-slot="6594372723"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             <div class="ads col-xs-12">
-              <?php echo $this->Html->image('ad.png'); ?>
+              <!-- Rakuten Widget FROM HERE --><script type="text/javascript">rakuten_design="slide";rakuten_affiliateId="045a4144.3498d69a.0dbedbf2.482e71aa";rakuten_items="ctsmatch";rakuten_genreId=0;rakuten_size="200x200";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="off";rakuten_auto_mode="on";rakuten_genre_title="off";rakuten_recommend="on";</script><script type="text/javascript" src="http://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script><!-- Rakuten Widget TO HERE -->
             </div>
             <div class="ads col-xs-12">
-              <?php echo $this->Html->image('ad.png'); ?>
+              <!-- Rakuten Widget FROM HERE --><script type="text/javascript">rakuten_design="text";rakuten_affiliateId="045a4144.3498d69a.0dbedbf2.482e71aa";rakuten_items="ctsmatch";rakuten_genreId=0;rakuten_size="200x200";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="off";rakuten_auto_mode="on";rakuten_genre_title="off";rakuten_recommend="on";</script><script type="text/javascript" src="http://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script><!-- Rakuten Widget TO HERE -->
             </div>
 
           </div>
