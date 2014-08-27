@@ -150,6 +150,8 @@ class User extends AppModel {
     }
     public function updateProfile($data)
     {
+        if(empty($data['User']['language'])) $data['User']['language'] = 'ja';
+        if(empty($data['User']['time_zone'])) $data['User']['time_zone'] = 9;
         $this->id = CakeSession::read('User.id');
         $this->set('mail',$data['User']['mail']);
         $this->set('profile',$data['User']['profile']);

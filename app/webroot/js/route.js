@@ -109,10 +109,12 @@ var booksPageFunctionality = function(){
               $('#Bet').popup("close");
             }
             $('button[type=submit]').removeClass('disabled');
-			window.location.reload();
+			       window.location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
+            alert("This book is finish.");
+             window.location.reload();
           }
         });
     });

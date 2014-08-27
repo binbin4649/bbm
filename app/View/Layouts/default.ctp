@@ -3,7 +3,13 @@
 <?php echo $this->Facebook->html(); ?>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title><?php echo $pagetitle; ?></title>
+	<title><?php
+    if(empty($pagetitle)){
+      echo 'BookBookMaker.com';
+    } else {
+      echo $pagetitle;
+    } 
+  ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="Keywords" content="仮想ブックメーカー,バーチャルブックメーカー,未来予想,スポーツ観戦,勝敗予想,賭けて観ると100倍楽しい" />
 	<?php

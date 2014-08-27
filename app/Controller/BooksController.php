@@ -112,6 +112,7 @@ class BooksController extends AppController {
             $new_book['Book'] = array('title'=>'','announcement_type'=>'URL','announcement_name'=>'','announcement'=>'','details'=>'','category'=>'Sports');
             $this->set('new_book',$new_book);
         }
+        $this->set('pagetitle','Make Book');
         if (empty($_POST)) {
 /*
                 $this->set('timezone',$this->Book->TimeZone->getArrayForSelectForm());

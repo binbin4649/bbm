@@ -1,5 +1,6 @@
  <?php
 App::uses('AppModel','Model');
+App::uses('CakeEmail', 'Network/Email');
 App::import('Model','Update');
 
 class Book extends AppModel {
@@ -155,6 +156,7 @@ class Book extends AppModel {
 
             if (!empty($currentContent['Bet'])){
                 foreach($currentContent['Bet'] as $bet){
+                    //passbook operation
                     $result_point = floor($final_odds * $bet['betpoint']);
                     $passbook = array();
                     $passbook['book_id'] = $bet['book_id'];
@@ -163,8 +165,21 @@ class Book extends AppModel {
                     $passbook['bet_id'] = $bet['id'];
                     $passbook['point'] = $result_point;
                     $passbook['event'] = 'win';
-                    $this->Passbook->pointOperation($passbook);
+                    $user = $this->Passbook->pointOperation($passbook);
 
+                    //win mail operation
+$content = 'Congratulations!
+
+Book Title : '.$currentContent['Book']['title'].'<br>Win : '.$currentContent['Content']['title'].'<br>Final Odds : '.$final_odds.'<br>Your bet : '.$bet['betpoint'].'<br>Get point : '.$result_point.'
+
+'.'<a href="http://bookbookmaker.com/books'.'/'.$attrs['book_id'].'">http://bookbookmaker.com/books'.'/'.$attrs['book_id'].'</a>';
+
+                    $Email = new CakeEmail('smtp');
+                    $Email->to($user['User']['mail']);
+                    $Email->subject('You are won!');
+                    $Email->send($content);
+
+                    //bet operation
                     $this->Bet->create();
                     $this->Bet->set('id', $bet['id']);
                     $this->Bet->set('result_point', $result_point);

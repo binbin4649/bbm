@@ -108,5 +108,7 @@ class Passbook extends AppModel {
         }else{
         	$this->log('Passbook.php pointOperation : ', $this);
         }
+        return $user;
 	}
+
 }

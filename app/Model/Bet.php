@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('BookDayState','Lib');
 /**
  * Bet Model
  *
@@ -66,17 +67,22 @@ class Bet extends AppModel {
 
     public function saveNewBet($attrs)
     { 
-		//pr($attrs);
-		//die;
+		App::import('model','Book');
+        App::import('model','User');
+        App::import('model','Content');
+        App::import('model','Passbook');
+
         $currentUser = CakeSession::read('User');
         $content = $this->Content->find('first',array('conditions'=>array('Content.id'=>$attrs['content_id'])));
-        // var_dump($content);
-        if (!empty($content)) {
-		App::import('model','Book');
-		App::import('model','User');
-		App::import('model','Content');
-		App::import('model','Passbook');
-		
+
+        //check finish time
+        /*  In nature, use it.
+        $time_zone = $this->Book->TimeZone->find('first',array('conditions'=>array('TimeZone.id'=>$content['Book']['time_zone'])));
+        $bookdaystate = new BookDayState($content['Book'],$time_zone['TimeZone']['value']);
+        if ($bookdaystate->isBetNow())
+        */
+
+        if (strtotime($content['Book']['bet_finish']) > time()) {
             $attrs['oddFactor'] = (int) $attrs['oddFactor'];
             if ($attrs['oddFactor'] == 0) {
                 $attrs['oddFactor'] = 1;
