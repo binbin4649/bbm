@@ -38,7 +38,7 @@
   <div data-role="footer">
     <h3>bookbookmaker.com</h3>
     <a href="http://bookbookmaker.com">bookbookmaker.com</a>
-    <a href="http://hideichi.com">hideichi.com</a>
+    <a herf="#">For pc view</a>
   </div><!--footer end-->
 
 
