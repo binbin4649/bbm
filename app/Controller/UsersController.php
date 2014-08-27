@@ -4,6 +4,7 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 	function beforefilter(){
 		parent::beforefilter();
+		
 	}
     public function logout()
     {
@@ -30,49 +31,8 @@ class UsersController extends AppController {
 
     public function view($id)
     {
-        $currentUser = $this->User->find('first',array('conditions'=>array('User.id'=>$id)));
-        if (!empty($currentUser)) {
-            foreach($currentUser['Bet'] as $betKey=>$bet) {
-                $currentBet = $this->User->Bet->find('first',array('conditions'=>array('Bet.id'=>$bet['id'])));
-                $currentUser['Bet'][$betKey]['book'] = $currentBet['Book'];
-            }
-
-            $result_timeover_count = $this->User->Book->find('count',array('conditions'=>array('LOWER(Book.state)'=>'time over')));
-            $makebook_count = $this->User->Book->find('count',array('conditions'=>array('Book.user_id'=>$id)));
-            $data = $currentUser;
-
-            $passbooks = array();
-            $passbook_count = 5;
-            if(count($currentUser['Passbook']) < 5){ $passbook_count = count($currentUser['Passbook']); }
-            for ($i = 0; $i < $passbook_count; $i++){ $passbooks[$i]['Passbook'] = $currentUser['Passbook'][$i]; }
-            $this->set('passbooks',$passbooks);
-            
-            $betlists = array();
-            $betlist_count = 5;
-            if(count($currentUser['Bet']) < 5){ $betlist_count = count($currentUser['Bet']); }
-            for ($i = 0; $i < $betlist_count; $i++){ 
-                $betlists[$i]['Bet'] = $currentUser['Bet'][$i];
-                $betlists[$i]['Book'] = $currentUser['Bet'][$i]['book'];
-            }
-            $this->set('betlists',$betlists);
-
-            $books = array();
-            $book_count = 5;
-            if(count($currentUser['Book']) < 5){ $book_count = count($currentUser['Book']); }
-            for ($i = 0; $i < $book_count; $i++){ $books[$i]['Book'] = $currentUser['Book'][$i]; }
-            $this->set('books',$books);
-
-            $this->set(compact("data"));
-            //$this->set("title_for_layout",'Profile - Home');
-            $this->set('pagetitle',$currentUser['User']['name'].' : Profile-Home');
-
-            $this->set('user',$currentUser);
-            $this->set('result_timeover_count',$result_timeover_count);
-            $this->set('makebook_count',$makebook_count);
-            $this->User->updateSession();
-            $this->render('profile-home');
-            //$this->render(implode('/', ['profile']));
-        }
+        return $this->profile('profile',$this->Session->read('User.id'));
+        
 
     }
 
@@ -104,7 +64,7 @@ class UsersController extends AppController {
 			//$this->set('pagetitle','Profile - Betlist');
 			$this->paginate = array(
 				"order"=>array("Bet.created"=>"desc"),
-				"limit"=>($type == 'profile')?5:20,
+				"limit"=>($type == 'profile')?5:5,
 				//"fields"=>array("Bet.*","Book.*"),
 				"recursive"=>"0"
 			);
@@ -116,7 +76,7 @@ class UsersController extends AppController {
 			//$this->set('pagetitle','Profile - Passbook');
 			$this->paginate = array(
 				"order"=>array("Passbook.created"=>"desc"),
-				"limit"=>($type == 'profile')?5:20
+				"limit"=>($type == 'profile')?5:5
 			);
 			$Passbookconditions = array("Passbook.user_id"=>$user_id);
 			$this->set("passbooks",$this->paginate('Passbook',$Passbookconditions));
@@ -127,7 +87,7 @@ class UsersController extends AppController {
 			$this->paginate = array(
 				"order"=>array("Book.created"=>"desc"),
 				"recursive"=>($type == 'profile')?"-1":'1',
-				"limit"=>($type == 'profile')?5:20
+				"limit"=>($type == 'profile')?5:5
 			);
 			$Bookconditions = array("Book.user_id"=>$user_id);
 			$this->set("books",$this->paginate('Book',$Bookconditions));
@@ -139,7 +99,7 @@ class UsersController extends AppController {
 	}
 
     public function home()
-    {
+    { 
         return $this->profile('profile',$this->Session->read('User.id'));
     }
     public function edit($id=null)

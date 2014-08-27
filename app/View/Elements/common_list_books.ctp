@@ -1,4 +1,4 @@
-<?php foreach($books as $book):?>
+<?php foreach($books as $book): //pr($book); ?>
           <div class="<?php echo $type; ?>-entry col-xs-12">
             <h2><a href="<?php echo SITE_LINK; ?>books/<?php echo $book['Book']['id'] ?>"><?php echo $book['Book']['title']?></a></h2>
             <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<?php echo $book['Book']['user_all_count']?></span>

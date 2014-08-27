@@ -6,9 +6,8 @@ var booksPageFunctionality = function(){
         currentContent = $(this).attr('data-content');
         currentContentId = $(this).attr('data-contentid');
         updateBetsOnModal(currentContent);
-    		var val = $(this).attr("val");
-        //alert(val);
-		    $('#modal2').find('.content-bets-title').html($("#title_"+val).html());
+		var val = $(this).attr("val");
+		$('#modal2').find('.content-bets-title').html($("#title_"+val).html());
     });
 
     function updateBetsOnModal(currentContent) {
@@ -17,7 +16,7 @@ var booksPageFunctionality = function(){
         var betsHTML = '';
         for (bet in bets) {
 		    betsHTML += '<div class="modal-single-entry">'
-            +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="'+SITE_LINK+'users/'+ bets[bet].User.id +'" class="username">'+bets[bet].User.name+'</a>'
+            +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="'+SITE_LINK+'profile/'+ bets[bet].User.id +'" class="username">'+bets[bet].User.name+'</a>'
             +'<p>Bet: <span>'+bets[bet].Bet.betpoint+'</span></p>'
             +'<p>'+(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</p>'
             +'</div>';
@@ -108,13 +107,12 @@ var booksPageFunctionality = function(){
             if (typeof $('#Bet').popup == 'function'){
               $('#Bet').popup("close");
             }
+			
             $('button[type=submit]').removeClass('disabled');
-			       window.location.reload();
+			window.location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
-            alert("This book is finish.");
-             window.location.reload();
           }
         });
     });
@@ -158,7 +156,6 @@ var booksPageFunctionality = function(){
             console.log(response);
             $('#Delete').modal('hide');
             $('.delete-book').removeClass('disabled');
-            window.location.href=SITE_LINK+"books/"+response.book_id;
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
@@ -181,7 +178,6 @@ var booksPageFunctionality = function(){
             console.log(response);
             $('#Delete').modal('hide');
             $('.delete-copy-book').removeClass('disabled');
-            window.location.href=SITE_LINK+"books/add/"+response.book_id;
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
@@ -189,10 +185,9 @@ var booksPageFunctionality = function(){
         });
     });
 
-    //Once, leave. not work.
     $('.copy_book_new').on('click',function(event){
         //event.preventDefault();
-		    //alert("here");
+		//alert("here");
         //$(event.target).addClass('disabled');
         $.ajax({
           data: {
@@ -206,8 +201,8 @@ var booksPageFunctionality = function(){
             if (response.book_id){
               window.location.href=SITE_LINK+"books/"+response.book_id;
             } else {
-      				alert("You are not authorize to perform this action.");
-      			}
+				alert("You are not authorize to perform this action.");
+			}
             $('#Delete').modal('hide');
             $('.copy-book').removeClass('disabled');
           },
