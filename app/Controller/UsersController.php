@@ -31,8 +31,9 @@ class UsersController extends AppController {
 
     public function view($id)
     {
-        return $this->profile('profile',$this->Session->read('User.id'));
-        
+        //return $this->profile('profile',$this->Session->read('User.id'));
+        //The display even if they are not logged.
+        return $this->profile('profile',$id);
 
     }
 
@@ -64,7 +65,7 @@ class UsersController extends AppController {
 			//$this->set('pagetitle','Profile - Betlist');
 			$this->paginate = array(
 				"order"=>array("Bet.created"=>"desc"),
-				"limit"=>($type == 'profile')?5:5,
+				"limit"=>($type == 'profile')?5:20,
 				//"fields"=>array("Bet.*","Book.*"),
 				"recursive"=>"0"
 			);
@@ -76,7 +77,7 @@ class UsersController extends AppController {
 			//$this->set('pagetitle','Profile - Passbook');
 			$this->paginate = array(
 				"order"=>array("Passbook.created"=>"desc"),
-				"limit"=>($type == 'profile')?5:5
+				"limit"=>($type == 'profile')?5:20
 			);
 			$Passbookconditions = array("Passbook.user_id"=>$user_id);
 			$this->set("passbooks",$this->paginate('Passbook',$Passbookconditions));
@@ -87,7 +88,7 @@ class UsersController extends AppController {
 			$this->paginate = array(
 				"order"=>array("Book.created"=>"desc"),
 				"recursive"=>($type == 'profile')?"-1":'1',
-				"limit"=>($type == 'profile')?5:5
+				"limit"=>($type == 'profile')?5:10
 			);
 			$Bookconditions = array("Book.user_id"=>$user_id);
 			$this->set("books",$this->paginate('Book',$Bookconditions));

@@ -22,7 +22,6 @@
   </tbody>
 </table>
 
-
 <!--
 <?php $books = $betlists; foreach($books as $book):?>
           <div class="home-entry col-xs-12">

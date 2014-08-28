@@ -52,7 +52,7 @@
 			  <?php foreach($betlists as $betkey=>$betval) { ?>
 				<tr>
                   <td><?php echo date("Y/m/d h:i",strtotime($betval['Bet']['created'])); ?></td>
-                  <td><a href="#"><?php echo $betval['Book']['title'] ?></a></td>
+                  <td><a href="/books/<?php echo $betval['Book']['id']?>"><?php echo $betval['Book']['title'] ?></a></td>
                   <td><?php echo $betval['Bet']['betpoint'] ?></td>
                   <td><?php echo $betval['Bet']['result_point'] ?></td>
                 </tr>
@@ -77,7 +77,7 @@
 			  <?php foreach($books as $bookkey=>$bookval) { ?>
 				<tr>
                   <td><?php echo date("Y/m/d h:i",strtotime($bookval['Book']['created'])); ?></td>
-                  <td><a href="#"><?php echo $bookval['Book']['title'] ?></a></td>
+                  <td><a href="/books/<?php echo $bookval['Book']['id'] ?>"><?php echo $bookval['Book']['title'] ?></a></td>
                   <td><?php echo $bookval['Book']['bet_all_total'] ?></td>
                   <td><?php echo $bookval['Book']['reward_point'] ?></td>
                 </tr>
