@@ -16,7 +16,7 @@ var booksPageFunctionality = function(){
         var betsHTML = '';
         for (bet in bets) {
 		    betsHTML += '<div class="modal-single-entry">'
-            +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="'+SITE_LINK+'profile/'+ bets[bet].User.id +'" class="username">'+bets[bet].User.name+'</a>'
+            +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="'+SITE_LINK+'users/'+ bets[bet].User.id +'" class="username">'+bets[bet].User.name+'</a>'
             +'<p>Bet: <span>'+bets[bet].Bet.betpoint+'</span></p>'
             +'<p>'+(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</p>'
             +'</div>';
