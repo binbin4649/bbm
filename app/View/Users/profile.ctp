@@ -10,7 +10,7 @@
             </div>
 
             <div class="profile-headers">
-              <h3>Passbook</h3>
+              <h3>Passbook</h3> 
               <a href="<?php echo SITE_LINK."passbooks/".$data['User']['id'] ?>">More</a>
             </div>
             <table class="profile-table table">

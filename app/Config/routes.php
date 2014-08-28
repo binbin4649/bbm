@@ -49,7 +49,7 @@
     Router::connect('/profile/edit', array('controller' => 'users', 'action' => 'edit'));
     Router::connect('/profile/home', array('controller' => 'users', 'action' => 'home'));
     Router::connect('/passbooks/*', array('controller' => 'users', 'action' => 'profile','passbooks'));
-    Router::connect('/profile/*', array('controller' => 'users', 'action' => 'profile','profile'));
+   // Router::connect('/profile/*', array('controller' => 'users', 'action' => 'profile','profile'));
     Router::connect('/betlists/*', array('controller' => 'users', 'action' => 'profile','betlists'));
     Router::connect('/makedbooks/*', array('controller' => 'users', 'action' => 'profile','makedbooks'));
     Router::connect('/admin', array('controller' => 'admins', 'action' => 'login'));
