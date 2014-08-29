@@ -22,6 +22,7 @@ class BooksController extends AppController {
         $conditions = $this->Book->parseCriteria($params);
         $this->Paginator->settings = $this->paginate;
         $this->Paginator->settings['conditions'] = $conditions;
+		$this->Book->virtualFields = array("usercount"=>"select count(distinct(user_id)) as usercount from bets where bets.book_id = Book.id");
         $this->set('books', $this->Paginator->paginate());
         try {
             $this->set('pagetitle','BookBookMaker.com - Home');
@@ -36,6 +37,7 @@ class BooksController extends AppController {
 
     public function view($id=null)
     {
+		$this->Book->virtualFields = array("usercount"=>"select count(distinct(user_id)) as usercount from bets where bets.book_id = Book.id");
         $currentBook = $this->Book->find('first',array('conditions'=>array('Book.id'=>$id)));
 		//pr($currentBook);
 		//pr($_GET);
