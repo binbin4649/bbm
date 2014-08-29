@@ -54,6 +54,26 @@
 
           </div>
 
+<!-- Modal Copy Button -->
+    <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Book Copy</h4>
+          </div>
+          <div class="modal-body">
+            <p>In replicating this book, you can create a new book.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <!-- <button type="button" class="btn btn-warning copy_book_new">Copy</button> -->
+            <a href="/books/add/<?php echo $book['Book']['id']; ?>" class="btn btn-warning">Copy</a>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <!-- Modal -->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
