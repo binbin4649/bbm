@@ -6,7 +6,7 @@
             <span class="clearfix"></span>
 
             <div class="profile-about col-xs-12">
-              <p><?php echo $data['User']['profile']; ?></p>
+              <p><?php echo nl2br($this->text->autoLinkUrls($data['User']['profile'])); ?></p>
             </div>
 
             <div class="profile-headers">
