@@ -1,7 +1,7 @@
 <?php foreach($books as $book): //pr($book); ?>
           <div class="<?php echo $type; ?>-entry col-xs-12">
             <h2><a href="<?php echo SITE_LINK; ?>books/<?php echo $book['Book']['id'] ?>"><?php echo $book['Book']['title']?></a></h2>
-            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<?php echo $book['Book']['user_all_count']?></span>
+            <span class="entry-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<?php echo $book['Book']['usercount']?></span>
             <span class="entry-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<?php echo $book['Book']['bet_all_total']?></span>
             <span class="badge-state"><?php echo $book['Book']['state']?></span>
             <span class="badge-category"><?php echo $book['Book']['category']?></span>
