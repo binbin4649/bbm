@@ -1,7 +1,7 @@
-<ul data-role="listview">
+<ul data-role="listview" class="tuika_profile_listview">
     <li>
       <a href="<?php echo SITE_LINK."users/".$data['User']['id']; ?>">
-        <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$data['User']['facebook_id']."/picture?type=square"?>" />
+        <img src="<?php echo "http://graph.facebook.com/".$data['User']['facebook_id']."/picture?type=square"?>" />
         <?php echo $data['User']['name']; ?>
       </a>
     </li>

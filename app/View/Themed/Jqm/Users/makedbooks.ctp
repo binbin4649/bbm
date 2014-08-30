@@ -1,10 +1,10 @@
 <?php //pr($books); ?>
 
 <div class="theprofile">
-            <h2>Profile - Maked Book</h2>
+ <h2>Profile - Maked Book</h2>
 <?php echo $this->element("mobile_user_profile_bar"); ?>
 <span class="clearfix"></span>
-<div data-role="content">
+<div data-role="content tuika_content">
 <ul data-role="listview">
     <?php foreach($books as $book):?>
       <li>

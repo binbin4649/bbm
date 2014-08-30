@@ -41,6 +41,7 @@
 	<script>
 		var SITE_LINK = "<?php echo SITE_LINK; ?>";
 	</script>
+
 </head>
 <body>
     <div class="container">
