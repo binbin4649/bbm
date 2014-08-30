@@ -5,7 +5,7 @@
     <?php foreach ($book['Content'] as $content):?>
       <li>
         <h3><?php echo $content['title']?></h3>
-        <p style="margin:0px;"><span><?php echo $this->Html->image('/img/icon2.png'); ?>:<span class="content_user_count"><?php echo $content['user_count']?></span></span>  <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span class="content_bet_total"><?php echo $content['bet_total']?></span></span>
+        <p style="margin:0px;" class="listview_stats"><span><?php echo $this->Html->image('/img/icon2.png'); ?>:<span class="content_user_count"><?php echo $content['user_count']?></span></span>  <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span class="content_bet_total"><?php echo $content['bet_total']?></span></span>
         <input type="hidden" name="contentid" value="<?php echo $content['id']?>">
         <?php if ($content['id'] == $book['Book']['win_contents_id']):?>
           <button class="bet-btn ui-btn ui-btn-inline ui-corner-all btn-success">Win</button>

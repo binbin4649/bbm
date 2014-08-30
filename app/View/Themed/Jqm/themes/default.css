@@ -429,17 +429,23 @@ button[disabled],
   color: #ffffff;
   font-size: 12px;
 }
+
+/*追加部分*/
+
 .badge-state {
-  background: #990000;
+  background: #ff6633;
+  margin-left: 20%;
 }
 .badge-category {
-  background: #0000FF;
+  background: #3399cc;
 }
+
+/*追加部分*/
 
 /* Text */
 .small-text {
 	color: #7f7f7f;
-	font-size: 12px;
+	font-size: 10px;
 }
 
 /* bet button */

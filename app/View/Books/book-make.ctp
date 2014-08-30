@@ -14,8 +14,8 @@
 
               <div class="row">
                 <div class="form-group col-xs-10">
-                  <p class="help-block"><?php echo __("Book Title"); ?><span>*</span>
-                  <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please enter the title of the book. Max 84 characters and required."); ?>">
+                  <p class="help-block">Book Title <span>*</span>
+                  <a rel="popover" data-content="Please enter the title of the book. Max 84 characters and required.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -28,8 +28,8 @@
               </div>
               <div class="row">
                 <div class="form-group col-xs-8" id="book-content-list">
-                  <p class="help-block"><?php echo __("Book Content"); ?><span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please enter the contents of the book. At least two are required.To 45 characters.This increases the five pressing the add content. 10 is the maximum."); ?>">
+                  <p class="help-block">Book Content <span>*</span>
+                    <a rel="popover" data-content="Please enter the contents of the book. At least two are required.To 45 characters.This increases the five pressing the add content. 10 is the maximum.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -70,8 +70,8 @@
                   </div>
                   
                   <br>
-                  <p class="help-block"><?php echo __("Result Announcement"); ?>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Source of the results Where is? Selection and enter."); ?>">
+                  <p class="help-block">Result Announcement
+                    <a rel="popover" data-content="Source of the results Where is? Selection and enter.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -86,8 +86,8 @@
                 </div>
                 <div class="form-group col-xs-10">
 
-                  <p class="help-block"><?php echo __("Result Announcement detail"); ?>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Enter the details about this result announcement.can not use HTML tags. URL will be automatically linked."); ?>">
+                  <p class="help-block">Result Announcement detail
+                    <a rel="popover" data-content="Enter the details about this result announcement.can not use HTML tags. URL will be automatically linked.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -97,8 +97,8 @@
                   
                 </div>
                 <div class="form-group col-xs-10">
-                  <p class="help-block"><?php echo __("Bet Start"); ?><span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please select the date and time when the Bet is started. Selected in 5-minute intervals. Fields are required."); ?>">
+                  <p class="help-block">Bet Start <span>*</span>
+                    <a rel="popover" data-content="Please select the date and time when the Bet is started. Selected in 5-minute intervals. Fields are required.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -123,8 +123,8 @@
               </div>
               <div class="form-group col-xs-10">
                   
-                  <p class="help-block"><?php echo __("Bet Finish"); ?><span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please select the date and time that Bet is finished. 5 minute intervals. Required fields. You can not select a date and time in the past than Bet start."); ?>">
+                  <p class="help-block">Bet Finish <span>*</span>
+                    <a rel="popover" data-content="Please select the date and time that Bet is finished. 5 minute intervals. Required fields. You can not select a date and time in the past than Bet start.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -150,8 +150,8 @@
               </div>
               <div class="form-group col-xs-10">
 
-                  <p class="help-block"><?php echo __("Result Annoucement Time"); ?><span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Select the scheduled date and time to announce the results. 5 minute intervals. Required fields. You can not select a date and time in the past than Bet Finish."); ?>">
+                  <p class="help-block">Result Annoucement Time <span>*</span>
+                    <a rel="popover" data-content="Select the scheduled date and time to announce the results. 5 minute intervals. Required fields. You can not select a date and time in the past than Bet Finish.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -186,8 +186,8 @@
               -->
 
               <div class="form-group col-xs-10">
-                  <p class="help-block"><?php echo __("Book Detail"); ?>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please enter the details of this book. can not use HTML tags. URL will be automatically linked."); ?>">
+                  <p class="help-block">Book Detail
+                    <a rel="popover" data-content="Please enter the details of this book. can not use HTML tags. URL will be automatically linked.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -198,8 +198,8 @@
 
               </div>
               <div class="form-group col-xs-6">
-                  <p class="help-block"><?php echo __("Category"); ?>
-                  <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please select the category of this book."); ?>">
+                  <p class="help-block">Category
+                  <a rel="popover" data-content="Please select the category of this book.">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
