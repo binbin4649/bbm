@@ -178,6 +178,7 @@ var booksPageFunctionality = function(){
             console.log(response);
             $('#Delete').modal('hide');
             $('.delete-copy-book').removeClass('disabled');
+            window.location.href=SITE_LINK+"books/add/"+response.book_id;
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
