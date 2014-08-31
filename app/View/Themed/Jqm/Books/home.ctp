@@ -36,13 +36,13 @@ $state = array(''=>'Category','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet
   <ul data-role="listview">
       <?php foreach($books as $book):?>
           <li>
-            <a href="/books/<?php echo $book['Book']['id'] ?>">
+            <a href="/books/<?php echo $book['Book']['id'] ?>" class="tuika_ui-icon-carat-r">
                 <h2><?php echo $book['Book']['title']?></h2>
-                <p>
+                <p class="list_view_stats">
                     <span><?php echo $this->Html->image('/img/icon1.png'); ?>:<?php echo $book['Book']['bet_all_total']?></span>
                     <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<?php echo $book['Book']['user_all_count']?></span>
-                    <span class="badge-state"><?php echo $book['Book']['state']?></span>
-                    <span class="badge-category"><?php echo $book['Book']['category']?></span>
+                    <span class="badge-state tuika_badge-state"><?php echo $book['Book']['state']?></span>
+                    <span class="badge-category tuika_badge-category"><?php echo $book['Book']['category']?></span>
                 </p>
             </a>
           </li>
@@ -50,7 +50,7 @@ $state = array(''=>'Category','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet
   </ul>
   </div>
 
-  <div style="text-align:center">
+  <div style="text-align:center" class="tuika_page">
               <?php echo $this->Paginator->prev(__('Prev'), array('class'=>'ui-btn ui-btn-inline ui-corner-all'), null,  array('class' => 'ui-state-disabled'));?>
               <?php echo $this->Paginator->next(__('Next'), array('class'=>'ui-btn ui-btn-inline ui-corner-all'), null,  array('class' => 'ui-state-disabled','disabledTag' => 'a'));?>
   </div>
