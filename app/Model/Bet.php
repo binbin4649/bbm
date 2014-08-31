@@ -91,10 +91,18 @@ class Bet extends AppModel {
             $book_bet_all_total = $content['Book']['bet_all_total'] + $betpoint;
             $content_bet_total = $content['Content']['bet_total']+$betpoint;
 
+
+            $user_count = $this->find('count', array('conditions'=>array('Bet.book_id' => $content['Book']['id'], 'Bet.user_id' => $currentUser['id'])));
+            if($user_count == 0){
+                $user_all_count = ++$content['Book']['user_all_count'];
+            }else{
+                $user_all_count = $content['Book']['user_all_count'];
+            }
+
             $this->Book->id = $content['Book']['id'];
             $this->Book->set('bet_all_total',$book_bet_all_total);
             $this->Book->set('title',$content['Book']['title']);
-            $this->Book->set('user_all_count',++$content['Book']['user_all_count']);
+            $this->Book->set('user_all_count',$user_all_count);
             $this->Book->save();
 
             /* change all content odds */
