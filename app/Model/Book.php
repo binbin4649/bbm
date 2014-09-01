@@ -172,7 +172,7 @@ $content = 'Congratulations!
 
 Book Title : '.$currentContent['Book']['title'].'<br>Win : '.$currentContent['Content']['title'].'<br>Final Odds : '.$final_odds.'<br>Your bet : '.$bet['betpoint'].'<br>Get point : '.$result_point.'
 
-'.'<a href="http://bookbookmaker.com/books'.'/'.$attrs['book_id'].'">http://bookbookmaker.com/books'.'/'.$attrs['book_id'].'</a>';
+<a href="http://bookbookmaker.com/books/'.$attrs['book_id'].'">http://bookbookmaker.com/books/'.$attrs['book_id'].'</a>';
 
                     $Email = new CakeEmail('smtp');
                     $Email->to($user['User']['mail']);
