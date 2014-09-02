@@ -60,6 +60,7 @@
 	Router::connect('/admin/configurations/*', array('controller' => 'admins', 'action' => 'configurations'));
 	Router::connect('/admin/editprofile', array('controller' => 'admins', 'action' => 'editprofile'));
 	Router::connect('/admin/logout', array('controller' => 'admins', 'action' => 'logout'));
+	Router::connect('/switch_view/*', array('controller' => 'pages', 'action' => 'viewswitcher'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

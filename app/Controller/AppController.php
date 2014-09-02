@@ -33,7 +33,7 @@ App::uses('CakeTime', 'Utility');
  */
 class AppController extends Controller {
     public $helpers = array('Facebook.Facebook','Text');
-    var $components = array('Session', 'Facebook.Connect','Paginator');
+    var $components = array('Session', 'Facebook.Connect','Paginator','RequestHandler');
 
     function beforeFilter() {
         // $this->Auth->allow('*');
@@ -48,10 +48,19 @@ class AppController extends Controller {
 			define("SITE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
 			define("FILE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
 		}
-        if($this->request->is('mobile')){
+		if ( $this->Session->read("switch_view") ) {
+			if ( $this->Session->read("switch_view") == 'wap' ) {
+				$this->layout = 'default';
+			} else {
+				$this->theme = 'Jqm';
+				$this->layout = 'jqm';
+			}
+		} elseif ($this->RequestHandler->isMobile()){
             $this->theme = 'Jqm';
             $this->layout = 'jqm';
-        }
+        } else {
+			$this->layout = 'default';
+		}
 		if ($this->params['controller'] == 'admins' || $this->params['prefix'] == 'admin') {
 			//$this->Auth->allow();			
 			$this->userInfo = $this->Session->read('admin.Admin') ;

@@ -41,6 +41,10 @@
 	<script>
 		var SITE_LINK = "<?php echo SITE_LINK; ?>";
 	</script>
+	<meta property="og:image" content="http://bookbookmaker.com/img/bbm.png"/>
+		<meta property="og:image:width" content="300" />
+		<meta property="og:image:height" content="300" />
+		<meta property="og:description" content="BBM Dummy content"/>
 </head>
 <body>
     <div class="container">
@@ -100,7 +104,7 @@
             <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
             <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
             <li><a href="https://www.facebook.com/bookbookmaker" target="_blank"><?php echo $this->Html->image('fb-icon.png'); ?> FB Page</a></li>
-            <li><div class="fb-like" data-href="https://www.facebook.com/bookbookmaker" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
+            <li id="fblike"><span class='st_fblike_large' displayText='Facebook Like'></span></li>
           </ul>
         </div>
       </nav><!--END of nav -->
@@ -195,7 +199,7 @@
 	            <!--<li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>-->
 	            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
 	            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
-	            <li><a herf="#">For mobile view</a></li>
+	            <li><a href="<?php echo SITE_LINK."switch_view/mobile" ?>">For Mobile View</a></li>
               </ul>
               <p class="copyright"><a href="http://bookbookmaker.com">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
             </div>
@@ -234,7 +238,9 @@
   ga('create', 'UA-54215674-1', 'auto');
   ga('send', 'pageview');
 
-</script>    
+</script> 
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-b1b136cf-6db0-7d61-ff24-a7c372c182b0", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>   
   </body>
 
 <?php echo $this->element('sql_dump'); ?>

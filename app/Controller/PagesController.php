@@ -97,4 +97,11 @@ class PagesController extends AppController {
 	    $data = $this->Paginator->paginate('Update');
     	$this->set('updates', $data);
 	}
+	
+	function viewswitcher($type = 'wap') {
+		if ($type == 'wap' || $type == 'mobile') {
+			$this->Session->write('switch_view',$type);
+		}
+		$this->redirect(SITE_LINK);
+	}
 }

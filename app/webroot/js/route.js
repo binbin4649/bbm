@@ -218,8 +218,9 @@ var booksPageFunctionality = function(){
 
 
 $(document).ready(function(){
-
-
+$("#fblike").click(function(){
+	alert("here");
+});
 if (/books\/\d/.test(document.location.href)) {
     booksPageFunctionality();
 }
@@ -227,6 +228,18 @@ if (/books\/\d/.test(document.location.href)) {
     if (document.location.hash == '#more_point'){
       $('#morePointModal').modal({show: true});
     }
+	
+	$("div.text-more").click(function(){
+		if($(this).attr("more")) {
+			$(this).parent("li").addClass("ui-li-static");
+			$(this).removeAttr("more");
+			$(this).html("Read more...");
+		} else {
+			$(this).parent("li").removeClass("ui-li-static");
+			$(this).attr("more",1);
+			$(this).html("Read less...");
+		}
+	});
 });
 
 
