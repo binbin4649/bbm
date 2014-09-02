@@ -171,6 +171,9 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                   </div>
                   <input type="hidden" id="betResultTime" value="" />
+                  <?php if(isset($errors) && isset($errors['result_time'])):?>
+                    <div class="error-message"><?php echo $errors['result_time'][0]?></div>
+                  <?php endif;?>
               </div>
 
               <!--

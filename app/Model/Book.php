@@ -68,6 +68,12 @@ class Book extends AppModel {
                     'rule'       =>array('checkBetFinish'),
                     'message'    => 'Enter a valid date',
                 )
+            ),
+        'result_time'  => array(
+            'identical'=>array(
+                    'rule'       =>array('checkResultTime'),
+                    'message'    => 'Enter a valid date',
+                )
             )
     );
 
@@ -84,6 +90,20 @@ class Book extends AppModel {
                 return true;
             }
         }
+    }
+
+    public function checkResultTime($check){
+    	$betFinish = strtotime($this->data['Book']['bet_finish']);
+    	$resultTime = strtotime($this->data['Book']['result_time']);
+    	if($resultTime < $betFinish){
+    		return false;
+    	} else {
+    		if($resultTime < time()){
+    			return false;
+    		} else {
+    			return true;
+    		}
+    	}
     }
 
     public function createNewBook($data)
