@@ -57,11 +57,17 @@ class Book extends AppModel {
                 'message'  => 'Letters, numbers, spaces and dashes only'
                 )
             ),
-        */
         'bet_start'  => array(
             'rule'       => 'datetime',
             'message'    => 'Enter a valid date',
             'allowEmpty' => false
+            ),
+        */
+        'bet_start'  => array(
+            'identical'=>array(
+                    'rule'       =>array('checkBetStart'),
+                    'message'    => 'Enter a valid date',
+                )
             ),
         'bet_finish'  => array(
             'identical'=>array(
@@ -76,6 +82,15 @@ class Book extends AppModel {
                 )
             )
     );
+
+    public function checkBetStart($check){
+        $betStart = strtotime($this->data['Book']['bet_start']);
+        if($betStart < time()){
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     public function checkBetFinish($check)
     {

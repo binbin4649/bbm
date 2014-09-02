@@ -273,14 +273,14 @@
           });
           $('.form_time').datetimepicker({
             weekStart: 1,
-            todayBtn:  1,
+            todayBtn:  0,
             autoclose: 1,
             todayHighlight: 1,
             startView: 1,
             minView: 0,
             maxView: 1,
-            forceParse: 0,
-            startDate: new Date()
+            forceParse: 0
+            //startDate: new Date()
           });
       });
     </script>
