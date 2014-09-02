@@ -105,7 +105,7 @@
                   <div class="input-group date form_date col-xs-7" data-date="" data-date-format="yyyy-mm-dd" data-link-field="betStartDate" data-link-format="yyyy-mm-dd">
                       <!-- <input class="form-control" name="betStartDate" id="betStartDate" size="16" type="text" value="" readonly> -->
                       <?php echo $this->Form->input('betStartDate',array('label' => false,'class'=>'form-control','id'=>'betStartDate','size'=>'16','readonly')); ?>
-                      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                      <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span> -->
                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
                   <input type="hidden" id="betStartDate" value="" />
@@ -113,7 +113,7 @@
                   <div class="input-group date form_time col-xs-5" data-date="" data-date-format="hh:ii" data-link-field="betStartTime" data-link-format="hh:ii">
                     <!-- <input class="form-control" name="betStartTime" id="betStartTime" size="16" type="text" value="" readonly> -->
                     <?php echo $this->Form->input('betStartTime',array('label' => false,'class'=>'form-control','id'=>'betStartTime','size'=>'16','readonly')); ?>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span> -->
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                   </div>
                   <input type="hidden" id="betStartTime" value="" />
@@ -131,16 +131,14 @@
                   <div class="input-group date form_date col-xs-7" data-date="" data-date-format="yyyy-mm-dd" data-link-field="betFinishDate" data-link-format="yyyy-mm-dd">
                       <!-- <input class="form-control" name="betFinishDate" id="betFinishDate" size="16" type="text" value="" readonly> -->
                     <?php echo $this->Form->input('betFinishDate',array('label' => false,'class'=>'form-control','id'=>'betFinishDate','size'=>'16','readonly')); ?>
-
-                      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                      <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span> -->
                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
                   <input type="hidden" id="betFinishDate" value="" />
                   <div class="input-group date form_time col-xs-5" data-date="" data-date-format="hh:ii" data-link-field="betFinishTime" data-link-format="hh:ii">
                     <!-- <input class="form-control" name="betFinishTime" id="betFinishTime" size="16" type="text" value="" readonly> -->
                     <?php echo $this->Form->input('betFinishTime',array('label' => false,'class'=>'form-control','id'=>'betFinishTime','size'=>'16','readonly')); ?>
-
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span> -->
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                   </div>
                   <input type="hidden" id="betFinishTime" value="" />
@@ -158,16 +156,14 @@
                   <div class="input-group date form_date col-xs-7" data-date="" data-date-format="yyyy-mm-dd" data-link-field="betResultDate" data-link-format="yyyy-mm-dd">
                       <!-- <input class="form-control" name="betResultDate" id="betResultDate" size="16" type="text" value="" readonly> -->
                     <?php echo $this->Form->input('betResultDate',array('label' => false,'class'=>'form-control','id'=>'betResultDate','size'=>'16','readonly')); ?>
-
-                      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                      <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span> -->
                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
                   <input type="hidden" id="betResultDate" value="" />
                   <div class="input-group date form_time col-xs-5" data-date="" data-date-format="hh:ii" data-link-field="betResultTime" data-link-format="hh:ii">
                     <!-- <input class="form-control" name="betResultTime" id="betResultTime" size="16" type="text" value="" readonly> -->
                     <?php echo $this->Form->input('betResultTime',array('label' => false,'class'=>'form-control','id'=>'betResultTime','size'=>'16','readonly')); ?>
-
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span> -->
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                   </div>
                   <input type="hidden" id="betResultTime" value="" />
@@ -271,8 +267,8 @@
             forceParse: 0,
             startDate: new Date()
           });
-          $('.form_time').datetimepicker({
-            weekStart: 1,
+          $('.form_time').datetimepicker({ 
+            //weekStart: 1,
             todayBtn:  0,
             autoclose: 1,
             todayHighlight: 1,
