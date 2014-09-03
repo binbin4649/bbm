@@ -102,6 +102,6 @@ class PagesController extends AppController {
 		if ($type == 'wap' || $type == 'mobile') {
 			$this->Session->write('switch_view',$type);
 		}
-		$this->redirect(SITE_LINK);
+		$this->redirect($this->referer());
 	}
 }

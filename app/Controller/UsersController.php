@@ -25,7 +25,7 @@ class UsersController extends AppController {
                 $this->redirect('/#more_point');
             }
         }
-        $this->redirect('/');
+        $this->redirect($this->referer());
     }
 
 
