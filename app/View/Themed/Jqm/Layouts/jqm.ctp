@@ -20,6 +20,9 @@
 <!-- <script> $(function() { $('[data-role="panel"]').panel({ theme: 'default' }); }); </script> -->
 <script src="/themes/default.js"></script>
 <?php echo $this->Html->script('route'); ?>
+<script>
+		var SITE_LINK = "<?php echo SITE_LINK; ?>";
+	</script>
 </head>
 <body>
 
@@ -51,7 +54,7 @@
   <div data-role="footer">
     <h3>bookbookmaker.com</h3>
     <a href="http://bookbookmaker.com" style="margin-left:5%;">bookbookmaker.com</a>
-    <a herf="#">For pc view</a>
+    <a href="<?php echo SITE_LINK."switch_view/wap" ?>">For pc view</a>
   </div><!--footer end-->
 
 
