@@ -1,4 +1,4 @@
-<?php $category = array('Sports'=>'Sports','Other'=>'Other');?>
+<?php $category = Configure::read("Category");?>
 <?php
   $announcement = array(
                 'URL'=>'Look at the Website',
