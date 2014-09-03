@@ -1,15 +1,15 @@
 
 
 $(document).bind('pageshow', function() {
-    $(".text-more").click(function(){
-        $(".text-more").toggleClass("more");
-        if($(".text-more").html() == "Read more...")
-        {
-            $(".text-more").html("Read less...");
-        }
-        else
-        {
-            $(".text-more").html("Read more...");
-        }
-    });
+    $("div.text-more").click(function(){
+		if($(this).attr("more")) {
+			$(this).parent("li").addClass("ui-li-static");
+			$(this).removeAttr("more");
+			$(this).html("Read more...");
+		} else {
+			$(this).parent("li").removeClass("ui-li-static");
+			$(this).attr("more",1);
+			$(this).html("Read less...");
+		}
+	});
 });
