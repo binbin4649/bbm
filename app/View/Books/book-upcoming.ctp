@@ -1,10 +1,19 @@
+<script>
+$(function(){
+  $('#count_down').countdowntimer({
+    dateAndTime : "<?php echo date('Y/m/d H:i:s',$startTime)?>",
+    size : "sm"
+  });
+});
+</script>
+
 <div class="book">
   <?php echo $this->element("desktop_book_detail_header"); ?>
             
             <p class="help-block">Message</p>
             <div class="sub-head">
               <div class="message col-xs-9">
-                <p>Bet Start : <?php echo date('Y/m/d H:i e O',$startTime)?>  <br>Please wait.</p>
+                <p>Bet Start : <?php echo date('Y/m/d H:i e O',$startTime)?>  Please wait.<br>Count Down <span id="count_down"></span></p>
               </div>
               <div class="col-xs-3">
                 <?php if ($book['User']['id'] == $this->Session->read('User.id')):?>

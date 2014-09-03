@@ -24,6 +24,7 @@
 		//<!-- Icon Styles -->
     echo $this->Html->css('font-awesome.min');
 		echo $this->Html->css('bootstrap-datetimepicker.min');
+    echo $this->Html->css('jquery.countdownTimer');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -33,7 +34,8 @@
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('bootstrap-datetimepicker.min');
     echo $this->Html->script('respond.min');
-    echo $this->Html->script('readmore'); 
+    echo $this->Html->script('readmore');
+    echo $this->Html->script('jquery.countdownTimer');
 
     echo $this->Html->script('bbm'); 
     echo $this->Html->script('route'); 
