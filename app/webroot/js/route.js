@@ -240,6 +240,11 @@ if (/books\/\d/.test(document.location.href)) {
 			$(this).html("Read less...");
 		}
 	});
+	
+	$("a#switch").click(function(){
+		var link = $(this).attr("val");
+		location.href = link;
+	});
 });
 
 

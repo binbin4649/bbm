@@ -121,11 +121,11 @@ class Bet extends AppModel {
             $this->Content->save();
 */
             $this->create();
-            $this->set('book_id',$attrs['book_id']);
-            $this->set('content_id',$attrs['content_id']);
-            $this->set('user_id',$currentUser['id']);
-            $this->set('betpoint',$betpoint);
-            $this->save();
+            $bet['Bet']['book_id']  = $attrs['book_id'];
+            $bet['Bet']['content_id'] = $attrs['content_id'];
+            $bet['Bet']['user_id'] = $currentUser['id'];
+            $bet['Bet']['betpoint'] = $betpoint;
+            $this->save($bet);
             $betId = $this->getLastInsertId();
 
             $passbook = array();
