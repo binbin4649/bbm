@@ -1,7 +1,7 @@
 var booksPageFunctionality = function(){
     var currentContent, currentContentId;
     var bookInfo;
-    $('.loadAllBets').on('click',function(){
+    $('.loadAllBets').on('click',function(){ 
         var self = this;
         currentContent = $(this).attr('data-content');
         currentContentId = $(this).attr('data-contentid');
@@ -14,15 +14,20 @@ var booksPageFunctionality = function(){
 		//alert(currentContent);
         var bets = JSON.parse(currentContent);
         var betsHTML = '';
+        var betsHTMLMobile = '<h3 class="content-bets-title">content name</h3><ul class="ui-listview" data-role="listview">';
         for (bet in bets) {
 		    betsHTML += '<div class="modal-single-entry">'
             +'<img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><a href="'+SITE_LINK+'users/'+ bets[bet].User.id +'" class="username">'+bets[bet].User.name+'</a>'
             +'<p>Bet: <span>'+bets[bet].Bet.betpoint+'</span></p>'
             +'<p>'+(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</p>'
             +'</div>';
+			betsHTMLMobile +='<li class="ui-li-has-thumb ui-first-child"><a href="'+SITE_LINK+'users/'+ bets[bet].User.id +'" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square">'+bets[bet].User.name+'  Bet : '+bets[bet].Bet.betpoint+' '+(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</a></li>';
         }
+		betsHTMLMobile += '</ul><a href="#" data-rel="back" class="ui-btn ui-btn-inline ui-corner-all">Close</a>';
 		//alert(betsHTML);
         $('#modal2').find('.modal-entry').html(betsHTML);
+        $('#betlist-popup').find('.modal-content').html(betsHTMLMobile);
+		
         
     }
 

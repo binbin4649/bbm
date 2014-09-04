@@ -6,7 +6,7 @@
       <li>
         <h3><?php echo $content['title']?></h3>
         <p style="margin:0px;">
-        <a href="#betlist" data-rel="popup" data-transition="pop">
+        <a href="#betlist" data-rel="popup" data-transition="pop" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2" val="<?php echo $content['id']; ?>">
         <span><?php echo $this->Html->image('/img/icon2.png'); ?>:
           <span class="content_user_count"><?php echo $content['user_count']?></span>
         </span>
