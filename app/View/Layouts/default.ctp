@@ -201,7 +201,7 @@
 	            <!--<li><?php echo $this->Html->link('Make Book', '/books/add') ?></li>-->
 	            <li><?php echo $this->Html->link('Updates', '/updates') ?></li>
 	            <li><?php echo $this->Html->link('About Us', '/pages/aboutus') ?></li>
-	            <li><a href="<?php echo SITE_LINK."switch_view/mobile" ?>">For Mobile View</a></li>
+	            <li><a href="javascript:void(0);" id="switch" val="<?php echo SITE_LINK."switch_view/mobile" ?>">For Mobile View</a></li>
               </ul>
               <p class="copyright"><a href="http://bookbookmaker.com">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
             </div>

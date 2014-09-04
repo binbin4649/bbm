@@ -54,7 +54,7 @@
   <div data-role="footer">
     <h3>bookbookmaker.com</h3>
     <a href="http://bookbookmaker.com" style="margin-left:5%;">bookbookmaker.com</a>
-    <a href="<?php echo SITE_LINK."switch_view/wap" ?>">For pc view</a>
+    <a href="javascript:void(0);" id="switch" val="<?php echo SITE_LINK."switch_view/wap" ?>">For Desktop View</a>
   </div><!--footer end-->
 
 
