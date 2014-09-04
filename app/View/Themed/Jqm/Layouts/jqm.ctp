@@ -64,7 +64,7 @@
   <h3>Contents</h3>
     <ul data-role="listview" data-inset="true">
         <li><a href="<?php echo SITE_LINK; ?>">Home</a></li>
-        <li><a href="<?php echo SITE_LINK; ?>users/ranking">User Ranking</a></li>
+        <!-- <li><a href="<?php echo SITE_LINK; ?>users/ranking">User Ranking</a></li> -->
         <li><a href="<?php echo SITE_LINK; ?>updates">Updates</a></li>
         <li><a href="<?php echo SITE_LINK; ?>pages/aboutus">About BBM</a></li>
         <li data-icon="action"><a href="https://www.facebook.com/bookbookmaker">Facebook Page</a></li>

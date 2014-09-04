@@ -1,9 +1,9 @@
 <?php //pr($books); ?>
 
 <div class="theprofile">
- <h2>Profile - Maked Book</h2>
 <?php echo $this->element("mobile_user_profile_bar"); ?>
 <span class="clearfix"></span>
+ <h3 class="profile-h3">Profile - Maked Book</h3>
 <div data-role="content tuika_content">
 <ul data-role="listview">
     <?php foreach($books as $book):?>
@@ -22,5 +22,5 @@
 </ul>
 </div>
 <span class="clearfix"></span>
-<?php echo $this->element("paging"); ?>
+<?php echo $this->element("mobile_paging"); ?>
 </div>

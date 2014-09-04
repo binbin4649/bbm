@@ -1,14 +1,10 @@
-<div class="theprofile">
-<?php echo $this->element("mobile_user_profile_bar"); ?>
-<?php //echo $this->element("passbook_listing"); ?>
-<h3 class="profile-h3">Profile - Passbook</h3>
 <table class="profile-table table">
   <thead>
 	<tr>
 	  <th width="35%">Date</th>
-	  <th width="15%">Point</th>
-	  <th width="20%">Balance</th>
-	  <th width="30%">Event</th>
+	  <th width="13%">Point</th>
+	  <th width="30%">Balance</th>
+	  <th width="22%">Event</th>
 	</tr>
   </thead>
   <tbody>
@@ -32,7 +28,3 @@
 	
   </tbody>
 </table>
-
-<span class="clearfix"></span>
-<?php echo $this->element("mobile_paging"); ?>
-</div>

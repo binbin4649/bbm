@@ -6,6 +6,14 @@
     width: 100px;
 }
 
+/*
+fix by hideichi
+*/
+
+.profile-h3 {
+	margin:25px;
+}
+
 
 /*
 fix by Yohei1
@@ -118,4 +126,359 @@ profile
 
 .tuika_content{
 	margin-top: 30px;
+}
+
+
+/* Yohei1 */
+body{font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳＰゴシック",sans-serif;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th {text-align:left;}
+
+/*
+hrタグを非表示にする記述だが今は使わない
+hr {display:none;}
+*/
+
+/* ===================
+new clearfix
+===================*/
+.clearfix:after {
+visibility:hidden;/*見えなくする*/
+height:0;/*見えなくする*/
+display: block;/*block要素にする*/
+font-size: 0;
+content: " ";
+clear: both;
+
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+/* ===================
+スクロールバーの有・無によるページのズレを防ぐ
+===================*/
+*html body {
+     overflow-y: auto;
+}
+
+*+html body {
+     overflow-y: auto;
+}
+
+body {
+     overflow-y: scroll;
+}
+
+
+.tuika_ui-content{
+	padding: 4% 2%;
+}
+
+.tuika_ui-icon-carat-r{
+	padding-bottom: 0px;
+}
+
+.ui-listview>li p{
+	margin:20px 0px 5px 0px;
+}
+
+.badge-state{
+	background-color: #ff9933;
+}
+
+.tuika_badge-state{
+	margin-left: 10%;
+}
+
+.badge-category{
+	background-color: #3399cc;
+}
+
+#tuika_header{
+  background-color:rgba(0,0,0,0.8);
+  color: white;
+  height: 50px;
+}
+
+.list_view_stats img{
+	width: 20px;
+	margin-right: 5px;
+}
+
+.tuika_page{
+	padding-top: 20px;
+}
+
+.book-icons img{
+	width: 23px;
+	margin-right: 5px;
+}
+
+.ui-listview img{
+	width: 20px;
+	margin-right: 5px;
+}
+
+.tuika_search a{
+	text-decoration: none;
+	color: black;
+}
+
+.tuika_search{
+	text-align: center;
+}
+
+
+.tuika_btn{
+  background-color:rgba(0,0,0,0.0) !important;
+	border: none !important;
+}
+
+#tuika_header .ui-title{
+	line-height: 30px;
+}
+
+.username img{
+	padding-top: 20px;
+	padding-right: 5px;
+}
+
+/*
+sidebar
+*/
+
+.ui-panel-inner .ui-listview a{
+	padding-left: 10px;
+}
+
+/*
+profile
+*/
+
+.ui-li-has-thumb img{
+	width: 15%;
+	margin: 15px;
+	margin-left: 0px;
+	margin-top: 9px;
+}
+
+.ui-li-has-thumb a{
+	line-height: 55px;
+}
+
+.tuika_profile_listview{
+	padding: 2%;
+}
+
+.tuika_date{
+	font-size: 10px;
+}
+
+.profile-table thead{
+	font-size: 15px;
+	text-align: left;
+}
+
+.profile-headers h3{
+	margin-top: 50px;
+}
+
+.profile-table{
+	margin-top: 20px;
+}
+
+.tuika_content{
+	margin-top: 30px;
+}
+
+.theprofile h2{
+	margin-bottom: 20px;
+}
+
+
+/*
+updates
+*/
+
+.updates-main a{
+	text-decoration: none;
+	color: black;
+}
+
+.updates_topic{
+	width: 100%;
+	margin-bottom: 18px;
+	font-weight: 100;
+}
+
+.updates_topic_janru{
+	min-width: 40%;
+	height: 17px;
+	line-height: 17px;
+	font-size: 11px;
+	font-weight: 100;
+	background-color: #3399cc;
+	color: white;
+	padding-left: 5px;
+	margin-bottom: 10px;
+}
+
+.updates_topic_title{
+	height: 28px;
+	line-height: 30px;
+	padding-left: 5px;
+}
+
+.updates_topic_annouce{
+	width: 100%;
+	font-size: 10px;
+	font-weight: 100;
+	text-align: right;
+}
+
+/*
+ranking
+*/
+
+.ranking_left{
+	text-align: center;
+	width: 24%;
+	float: left;
+}
+
+.rank_user{
+	margin-left: 2%;
+	float: left;
+	width: 74%;
+	font-size: 10px;
+	padding-top: 20px;
+}
+
+.rank_user img{
+	width: 40px;
+	padding-right: 5px;
+}
+
+.ranking-item{
+	margin-bottom: 10px;
+}
+
+.rank{
+	margin-bottom: 5px;
+}
+
+
+/*
+betlist
+*/
+
+.tuika_list{
+	margin-top: 10px;
+}
+
+.book_title{
+	width: 80%;
+	float: left;
+}
+
+.date{
+	font-size: 10px;
+	color: grey;
+	width: 100%;
+	margin-bottom: 3px;
+}
+
+.bet_col{
+	width: 10%;
+	float: left;
+	text-align: center;
+}
+
+.result_col{
+	width: 10%;
+	float: left;
+	text-align: center;
+}
+
+.book_lisy_title{
+	font-size: 12px;
+	margin-top: 25px;
+}
+
+
+.passbook{
+	padding-top: 14px;
+}
+
+
+.ui-footer .ui-btn{
+	padding: .7em 1em;
+}
+
+
+/*
+book
+*/
+
+.book_badge{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.book_date{
+	margin: 10px 0px 8px;
+}
+
+/*
+book_result
+*/
+
+.facebook_user{
+	padding-top: 10px;
+	height: 60px;
+}
+
+.readmore-js-toggle{
+	text-align: right;
+}
+
+/*
+aboutus
+*/
+
+.about-us h3{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.about-us h4{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.about-us p{
+	font-size: 12px;
+}
+
+/*
+aboutus
+*/
+
+.profile-about{
+	margin-top: 20px;
+}
+
+/*
+edit
+*/
+
+.edit_more{
+	text-align: right;
+	width: 100%;
+	font-size: 13px;
 }
