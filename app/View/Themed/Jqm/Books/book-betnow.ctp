@@ -4,7 +4,7 @@
   <ul data-role="listview">
     <?php foreach ($book['Content'] as $content):?>
       <li>
-        <h3><?php echo $content['title']?></h3>
+        <h3 id="title_<?php echo $content['id']; ?>"><?php echo $content['title']?></h3>
         <p style="margin:0px;">
         <a href="#betlist" data-rel="popup" data-transition="pop" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2" val="<?php echo $content['id']; ?>">
         <span><?php echo $this->Html->image('/img/icon2.png'); ?>:
@@ -43,12 +43,6 @@
       <div style="padding:10px 20px;" class="modal-content">
           <h3 class="content-bets-title">content name</h3>
           <ul data-role="listview" class="">
-            <li>
-              <a href="#">
-              <?php echo $this->Html->image('/img/profile-photo.jpg'); ?>
-              Hideichi Saito  Bet : 9999  2014/08/14 18:27
-              </a>
-            </li>
             <li>
               <a href="#">
               <?php echo $this->Html->image('/img/profile-photo.jpg'); ?>

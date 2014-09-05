@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="/themes/default.css" />
 <link rel="stylesheet" href="/themes/fix.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+$(document).bind("mobileinit", function(){
+    $.mobile.ajaxLinksEnabled = false; // Ajax を使用したページ遷移を無効にする
+    $.mobile.ajaxFormsEnabled = false; // Ajax を使用したフォーム遷移を無効にする
+});
+</script>
 <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
 </script>
 <!-- <script> $(function() { $('[data-role="panel"]').panel({ theme: 'default' }); }); </script> -->
@@ -22,7 +28,7 @@
 <?php echo $this->Html->script('route'); ?>
 <script>
 		var SITE_LINK = "<?php echo SITE_LINK; ?>";
-	</script>
+</script>
 </head>
 <body>
 

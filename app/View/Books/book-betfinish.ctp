@@ -32,7 +32,7 @@
                       <div class="left">
                         <span class="odds">Odds</span>
                         <p class="content_odds"><?php echo $content['odds']?></p>
-                        <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2" val="<?php echo $content['id']; ?>"><span class="content_user_count"><?php echo $content['user_count']?></span></a></span>
+                        <span><?php echo $this->Html->image('/img/icon2.png'); ?>:<a href="#" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2" val="<?php echo $content['id']; ?>"><span class="content_user_count"><?php echo $content['user_count']?></span></span></a>
                       </div>
                       <div class="right">
                         <button class="btn btn-block">-</button>

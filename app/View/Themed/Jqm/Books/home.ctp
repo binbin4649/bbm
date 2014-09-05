@@ -1,6 +1,6 @@
 <?php
-$category = array(''=>'State','Sports'=>'Sports','Others'=>'Others');
-$state = array(''=>'Category','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet Finish'=>'Bet Finish','Result'=>'Result','Book Delete'=>'Book Delete','Result Timeover'=>'Result Timeover');
+$category = array(''=>'Category','Sports'=>'Sports','Others'=>'Others');
+$state = array(''=>'State','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet Finish'=>'Bet Finish','Result'=>'Result','Delete'=>'Delete','Timeover'=>'Timeover');
 
 ?>
 

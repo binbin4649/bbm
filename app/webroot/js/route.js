@@ -8,10 +8,11 @@ var booksPageFunctionality = function(){
         updateBetsOnModal(currentContent);
 		var val = $(this).attr("val");
 		$('#modal2').find('.content-bets-title').html($("#title_"+val).html());
+    $('#betlist-popup').find('.content-bets-title').html($("#title_"+val).html());
     });
 
     function updateBetsOnModal(currentContent) {
-		//alert(currentContent);
+      //alert(currentContent);
         var bets = JSON.parse(currentContent);
         var betsHTML = '';
         var betsHTMLMobile = '<h3 class="content-bets-title">content name</h3><ul class="ui-listview" data-role="listview">';
@@ -21,7 +22,7 @@ var booksPageFunctionality = function(){
             +'<p>Bet: <span>'+bets[bet].Bet.betpoint+'</span></p>'
             +'<p>'+(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</p>'
             +'</div>';
-			betsHTMLMobile +='<li class="ui-li-has-thumb ui-first-child"><a href="'+SITE_LINK+'users/'+ bets[bet].User.id +'" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img style="width:10%" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square">'+bets[bet].User.name+'  Bet : '+bets[bet].Bet.betpoint+' '+(bets[bet].Bet.created).toString("yyyy/MM/dd hh:mm")+'</a></li>';
+			betsHTMLMobile +='<li><a href="'+SITE_LINK+'users/'+ bets[bet].User.id +'" class="ui-btn popup-li"><img style="width:20%" class="ui-li-icon" src="http://graph.facebook.com/'+bets[bet].User.facebook_id+'/picture?type=square"><div style="float:right;"><h2>'+bets[bet].User.name+'</h2><span class="tuika_date">'+(bets[bet].Bet.created).toString("MM/dd hh:mm")+'</span> Bet : '+bets[bet].Bet.betpoint+'</div></a></li>';
         }
 		betsHTMLMobile += '</ul><a href="#" data-rel="back" class="ui-btn ui-btn-inline ui-corner-all">Close</a>';
 		//alert(betsHTML);

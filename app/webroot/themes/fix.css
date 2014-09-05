@@ -14,6 +14,12 @@ fix by hideichi
 	margin:25px;
 }
 
+a.popup-li {
+line-height: 0.9em;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-right: 1em;
+}
 
 /*
 fix by Yohei1
@@ -109,6 +115,7 @@ profile
 
 .tuika_date{
 	font-size: 10px;
+	font-weight: normal;
 }
 
 .profile-table thead{
