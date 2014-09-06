@@ -4,8 +4,14 @@
   <ul data-role="listview">
     <?php foreach ($book['Content'] as $content):?>
       <li>
-        <h3><?php echo $content['title']?></h3>
-        <p style="margin:0px;"><span><?php echo $this->Html->image('/img/icon2.png'); ?>:<span class="content_user_count"><?php echo $content['user_count']?></span></span>  <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span class="content_bet_total"><?php echo $content['bet_total']?></span></span>
+        <h3 id="title_<?php echo $content['id']; ?>"><?php echo $content['title']?></h3>
+        <p style="margin:0px;">
+        <a href="#betlist" data-rel="popup" data-transition="pop" data-contentid="<?php echo $content['id']?>" data-content='<?php echo json_encode($content['bets']);?>' class="loadAllBets" data-toggle="modal" data-target="#modal2" val="<?php echo $content['id']; ?>">
+        <span><?php echo $this->Html->image('/img/icon2.png'); ?>:
+          <span class="content_user_count"><?php echo $content['user_count']?></span>
+        </span>
+        </a>
+        <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span class="content_bet_total"><?php echo $content['bet_total']?></span></span>
         <input type="hidden" name="contentid" value="<?php echo $content['id']?>">
         <a href="#Win" data-rel="popup" data-title="<?php echo $content['title']?>" data-contentid="<?php echo $content['id']?>" data-position-to="window" class="bet-btn ui-btn ui-btn-inline ui-corner-all make-win btn-success" data-transition="pop">Win</a></p>
       </li>
@@ -29,32 +35,19 @@
     </form>
 </div>
 
+<div data-role="popup" id="betlist" data-theme="a" class="ui-corner-all">
+      <div style="padding:10px 20px;" class="modal-content">
+          <h3 class="content-bets-title">content name</h3>
+          <ul data-role="listview" class="">
+            <li>
+              <a href="#">
+              <?php echo $this->Html->image('/img/profile-photo.jpg'); ?>
+              Hideichi Saito  Bet : 9999  2014/08/14 18:27
+              </a>
+            </li>
+          </ul>
+          <a href="#" data-rel="back" class="ui-btn ui-btn-inline ui-corner-all">Close</a>
+      </div>
+</div>
+
 <?php echo $this->element("mobile_book_detail_footer"); ?>
-
-
-
-<!-- Modal -->
-<!-- <div class="modal fade" id="Win" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Choose a win</h4>
-      </div>
-      <div class="modal-body">
-        <p class="content-bets-title">Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Length84</p>
-        <form>
-          <div class="form-group">
-            <label>Result Detail</label>
-            <textarea class="form-control" rows="7"></textarea>
-            <input type="hidden" class="currentContentIdOnModal">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-success">Win</button>
-      </div>
-    </div>
-  </div>
-</div> -->

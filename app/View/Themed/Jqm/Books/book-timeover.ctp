@@ -1,5 +1,5 @@
 <?php echo $this->element("mobile_book_detail_header"); ?>
-
+<p class="message">Since the book maker has not selected the results within 24 hours, This book is now time over. Point that has been bet is refunded. Please refer to the passbook.</p>
 <div data-role="content">
   <ul data-role="listview">
     <?php foreach ($book['Content'] as $content):?>

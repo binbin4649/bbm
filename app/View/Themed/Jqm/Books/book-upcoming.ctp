@@ -1,5 +1,5 @@
 <?php echo $this->element("mobile_book_detail_header"); ?>
-
+<p class="message">Bet Start : <?php echo date('Y/m/d H:i e O',$startTime)?> Please wait.</p>
 <div data-role="content">
   <ul data-role="listview">
     <?php foreach ($book['Content'] as $content):?>

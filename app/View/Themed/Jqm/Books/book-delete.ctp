@@ -1,5 +1,5 @@
 <?php echo $this->element("mobile_book_detail_header"); ?>
-
+<p class="message">This book has been deleted. Point that has been bet is refunded.</p>
 <div data-role="content">
   <ul data-role="listview">
     <?php foreach ($book['Content'] as $content):?>

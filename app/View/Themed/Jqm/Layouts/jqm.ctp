@@ -15,10 +15,9 @@
 <link rel="stylesheet" href="/themes/default.css" />
 <link rel="stylesheet" href="/themes/fix.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script>
+<script type="text/javascript">
 $(document).bind("mobileinit", function(){
-    $.mobile.ajaxLinksEnabled = false; // Ajax を使用したページ遷移を無効にする
-    $.mobile.ajaxFormsEnabled = false; // Ajax を使用したフォーム遷移を無効にする
+ $.mobile.ajaxEnabled = false;
 });
 </script>
 <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
@@ -59,7 +58,7 @@ $(document).bind("mobileinit", function(){
   <!--footer-->
   <div data-role="footer">
     <h3>bookbookmaker.com</h3>
-    <a href="http://bookbookmaker.com" style="margin-left:5%;">bookbookmaker.com</a>
+    <a href="http://bookbookmaker.com" style="margin-left:5%;">Top Page</a>
     <a href="javascript:void(0);" id="switch" val="<?php echo SITE_LINK."switch_view/wap" ?>">For Desktop View</a>
   </div><!--footer end-->
 

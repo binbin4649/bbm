@@ -7,7 +7,7 @@
   <div data-role="content">
     <ul data-role="listview">
         <li data-role="list-divider">Details</li>
-        <li style="white-space:normal;"><?php echo $book['Book']['details']?></li>
+        <li style="white-space:normal;"><?php echo nl2br($this->text->autoLinkUrls($book['Book']['details'])); ?></li>
     </ul>
   </div>
 
@@ -16,10 +16,17 @@
         <li data-role="list-divider">Annoucement</li>
         <li style="white-space:normal;">
         <?php if (strtolower($book['Book']['announcement_type']) === 'url'):?>
-          <a href="<?php echo $book['Book']['announcement_name']?>"><?php echo $book['Book']['announcement_type']?>:  <?php echo $book['Book']['announcement_name']?></a>
+          <a href="<?php echo $book['Book']['announcement_name']?>" target="_blank"><?php echo $book['Book']['announcement_type']?>:  <?php echo $book['Book']['announcement_name']?></a>
         <?php else:?>
           <?php echo $book['Book']['announcement_type']?>: <?php echo $book['Book']['announcement_name']?>
         <?php endif;?></li>
-        <li style="white-space:normal;"><?php echo $book['Book']['announcement']?></li>
+        <li style="white-space:normal;"><?php echo nl2br($this->text->autoLinkUrls($book['Book']['announcement'])); ?></li>
+    </ul>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+        <li data-role="list-divider">ResultD etail</li>
+        <li style="white-space:normal;"><?php echo nl2br($this->text->autoLinkUrls($book['Book']['result_detail'])); ?></li>
     </ul>
   </div>

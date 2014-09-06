@@ -1,5 +1,12 @@
 <?php echo $this->element("mobile_book_detail_header"); ?>
-
+<p class="message">Announcement Scheduled : <?php echo CakeTime::format( $book['Book']['result_time'],'%Y/%m/%d %H:%M')?><br>
+Announcement How, <?php echo $book['Book']['announcement_type']?><br>
+<?php if (strtolower($book['Book']['announcement_type']) === 'url'):?>
+  <a href="<?php echo $book['Book']['announcement_name']?>"><?php echo $book['Book']['announcement_name']?></a>
+<?php else:?>
+  <?php echo $book['Book']['announcement_name']?>
+<?php endif;?>
+</p>
 <div data-role="content">
   <ul data-role="listview">
     <?php foreach ($book['Content'] as $content):?>

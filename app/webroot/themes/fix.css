@@ -21,6 +21,17 @@ padding-bottom: 5px;
 padding-right: 1em;
 }
 
+p.message {
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	border: 1px solid #F00;
+	border-radius: 5px;
+	background-clip: padding-box;
+	text-align: center;
+}
+
+
 /*
 fix by Yohei1
 */

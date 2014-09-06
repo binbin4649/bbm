@@ -1,5 +1,5 @@
 <?php echo $this->element("mobile_book_detail_header"); ?>
-
+<p class="message">Bet Now!!</p>
 <div data-role="content">
   <ul data-role="listview">
     <?php foreach ($book['Content'] as $content):?>
