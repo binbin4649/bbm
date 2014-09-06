@@ -1,7 +1,6 @@
 <?php
-$category = array(''=>'Category','Sports'=>'Sports','Others'=>'Others');
-$state = array(''=>'State','Up Coming'=>'Up Coming','Bet Now'=>'Bet Now','Bet Finish'=>'Bet Finish','Result'=>'Result','Delete'=>'Delete','Timeover'=>'Timeover');
-
+$category = Configure::read("Category");
+$state = Configure::read("state");
 ?>
 
 

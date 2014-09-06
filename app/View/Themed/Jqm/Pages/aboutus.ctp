@@ -1,49 +1,67 @@
 <div class="about-us">
-            <h2>About Us</h2>
-            
-            <h3>Do you know bookmakers in the UK ?</h3>
-            <p>It is the same as this but without involving any real money transactions.  
-            It will be a virtual site where users can play at being a bookmaker and punter.</p>
+<h2>What bookbookmaker?</h2>
+<p>賭けの対象（の情報）を、Book と呼びます。<br>
+賭けるは、betです。<br>
+賭けを作る人を、Book Makerと呼びます。</p>
 
-            <h4>Primary Feature will be that anyone can become a bookmaker.</h4>
-            <p>The odds will be calculated automatically .
-            In other words, I can make my own book and I can then place a bet and then decidethe result for myself.</p>
-            <p>In other words, if you want to cheat you can do so as much as you like.
-            It will be linked with facebook as this is also a facebook app so it is suggested that you bet with care.</p>
+<h3>ポイントの増やし方</h3>
 
-            <h3>For example, it would be fun to eg.</h3>
-            <p>1) bet on virtual sports games or <br>
-            2) with your friends to bet on who will get a girlfriend first or <br>
-            3) bet your friends that you will lose 3kg in time for summer<br>
-            Etc. etc. - <span>the fun is endless!</span></p>
+<h4> 1） betする。</h4>
+<p>これが基本ですが、当然ながら勝たなければ増えません。</p>
 
-            <h4>[ STEP1 ]</h4>
-            <p>First, on Facebook please log in to bookbookmaker.com.</p>
+<h4> 2） Bookを作る。 </h4>
+<p>Bookを作ると、賭けられたポイントの1%を報酬として獲得できます。<br>
+勝ち負けに関係なく、集めたbetの1%が必ずもらえるので、一番手堅い方法です。<br>
+さらにMake Bookボーナスも有り！</p>
 
-            <h4>[ STEP2 ]</h4>
-            <p>Lets bet on a book that someone has made already.<br>
-            How does it feel?  Do I understand how it works?<br>
-            Make sure you check the firm end date and content.<br>
-            It is not possible to cancel the bet.</p>
+<ol>
+<li>初めてbookを作ると、100ポイント！</li>
+<li>作ったbookに10人集めると、100ポイント！</li>
+<li>作ったbookに50人集めると、500ポイント！</li>
+<li>作ったbookに100人集めると、1000ポイント！</li>
+<li>作ったbookに1000人集めると、1万ポイント！</li>
+</ol>
 
-            <p>Content <br>
-            If the announcement of the result is not clear then we become suspicions so lets make sure we choose a book which makes the announcement of the result clearly.</p>
+<p>※Make Bookボーナスは、それぞれ初回の1回のみです。</p>
 
-            <p>End date <br>
-            When is the bet deadline?<br>
-            When will the announcement be made - Let’s check carefully.<br>
-            For example, Maybe the bet deadline is next year but the announcement of the results might be in 20 years.</p>
 
-            <h4>[ STEP3 ]</h4>
-            <p>Let’s make our own book.<br>
-            Anyone who makes a book becomes a bookmaker .<br>
-            By the way, the bookmaker will be eligible to receive 1% of the bet points as a bookmaker.<br>
-            1) Click on “Make Book”<br>
-            2) Follow the form and enter the title of the book, its contents, how to announce the results, betting start time, finishing betting time and announcement of the results time and date.<br>
-            3) Invite your Facebook and Twitter friends to bet on your book.<br>
-            4) Once the bet is started and at the time of the announcement date and time please choose the result by opening the respective book.</p>
+<h3>Bookの作り方</h3>
 
-            <p>Note 1 If the result has not been selected after 24 hours from the announcement date and time the corresponding book is disabled and all points wagered are returned to all punters.  The bookmaker will receive a penalty.<br>
-Note 2 A book can be deleted any time but the bookmaker will receive a penalty if someone has already bet on the book. There is no penalty if it is cancelled before the betting time or if nobody has placed a bet.</p>
+<p>必須なのは、Bookタイトルと賭けの対象(Content)を最低2つです。</p>
+
+<h4>betスタート時間</h4>
+<p>betが開始される時間です。<br>
+登録時間になると、自動で賭けが開始されます。<br>
+各時間は5分間隔で登録します。</p>
+
+<h4>bet終了時間</h4>
+<p>betが締め切られる時間です。<br>
+登録時間になると、自動で賭けが締め切られます。<br>
+またBook Makerは、結果を選択できるようになります。</p>
+
+<h4>結果発表（予定）時間</h4>
+<p>結果発表する予定の時間を登録します。<br>
+登録した時間を目安に、Book Makerは結果を選択しましょう。<br>
+尚、この時間から24時間以上経過すると、timeover（無効）になります。</p>
+
+
+<p>各時間設定は、必ず以下のようにならなければいけません。<br>
+<strong>betスタート ＜ bet終了 ＜ 結果発表</strong><br>
+例えば、betスタートよりbet終了を早い日時にすることはできません。</p>
+
+<p><strong>?</strong> マークにポインターを乗せると、それぞれ説明が表示されます。</p>
+
+<h4>削除(delete)について</h4>
+<p>作ったBookを、無効にすることをdeleteと呼びます。<br>
+betがあった場合、賭けられたポイントは戻り、作った本人にはdeleteした回数が加算されます。<br>
+delete回数が多い人は、Book Makerとしてあまり信用してもらえないかもしれません。<br>
+ただしbetがなければ、delete回数は加算されません。<br>
+つまり、betスタート前であれば、なにも問題はありません。</p>
+
+<h4>タイムオーバー(timeover)について</h4>
+<p>結果発表時間から24時間経過しても、結果が選択されない場合、そのBookは無効になります。<br>
+betがあった場合、賭けられたポイントは戻り、作った本人にはtimeoverした回数が加算されます。<br>
+timeover回数が多い人は、Book Makerとしてあまり信用してもらえないかもしれません。<br>
+ただしbetがなければ、timeover回数は加算されません。</p>
 
 </div>

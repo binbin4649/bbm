@@ -13,3 +13,12 @@ $config['Category'] = array(
 	'Sports'=>'Sports',
 	'Other'=>'Other'
 );
+
+$config['state'] = array(
+	'Up Coming'=>'Up Coming',
+	'Bet Now'=>'Bet Now',
+	'Bet Finish'=>'Bet Finish',
+	'Result'=>'Result',
+	'Delete'=>'Delete',
+	'Timeover'=>'Timeover'
+);
