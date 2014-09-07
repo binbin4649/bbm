@@ -97,6 +97,58 @@ class User extends AppModel {
             )
         );
     
+
+    public function makeBonus($user_id,$user_all_count){
+        $user = $this->find('first',array('conditions'=>array('User.id'=>$user_id)));
+        if($user['User']['make_bonus'] == null){// first bonus
+            $this->id =  $user['User']['id'];
+            $this->set('make_bonus',1);
+            $this->save();
+            $passbook = array();
+            $passbook['user_id'] = $user['User']['id'];
+            $passbook['point'] = 100;
+            $passbook['event'] = 'bonus';
+            $this->Passbook->pointOperation($passbook);
+        }else{
+            if($user['User']['make_bonus'] == 1 and $user_all_count >= 10){ // 10user bonus
+                $this->id =  $user['User']['id'];
+                $this->set('make_bonus',2);
+                $this->save();
+                $passbook = array();
+                $passbook['user_id'] = $user['User']['id'];
+                $passbook['point'] = 100;
+                $passbook['event'] = 'bonus';
+                $this->Passbook->pointOperation($passbook);
+            }elseif($user['User']['make_bonus'] == 2 and $user_all_count >= 50){
+                $this->id =  $user['User']['id'];
+                $this->set('make_bonus',3);
+                $this->save();
+                $passbook = array();
+                $passbook['user_id'] = $user['User']['id'];
+                $passbook['point'] = 500;
+                $passbook['event'] = 'bonus';
+                $this->Passbook->pointOperation($passbook);
+            }elseif($user['User']['make_bonus'] == 3 and $user_all_count >= 100){
+                $this->id =  $user['User']['id'];
+                $this->set('make_bonus',4);
+                $this->save();
+                $passbook = array();
+                $passbook['user_id'] = $user['User']['id'];
+                $passbook['point'] = 1000;
+                $passbook['event'] = 'bonus';
+                $this->Passbook->pointOperation($passbook);
+            }elseif($user['User']['make_bonus'] == 4 and $user_all_count >= 1000){
+                $this->id =  $user['User']['id'];
+                $this->set('make_bonus',5);
+                $this->save();
+                $passbook = array();
+                $passbook['user_id'] = $user['User']['id'];
+                $passbook['point'] = 10000;
+                $passbook['event'] = 'bonus';
+                $this->Passbook->pointOperation($passbook);
+            }
+        }
+    }
     
     public function saveFBUser($user)
     {
@@ -125,16 +177,14 @@ class User extends AppModel {
             //welcome mail operation
 $content = 'bookbookmaker.com へ、ようこそ！
 
-1000ポイント、プレゼントしました！　↓↓↓↓　確認　↓↓↓↓
-<a href="http://bookbookmaker.com/passbooks/'.$userId.'">http://bookbookmaker.com/passbooks/'.$userId.'</a>
+1000ポイント、プレゼントしました！<br><a href="http://bookbookmaker.com/passbooks/'.$userId.'">http://bookbookmaker.com/passbooks/'.$userId.'</a>
 
-トップページから賭けたいBookを探そう！
-<a href="http://bookbookmaker.com/">http://bookbookmaker.com</a>
+トップページから賭けたいBookを探そう！<br><a href="http://bookbookmaker.com/">http://bookbookmaker.com</a>
 
-<a href="http://bookbookmaker.com/users/'.$userId.'">http://bookbookmaker.com/users/'.$userId.'</a>';
+あなたのユーザー情報はこちらから<br><a href="http://bookbookmaker.com/users/'.$userId.'">http://bookbookmaker.com/users/'.$userId.'</a>';
 			
 			if(isset($user['email'])){
-				$Email = new CakeEmail('smtp');
+				$Email = new CakeEmail('sendGrid');
                 $Email->to($user['email']);
                 $Email->subject('Welcome bookbookmaker.com');
                 $Email->send($content);

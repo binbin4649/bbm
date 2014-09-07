@@ -61,7 +61,7 @@
                   <div class="row header-user-info">
                     <div class="col-xs-4">
                       <img style="width:20%" src="<?php echo "http://graph.facebook.com/".$fb['Me']['id']."/picture?type=square"?>">
-                      <a href="<?php echo SITE_LINK; ?>users/<?php echo $user_s['id']; ?>"><?php echo $user_s['name'];; ?></a>
+                      <a href="<?php echo SITE_LINK; ?>users/<?php echo $user_s['id']; ?>"><?php echo(mb_strimwidth( $user_s['name'], 0, 14, ".", "UTF-8" )); ?></a>
                     </div>
                     <div class="col-xs-4">
                       <i class="glyphicon glyphicon-edit"></i><a href="<?php echo SITE_LINK; ?>profile/edit">Edit</a>

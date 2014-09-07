@@ -19,6 +19,8 @@ Announcement How, <?php echo $book['Book']['announcement_type']?><br>
         </span>
         </a>
         <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span class="content_bet_total"><?php echo $content['bet_total']?></span></span>
+        <span class="odds">Odds</span>
+        <span class="content-odds"><?php echo $content['odds']?></span>
         <input type="hidden" name="contentid" value="<?php echo $content['id']?>">
         <button class="bet-btn ui-btn ui-btn-inline ui-corner-all">-</button></p>
       </li>

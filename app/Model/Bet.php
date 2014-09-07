@@ -81,13 +81,21 @@ class Bet extends AppModel {
         $bookdaystate = new BookDayState($content['Book'],$time_zone['TimeZone']['value']);
         if ($bookdaystate->isBetNow())
         */
+        $judgment = true;
+        $attrs['oddFactor'] = (int) $attrs['oddFactor'];
+        if(!is_int($attrs['oddFactor'])) $judgment = false;
+        if($currentUser['point'] < $attrs['oddFactor']) $judgment = false;
+        if(strtotime($content['Book']['bet_finish']) < time()) $judgment = false;
 
-        if (strtotime($content['Book']['bet_finish']) > time()) {
-            $attrs['oddFactor'] = (int) $attrs['oddFactor'];
+        if ($judgment) {
+            /*
             if ($attrs['oddFactor'] == 0) {
                 $attrs['oddFactor'] = 1;
             }
-            $betpoint = $content['Content']['odds'] * $attrs['oddFactor'];
+            $this->log($attrs['oddFactor']);
+            */
+            //$betpoint = $content['Content']['odds'] * $attrs['oddFactor'];
+            $betpoint = $attrs['oddFactor'];
             $book_bet_all_total = $content['Book']['bet_all_total'] + $betpoint;
             $content_bet_total = $content['Content']['bet_total']+$betpoint;
 

@@ -704,3 +704,8 @@ div#flashMessage {border: 1px solid;
 .sns-buttons {
   margin-top: 35px;
 }
+
+.small-text {
+  font-size: 13px;
+  color: #7f7f7f;
+}

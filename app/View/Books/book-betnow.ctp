@@ -1,5 +1,5 @@
- <div class="book">
 
+ <div class="book">
   <?php echo $this->element("desktop_book_detail_header"); ?>
             <p class="help-block">Bet now.</p>
             <div class="sub-head">

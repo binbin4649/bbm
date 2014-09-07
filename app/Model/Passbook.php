@@ -85,9 +85,11 @@ class Passbook extends AppModel {
 			$currentPoint = $user['User']['point'] + $attrs['point'];
 		}elseif($attrs['event'] == 'return'){
 			$currentPoint = $user['User']['point'] + $attrs['point'];
+		}elseif($attrs['event'] == 'bonus'){
+			$currentPoint = $user['User']['point'] + $attrs['point'];
 		}
 		
-		//if($currentPoint < 1) return false; // no minus
+		if($currentPoint < 1) return false; // no minus
 
         $this->User->set('point', $currentPoint);
         if($this->User->save() and $attrs['event'] != 'return'){

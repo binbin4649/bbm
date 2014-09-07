@@ -1,12 +1,12 @@
 <div class="article">
   <div class="article-headers">
-    <h3>Details</h3>
+    <h3><?php echo __("Details"); ?></h3>
   </div>
   <p><?php echo nl2br($this->text->autoLinkUrls($book['Book']['details'])); ?></p>
 </div>
 <div class="article">
   <div class="article-headers">
-    <h3>Annoucement</h3>
+    <h3><?php echo __("Annoucement"); ?></h3>
   </div>
   <p><?php echo $book['Book']['announcement_type']?>: 
     <?php if (strtolower($book['Book']['announcement_type']) === 'url'):?>
@@ -19,7 +19,7 @@
 </div>
 <div class="article">
   <div class="article-headers">
-    <h3>Result</h3>
+    <h3><?php echo __("Result"); ?></h3>
   </div>
   <p><?php echo nl2br($this->text->autoLinkUrls($book['Book']['result_detail'])); ?></p>
 </div>

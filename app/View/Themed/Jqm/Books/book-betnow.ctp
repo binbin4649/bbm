@@ -1,3 +1,4 @@
+<?php if(!CakeSession::read('User.id')){ echo '<p class="message">Please Login!</p>';}?>
 <?php echo $this->element("mobile_book_detail_header"); ?>
 <p class="message">Bet Now!!</p>
 <div data-role="content">
@@ -33,7 +34,7 @@
               <input type="number" name="bet" value="<?php echo CakeSession::read('User.default_rate');?>">
               <input type="hidden" class="currentContentIdOnModal">
 
-              <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Bet</button>
+              <button <?php if(CakeSession::read('User.id')) echo 'type="submit"'; ?> class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Bet</button>
             </form>
         </div>
     </form>

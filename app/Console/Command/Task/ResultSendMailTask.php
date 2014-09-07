@@ -17,7 +17,7 @@ Book Title : '.$book['Book']['title'].'<br>Total Bet : '.$book['Book']['bet_all_
 
 '.'<a href="http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'">http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'</a>';
 
-                    $Email = new CakeEmail('smtp');
+                    $Email = new CakeEmail('sendGrid');
                     $Email->to($book['User']['mail']);
                     $Email->subject('Please select. announce the results.');
                     $Email->send($content);

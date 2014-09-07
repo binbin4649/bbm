@@ -162,6 +162,7 @@ class Book extends AppModel {
             $this->User->id = $user['id'];
             $this->User->set('makedbook',++$user['makedbook']);
             $this->User->save();
+            $this->User->makeBonus($user['id'],0);
             return $this->getLastInsertId();
         } else {
             $this->validates();
@@ -209,7 +210,7 @@ Book Title : '.$currentContent['Book']['title'].'<br>Win : '.$currentContent['Co
 
 <a href="http://bookbookmaker.com/books/'.$attrs['book_id'].'">http://bookbookmaker.com/books/'.$attrs['book_id'].'</a>';
 
-                    $Email = new CakeEmail('smtp');
+                    $Email = new CakeEmail('sendGrid');
                     $Email->to($user['User']['mail']);
                     $Email->subject('You are won!');
                     $Email->send($content);
@@ -235,6 +236,7 @@ Book Title : '.$currentContent['Book']['title'].'<br>Win : '.$currentContent['Co
             $update['event'] = 'bet_result';
             $UpdateModel->updateInfo($update);
 
+            $this->User->makeBonus($currentUser['id'],$currentContent['Book']['user_all_count']);
             return true;
         } else {
             return false;

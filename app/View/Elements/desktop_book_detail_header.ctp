@@ -4,10 +4,13 @@
       <span class="book-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<span id="book_user_all_count"><?php echo $book['Book']['user_all_count']?></span></span>
       <!-- <span class="book-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<span id="book_user_all_count"><?php echo $book['Book']['usercount']?></span></span> -->
       <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<span id="book_bet_all_total"><?php echo $book['Book']['bet_all_total']?></span></span>
-      <span>Book Id: <?php echo $book['Book']['id']?><input type="hidden" id="bookid" value="<?php echo $book['Book']['id']?>"></span>
-      <p>Bet Start:<?php echo CakeTime::format( $book['Book']['bet_start'],'%Y/%m/%d %H:%M')?> | Bet Finsh:<?php echo CakeTime::format( $book['Book']['bet_finish'],'%Y/%m/%d %H:%M')?> </p> 
-      <p>Result :<?php echo CakeTime::format( $book['Book']['result_time'],'%Y/%m/%d %H:%M')?></p>
-    </div>
+      <span class="small-text">Book Id: <?php echo $book['Book']['id']?><input type="hidden" id="bookid" value="<?php echo $book['Book']['id']?>"></span>
+      <table>
+      <tr><td><?php echo __("Bet Start"); ?></td><td>: <?php echo CakeTime::format( $book['Book']['bet_start'],'%Y/%m/%d %H:%M')?></td></tr>
+      <tr><td><?php echo __("Bet Finsh"); ?></td><td>: <?php echo CakeTime::format( $book['Book']['bet_finish'],'%Y/%m/%d %H:%M')?></td></tr>
+      <tr><td><?php echo __("Result"); ?></td><td>: <?php echo CakeTime::format( $book['Book']['result_time'],'%Y/%m/%d %H:%M')?></td></tr>
+      </table>
+      </div>
     <div class="col-xs-4">
       <span class="badge-state"><?php echo $book['Book']['state']?></span>
       <span class="badge-category"><?php echo $book['Book']['category']?></span>

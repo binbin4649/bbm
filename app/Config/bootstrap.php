@@ -115,6 +115,7 @@ spl_autoload_register(array('App', 'load'), true, true);
 CakePlugin::loadAll();
 CakePlugin::load('Facebook');
 CakePlugin::load('Users', array('bootstrap' => false, 'routes' => true));
+CakePlugin::load('Sendgrid');
 include_once("messages.php");
 include_once("pagetitles.php");
 

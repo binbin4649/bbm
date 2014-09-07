@@ -1,10 +1,10 @@
 <?php $category = Configure::read("Category");?>
 <?php
   $announcement = array(
-                'URL'=>'WEBで確認します。URLを入力してください。',
-                'TV Program Name'=>'テレビを見ます。チャンネル、番組名を入力してください。',
-                'Radio Program Name'=>'ラジオを聞きます。チャンネル、番組名を入力してください。',
-                'Annoucement name'=>'Other : その他。確認できるソースを入力してください。'
+                'URL'=>'Look at the Website',
+                'TV Program Name'=>'Look at the TV',
+                'Radio Program Name'=>'Radio',
+                'Annoucement name'=>'Other'
                 );
 ?>
           <div class="thebook">
@@ -14,8 +14,8 @@
 
               <div class="row">
                 <div class="form-group col-xs-10">
-                  <p class="help-block">Book タイトル<span>*</span>
-                  <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bookのタイトルを入力してください。（例）巨人 vs 阪神">
+                  <p class="help-block"><?php echo __("Book Title"); ?><span>*</span>
+                  <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please enter the title of the book. Max 84 characters and required."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -28,8 +28,8 @@
               </div>
               <div class="row">
                 <div class="form-group col-xs-8" id="book-content-list">
-                  <p class="help-block">賭けの対象(Content)<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="賭けの対象(Content)を、最低2つ入力してください。（例）巨人。　5つ以上入力する場合は Add Contentを押してください。最大10つまで。">
+                  <p class="help-block"><?php echo __("Book Content"); ?><span>*</span>
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please enter the contents of the book. At least two are required.To 45 characters.This increases the five pressing the add content. 10 is the maximum."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -70,8 +70,8 @@
                   </div>
                   
                   <br>
-                  <p class="help-block">結果はどこで確認できますか？
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="結果が確認できるソースを選択してください。">
+                  <p class="help-block"><?php echo __("Result Announcement"); ?>
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Source of the results Where is? Selection and enter."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -86,8 +86,8 @@
                 </div>
                 <div class="form-group col-xs-10">
 
-                  <p class="help-block">結果発表の詳細
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="結果発表の詳細を入力してください。URLは自動でリンクされます。その他タグは使えません。">
+                  <p class="help-block"><?php echo __("Result Announcement detail"); ?>
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Enter the details about this result announcement.can not use HTML tags. URL will be automatically linked."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -97,8 +97,8 @@
                   
                 </div>
                 <div class="form-group col-xs-10">
-                  <p class="help-block">Bet 開始日時<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bet 開始日時を選択してください。時間は5分間隔です。Bet 終了日時より早い日時にはできません。">
+                  <p class="help-block"><?php echo __("Bet Start"); ?><span>*</span>
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please select the date and time when the Bet is started. Selected in 5-minute intervals. Fields are required."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -123,8 +123,8 @@
               </div>
               <div class="form-group col-xs-10">
                   
-                  <p class="help-block">Bet 終了日時<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bet 終了日時を選択してください。結果発表（予定）日時より早い日時にはできません。">
+                  <p class="help-block"><?php echo __("Bet Finish"); ?><span>*</span>
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please select the date and time that Bet is finished. 5 minute intervals. Required fields. You can not select a date and time in the past than Bet start."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -148,8 +148,8 @@
               </div>
               <div class="form-group col-xs-10">
 
-                  <p class="help-block">結果発表（予定）日時<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="結果発表（予定）日時を選択してください。この日時から24時間経過しても結果が選択されない場合、bookが削除されます。">
+                  <p class="help-block"><?php echo __("Result Annoucement Time"); ?><span>*</span>
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Select the scheduled date and time to announce the results. 5 minute intervals. Required fields. You can not select a date and time in the past than Bet Finish."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -185,8 +185,8 @@
               -->
 
               <div class="form-group col-xs-10">
-                  <p class="help-block">Book 詳細
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bookの詳細を入力してください。URLは自動でリンクされます。その他タグは使えません。">
+                  <p class="help-block"><?php echo __("Book Detail"); ?>
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please enter the details of this book. can not use HTML tags. URL will be automatically linked."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -197,8 +197,8 @@
 
               </div>
               <div class="form-group col-xs-6">
-                  <p class="help-block">カテゴリを選択
-                  <a rel="popover" data-trigger="hover" data-placement="top" data-content="カテゴリを選択してください。">
+                  <p class="help-block"><?php echo __("Category"); ?>
+                  <a rel="popover" data-trigger="hover" data-placement="top" data-content="<?php echo __("Please select the category of this book."); ?>">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -224,13 +224,9 @@
         <h4 class="modal-title text-center" id="myModalLabel">Make Book</h4>
       </div>
       <div class="modal-body">
-        <p>Bookを作ったら、Facebook、Twitterなどで友達を誘いましょう！</p>
-        <p>Make Bookボーナス<br>
-        初めてbookを作ると、100ポイント！<br>
-        作ったbookに10人集めると、100ポイント！<br>
-        作ったbookに50人集めると、500ポイント！<br>
-        作ったbookに100人集めると、1000ポイント！<br>
-        作ったbookに1000人集めると、1万ポイント！</p>
+        <p>If you want to re-create a book you must delete the old one first.
+        If nobody has bet there is no penalty.</p>
+        <p>You can re-create a book as many times as you like.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -245,13 +241,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
        <div class="modal-body">
-        <p>Bookを作ったら、Facebook、Twitterなどで友達を誘いましょう！</p>
-        <p>Make Bookボーナス<br>
-        初めてbookを作ると、100ポイント！<br>
-        作ったbookに10人集めると、100ポイント！<br>
-        作ったbookに50人集めると、500ポイント！<br>
-        作ったbookに100人集めると、1000ポイント！<br>
-        作ったbookに1000人集めると、1万ポイント！</p>
+        <p>If you want to re-create a book you must delete the old one first.
+        If nobody has bet there is no penalty.</p>
+        <p>You can re-create a book as many times as you like.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
