@@ -709,3 +709,17 @@ div#flashMessage {border: 1px solid;
   font-size: 13px;
   color: #7f7f7f;
 }
+
+.errors-message {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid red;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  text-align: center;
+}
+

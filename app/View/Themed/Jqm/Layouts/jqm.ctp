@@ -51,7 +51,18 @@ $(document).bind("mobileinit", function(){
 
   <!--main content-->
   <div role="main" class="ui-content tuika_ui-content">
-          <?php echo $this->fetch('content'); ?>
+  
+  <?php
+    if(isset($errors)){
+      foreach($errors as $modelName){
+        foreach($modelName as $value){
+          echo '<div class="errors-message">ERROR : '.$value.'</div>';
+        }
+      }
+    }
+  echo $this->Session->flash();          
+  echo $this->fetch('content');
+  ?>
 
   </div><!--main content end-->
 

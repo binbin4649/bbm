@@ -81,13 +81,13 @@ class Bet extends AppModel {
         $bookdaystate = new BookDayState($content['Book'],$time_zone['TimeZone']['value']);
         if ($bookdaystate->isBetNow())
         */
-        $judgment = true;
+        $errors = null;
         $attrs['oddFactor'] = (int) $attrs['oddFactor'];
-        if(!is_int($attrs['oddFactor'])) $judgment = false;
-        if($currentUser['point'] < $attrs['oddFactor']) $judgment = false;
-        if(strtotime($content['Book']['bet_finish']) < time()) $judgment = false;
+        if($attrs['oddFactor'] <= 0) $errors['Bet'][] = 'Only positive number.';
+        if($currentUser['point'] < $attrs['oddFactor']) $errors['Bet'][] = 'Bet is too big.';
+        if(strtotime($content['Book']['bet_finish']) < time()) $errors['Bet'][] = 'Bet Finish.';
 
-        if ($judgment) {
+        if (empty($errors)){
             /*
             if ($attrs['oddFactor'] == 0) {
                 $attrs['oddFactor'] = 1;
@@ -149,7 +149,7 @@ class Bet extends AppModel {
 
             return true;
         } else {
-            return false;
+            return $errors;
         }
     }
 }

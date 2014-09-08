@@ -106,16 +106,15 @@ var booksPageFunctionality = function(){
           url: SITE_LINK+'bets',
           dataType:'json',
           success: function(response){
-            console.log(response);
             if (typeof $('#Bet').modal == 'function'){
               $('#Bet').modal('hide');
             }
             if (typeof $('#Bet').popup == 'function'){
               $('#Bet').popup("close");
             }
-			
             $('button[type=submit]').removeClass('disabled');
-			window.location.reload();
+            if(response.Bet != undefined) alert(response.Bet);
+            //window.location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);

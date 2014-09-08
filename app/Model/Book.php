@@ -177,7 +177,7 @@ class Book extends AppModel {
         $currentUser = CakeSession::read('User');
         $currentContent = $this->Content->find('first',array('conditions'=>array('Content.id'=>$attrs['content_id'])));
 
-        if (!empty($currentContent)) {
+        if (!empty($currentContent['Book']) and !empty($currentUser)) {
             $reward_point = floor($currentContent['Book']['bet_all_total'] * 0.01);
             if ($reward_point <= 0) $reward_point = 0;
             $final_odds = $currentContent['Content']['odds'];
