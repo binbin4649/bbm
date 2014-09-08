@@ -177,7 +177,7 @@ var booksPageFunctionality = function(){
             delete_detail:$('#Delete textarea').val()
           },
           type: 'POST',
-          url: SITE_LINK+'books/deleteCopyBook',
+          url: SITE_LINK+'books/deleteBook',
           dataType:'json',
           success: function(response){
             console.log(response);

@@ -16,7 +16,7 @@
           <span class="content_bet_total"><?php echo $content['bet_total']?></span>
         </span>
         <span class="odds">Odds</span>
-        <span class="content-odds"><?php echo $content['odds']?></span>
+        <span class="content_odds"><?php echo $content['odds']?></span>
         <input type="hidden" name="contentid" value="<?php echo $content['id']?>">
         <a href="#Bet" data-rel="popup" data-title="<?php echo $content['title']?>" data-odds="<?php echo $content['odds']?>" data-contentid="<?php echo $content['id']?>" data-position-to="window" class="bet-btn ui-btn ui-btn-inline ui-corner-all make-bet" data-transition="pop">Bet</a>
         </p>

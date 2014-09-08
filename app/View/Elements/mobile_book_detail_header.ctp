@@ -3,8 +3,12 @@
     <span class="badge-category"><?php echo $book['Book']['category']?></span>
     <p>
       <input type="hidden" id="bookid" value="<?php echo $book['Book']['id']?>">
-      <span class="book-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:<?php echo $book['Book']['user_all_count']?></span>
-      <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:<?php echo $book['Book']['bet_all_total']?></span>
+      <span class="book-icons"><?php echo $this->Html->image('/img/icon2.png'); ?>:
+        <span id="book_user_all_count"><?php echo $book['Book']['user_all_count']?></span>
+      </span>
+      <span class="book-icons"><?php echo $this->Html->image('/img/icon1.png'); ?>:
+        <span id="book_bet_all_total"><?php echo $book['Book']['bet_all_total']?></span>
+      </span>
       <span class="small-text">Book Id: <?php echo $book['Book']['id']?></span><br/>
       <table style="margin-top:10px;">
       <tr><td><?php echo __("Bet Start"); ?></td><td>: <?php echo CakeTime::format( $book['Book']['bet_start'],'%Y/%m/%d %H:%M')?></td></tr>
