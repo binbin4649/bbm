@@ -113,8 +113,11 @@ var booksPageFunctionality = function(){
               $('#Bet').popup("close");
             }
             $('button[type=submit]').removeClass('disabled');
-            if(response.Bet != undefined) alert(response.Bet);
-            //window.location.reload();
+            if(response.Bet != undefined){
+            	alert(response.Bet);	
+            }else{
+            	window.location.reload();	
+            }
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
