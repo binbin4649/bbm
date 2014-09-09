@@ -84,8 +84,9 @@ class Bet extends AppModel {
         $errors = null;
         $attrs['oddFactor'] = (int) $attrs['oddFactor'];
         if($attrs['oddFactor'] <= 0) $errors['Bet'][] = 'Only positive number.';
+        if($attrs['oddFactor'] > 100) $errors['Bet'][] = 'Maximum : 100 points';
         if($currentUser['point'] < $attrs['oddFactor']) $errors['Bet'][] = 'Bet is too big.';
-        if(strtotime($content['Book']['bet_finish']) < time()) $errors['Bet'][] = 'Bet Finish.';
+        if(strtotime($content['Book']['bet_finish']) < time()) $errors['Bet'][] = 'This book is bet finish.';
 
         if (empty($errors)){
             /*
