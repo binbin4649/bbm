@@ -98,7 +98,7 @@
                 </div>
                 <div class="form-group col-xs-10">
                   <p class="help-block">Bet 開始日時<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bet 開始日時を選択してください。時間は5分間隔です。Bet 終了日時より早い日時にはできません。">
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bet 開始日時を選択してください。時間は5分間隔です。Bet 終了日時より早い日時にはできません。現在より古い日時もエラーになります。">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>

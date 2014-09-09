@@ -212,6 +212,7 @@
 	            <li><a href="javascript:void(0);" id="switch" val="<?php echo SITE_LINK."switch_view/mobile" ?>">For Mobile View</a></li>
               </ul>
               <p class="copyright"><a href="http://bookbookmaker.com">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
+              <p class="small-text">現在ベータにつきバグがあるかもしれません。見つけたらFacebookページで教えてもらえると助かります。また致命的なバグが見つかった場合は、データをリセットする可能性もあります。</p>
             </div>
           </div>
         </footer>

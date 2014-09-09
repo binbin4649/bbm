@@ -10,7 +10,7 @@
   <tbody>
   <?php foreach($passbooks as $passkey=>$passval) { ?>
 	<tr>
-	  <td  class="tuika_date"><?php echo date("m/d h:i",strtotime($passval['Passbook']['created'])); ?></td>
+	  <td  class="tuika_date"><?php echo date("m/d H:i",strtotime($passval['Passbook']['created'])); ?></td>
 	  <td><?php echo $passval['Passbook']['point']; ?></td>
 	  <td><?php echo $passval['Passbook']['balance']; ?> </td>
 	  <td>

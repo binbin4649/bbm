@@ -61,11 +61,10 @@
                   </div>
               </div>
               <div class="checkbox">
+               <!--
                 <label>
                   <?php echo  $this->Form->checkbox('linkShow')?> <span class="help-block">Show a Facebook Link</span>
                 </label>
-
-                <!--
                 <label>
                   <?php echo  $this->Form->checkbox('wallPost')?> <span class="help-block">Post a facebook wall</span>
                 </label>

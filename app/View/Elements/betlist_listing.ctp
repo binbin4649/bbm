@@ -13,7 +13,7 @@
   <tbody>
   <?php foreach($betlists as $betkey=>$betval) { ?>
 	<tr>
-	  <td><?php echo date("Y/m/d h:i",strtotime($betval['Bet']['created'])); ?></td>
+	  <td><?php echo date("Y/m/d H:i",strtotime($betval['Bet']['created'])); ?></td>
 	  <td><a href="/books/<?php echo $betval['Book']['id']?>"><?php echo $betval['Book']['title'] ?></a></td>
 	  <td><?php echo $betval['Bet']['betpoint'] ?></td>
 	  <td><?php echo $betval['Bet']['result_point'] ?></td>

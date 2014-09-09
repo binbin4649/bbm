@@ -37,6 +37,7 @@
                 </div>
               </div>
 
+              <!--
               <div class="row">
                   <p class="help-block">Time Zone</p>
                   <div class="form-group col-xs-6">
@@ -51,6 +52,7 @@
                   <?php echo $this->Form->select('language',$language,array('class'=>'form-control','empty'=>false,'value'=>$data['User']['language'])); ?>
                 </div>
               </div>
+              -->
 
               <div class="row">
                   <p class="help-block">e-mail</p>
@@ -59,6 +61,7 @@
                   </div>
               </div>
               <div class="checkbox">
+              <!--
                 <label>
                   <?php echo  $this->Form->checkbox('linkShow')?> <span class="help-block">Show a Facebook Link</span>
                 </label>
@@ -68,6 +71,7 @@
                 <label>
                   <?php echo  $this->Form->checkbox('sendEmail')?> <span class="help-block">Send information in e-mail</span>
                 </label>
+                -->
               </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
             <?php echo $this->Form->end();?>

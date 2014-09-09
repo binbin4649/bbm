@@ -66,7 +66,7 @@
       <div class="modal-body">
         <?php if(CakeSession::read('User.id')){
           } else{
-            echo '<div class="alert"><strong>To bet, then please login.</strong></div>';
+            echo '<div class="modal-message">Please login.</div>';
           }
         ?>
         <p class="content-bets-title">Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Sample Length84</p>

@@ -30,7 +30,7 @@
 <?php foreach($books as $bookkey=>$bookval) { ?>
 <div class="tuika_list clearfix">
   <div class="date">
-   <?php echo date("Y/m/d h:i",strtotime($bookval['Book']['created'])); ?>
+   <?php echo date("Y/m/d H:i",strtotime($bookval['Book']['created'])); ?>
   </div><!--date-->
   <div class="book_title">
    <a href="<?php echo SITE_LINK ?>books/<?php echo $bookval['Book']['id']?>"><?php echo $bookval['Book']['title'] ?></a>

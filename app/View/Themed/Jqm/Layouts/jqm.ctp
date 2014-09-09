@@ -71,6 +71,7 @@ $(document).bind("mobileinit", function(){
     <h3>bookbookmaker.com</h3>
     <a href="http://bookbookmaker.com" style="margin-left:5%;">Top Page</a>
     <a href="javascript:void(0);" id="switch" val="<?php echo SITE_LINK."switch_view/wap" ?>">For Desktop View</a>
+    <p class="small-text">現在ベータにつきバグがあるかもしれません。見つけたらFacebookページで教えてもらえると助かります。また致命的なバグが見つかった場合は、データをリセットする可能性もあります。</p>
   </div><!--footer end-->
 
 
@@ -120,6 +121,7 @@ $(document).bind("mobileinit", function(){
               <li>
                     <?php echo $this->Facebook->login(array( 'perms' => 'public_profile,email','label'=>'login','redirect' => '/users/facebook_login')); ?>
               </li>
+              <p class="small-text">iPhoneのChromeだとログインできないようです。iPhoneはsafariで開いてください。</p>
         <?php endif;?>
     </ul>
   </div><!--panel-right end-->

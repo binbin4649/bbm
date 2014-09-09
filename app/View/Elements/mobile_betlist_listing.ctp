@@ -12,7 +12,7 @@
 <?php foreach($betlists as $betkey=>$betval) { ?>
 <div class="tuika_list clearfix">
   <div class="date">
-   <?php echo date("Y/m/d h:i",strtotime($betval['Bet']['created'])); ?>
+   <?php echo date("Y/m/d H:i",strtotime($betval['Bet']['created'])); ?>
   </div><!--date-->
   <div class="book_title">
    <a href="<?php echo SITE_LINK ?>books/<?php echo $betval['Book']['id']?>"><?php echo $betval['Book']['title'] ?></a>

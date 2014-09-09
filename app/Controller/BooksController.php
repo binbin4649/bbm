@@ -7,6 +7,7 @@ class BooksController extends AppController {
     public $components = array('Paginator','Search.Prg',"RequestHandler");
     public $paginate = array(
         'limit' => 10,
+        //'conditions' => array('Book.state <>' => 'delete')
         'order' => array(
             'Book.id' => 'desc'
         )
@@ -20,6 +21,7 @@ class BooksController extends AppController {
         $this->Prg->commonProcess();
         $params = $this->Prg->parsedParams();
         $conditions = $this->Book->parseCriteria($params);
+        if(empty($conditions)) $conditions = array('Book.state <>' => array('delete','Timeover'));
         $this->Paginator->settings = $this->paginate;
         $this->Paginator->settings['conditions'] = $conditions;
 		//$this->Book->virtualFields = array("usercount"=>"select count(distinct(user_id)) as usercount from bets where bets.book_id = Book.id");
@@ -62,7 +64,7 @@ class BooksController extends AppController {
                         $this->render('book-upcoming');
 
                     } else if (ucfirst($currentBook['Book']['state']) == 'Bet Now') {
-                    	if($this->Book->isMakeBook() == false) $this->Session->setFlash('To bet, then please login.');
+                    	if($this->Book->isMakeBook() == false) $this->Session->setFlash('Please login.');
                         $this->set('pagetitle',$currentBook['Book']['title']);
                         $this->render('book-betnow');
 
@@ -108,6 +110,7 @@ class BooksController extends AppController {
 
     public function add($book_id = null)
     {
+        
         if(!empty($book_id)){
             $this->set('new_book',$this->Book->copyBook($book_id));
         }else{
@@ -136,6 +139,11 @@ class BooksController extends AppController {
                 if (!is_array($book)){
                     $this->redirect('/books'.'/'.$book);
                 } else {
+                    $new_book = $_POST['data'];
+                    if(empty($new_book['Book']['announcement_type'])) $new_book['Book']['announcement_type'] = 'URL';
+                    if(empty($new_book['Book']['announcement_name'])) $new_book['Book']['announcement_name'] = '';
+                    if(empty($new_book['Book']['details'])) $new_book['Book']['details'] = '';
+                    $this->set('new_book',$new_book);
                     $this->set('errors',$book);
                     $this->render('book-make');
                 }    
@@ -145,6 +153,7 @@ class BooksController extends AppController {
                 $this->render('book-make');
             }
         }
+        //if(!$this->Book->validates()) $this->set('new_book',$_POST['data']); 
     }
 
     public function win()
