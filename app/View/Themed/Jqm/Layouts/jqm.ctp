@@ -124,6 +124,16 @@ $(document).bind("mobileinit", function(){
     </ul>
   </div><!--panel-right end-->
 
+<div data-role="popup" id="morePointPopup" data-theme="a" class="ui-corner-all">
+  <div style="padding:10px 20px;" class="modal-content">
+      <h3 class="content-bets-title">Welcome bookbookmaker</h3>
+      <p>1,000ptプレゼントしました！<br>これを元手にポイントを増やしましょう！！</p>
+      <p>ポイントの増やし方などは、左上をタップしてAboutusをご覧ください。</p>
+      <p>あなたのユーザー情報は、右上をタップしてください。</p>
+      <a href="#" data-rel="back" class="ui-btn ui-btn-inline ui-corner-all">Close</a>
+  </div>
+</div>
+
 </div><!--page area end-->
 
 </body>

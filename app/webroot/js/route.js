@@ -234,6 +234,9 @@ if (/books\/\d/.test(document.location.href)) {
 }
 
     if (document.location.hash == '#more_point'){
+      //$("#morePointPopup").popup("open");
+    }
+    if (document.location.hash == '#more_point'){
       $('#morePointModal').modal({show: true});
     }
 	

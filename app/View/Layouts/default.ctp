@@ -226,14 +226,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title text-center" id="myModalLabel">More Points</h4>
+        <h4 class="modal-title text-center" id="myModalLabel">Welcome</h4>
       </div>
       <div class="text-center modal-body">
         <p>Welcome bookbookmaker.com</p>
-        <p>1000point gift. I will try to bet right away! </p>
-        <p>However, please carefully check the contents of the book!</p>
-        <p>When you press the like button a user will receive </p>
-        <p><span class="modal-red">1,000 pt</span> as a gift.</p>
+        <p><span class="modal-red">1,000 pt</span><br>プレゼントしました！　これを元手にポイントを増やしましょう！！</p>
+        <p>ポイントの増やし方などは、Aboutusをご覧ください。</p>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
