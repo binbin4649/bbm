@@ -1,4 +1,9 @@
 
+ul li {
+	font-size: 12px;
+	padding: 2px;
+}
+
 .theprofile .profile-picture {
     float: left;
     margin-right: 20px;
