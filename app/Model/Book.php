@@ -257,11 +257,11 @@ Book Title : '.$currentContent['Book']['title'].'<br>Win : '.$currentContent['Co
             $this->set('title',$currentBook['Book']['title']);
             $this->save();
 
-            if (!empty($currentBook['Bet'])) {
-                $this->User->id = $currentBook['User']['id'];
-                $this->User->set('book_delete',++$currentBook['User']['book_delete']);
+            if ($currentBook['Book']['user_all_count'] > 1){
+            	$this->User->set('book_delete',++$currentBook['User']['book_delete']);
                 $this->User->save();
-
+            }
+            if (!empty($currentBook['Bet'])) {
                 $this->returnBets($currentBook['Bet']);
             }
             return true;
@@ -279,11 +279,12 @@ Book Title : '.$currentContent['Book']['title'].'<br>Win : '.$currentContent['Co
             $this->set('state','Timeover');
             $this->save();
 
-            if (!empty($currentBook['Bet'])) {
-                $this->User->id = $currentBook['User']['id'];
+            if ($currentBook['Book']['user_all_count'] > 1){
+            	$this->User->id = $currentBook['User']['id'];
                 $this->User->set('result_timeover',++$currentBook['User']['result_timeover']);
                 $this->User->save();
-
+            }
+            if (!empty($currentBook['Bet'])) {
                 $this->returnBets($currentBook['Bet']);
             }
             return true;

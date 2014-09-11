@@ -53,16 +53,17 @@
 
 <h4>削除(delete)について</h4>
 <p>作ったBookを、無効にすることをdeleteと呼びます。<br>
-betがあった場合、賭けられたポイントは戻り、作った本人にはdeleteした回数が加算されます。<br>
+betがあった場合、賭けられたポイントは戻ります。<br>
+賭けた人が2人以上いた場合は、作った本人にdeleteした回数が加算されます。<br>
 delete回数が多い人は、Book Makerとしてあまり信用してもらえないかもしれません。<br>
-ただしbetがなければ、delete回数は加算されません。<br>
-つまり、betスタート前であれば、なにも問題はありません。</p>
+</p>
 
 <h4>タイムオーバー(timeover)について</h4>
 <p>結果発表時間から24時間経過しても、結果が選択されない場合、そのBookは無効になります。<br>
-betがあった場合、賭けられたポイントは戻り、作った本人にはtimeoverした回数が加算されます。<br>
+betがあった場合、賭けられたポイントは戻ります。<br>
+賭けた人が2人以上いた場合は、作った本人にtimeoverした回数が加算されます。<br>
 timeover回数が多い人は、Book Makerとしてあまり信用してもらえないかもしれません。<br>
-ただしbetがなければ、timeover回数は加算されません。</p>
+</p>
 
 <h2>利用規約</h2>
 <p>bookbookmaker.com(以下、当サービス）は、Facebook API(Graph API)を利用していますので、基本的には<a href="https://www.facebook.com/legal/proposedSRR/jp" target="_blank">Facebookの利用規約</a>に準拠いたします。<br>
