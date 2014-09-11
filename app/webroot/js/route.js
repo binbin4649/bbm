@@ -116,7 +116,7 @@ var booksPageFunctionality = function(){
             if(response.Bet != undefined){
             	alert(response.Bet);	
             }else{
-            	window.location.reload();	
+            	window.location.reload();
             }
           },
           errors: function(a,b,c){
@@ -164,9 +164,11 @@ var booksPageFunctionality = function(){
             console.log(response);
             $('#Delete').modal('hide');
             $('.delete-book').removeClass('disabled');
+            window.location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
+            window.location.reload();
           }
         });
     });
@@ -190,6 +192,7 @@ var booksPageFunctionality = function(){
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
+            window.location.reload();
           }
         });
     });
