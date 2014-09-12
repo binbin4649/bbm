@@ -22,7 +22,7 @@ class Book extends AppModel {
     public $hasMany = array(
         'Content' => array(
             'className' => 'Content',
-            'order' => 'Content.created DESC'
+            'order' => 'Content.no ASC'
         ),
         'Bet' => array(
             'className' => 'Bet',
