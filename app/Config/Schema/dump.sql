@@ -63,7 +63,7 @@ CREATE TABLE `bets` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +72,7 @@ CREATE TABLE `bets` (
 
 LOCK TABLES `bets` WRITE;
 /*!40000 ALTER TABLE `bets` DISABLE KEYS */;
+INSERT INTO `bets` VALUES (1,4,9,2,10,0,0,'2014-09-12 15:21:08','2014-09-12 17:43:24'),(2,4,10,2,2,19,0,'2014-09-12 15:21:22','2014-09-12 16:35:04'),(3,4,11,2,3,0,0,'2014-09-12 15:21:30','2014-09-12 17:43:24'),(4,4,9,2,5,0,0,'2014-09-12 15:21:37','2014-09-12 17:43:24'),(5,5,12,2,10,14,0,'2014-09-12 15:40:38','2014-09-12 15:54:12'),(6,5,13,2,2,0,0,'2014-09-12 15:40:46','2014-09-12 17:43:24'),(7,5,14,2,4,0,0,'2014-09-12 15:40:52','2014-09-12 17:43:24'),(8,5,14,2,4,0,0,'2014-09-12 15:40:52','2014-09-12 17:43:24'),(9,5,12,2,5,7,0,'2014-09-12 15:40:59','2014-09-12 15:54:01'),(10,5,12,2,5,7,0,'2014-09-12 15:40:59','2014-09-12 15:54:07');
 /*!40000 ALTER TABLE `bets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,10 +105,11 @@ CREATE TABLE `books` (
   `win_contents_id` int(20) DEFAULT NULL,
   `reward_point` int(10) DEFAULT NULL,
   `updates_info` int(1) NOT NULL DEFAULT '0' COMMENT '0=false,1=true',
+  `mail_info` int(1) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +118,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (4,2,'テスト',0,0,'Up Coming','Sports','2014-09-12 15:10:00','2014-09-12 16:15:00','2014-09-12 18:25:00',69,0,0,'','URL','','',NULL,NULL,NULL,0,'2014-09-12 15:03:27','2014-09-12 15:03:27');
+INSERT INTO `books` VALUES (4,2,'テスト',0,0,'result','Sports','2014-09-12 15:10:00','2014-09-12 16:15:00','2014-09-12 18:25:00',69,0,0,'','URL','','','aas',10,0,0,1,'2014-09-12 15:03:27','2014-09-12 18:46:59'),(5,2,'テスト２',30,1,'result','Other','2014-09-12 15:40:00','2014-09-12 15:45:00','2014-09-12 19:00:00',69,0,0,'','URL','','','aaa',12,0,0,1,'2014-09-12 15:35:53','2014-09-12 18:51:55');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +172,7 @@ CREATE TABLE `contents` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +181,7 @@ CREATE TABLE `contents` (
 
 LOCK TABLES `contents` WRITE;
 /*!40000 ALTER TABLE `contents` DISABLE KEYS */;
-INSERT INTO `contents` VALUES (9,4,'テスト１',1,1.00,0,0,'2014-09-12 15:03:27','2014-09-12 15:03:27'),(10,4,'テスト２',2,1.00,0,0,'2014-09-12 15:03:27','2014-09-12 15:03:27'),(11,4,'テスト３',3,1.00,0,0,'2014-09-12 15:03:27','2014-09-12 15:03:27');
+INSERT INTO `contents` VALUES (9,4,'テスト１',1,1.32,15,2,'2014-09-12 15:03:27','2014-09-12 15:21:37'),(10,4,'テスト２',2,9.90,2,1,'2014-09-12 15:03:27','2014-09-12 15:21:37'),(11,4,'テスト３',3,6.60,3,1,'2014-09-12 15:03:27','2014-09-12 15:21:37'),(12,5,'テスト１',1,1.49,20,3,'2014-09-12 15:35:53','2014-09-12 15:40:59'),(13,5,'テスト２',2,14.85,2,1,'2014-09-12 15:35:53','2014-09-12 15:40:59'),(14,5,'テスト３',3,3.71,8,2,'2014-09-12 15:35:53','2014-09-12 15:40:59');
 /*!40000 ALTER TABLE `contents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +204,7 @@ CREATE TABLE `passbooks` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +213,7 @@ CREATE TABLE `passbooks` (
 
 LOCK TABLES `passbooks` WRITE;
 /*!40000 ALTER TABLE `passbooks` DISABLE KEYS */;
-INSERT INTO `passbooks` VALUES (3,2,NULL,NULL,NULL,1000,1000,'welcome','2014-09-12 14:54:54','2014-09-12 14:54:54'),(4,2,NULL,NULL,NULL,100,1100,'bonus','2014-09-12 15:03:27','2014-09-12 15:03:27');
+INSERT INTO `passbooks` VALUES (3,2,NULL,NULL,NULL,1000,1000,'welcome','2014-09-12 14:54:54','2014-09-12 14:54:54'),(4,2,NULL,NULL,NULL,100,1100,'bonus','2014-09-12 15:03:27','2014-09-12 15:03:27'),(5,2,4,9,1,10,1090,'bet','2014-09-12 15:21:08','2014-09-12 15:21:08'),(6,2,4,10,2,2,1088,'bet','2014-09-12 15:21:22','2014-09-12 15:21:22'),(7,2,4,11,3,3,1085,'bet','2014-09-12 15:21:30','2014-09-12 15:21:30'),(8,2,4,9,4,5,1080,'bet','2014-09-12 15:21:37','2014-09-12 15:21:37'),(9,2,5,12,5,10,1070,'bet','2014-09-12 15:40:38','2014-09-12 15:40:38'),(10,2,5,13,6,2,1068,'bet','2014-09-12 15:40:46','2014-09-12 15:40:46'),(11,2,5,14,7,4,1064,'bet','2014-09-12 15:40:52','2014-09-12 15:40:52'),(12,2,5,14,8,4,1060,'bet','2014-09-12 15:40:52','2014-09-12 15:40:52'),(13,2,5,12,9,5,1055,'bet','2014-09-12 15:40:59','2014-09-12 15:40:59'),(14,2,5,12,10,5,1050,'bet','2014-09-12 15:40:59','2014-09-12 15:40:59'),(15,2,5,12,9,7,1057,'win','2014-09-12 15:53:56','2014-09-12 15:53:56'),(16,2,5,12,10,7,1064,'win','2014-09-12 15:54:01','2014-09-12 15:54:01'),(17,2,5,12,5,14,1078,'win','2014-09-12 15:54:07','2014-09-12 15:54:07'),(18,2,5,NULL,NULL,0,1078,'reward','2014-09-12 15:54:12','2014-09-12 15:54:12'),(19,2,4,10,2,19,1097,'win','2014-09-12 16:34:58','2014-09-12 16:34:58'),(20,2,4,NULL,NULL,0,1097,'reward','2014-09-12 16:35:04','2014-09-12 16:35:04');
 /*!40000 ALTER TABLE `passbooks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +260,7 @@ CREATE TABLE `updates` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,6 +269,7 @@ CREATE TABLE `updates` (
 
 LOCK TABLES `updates` WRITE;
 /*!40000 ALTER TABLE `updates` DISABLE KEYS */;
+INSERT INTO `updates` VALUES (1,4,NULL,'bet_start','[Bet Now!] テスト | Bet start time:2014/09/12 15:10 , The bet has started!','2014-09-12 15:20:34','2014-09-12 15:20:34'),(2,5,NULL,'bet_start','[Bet Now!] テスト２ | Bet start time:2014/09/12 15:40 , The bet has started!','2014-09-12 15:40:25','2014-09-12 15:40:25'),(3,5,NULL,'bet_result','[Result Announcement!] テスト２ | Announcement time:2014/09/12 15:53 ,  The results have been announced!','2014-09-12 15:54:12','2014-09-12 15:54:12'),(4,4,NULL,'bet_result','[Result Announcement!] テスト | Announcement time:2014/09/12 16:34 ,  The results have been announced!','2014-09-12 16:35:04','2014-09-12 16:35:04');
 /*!40000 ALTER TABLE `updates` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -313,7 +316,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2,'Hideichi Saito','662995760442581','https://www.facebook.com/app_scoped_user_id/662995760442581/',1,'Hideichi Saito','male','binbin4649@gmail.com','binbin4649@gmail.com',1100,0,1,0,0,'',10,1,1,'9','ja_JP',0,2,1,'2014-09-12 14:54:54','2014-09-12 15:03:27');
+INSERT INTO `users` VALUES (2,'Hideichi Saito','662995760442581','https://www.facebook.com/app_scoped_user_id/662995760442581/',1,'Hideichi Saito','male','binbin4649@gmail.com','binbin4649@gmail.com',1097,10,2,0,0,'',10,1,1,'9','ja_JP',0,2,1,'2014-09-12 14:54:54','2014-09-12 16:35:04');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -326,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-12 15:16:07
+-- Dump completed on 2014-09-12 18:55:44

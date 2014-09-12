@@ -121,6 +121,7 @@ var booksPageFunctionality = function(){
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
+            window.location.reload();
           }
         });
     });
@@ -140,10 +141,11 @@ var booksPageFunctionality = function(){
           success: function(response){
             // $('#Win').modal('hide');
             $('button[type=submit]').removeClass('disabled');
-            location.reload();
+            window.location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
+            window.location.reload();
           }
         });
     });

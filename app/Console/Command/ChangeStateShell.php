@@ -1,7 +1,7 @@
 <?php
 
 class ChangeStateShell extends Shell {
-    public $tasks = array('BetNow', 'BetFinish','ResultSendMail','TimeOver');
+    public $tasks = array('BetNow', 'BetFinish','ResultSendMail','TimeOver','BetResult');
     // public $uses = array('Book');
     public function betnow()
     {
@@ -21,5 +21,10 @@ class ChangeStateShell extends Shell {
     public function timeover()
     {
         $this->TimeOver->exacute();
+    }
+
+    public function betresult()
+    {
+        $this->BetResult->exacute();
     }
 }
