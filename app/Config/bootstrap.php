@@ -120,3 +120,7 @@ include_once("messages.php");
 include_once("pagetitles.php");
 
 Configure::load("const");
+
+// cd path/to/app/Plugin
+// git clone https://github.com/a2design-company/sendgrid-webapi-cakephp-plugin.git Sendgrid
+CakePlugin::load('Sendgrid');
