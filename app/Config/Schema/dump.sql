@@ -107,7 +107,7 @@ CREATE TABLE `books` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +116,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
+INSERT INTO `books` VALUES (4,2,'テスト',0,0,'Up Coming','Sports','2014-09-12 15:10:00','2014-09-12 16:15:00','2014-09-12 18:25:00',69,0,0,'','URL','','',NULL,NULL,NULL,0,'2014-09-12 15:03:27','2014-09-12 15:03:27');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +170,7 @@ CREATE TABLE `contents` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,6 +179,7 @@ CREATE TABLE `contents` (
 
 LOCK TABLES `contents` WRITE;
 /*!40000 ALTER TABLE `contents` DISABLE KEYS */;
+INSERT INTO `contents` VALUES (9,4,'テスト１',1,1.00,0,0,'2014-09-12 15:03:27','2014-09-12 15:03:27'),(10,4,'テスト２',2,1.00,0,0,'2014-09-12 15:03:27','2014-09-12 15:03:27'),(11,4,'テスト３',3,1.00,0,0,'2014-09-12 15:03:27','2014-09-12 15:03:27');
 /*!40000 ALTER TABLE `contents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,7 +202,7 @@ CREATE TABLE `passbooks` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,6 +211,7 @@ CREATE TABLE `passbooks` (
 
 LOCK TABLES `passbooks` WRITE;
 /*!40000 ALTER TABLE `passbooks` DISABLE KEYS */;
+INSERT INTO `passbooks` VALUES (3,2,NULL,NULL,NULL,1000,1000,'welcome','2014-09-12 14:54:54','2014-09-12 14:54:54'),(4,2,NULL,NULL,NULL,100,1100,'bonus','2014-09-12 15:03:27','2014-09-12 15:03:27');
 /*!40000 ALTER TABLE `passbooks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,7 +304,7 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,6 +313,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (2,'Hideichi Saito','662995760442581','https://www.facebook.com/app_scoped_user_id/662995760442581/',1,'Hideichi Saito','male','binbin4649@gmail.com','binbin4649@gmail.com',1100,0,1,0,0,'',10,1,1,'9','ja_JP',0,2,1,'2014-09-12 14:54:54','2014-09-12 15:03:27');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -322,4 +326,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-12 14:54:05
+-- Dump completed on 2014-09-12 15:16:07
