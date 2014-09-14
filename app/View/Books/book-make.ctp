@@ -29,7 +29,7 @@
               <div class="row">
                 <div class="form-group col-xs-8" id="book-content-list">
                   <p class="help-block">賭けの対象(Content)<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="賭けの対象(Content)を、最低2つ入力してください。（例）巨人。　5つ以上入力する場合は Add Contentを押してください。最大10つまで。">
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="賭けの対象(Content)を、最低2つ入力してください。（例）巨人。　5つ以上入力する場合は Add Contentを押してください。最大25まで。">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -210,7 +210,7 @@
               
               </div>
               <!-- <button id="make-book" class="btn btn-primary" data-toggle="modal">Make Book</button> -->
-              <button  onclick="$('#Omissions').modal('show')"  id="make-book" class="btn btn-primary" >Make Book</button>
+              <button  onclick="$('#makeBook').modal('show')"  id="make-book" class="btn btn-primary" >Make Book</button>
 
             <?php echo $this->Form->end();?>
           </div>
@@ -234,7 +234,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Make</button>
+        <button type="button" class="btn btn-primary"  onclick="$('form').trigger('submit')">Make</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -245,17 +245,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
        <div class="modal-body">
-        <p>Bookを作ったら、Facebook、Twitterなどで友達を誘いましょう！</p>
-        <p>Make Bookボーナス<br>
-        初めてbookを作ると、100ポイント！<br>
-        作ったbookに10人集めると、100ポイント！<br>
-        作ったbookに50人集めると、500ポイント！<br>
-        作ったbookに100人集めると、1000ポイント！<br>
-        作ったbookに1000人集めると、1万ポイント！</p>
+        <p>ERROR:記載漏れがあります。</p>
+        <p><br>
+        (?) をマウスオーバーすると入力のヒントが表示されます。<br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"  onclick="$('form').trigger('submit')">Make</button>
+        <!--<button type="button" class="btn btn-primary"  onclick="$('form').trigger('submit')">Make</button>-->
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

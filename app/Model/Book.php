@@ -126,6 +126,7 @@ class Book extends AppModel {
         $user = CakeSession::read('User');
         $formData = $data['data'];
         $formData['Book']['time_zone'] = 69; // For now, Japan fixed time.
+        if(empty($formData['Book']['category'])) $formData['Book']['category'] = 'Other';
         $this->create();
         $this->set('user_id',$user['id']);
         $this->set('bet_start',$formData['Book']['betStartDate'].' '.$formData['Book']['betStartTime'].':00');

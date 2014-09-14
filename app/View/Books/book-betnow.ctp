@@ -80,7 +80,7 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button <?php if(CakeSession::read('User.id')) echo 'type="submit"'; ?> class="btn btn-danger btn-lg bet-btn">Bet</button>
+        <button <?php if(CakeSession::read('User.id')) echo 'type="submit"'; ?> class="btn btn-danger btn-lg bet-btn" onclick="$('form').trigger('submit')">Bet</button>
         </form>
       </div>
     </div><!-- /.modal-content -->
