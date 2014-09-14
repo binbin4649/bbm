@@ -37,7 +37,7 @@
                     <div class="error-message"><?php echo $errors['content'][0]?></div>
                   <?php endif;?>
 
-                  <?php for($i=1;$i<=10;$i++):?>
+                  <?php for($i=1;$i<=25;$i++):?>
                     <?php 
                       $ii = $i-1;
                       if(!empty($new_book['Content'][$ii])){
@@ -86,8 +86,8 @@
                 </div>
                 <div class="form-group col-xs-10">
 
-                  <p class="help-block">結果発表の詳細
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="結果発表の詳細を入力してください。URLは自動でリンクされます。その他タグは使えません。">
+                  <p class="help-block">判断基準の詳細
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="結果を選択する、判断基準の詳細があれば入力して下さい。URLは自動でリンクされます。その他タグは使えません。">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>

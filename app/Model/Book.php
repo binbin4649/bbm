@@ -177,7 +177,7 @@ class Book extends AppModel {
         $currentUser = CakeSession::read('User');
         $currentContent = $this->Content->find('first',array('conditions'=>array('Content.id'=>$attrs['content_id'])));
 
-        if (!empty($currentContent['Book']) and !empty($currentUser)) {
+        if (!empty($currentUser) and !empty($currentContent['Bet'])) {
             $reward_point = floor($currentContent['Book']['bet_all_total'] * 0.01);
             if ($reward_point <= 0) $reward_point = 0;
             $final_odds = $currentContent['Content']['odds'];
@@ -190,26 +190,24 @@ class Book extends AppModel {
             $this->set('title',$currentContent['Book']['title']);
             $this->save();
 
-            if (!empty($currentContent['Bet'])){
-                foreach($currentContent['Bet'] as $bet){
-                    //passbook operation
-                    $result_point = floor($final_odds * $bet['betpoint']);
-                    $passbook = array();
-                    $passbook['book_id'] = $bet['book_id'];
-                    $passbook['content_id'] = $bet['content_id'];
-                    $passbook['user_id'] = $bet['user_id'];
-                    $passbook['bet_id'] = $bet['id'];
-                    $passbook['point'] = $result_point;
-                    $passbook['event'] = 'win';
-                    $user = $this->Passbook->pointOperation($passbook);
+            foreach($currentContent['Bet'] as $bet){
+                //passbook operation
+                $result_point = floor($final_odds * $bet['betpoint']);
+                $passbook = array();
+                $passbook['book_id'] = $bet['book_id'];
+                $passbook['content_id'] = $bet['content_id'];
+                $passbook['user_id'] = $bet['user_id'];
+                $passbook['bet_id'] = $bet['id'];
+                $passbook['point'] = $result_point;
+                $passbook['event'] = 'win';
+                $user = $this->Passbook->pointOperation($passbook);
 
-                    //bet operation
-                    $this->Bet->create();
-                    $this->Bet->set('id', $bet['id']);
-                    $this->Bet->set('result_point', $result_point);
-                    $this->Bet->save();         
-                }
-            }
+                //bet operation
+                $this->Bet->create();
+                $this->Bet->set('id', $bet['id']);
+                $this->Bet->set('result_point', $result_point);
+                $this->Bet->save();         
+            }            
 
             $passbook = array();
             $passbook['book_id'] = $attrs['book_id'];
@@ -225,6 +223,9 @@ class Book extends AppModel {
             $UpdateModel->updateInfo($update);
 
             $this->User->makeBonus($currentUser['id'],$currentContent['Book']['user_all_count']);
+            return true;
+        }elseif(empty($currentContent['Bet'])) {
+            $this->setDelete($attrs);
             return true;
         } else {
             return false;
