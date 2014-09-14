@@ -10,11 +10,13 @@
 //Associative array
 //usage:    $category = Configure::read("Category");
 $config['Category'] = array(
+	''=>'Category',
 	'Sports'=>'Sports',
 	'Other'=>'Other'
 );
 
 $config['state'] = array(
+	''=>'State',
 	'Up Coming'=>'Up Coming',
 	'Bet Now'=>'Bet Now',
 	'Bet Finish'=>'Bet Finish',
