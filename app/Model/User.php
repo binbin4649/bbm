@@ -230,6 +230,7 @@ $content = 'bookbookmaker.com へ、ようこそ！
         $this->set('default_rate',$data['User']['default_rate']);
         $this->set('language',$data['User']['language']);
         $this->set('time_zone',$data['User']['time_zone']);
+        $this->set('facebook_link_hide',$data['User']['facebook_link_hide']);
         $this->save();
     }
 }
