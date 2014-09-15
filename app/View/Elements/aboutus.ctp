@@ -65,11 +65,6 @@ betがあった場合、賭けられたポイントは戻ります。<br>
 timeover回数が多い人は、Book Makerとしてあまり信用してもらえないかもしれません。<br>
 </p>
 
-<h4>Bookの無効</h4>
-<ul>
-<li>Betが無いContentがWinに選択された場合、Bookはdelete（無効）となり、ポイントは返却されます。</li>
-</ul>
-
 <h2>利用規約</h2>
 <p>bookbookmaker.com(以下、当サービス）は、Facebook API(Graph API)を利用していますので、基本的には<a href="https://www.facebook.com/legal/proposedSRR/jp" target="_blank">Facebookの利用規約</a>に準拠いたします。<br>
 <a href="https://www.facebook.com/legal/proposedSRR/jp" target="_blank">https://www.facebook.com/legal/proposedSRR/jp</a><br>
