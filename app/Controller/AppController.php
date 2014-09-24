@@ -50,7 +50,8 @@ class AppController extends Controller {
 		}
 		if ( $this->Session->read("switch_view") ) {
 			if ( $this->Session->read("switch_view") == 'wap' ) {
-				$this->layout = 'default';
+				$this->theme = 'Responsive';
+				$this->layout = 'responsive';
 			} else {
 				$this->theme = 'Jqm';
 				$this->layout = 'jqm';
@@ -59,7 +60,8 @@ class AppController extends Controller {
             $this->theme = 'Jqm';
             $this->layout = 'jqm';
         } else {
-			$this->layout = 'default';
+			$this->theme = 'Responsive';
+			$this->layout = 'responsive';
 		}
 		if ($this->params['controller'] == 'admins' || $this->params['prefix'] == 'admin') {
 			//$this->Auth->allow();			

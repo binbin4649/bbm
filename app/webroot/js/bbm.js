@@ -1,5 +1,18 @@
 $(document).ready(function() {
 
+      $("#show_serach").on('click',function(){
+        if ($(this).attr("class") == 'show_search') {
+           $(this).removeAttr("class");
+           $(this).attr("class","close_search");
+           
+        } else {
+           $(this).removeAttr("class");
+           $(this).attr("class","show_search");
+          
+        } 
+        $("#normal_search").slideToggle("1000");
+      });
+
 	$('[rel=popover]').popover();
 	
 	//Date Variables
@@ -35,7 +48,6 @@ $(document).ready(function() {
 		$("div#book-content-add").remove();
 	});
 
-	/* not work
     $("#make-book").click(function() {
 		var i = 0;
 		var j = 0;
@@ -61,13 +73,6 @@ $(document).ready(function() {
 			return false;
 		}
     });
-*/
-    $("#make-book").click(function() {
-    	$("#make-book").attr("data-target","#makeBook");
-    	return false;
-    });
-
-	
 
 
     $( "#result-select" )

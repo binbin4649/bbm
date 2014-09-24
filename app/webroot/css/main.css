@@ -722,13 +722,4 @@ div#flashMessage {border: 1px solid;
   background-clip: padding-box;
   text-align: center;
 }
-
-.modal-message {
-  border: 1px solid;
-  border-radius: 5px;
-  color: red;
-  padding: 5px;
-  margin: 5px;
-  text-align: center;
-  width: 100%;
-}
+div#show_serach{display:none;}

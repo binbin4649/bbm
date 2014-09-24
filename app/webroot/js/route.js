@@ -91,7 +91,8 @@ var booksPageFunctionality = function(){
         $('#Win').find('.content-bets-title').html($(this).attr('data-title'));
         $('#Win').find('.currentContentIdOnModal').val($(this).attr('data-contentid'));
     });
-
+    
+    
 
     $('#Bet button[type=submit]').on('click',function(event){
 	    event.preventDefault();
@@ -116,12 +117,11 @@ var booksPageFunctionality = function(){
             if(response.Bet != undefined){
             	alert(response.Bet);	
             }else{
-            	window.location.reload();
+            	window.location.reload();	
             }
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
-            window.location.reload();
           }
         });
     });
@@ -141,11 +141,10 @@ var booksPageFunctionality = function(){
           success: function(response){
             // $('#Win').modal('hide');
             $('button[type=submit]').removeClass('disabled');
-            window.location.reload();
+            location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
-            window.location.reload();
           }
         });
     });
@@ -166,11 +165,9 @@ var booksPageFunctionality = function(){
             console.log(response);
             $('#Delete').modal('hide');
             $('.delete-book').removeClass('disabled');
-            window.location.reload();
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
-            window.location.reload();
           }
         });
     });
@@ -194,7 +191,6 @@ var booksPageFunctionality = function(){
           },
           errors: function(a,b,c){
             if (console) console.log(a+' | '+b+' | '+c);
-            window.location.reload();
           }
         });
     });
@@ -231,16 +227,13 @@ var booksPageFunctionality = function(){
 
 
 $(document).ready(function(){
-$("#fblike").click(function(){
-	alert("here");
+$("#fb-logout").click(function(){
+   //$(this).children("a").trigger("click");
 });
 if (/books\/\d/.test(document.location.href)) {
     booksPageFunctionality();
 }
 
-    if (document.location.hash == '#more_point'){
-      //$("#morePointPopup").popup("open");
-    }
     if (document.location.hash == '#more_point'){
       $('#morePointModal').modal({show: true});
     }
