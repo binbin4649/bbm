@@ -113,11 +113,7 @@ div.acc-drpdwn a:hover {
     color: #1282ff;
 }
 .help-block{clear:both;}
-/* added by shivam */
-div.title {float:left; width:100% !important;}
-table.book-table tbody tr td div.left{float:left;width:70% !important;}
-table.book-table tbody tr td div.right{float:left;width:30% !important;}
-/*end here */
+
 
 nav a#pull {
 	display: none;
@@ -401,6 +397,14 @@ div.close_search{background: url("../img/expand.png") no-repeat scroll 0 0 rgba(
     width: 100%;
     background-size: 10%;}
 div.home-entry{float:left !important;}
+
+/* added by shivam */
+div.title {float:left; width:100% !important;}
+table.book-table tbody tr td div.left{float:left;width:70% !important;}
+table.book-table tbody tr td div.right{float:left;width:30% !important;}
+/*end here */
+.updates-wrap .updates a {font-size:14px;}
+
 }
 
 
