@@ -18,7 +18,7 @@ class UsersController extends AppController {
     public function facebook_login()
     {
         $user = $this->Connect->user();
-        if ($user) {
+        if ($user){ 
             $userResponse = $this->User->saveFBUser($user);
             $this->Session->write('User',$userResponse['User']);
             if ($userResponse['User']['login_count'] == 2){
