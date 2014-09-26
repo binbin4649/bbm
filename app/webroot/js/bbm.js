@@ -1,5 +1,9 @@
 $(document).ready(function() {
-
+	$(window).click(function(){
+		if($("div.account-btn1").attr("style") == 'display: block;' || $("div.account-btn1").attr("style") == '') {
+			$("div.account-btn1").slideUp('1000');
+		}
+	});
       $("#show_serach").on('click',function(){
         if ($(this).attr("class") == 'show_search') {
            $(this).removeAttr("class");
