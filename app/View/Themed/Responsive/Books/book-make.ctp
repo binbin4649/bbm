@@ -37,7 +37,7 @@
                     <div class="error-message"><?php echo $errors['content'][0]?></div>
                   <?php endif;?>
 
-                  <?php for($i=1;$i<=10;$i++):?>
+                  <?php for($i=1;$i<=25;$i++):?>
                     <?php 
                       $ii = $i-1;
                       if(!empty($new_book['Content'][$ii])){
