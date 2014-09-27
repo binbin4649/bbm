@@ -11,7 +11,7 @@
     } 
   ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="Keywords" content="?????????,????????????,????,??????,????,??????100????" />
+	<meta name="Keywords" content="仮想ブックメーカー,バーチャルブックメーカー,未来予想,スポーツ観戦,勝敗予想,ソーシャルベッティング" />
 	<?php
 		echo $this->Html->meta('icon');
 	
@@ -221,6 +221,7 @@
 	            <li><a href="javascript:void(0);" id="switch" val="<?php echo SITE_LINK."switch_view/mobile" ?>">For Mobile View</a></li>
               </ul>
               <p class="copyright"><a href="http://bookbookmaker.com">bookbookmaker.com </a> - <a href="http://hideichi.com/">hideichi.com</a></p>
+              <p class="small-text">現在ベータにつきバグがあるかもしれません。見つけたらFacebookページで教えてもらえると助かります。また致命的なバグが見つかった場合は、データをリセットする可能性もあります。</p>
             </div>
           </div>
         </footer>
@@ -235,14 +236,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title text-center" id="myModalLabel">More Points</h4>
+        <h4 class="modal-title text-center" id="myModalLabel">Welcome</h4>
       </div>
       <div class="text-center modal-body">
         <p>Welcome bookbookmaker.com</p>
-        <p>1000point gift. I will try to bet right away! </p>
-        <p>However, please carefully check the contents of the book!</p>
-        <p>When you press the like button a user will receive </p>
-        <p><span class="modal-red">1,000 pt</span> as a gift.</p>
+        <p><span class="modal-red">1,000 pt</span><br>プレゼントしました！　これを元手にポイントを増やしましょう！！</p>
+        <p>ポイントの増やし方などは、Aboutusをご覧ください。</p>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
