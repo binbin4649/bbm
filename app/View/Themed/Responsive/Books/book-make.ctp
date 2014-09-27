@@ -273,7 +273,8 @@
             startView: 2,
             minView: 2,
             forceParse: 0,
-            startDate: new Date()
+            startDate: new Date(),
+			pickerPosition: "bottom-left"
           });
           $('.form_time').datetimepicker({ 
             //weekStart: 1,
@@ -283,7 +284,8 @@
             startView: 1,
             minView: 0,
             maxView: 1,
-            forceParse: 0
+            forceParse: 0,
+			pickerPosition: "bottom-left"
             //startDate: new Date()
           });
       });
