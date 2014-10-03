@@ -4,10 +4,10 @@
 <table class="profile-table table">
   <thead>
 	<tr>
-	  <th>Date</th>
-	  <th>Book</th>
-	  <th>Bet</th>
-	  <th>Result</th>
+	  <th width="21%">Date</th>
+	  <th width="49%">Book</th>
+	  <th width="12%">Bet</th>
+	  <th width="18%">Result</th>
 	</tr>
   </thead>
   <tbody>

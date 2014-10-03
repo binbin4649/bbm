@@ -13,52 +13,13 @@
               <h3>Passbook</h3> 
               <a href="<?php echo SITE_LINK."passbooks/".$data['User']['id'] ?>">More</a>
             </div>
-            <table class="profile-table table">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Point</th>
-                  <th>Balance</th>
-                  <th>Event</th>
-                </tr>
-              </thead>
-              <tbody>
-			  <?php foreach($passbooks as $passkey=>$passval) { ?>
-				<tr>
-                  <td><?php echo date("Y/m/d h:i",strtotime($passval['Passbook']['created'])); ?></td>
-                  <td><?php echo $passval['Passbook']['point']; ?></td>
-                  <td><?php echo $passval['Passbook']['balance']; ?> </td>
-                  <td><a href="#"><?php echo $passval['Passbook']['event']; ?> </a></td>
-                </tr>
-			  <?php } ?>
-                
-              </tbody>
-            </table>
+            <?php echo $this->element("passbook_listing"); ?>
 
             <div class="profile-headers">
               <h3>Bet List</h3>
               <a href="<?php echo SITE_LINK."betlists/".$data['User']['id'] ?>">More</a>
             </div>
-            <table class="profile-table table">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Book</th>
-                  <th>Bet</th>
-                  <th>Result</th>
-                </tr>
-              </thead>
-              <tbody>
-			  <?php foreach($betlists as $betkey=>$betval) { ?>
-				<tr>
-                  <td><?php echo date("Y/m/d h:i",strtotime($betval['Bet']['created'])); ?></td>
-                  <td><a href="/books/<?php echo $betval['Book']['id']?>"><?php echo $betval['Book']['title'] ?></a></td>
-                  <td><?php echo $betval['Bet']['betpoint'] ?></td>
-                  <td><?php echo $betval['Bet']['result_point'] ?></td>
-                </tr>
-			  <?php } ?>
-              </tbody>
-            </table>
+            <?php echo $this->element("betlist_listing"); ?>
 
             <div class="profile-headers">
               <h3>Maked Book</h3>
@@ -67,10 +28,10 @@
             <table class="profile-table table">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Book</th>
-                  <th>Bet</th>
-                  <th>Result</th>
+                  <th width="21%">Date</th>
+                  <th width="49%">Book</th>
+                  <th width="12%">Bet</th>
+                  <th width="18%">Result</th>
                 </tr>
               </thead>
               <tbody>

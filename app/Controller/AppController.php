@@ -56,13 +56,20 @@ class AppController extends Controller {
 				$this->theme = 'Jqm';
 				$this->layout = 'jqm';
 			}
-		} elseif ($this->RequestHandler->isMobile()){
+		}
+		/* 
+		elseif ($this->RequestHandler->isMobile()){
             $this->theme = 'Jqm';
             $this->layout = 'jqm';
-        } else {
+        }
+        */
+        else {
 			$this->theme = 'Responsive';
 			$this->layout = 'responsive';
 		}
+
+
+
 		if ($this->params['controller'] == 'admins' || $this->params['prefix'] == 'admin') {
 			//$this->Auth->allow();			
 			$this->userInfo = $this->Session->read('admin.Admin') ;
