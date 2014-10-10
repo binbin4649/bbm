@@ -18,4 +18,13 @@
 ?>
 <?php echo $this->fetch('content'); ?>
 
-This email was sent using the CakePHP Framework, http://cakephp.org.
+---
+Facebook Page : 
+https://www.facebook.com/bookbookmaker
+
+Twitter : 
+https://twitter.com/bookbookmaker
+
+Social Betting : 
+http://bookbookmaker.com
+

@@ -175,19 +175,15 @@ class User extends AppModel {
             $this->Passbook->pointOperation($passbook);
 
             //welcome mail operation
-$content = 'bookbookmaker.com へ、ようこそ！
-
-1000ポイント、プレゼントしました！<br><a href="http://bookbookmaker.com/passbooks/'.$userId.'">http://bookbookmaker.com/passbooks/'.$userId.'</a>
-
-トップページから賭けたいBookを探そう！<br><a href="http://bookbookmaker.com/">http://bookbookmaker.com</a>
-
-あなたのユーザー情報はこちらから<br><a href="http://bookbookmaker.com/users/'.$userId.'">http://bookbookmaker.com/users/'.$userId.'</a>';
-			
 			if(isset($user['email'])){
+                $content['user_id'] = $userId;
+                $content['user_name'] = $user['name'];
 				$Email = new CakeEmail('sendGrid');
+                $Email->template('welcome');
                 $Email->to($user['email']);
-                $Email->subject('Welcome bookbookmaker.com');
-                $Email->send($content);
+                $Email->subject('Welcome! bookbookmaker.com');
+                $Email->viewVars($content);
+                $Email->send();
 			}
                     
 

@@ -27,20 +27,12 @@ class BetResultTask extends Shell {
         
         foreach($users as $user_id=>$u_books){
             $user = $this->User->find('first',array('conditions'=>array('User.id'=>$user_id)));
-            $content = '<p>Betの結果が発表されました。</p>';
-            foreach($u_books as $book_id=>$u_bets){
-                $content .= '<p>Title : <a href="http://bookbookmaker.com/books/'.$u_bets['Book']['Book']['id'].'">'.$u_bets['Book']['Book']['title'].'</a><br>';
-                foreach($u_bets['Bet'] as $u_bet){
-                    $content .= $u_bet['content_title'].' : Bet '.$u_bet['betpoint'].' : Get '.$u_bet['result_point'].'<br>';
-                }
-                $content .= '</p>';
-            }
-            $content .= '<p><a href="http://bookbookmaker.com/users/'.$user['User']['id'].'">'.$user['User']['name'].'</a> さんのポイント残高は、<strong>'.$user['User']['point'].'</strong> ポイントです。<br><p>';
-
             $Email = new CakeEmail('sendGrid');
+            $Email->template('betresult');
             $Email->to($user['User']['mail']);
-            $Email->subject('結果発表 - bookbookmaker');
-            $Email->send($content);
+            $Email->subject('結果発表 bookbookmaker.com');
+            $Email->viewVars(array('user'=>$user, 'books'=>$u_books));
+            $Email->send();
         }
 
     }

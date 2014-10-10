@@ -10,17 +10,12 @@ class ResultSendMailTask extends Shell {
             if (isset($time_zone['TimeZone']) && isset($time_zone['TimeZone']['value'])) {
                 $bookdaystate = new BookDayState($book,$time_zone['TimeZone']['value']);
                 if ($bookdaystate->isNotSetResult() && $book['Book']['result_time_info'] == false) {
-
-$content = 'It is now time to announce the results.<br>Please select a win.
-
-Book Title : '.$book['Book']['title'].'<br>Total Bet : '.$book['Book']['bet_all_total'].'<br>Total User : '.$book['Book']['user_all_count'].'
-
-'.'<a href="http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'">http://bookbookmaker.com/books'.'/'.$book['Book']['id'].'</a>';
-
                     $Email = new CakeEmail('sendGrid');
+                    $Email->template('betfinish');
                     $Email->to($book['User']['mail']);
-                    $Email->subject('Please select. announce the results.');
-                    $Email->send($content);
+                    $Email->subject('Bet終了 bookbookmaker.com');
+                    $Email->viewVars(array('book' => $book));
+                    $Email->send();
 
                     $this->Book->id = $book['Book']['id'];
                     $this->Book->set('result_time_info',1);

@@ -86,7 +86,7 @@
                 </div>
                 <div class="form-group col-xs-10">
 
-                  <p class="help-block">結果発表の詳細
+                  <p class="help-block">勝敗の判断基準
                     <a rel="popover" data-trigger="hover" data-placement="top" data-content="結果発表の詳細を入力してください。URLは自動でリンクされます。その他タグは使えません。">
                     <i class="fa fa-question-circle"></i>
                   </a>
