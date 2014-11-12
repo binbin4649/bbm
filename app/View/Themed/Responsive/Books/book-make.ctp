@@ -29,7 +29,7 @@
               <div class="row">
                 <div class="form-group col-xs-8" id="book-content-list">
                   <p class="help-block">賭けの対象(Content)<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="賭けの対象(Content)を、最低2つ入力してください。（例）巨人。　5つ以上入力する場合は Add Contentを押してください。最大10つまで。">
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="賭けの対象(Content)を、最低2つ入力してください。（例）巨人。　5つ以上入力する場合は Add Contentを押してください。最大31まで。">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>
@@ -37,7 +37,7 @@
                     <div class="error-message"><?php echo $errors['content'][0]?></div>
                   <?php endif;?>
 
-                  <?php for($i=1;$i<=25;$i++):?>
+                  <?php for($i=1;$i<=31;$i++):?>
                     <?php 
                       $ii = $i-1;
                       if(!empty($new_book['Content'][$ii])){
@@ -98,7 +98,7 @@
                 </div>
                 <div class="form-group col-xs-10">
                   <p class="help-block">Bet 開始日時<span>*</span>
-                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bet 開始日時を選択してください。時間は5分間隔です。Bet 終了日時より早い日時にはできません。">
+                    <a rel="popover" data-trigger="hover" data-placement="top" data-content="Bet 開始日時を選択してください。時間は5分間隔です。Bet 終了日時より早い日時にはできません。　【注意】Bookを作った時間より過去の時間はエラーになります。">
                     <i class="fa fa-question-circle"></i>
                   </a>
                   </p>

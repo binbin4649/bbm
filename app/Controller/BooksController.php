@@ -21,7 +21,7 @@ class BooksController extends AppController {
         $this->Prg->commonProcess();
         $params = $this->Prg->parsedParams();
         $conditions = $this->Book->parseCriteria($params);
-        if(empty($conditions)) $conditions = array('Book.state <>' => array('delete','Timeover'));
+        if(empty($conditions)) $conditions = array('Book.state <>' => array('delete','Timeover','result','Bet Finish'));
         $this->Paginator->settings = $this->paginate;
         $this->Paginator->settings['conditions'] = $conditions;
 		//$this->Book->virtualFields = array("usercount"=>"select count(distinct(user_id)) as usercount from bets where bets.book_id = Book.id");

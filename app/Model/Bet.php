@@ -72,16 +72,31 @@ class Bet extends AppModel {
         App::import('model','Content');
         App::import('model','Passbook');
 
-        $currentUser = CakeSession::read('User');
+        $sessionUser = CakeSession::read('User');
         $content = $this->Content->find('first',array('conditions'=>array('Content.id'=>$attrs['content_id'])));
-
+        
         //check finish time
         /*  In nature, use it.
         $time_zone = $this->Book->TimeZone->find('first',array('conditions'=>array('TimeZone.id'=>$content['Book']['time_zone'])));
         $bookdaystate = new BookDayState($content['Book'],$time_zone['TimeZone']['value']);
         if ($bookdaystate->isBetNow())
         */
+        $exUser = $this->User->find('first',array('conditions'=>array('User.id'=>$sessionUser['id'])));
+        $currentUser = $exUser['User'];
+
         $errors = null;
+        $bets = $this->find('all',array(
+            'conditions'=>array('Bet.book_id'=>$content['Book']['id'], 'Bet.user_id'=>$currentUser['id']),
+            'recursive'=> -1,
+            ));
+        if($bets){
+            $max_point_counter = 0;
+            foreach($bets as $bet){
+                $max_point_counter = $max_point_counter + $bet['Bet']['betpoint'];
+            }
+            $max_point_counter = $max_point_counter + $attrs['oddFactor'];
+            if($max_point_counter > 100) $errors['Bet'][] = 'Maximum Total Bet: 100 points';
+        }
         $attrs['oddFactor'] = (int) $attrs['oddFactor'];
         if($attrs['oddFactor'] <= 0) $errors['Bet'][] = 'Only positive number.';
         if($attrs['oddFactor'] > 100) $errors['Bet'][] = 'Maximum : 100 points';

@@ -743,3 +743,7 @@ div#flashMessage {border: 1px solid;
   text-align: center;
 }
 div#show_serach{display:none;}
+
+.sushi-bana img{
+  margin-bottom:15px;
+}

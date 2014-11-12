@@ -142,8 +142,9 @@
           <div class="row">
 
             <div class="ads col-xs-12">
+              <a href="http://bookbookmaker.com/users/ranking"><img src="http://bookbookmaker.com/img/sushi-bana2.jpg"></a>
+              <!--
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- bbm-02 -->
                 <ins class="adsbygoogle"
                      style="display:inline-block;width:200px;height:200px"
                      data-ad-client="ca-pub-7437855718572743"
@@ -151,6 +152,7 @@
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
+              -->
             </div>
             <div class="ads col-xs-12">
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

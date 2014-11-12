@@ -1,4 +1,4 @@
-
+<div class="sushi-bana"><a href="#descrption"><img src="http://bookbookmaker.com/img/sushi-bana1.jpg"></a></div>
 <div class="user-rankings">
   <h2><?=  __d('users', 'User Ranking');?></h2>
   <?php 
@@ -25,4 +25,17 @@
   <?php      
     }
   ?>
+</div>
+<div class="about-us" id="descrption">
+<h2>第1回　BBM杯</h2>
+<p>
+2015年12月31日　23時59分59秒<br>
+この時、ポイントが一番多い人が優勝！
+</p>
+<ul style="margin-top:-15px;">
+<li>賞品　：　すし券　1万円分</li>
+<li>期間　：　2014年11月3日　～　2015年12月31日</li>
+<li>条件　：　ポイントが一番多い人が優勝</li>
+</ul>
+<p>※優勝者にはメールでご連絡致します。</p>
 </div>
